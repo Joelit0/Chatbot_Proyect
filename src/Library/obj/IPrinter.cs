@@ -4,6 +4,9 @@ namespace Library
 {
     public interface IPrinter
     {
-        public print();
+        void PrintTable(Table table);
+        {
+            Console.WriteLine(table);
+        }
     }
 }
