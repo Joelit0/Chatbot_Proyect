@@ -1,6 +1,5 @@
-using System;
 
-namespace NavalBattle;
+namespace ChatBotProject;
 public class Ship
 {
     protected int score;
@@ -38,4 +37,5 @@ public class Ship
         }       
     }
 }
+
 
