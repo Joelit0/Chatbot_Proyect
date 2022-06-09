@@ -882,6 +882,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "Library/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Library.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Library.dll": {}
+        }
       }
     }
   },
@@ -3844,10 +3854,16 @@
         "system.xml.xdocument.4.0.11.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "Library/1.0.0": {
+      "type": "project",
+      "path": "../../Library/Library.csproj",
+      "msbuildProject": "../../Library/Library.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Library >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.11.0",
       "NUnit >= 3.13.2",
       "NUnit3TestAdapter >= 4.0.0",
@@ -3855,19 +3871,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joela\\.nuget\\packages\\": {}
+    "C:\\Users\\Luana\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joela\\OneDrive - Universidad Católica del Uruguay\\2do Semestre\\Programación 2\\Chatbot_Proyect\\src\\Test\\Library.Test\\Library.Test.csproj",
+      "projectUniqueName": "C:\\Users\\Luana\\OneDrive\\Escritorio\\facultad segundo\\Chatbot_Proyect\\src\\Test\\Library.Test\\Library.Test.csproj",
       "projectName": "Library.Test",
-      "projectPath": "C:\\Users\\joela\\OneDrive - Universidad Católica del Uruguay\\2do Semestre\\Programación 2\\Chatbot_Proyect\\src\\Test\\Library.Test\\Library.Test.csproj",
-      "packagesPath": "C:\\Users\\joela\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joela\\OneDrive - Universidad Católica del Uruguay\\2do Semestre\\Programación 2\\Chatbot_Proyect\\src\\Test\\Library.Test\\obj\\",
+      "projectPath": "C:\\Users\\Luana\\OneDrive\\Escritorio\\facultad segundo\\Chatbot_Proyect\\src\\Test\\Library.Test\\Library.Test.csproj",
+      "packagesPath": "C:\\Users\\Luana\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Luana\\OneDrive\\Escritorio\\facultad segundo\\Chatbot_Proyect\\src\\Test\\Library.Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\joela\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Luana\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -3878,7 +3894,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Luana\\OneDrive\\Escritorio\\facultad segundo\\Chatbot_Proyect\\src\\Library\\Library.csproj": {
+              "projectPath": "C:\\Users\\Luana\\OneDrive\\Escritorio\\facultad segundo\\Chatbot_Proyect\\src\\Library\\Library.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
