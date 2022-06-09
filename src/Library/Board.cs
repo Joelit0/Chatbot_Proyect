@@ -48,7 +48,7 @@ namespace ChatBotProject
 
     private void generateBoard()
     {
-      // Llenar tablero de pocisiones vacías
+      // Llenar tablero de posiciones vacías
       for(int row = 0; row < this.Height; row++){
         for(int col = 0; col < this.Width; col++){
           this.Fields[row, col] = "-";
