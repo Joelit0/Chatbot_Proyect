@@ -1,40 +1,58 @@
 namespace ChatBotProject
 {
-    public class Ship
-    {
-        protected int score;
-        protected int large;
-        private bool isAlive;
+  public class Ship
+  {
+    protected int Score;
+    protected int Large;
+    private bool IsAlive;
+    private List<string> Positions;
 
-        public Ship(int score, int large)
-        {
-            this.score = score;
-            this.large = large;
-        }
-        public int Score    // Obtenemos el valor del barco.
-        {
-            get 
-            {
-                return this.score;
-            }
-        }
-        public int Large    // Obtenemos el largo del barco.
-        {
-            get 
-            {
-                return this.large;
-            }
-        }
-        public bool checkIsAlive(int Large) // Aquí chequeamos el largo del barco, si es igual a cero, quiere decir que ya se hundió completamente. 
-        {
-            if (Large==0)
-            {
-                return isAlive = false;
-            }
-            else
-            {
-                return isAlive = true;
-            }       
-        }
+    public Ship(List<string> positions)
+    {
+      this.Large = positions.Count();
+      this.Score = 20 - this.Large;
+      this.IsAlive = checkIsAlive();
+      this.Positions = positions;
     }
+
+    // Score Getter.
+    public int getScore()
+    {
+      return this.Score;
+    }
+
+    // Large Getter
+    public int getLarge()
+    {
+      return this.Large;
+    }
+
+    // Large Getter
+    public bool shipIsAlive()
+    {
+      return this.IsAlive;
+    }
+  
+    // Positions Getter
+    public List<string> getPositions()
+    {
+      return this.Positions;
+    }
+
+    public void removePosition(string position)
+    {
+      if(this.Positions.Contains(position))
+      {
+        this.Positions.Remove(position);
+        this.Large -= 1;
+        this.IsAlive = checkIsAlive();
+      }
+    }
+
+    // Verificar si el ship está vivo. Está vivo solo si su largo es mayor que 0
+    public bool checkIsAlive()
+    {
+      return this.Large > 0;
+    }
+  }
 }
