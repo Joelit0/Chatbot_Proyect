@@ -40,7 +40,7 @@ namespace ChatBotProject
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado indicando que el mensaje no pudo se procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override void InternalHandle(string message, out string response)
+        protected override void InternalHandle(string message, int id, out string response)
         {   
             this.Player = UserLogin.GetInstance().LogedInPlayer;
             if (this.State == ProfileState.Start && this.Player.Name == "")
@@ -50,7 +50,7 @@ namespace ChatBotProject
             }
             else if (this.State == ProfileState.Start && this.Player.Name != "")
             {
-              StringBuilder profileStringBuilder = new StringBuilder("Lista de Comandos:\n")
+              StringBuilder profileStringBuilder = new StringBuilder("Tu perfil de jugador:\n")
                                                                             .Append($"Nombre: {this.Player.Name}\n")
                                                                             .Append($"Id: {this.Player.GetID}\n");                                                       
               response = profileStringBuilder.ToString();

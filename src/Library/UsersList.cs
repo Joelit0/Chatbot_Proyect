@@ -31,7 +31,7 @@ namespace ChatBotProject
         /// AddUsuario es el encargado de agregar Usuario a la lista.
         /// </summary>
         /// <param name="userToAdd"></param>
-        public User AddUser(string name, string password)
+        public User AddUser(string name, string password, int id)
         {
             User NewUser = new User(name, password);
             int NewId = 0;
@@ -39,7 +39,7 @@ namespace ChatBotProject
             {
               NewId += 1;
             }
-            NewUser.SetID(NewId);
+            NewUser.SetID(id);
             this.Users.Add(NewUser);
             return NewUser;
         }

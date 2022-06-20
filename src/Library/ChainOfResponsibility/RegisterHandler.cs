@@ -19,6 +19,10 @@ namespace ChatBotProject
         /// </summary>
         public RegisterState State { get; private set; }
 
+        string SentName = "";
+        string SentPassword = "";
+        int intentos = 3;
+
         /// <summary>
         /// Esta clase procesa el mensaje /registrarse.
         /// </summary>
@@ -29,6 +33,17 @@ namespace ChatBotProject
             this.State = RegisterState.Start;
 
         }
+        protected override bool CanHandle(string message)
+        {
+            if (this.State == RegisterState.Start)
+            {
+                return base.CanHandle(message);
+            }
+            else
+            {
+                return true;
+            }
+        }
 
 
         /// <summary>
@@ -37,11 +52,8 @@ namespace ChatBotProject
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado indicando que el mensaje no pudo se procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override void InternalHandle(string message, out string response)
+        protected override void InternalHandle(string message, int id, out string response)
         {   
-            string SentName = "";
-            string SentPassword = "";
-            int intentos = 3;
             if (this.State == RegisterState.Start)
             {
               this.State = RegisterState.AwaitingInfoForRegister;
@@ -64,34 +76,38 @@ namespace ChatBotProject
               }
               else
               {
-                SentName = message;
+                this.SentName = message;
+                Console.WriteLine($"El nombre enviado fue {this.SentName}");
                 this.State = RegisterState.AwaitingPasswordForRegister;
                 response = "Ahora introduce tu contraseña";
               }
             }
             else if (this.State == RegisterState.AwaitingPasswordForRegister)
             {
-              SentPassword = message;
+              this.SentPassword = message;
+              Console.WriteLine($"La contraseña enviada fue {this.SentPassword}");
+              Console.WriteLine($"Te recuerdo que el nombre enviado fue {this.SentName}");
               this.State = RegisterState.CheckingPasswordForRegister;
               response = "Ahora vuelve a introducir tu contraseña para confirmarla.";
             }
             else if (this.State == RegisterState.CheckingPasswordForRegister)
             {   
-                if (message == SentPassword)
+                if (message == this.SentPassword)
                 {
                   UsersList newUsers = UsersList.GetInstance();
-                  newUsers.AddUser(SentName, SentPassword);
+                  newUsers.AddUser(this.SentName, this.SentPassword, id);
+                  Console.WriteLine($"Su id es {id}");
                   response = "Felicidades, se ha registrado con éxito! Utilice /LogIn para iniciar sesión.";
-                  intentos = 3;
+                  this.intentos = 3;
                   this.State = RegisterState.Start;
                 }
-                else if (message != SentPassword && intentos < 0)
+                else if (message != this.SentPassword && this.intentos > 0)
                 {
-                  intentos -= 1;
+                  this.intentos -= 1;
                   this.State = RegisterState.CheckingPasswordForRegister;
-                  response = $"La contraseña no coincide, porfavor intentalo de nuevo, te quedan {intentos} intentos";
+                  response = $"La contraseña no coincide, porfavor intentalo de nuevo, te quedan {this.intentos} intentos";
                 }
-                else
+                else 
                 {
                   this.State = RegisterState.AwaitingPasswordForRegister;
                   response = "Se han acabado los intentos, porfavor introduce una nueva contraseña.";

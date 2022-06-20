@@ -22,6 +22,10 @@ namespace ChatBotProject
         /// </summary>
         public LogInState State { get; private set; }
 
+        string SentName = "";
+        string ExpectedPassword = "";
+        int intentos = 3;
+
         /// <summary>
         /// Esta clase procesa el mensaje /registrarse.
         /// </summary>
@@ -32,6 +36,18 @@ namespace ChatBotProject
             this.State = LogInState.Start;
         }
 
+        protected override bool CanHandle(string message)
+        {
+            if (this.State == LogInState.Start)
+            {
+                return base.CanHandle(message);
+            }
+            else
+            {
+                return true;
+            }
+        }
+
 
         /// <summary>
         /// Procesa todos los mensajes y retorna true siempre.
@@ -39,11 +55,8 @@ namespace ChatBotProject
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado indicando que el mensaje no pudo se procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override void InternalHandle(string message, out string response)
+        protected override void InternalHandle(string message, int id, out string response)
         {   
-            string SentName = "";
-            string ExpectedPassword = "";
-            int intentos = 3;
             if (this.State == LogInState.Start)
             {
               this.State = LogInState.AwaitingNameForLogIn;
@@ -57,15 +70,15 @@ namespace ChatBotProject
                   if (player.Name == message)
                   {
                     this.ExpectedPlayer = player;
-                    ExpectedPassword = player.Password;
-                    SentName = message;
+                    this.ExpectedPassword = player.Password;
+                    this.SentName = message;
                     alreadyRegistered = true;
                   }
               }
               if (alreadyRegistered == true)
               {
                 this.State = LogInState.AwaitingPasswordForLogIn;
-                response = $"Bienvenido {SentName}!, porfavor ingresa tu contraseña";                
+                response = $"Bienvenido {this.SentName}!, porfavor ingresa tu contraseña";                
               }
               else
               {
@@ -75,24 +88,24 @@ namespace ChatBotProject
             }
             else if (this.State == LogInState.AwaitingPasswordForLogIn)
             {
-              if (ExpectedPassword == message)
+              if (this.ExpectedPassword == message)
               {
                 this.Player = this.ExpectedPlayer;
-                intentos = 3;
+                this.intentos = 3;
                 UserLogin.GetInstance().setLogedUser(this.Player);
-                response = $"Bienvenido de vuelta {SentName}, nos alegra verte!";
+                response = $"Bienvenido de vuelta {this.SentName}, nos alegra verte!";
                 this.State = LogInState.Start;
               }
-              else if (message != ExpectedPassword && intentos < 0)
+              else if (message != this.ExpectedPassword && this.intentos > 0)
               {
-                intentos -= 1;
+                this.intentos -= 1;
                 this.State = LogInState.AwaitingPasswordForLogIn;
-                response = $"La contraseña no coincide, porfavor intentalo de nuevo, te quedan {intentos} intentos";
+                response = $"La contraseña no coincide, porfavor intentalo de nuevo, te quedan {this.intentos} this.intentos";
               }
               else
               {
                 this.State = LogInState.AwaitingNameForLogIn;
-                response = $"Se han acabado los intentos, estas seguro de que eres {SentName}? Porfavor introduce tu nombre nuevamente.";
+                response = $"Se han acabado los this.intentos, estas seguro de que eres {this.SentName}? Porfavor introduce tu nombre nuevamente.";
               }
             }
             else
