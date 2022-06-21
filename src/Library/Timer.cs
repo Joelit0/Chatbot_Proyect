@@ -2,17 +2,14 @@ namespace ChatBotProject
 {
   public class Timer 
   {
-      protected int mins; // Minutos.
-      protected int secs; // Segundos.
-      
-      
-      public int Mins {get; set;}
-      public int Secs {get; set;}
+    // Minutes and Seconds
+    public int Mins { get; set; }
+    public int Secs { get; set; }
 
-      public Timer(int Mins, int Secs)
-      {
-          this.Mins = mins;
-          this.Secs = secs; 
-      }
+    public Timer(int mins, int secs)
+    {
+      this.Mins = mins;
+      this.Secs = secs; 
+    }
   }
 }
