@@ -52,7 +52,7 @@ namespace ChatBotProject
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario</returns>
-        protected virtual void InternalHandle(string message, int id, out string responder)
+        protected virtual void InternalHandle(string message, long chatid, out string responder)
         {
             throw new InvalidOperationException("Este método debe ser sobrescrito");
         }
@@ -92,7 +92,7 @@ namespace ChatBotProject
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
-        public IHandler Handle(string message, int chatid, out string response)
+        public IHandler Handle(string message, long chatid, out string response)
         {
             if (this.CanHandle(message))
             {

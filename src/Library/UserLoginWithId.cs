@@ -4,11 +4,11 @@ namespace ChatBotProject
 {
     public class UserLoginWithId
     {
-      public void MyUser(int id)
+      public void MyUser(long Myuserid)
       {
         foreach(User player in UsersList.GetInstance().Users)
         {
-          if (player.GetID == id)
+          if (player.GetID == Myuserid)
           {
             
           }

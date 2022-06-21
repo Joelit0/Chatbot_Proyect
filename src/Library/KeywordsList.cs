@@ -9,7 +9,7 @@ namespace ChatBotProject
     /// A su vez depende de IUsuario para agregar cualquier tipo de usuario (emprendedor,
     /// administrador o Usuario).
     /// </summary>
-    public class UsersList
+    public class KeywordsList
     {
         /// <summary>
         /// Variable estatica Usuario, porque es una lista de instancias de Usuario
@@ -19,38 +19,31 @@ namespace ChatBotProject
         /// </summary>
         /// <returns></returns>
     
-        public List<User> Users {get; set;}
-        private static UsersList _instance;
+        public List<string> BannedKeywords {get; set;}
+        private static KeywordsList _instance;
 
-        private UsersList()
+        private KeywordsList()
         {
-            this.Users = new List<User>();
+            this.BannedKeywords = new List<string>() {"/LogIn","/Profile", "/Matchmacking", "/Help", "/Register"};
         }
 
         /// <summary>
         /// AddUsuario es el encargado de agregar Usuario a la lista.
         /// </summary>
         /// <param name="userToAdd"></param>
-        public User AddUser(string name, string password, long id)
+        public string AddBannedKeyword(string bannedKeyword)
         {
-            User NewUser = new User(name, password);
-            int NewId = 0;
-            foreach (User user in this.Users)
-            {
-              NewId += 1;
-            }
-            NewUser.SetID(id);
-            this.Users.Add(NewUser);
-            return NewUser;
+            this.BannedKeywords.Add(bannedKeyword);
+            return bannedKeyword;
         }
 
         /// <summary>
         /// RemoveUsuario es el encargado de remover Usuario de la lista.
         /// </summary>
-        /// <param name="userToRemove"></param>
-        public void RemoveUser(User userToRemove)
+        /// <param name="bannedKeyword"></param>
+        public void RemoveBannedKeyword(string bannedKeyword)
         {
-          Users.Remove(userToRemove);
+          BannedKeywords.Remove(bannedKeyword);
         }
 
         /// <summary>
@@ -58,13 +51,32 @@ namespace ChatBotProject
         /// valor de la property.
         /// </summary>
         /// <returns></returns>
-        public static UsersList GetInstance()
+        public static KeywordsList GetInstance()
         {
             if (_instance == null)
             {
-                _instance = new UsersList();
+                _instance = new KeywordsList();
             }
             return _instance;
         }
+
+        public bool VerifyBannedKeywords(string messageToVerify)
+        {
+            bool isBanned = false;
+            foreach (string bannedKeyword in BannedKeywords)
+            {
+                if (messageToVerify == bannedKeyword)
+                {
+                    return isBanned;
+                }
+                else
+                {
+                    isBanned = true;
+                    return isBanned;
+                }
+            }
+            return isBanned;
+        }
+        
     }
 }

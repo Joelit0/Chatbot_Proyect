@@ -55,7 +55,7 @@ namespace ChatBotProject
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado indicando que el mensaje no pudo se procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override void InternalHandle(string message, int id, out string response)
+        protected override void InternalHandle(string message, long chatid, out string response)
         {   
             if (this.State == LogInState.Start)
             {
@@ -92,7 +92,13 @@ namespace ChatBotProject
               {
                 this.Player = this.ExpectedPlayer;
                 this.intentos = 3;
-                UserLogin.GetInstance().setLogedUser(this.Player);
+                foreach(User player in UsersList.GetInstance().Users)
+                {
+                  if (player.GetID == chatid)
+                  {
+                    this.Player = player;
+                  }
+                }
                 response = $"Bienvenido de vuelta {this.SentName}, nos alegra verte!";
                 this.State = LogInState.Start;
               }

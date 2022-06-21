@@ -52,7 +52,7 @@ namespace ChatBotProject
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado indicando que el mensaje no pudo se procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override void InternalHandle(string message, int id, out string response)
+        protected override void InternalHandle(string message, long chatid, out string response)
         {   
             if (this.State == RegisterState.Start)
             {
@@ -69,10 +69,24 @@ namespace ChatBotProject
                     alreadyRegistered = true;
                   }
               }
+              bool bannedName = false;
+              foreach( string bannedKeyword in KeywordsList.GetInstance().BannedKeywords)
+              {
+                  if (bannedKeyword == message)
+                  {
+                    bannedName = true;
+                  }
+              }
+              
               if (alreadyRegistered == true)
               {
                 this.State = RegisterState.AwaitingInfoForRegister;
                 response = "Este nombre de usuario ya existe, porfavor ingresa otro";                
+              }
+              else if (bannedName == true)
+              {
+                this.State = RegisterState.AwaitingInfoForRegister;
+                response = "Este nombre de usuario no es válido"; 
               }
               else
               {
@@ -84,6 +98,7 @@ namespace ChatBotProject
             }
             else if (this.State == RegisterState.AwaitingPasswordForRegister)
             {
+              this.intentos = 3;
               this.SentPassword = message;
               Console.WriteLine($"La contraseña enviada fue {this.SentPassword}");
               Console.WriteLine($"Te recuerdo que el nombre enviado fue {this.SentName}");
@@ -95,8 +110,8 @@ namespace ChatBotProject
                 if (message == this.SentPassword)
                 {
                   UsersList newUsers = UsersList.GetInstance();
-                  newUsers.AddUser(this.SentName, this.SentPassword, id);
-                  Console.WriteLine($"Su id es {id}");
+                  newUsers.AddUser(this.SentName, this.SentPassword, chatid);
+                  Console.WriteLine($"Su id es {chatid}");
                   response = "Felicidades, se ha registrado con éxito! Utilice /LogIn para iniciar sesión.";
                   this.intentos = 3;
                   this.State = RegisterState.Start;

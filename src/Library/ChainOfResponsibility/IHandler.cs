@@ -24,7 +24,7 @@ namespace ChatBotProject
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <param name="id">Es el id de un usuario.</param>
         /// <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
-        IHandler Handle(string message, int chatid, out string response);
+        IHandler Handle(string message, long chatid, out string response);
 
         /// <summary>
         /// Retorna este "handler" al estado inicial y cancela el próximo "handler" si existe. Es utilizado para que los

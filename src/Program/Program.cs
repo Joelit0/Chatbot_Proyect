@@ -91,7 +91,7 @@ namespace ChatBotProject
 
             string messageContent = message.Text;
 
-            firstHandler.Handle(messageContent, Convert.ToInt32(chatInfo.Id) , out response);
+            firstHandler.Handle(messageContent, chatInfo.Id , out response);
 
             if (!string.IsNullOrEmpty(response))
             {

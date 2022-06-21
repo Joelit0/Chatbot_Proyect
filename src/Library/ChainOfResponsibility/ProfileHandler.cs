@@ -30,7 +30,6 @@ namespace ChatBotProject
         {
             this.Keywords = new string[] { "/Profile" };
             this.State = ProfileState.Start;
-
         }
 
 
@@ -40,9 +39,15 @@ namespace ChatBotProject
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado indicando que el mensaje no pudo se procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override void InternalHandle(string message, int id, out string response)
+        protected override void InternalHandle(string message, long chatid, out string response)
         {   
-            this.Player = UserLogin.GetInstance().LogedInPlayer;
+            foreach(User player in UsersList.GetInstance().Users)
+            {
+              if (player.GetID == chatid)
+              {
+                this.Player = player;
+              }
+            }
             if (this.State == ProfileState.Start && this.Player.Name == "")
             {
               this.State = ProfileState.Start;

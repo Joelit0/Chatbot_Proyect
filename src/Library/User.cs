@@ -2,7 +2,7 @@ namespace ChatBotProject
 {
   public class User
   {
-    private int id {get; set;}
+    private long id {get; set;}
     public string Name {get; set;}
     public string Password {get; set;}
     public bool InGame = false;
@@ -14,7 +14,7 @@ namespace ChatBotProject
       this.Password = password;
     }
 
-    public int GetID
+    public long GetID
     {
       get
       {
@@ -22,7 +22,7 @@ namespace ChatBotProject
       }
     }
 
-    public void SetID(int value)
+    public void SetID(long value)
     {
       this.id = value;  
     }
