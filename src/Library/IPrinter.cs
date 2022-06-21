@@ -1,9 +1,7 @@
-using System;
-
-namespace Library
+namespace ChatBotProject
 {
-    public interface IPrinter
-    {
-        void PrintTable(Table table);
-    }
+  public interface IPrinter
+  {
+    void printBoard(Board board);
+  }
 }

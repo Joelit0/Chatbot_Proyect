@@ -22,6 +22,28 @@ namespace ChatBotProject
       generateBoard();
     }
 
+    // Getters
+
+    public int getWidth()
+    {
+      return this.Width;
+    }
+
+    public int getHeight()
+    {
+      return this.Height;
+    }
+
+    public string getHeaderLetters()
+    {
+      return HeaderLetters;
+    }
+
+    public string[,] getFields()
+    {
+      return this.Fields;
+    }
+
     // Lógica del tablero
 
     private void generateBoard()
@@ -31,29 +53,6 @@ namespace ChatBotProject
         for(int col = 0; col < this.Width; col++){
           this.Fields[row, col] = "-";
         }
-      }
-    }
-
-    public void printBoard()
-    {
-      Console.Write("   "); // Espacio entre columnas y filas
-
-      // Print Cols Header
-      for(int col = 0; col < this.Width; col++){
-        Console.Write($"{HeaderLetters[col]} ");
-      }
-
-      Console.WriteLine(); // Final del header
-  
-      // Print Board
-      for(int row = 0; row < this.Height; row++){  
-        Console.Write($"{row + 1}".PadRight(3)); // Imprimir rows sidebar
-
-        for(int col = 0; col < this.Width; col++){ 
-          Console.Write($"{this.Fields[row, col]}".PadRight(2)); // !!!Replace ConsoleWriter for IPrinter!!!
-        }
-
-        Console.WriteLine(); // Idem
       }
     }
 
