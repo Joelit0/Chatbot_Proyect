@@ -26,7 +26,6 @@ namespace ChatBotProject
         /// <summary>
         /// Esta clase procesa el mensaje /registrarse.
         /// </summary>
-
         public RegisterHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] { "/Register" };
@@ -45,12 +44,12 @@ namespace ChatBotProject
             }
         }
 
-
         /// <summary>
         /// Procesa todos los mensajes y retorna true siempre.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
-        /// <param name="response">La respuesta al mensaje procesado indicando que el mensaje no pudo se procesado.</param>
+        /// <param name="chatid">La id del chat del usuario, la utilizamos para poder indicar que usuario es el que esta usando el bot..</param>
+        /// <param name="response">La respuesta al mensaje procesado indicando que el mensaje no pudo ser procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override void InternalHandle(string message, long chatid, out string response)
         {   
@@ -76,8 +75,7 @@ namespace ChatBotProject
                   {
                     bannedName = true;
                   }
-              }
-              
+              }    
               if (alreadyRegistered == true)
               {
                 this.State = RegisterState.AwaitingInfoForRegister;
@@ -118,9 +116,9 @@ namespace ChatBotProject
                 }
                 else if (message != this.SentPassword && this.intentos > 0)
                 {
-                  this.intentos -= 1;
                   this.State = RegisterState.CheckingPasswordForRegister;
-                  response = $"La contraseña no coincide, porfavor intentalo de nuevo, te quedan {this.intentos} intentos";
+                  response = $"La contraseña no coincide, porfavor intentalo de nuevo, te quedan {this.intentos} intentos adicionales.";
+                  this.intentos -= 1;
                 }
                 else 
                 {

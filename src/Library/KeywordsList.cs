@@ -31,10 +31,9 @@ namespace ChatBotProject
         /// AddUsuario es el encargado de agregar Usuario a la lista.
         /// </summary>
         /// <param name="userToAdd"></param>
-        public string AddBannedKeyword(string bannedKeyword)
+        public void AddBannedKeyword(string bannedKeyword)
         {
             this.BannedKeywords.Add(bannedKeyword);
-            return bannedKeyword;
         }
 
         /// <summary>
@@ -43,7 +42,7 @@ namespace ChatBotProject
         /// <param name="bannedKeyword"></param>
         public void RemoveBannedKeyword(string bannedKeyword)
         {
-          BannedKeywords.Remove(bannedKeyword);
+          this.BannedKeywords.Remove(bannedKeyword);
         }
 
         /// <summary>

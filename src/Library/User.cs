@@ -14,12 +14,17 @@ namespace ChatBotProject
       this.Password = password;
     }
 
-    public long GetID
+    public long ID
     {
       get
       {
         return this.id;
       }
+      set
+      {
+        this.id = value;
+      }
+
     }
 
     public void SetID(long value)

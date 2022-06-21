@@ -18,12 +18,12 @@ namespace ChatBotProject
         IHandler Next { get; set; }
 
         /// <summary>
-        /// Procesa el mensaje o la pasa al siguiente "handler" si existe.
+        /// Procesa todos los mensajes y retorna true siempre.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
-        /// <param name="response">La respuesta al mensaje procesado.</param>
-        /// <param name="id">Es el id de un usuario.</param>
-        /// <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
+        /// <param name="chatid">La id del chat del usuario, la utilizamos para poder indicar que usuario es el que esta usando el bot..</param>
+        /// <param name="response">La respuesta al mensaje procesado indicando que el mensaje no pudo ser procesado.</param>
+        /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         IHandler Handle(string message, long chatid, out string response);
 
         /// <summary>

@@ -16,7 +16,6 @@ namespace ChatBotProject
         /// <value></value>
         public User Player { get; private set; }
 
-        public User RivalPlayer { get; private set; }
         /// <summary>
         /// El estado del comando.
         /// </summary>
@@ -37,13 +36,14 @@ namespace ChatBotProject
         /// Procesa todos los mensajes y retorna true siempre.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
-        /// <param name="response">La respuesta al mensaje procesado indicando que el mensaje no pudo se procesado.</param>
+        /// <param name="chatid">La id del chat del usuario, la utilizamos para poder indicar que usuario es el que esta usando el bot..</param>
+        /// <param name="response">La respuesta al mensaje procesado indicando que el mensaje no pudo ser procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override void InternalHandle(string message, long chatid, out string response)
         {   
             foreach(User player in UsersList.GetInstance().Users)
             {
-              if (player.GetID == chatid)
+              if (player.ID == chatid)
               {
                 this.Player = player;
               }
@@ -57,7 +57,9 @@ namespace ChatBotProject
             {
               StringBuilder profileStringBuilder = new StringBuilder("Tu perfil de jugador:\n")
                                                                             .Append($"Nombre: {this.Player.Name}\n")
-                                                                            .Append($"Id: {this.Player.GetID}\n");                                                       
+                                                                            .Append($"Id: {this.Player.ID}\n")
+                                                                            .Append($"Puedes usar /ChangeInfo para cambiar tu nombre y contraseña.\n");
+                                                                                                                                 
               response = profileStringBuilder.ToString();
             }
             else
