@@ -18,7 +18,11 @@
 
       // Mostramos los barcos e imprimimos el tablero
       board.showShips();
-      board.printBoard();
+
+      // Crear ConsolePrinter de tipo IPrinter e imprimir el board
+      IPrinter consolePrinter = new ConsolePrinter();
+
+      consolePrinter.printBoard(board);
 
       // Agregamos un barco que se pise con el otro
       positions = new List<string>();
@@ -31,20 +35,20 @@
 
       // Atacar el barco completo
       board.attack("A1".ToUpper());
-      board.printBoard();
+      consolePrinter.printBoard(board);
 
       board.attack("b1".ToUpper());
-      board.printBoard();
+      consolePrinter.printBoard(board);
 
       board.attack("c1".ToUpper());
-      board.printBoard();
+      consolePrinter.printBoard(board);
 
       board.attack("D1".ToUpper());
-      board.printBoard();
+      consolePrinter.printBoard(board);
 
      // Ocultuamos los barcos y mostramos el tablero
       board.hideShips();
-      board.printBoard();
+      consolePrinter.printBoard(board);
     }
   }
 }
