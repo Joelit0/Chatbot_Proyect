@@ -12,3 +12,5 @@ Link de trello: https://trello.com/invite/b/ySMd3vZr/1457885ee6835b61e8ebd9db6ec
 Enfrentamos algunas adversidades ya que priorizamos cosas como el Bot y terminamos con poco tiempo para otras cosas, pero igualm
 
 En el Program.cs dejamos un ejemplo de como está funcionando el juego. Luego, debajo de ese fragmento de código dejamos comentado todo lo relacionado al Bot. Ambas cosas funcionan pero no están conectadas aún, por lo tanto, si se quiere probar el Bot deben de comentar el fragmento de código que dice "Lógica del juego" y descomentar el fragmento de código que dice "Lógica del Bot".
+
+Id de Telegram del bot en caso de que quieran probarlo = @SuperBattleship_bot.
