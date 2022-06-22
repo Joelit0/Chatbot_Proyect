@@ -2,6 +2,11 @@ namespace ChatBotProject
 {
   public class ConsolePrinter : IPrinter
   {
+    /// <summary>
+    /// Esta clase hace uso del Dependency Inversion Principle, ya que depende de una abstracción (Interfaz IPrinter) para implementar el metodo en vez de una clase normal.
+    /// Se encarga de imprimir el tablero en el mensaje que se envia al usuario.
+    /// </summary>
+
     public void printBoard(Board board)
     {
       Console.Write("   "); // Espacio entre columnas y filas
