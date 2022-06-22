@@ -1,0 +1,12 @@
+\hypertarget{_i_handler_8cs}{}\doxysection{C\+:/\+Users/admin/\+Desktop/\+Chatbot\+\_\+\+Proyect/src/\+Library/\+Chain\+Of\+Responsibility/\+IHandler.cs File Reference}
+\label{_i_handler_8cs}\index{C:/Users/admin/Desktop/Chatbot\_Proyect/src/Library/ChainOfResponsibility/IHandler.cs@{C:/Users/admin/Desktop/Chatbot\_Proyect/src/Library/ChainOfResponsibility/IHandler.cs}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+interface \mbox{\hyperlink{interface_chat_bot_project_1_1_i_handler}{IHandler}}
+\begin{DoxyCompactList}\small\item\em Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a través de una cadena de \char`\"{}handlers\char`\"{} que pueden procesar o no el mensaje. Cada \char`\"{}handler\char`\"{} decide si procesa el mensaje, o si se lo pasa al siguiente. Esta interfaz define un atributo para definir el próximo \char`\"{}handler\char`\"{} y una una operación para recibir el mensaje y pasarlo al siguiente \char`\"{}handler\char`\"{} en caso que el mensaje no sea procesado. La responsabilidad de decidir si el mensaje se procesa o no, y de procesarlo, se realiza en las clases que implementan esta interfaz. La interfaz se crea en función del principio de inversión de dependencias, para que los clientes de la cadena de responsabilidad, que pueden ser concretos, no dependan de una clase \char`\"{}handler\char`\"{} que potencialmente es abstracta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_chat_bot_project}{Chat\+Bot\+Project}}
+\end{DoxyCompactItemize}

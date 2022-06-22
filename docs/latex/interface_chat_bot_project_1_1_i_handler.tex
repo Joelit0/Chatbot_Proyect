@@ -1,0 +1,87 @@
+\hypertarget{interface_chat_bot_project_1_1_i_handler}{}\doxysection{IHandler Interface Reference}
+\label{interface_chat_bot_project_1_1_i_handler}\index{IHandler@{IHandler}}
+
+
+Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a través de una cadena de \char`\"{}handlers\char`\"{} que pueden procesar o no el mensaje. Cada \char`\"{}handler\char`\"{} decide si procesa el mensaje, o si se lo pasa al siguiente. Esta interfaz define un atributo para definir el próximo \char`\"{}handler\char`\"{} y una una operación para recibir el mensaje y pasarlo al siguiente \char`\"{}handler\char`\"{} en caso que el mensaje no sea procesado. La responsabilidad de decidir si el mensaje se procesa o no, y de procesarlo, se realiza en las clases que implementan esta interfaz. La interfaz se crea en función del principio de inversión de dependencias, para que los clientes de la cadena de responsabilidad, que pueden ser concretos, no dependan de una clase \char`\"{}handler\char`\"{} que potencialmente es abstracta.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_chat_bot_project_1_1_i_handler}{IHandler}} \mbox{\hyperlink{interface_chat_bot_project_1_1_i_handler_acd408de95ee91a19016fd762f4e585eb}{Handle}} (string message, long chatid, out string response)
+\begin{DoxyCompactList}\small\item\em Procesa todos los mensajes y retorna true siempre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_chat_bot_project_1_1_i_handler_a98fd5d588027adeb8d4545c78347cd26}{Cancel}} ()
+\begin{DoxyCompactList}\small\item\em Retorna este \char`\"{}handler\char`\"{} al estado inicial y cancela el próximo \char`\"{}handler\char`\"{} si existe. Es utilizado para que los \char`\"{}handlers\char`\"{} que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en caso de error por ejemplo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_chat_bot_project_1_1_i_handler}{IHandler}} \mbox{\hyperlink{interface_chat_bot_project_1_1_i_handler_a6e8f73f9cd7cea32681aa8386c013269}{Next}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el próximo \char`\"{}handler\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a través de una cadena de \char`\"{}handlers\char`\"{} que pueden procesar o no el mensaje. Cada \char`\"{}handler\char`\"{} decide si procesa el mensaje, o si se lo pasa al siguiente. Esta interfaz define un atributo para definir el próximo \char`\"{}handler\char`\"{} y una una operación para recibir el mensaje y pasarlo al siguiente \char`\"{}handler\char`\"{} en caso que el mensaje no sea procesado. La responsabilidad de decidir si el mensaje se procesa o no, y de procesarlo, se realiza en las clases que implementan esta interfaz. La interfaz se crea en función del principio de inversión de dependencias, para que los clientes de la cadena de responsabilidad, que pueden ser concretos, no dependan de una clase \char`\"{}handler\char`\"{} que potencialmente es abstracta. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{interface_chat_bot_project_1_1_i_handler_a98fd5d588027adeb8d4545c78347cd26}\label{interface_chat_bot_project_1_1_i_handler_a98fd5d588027adeb8d4545c78347cd26}} 
+\index{IHandler@{IHandler}!Cancel@{Cancel}}
+\index{Cancel@{Cancel}!IHandler@{IHandler}}
+\doxysubsubsection{\texorpdfstring{Cancel()}{Cancel()}}
+{\footnotesize\ttfamily void Cancel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retorna este \char`\"{}handler\char`\"{} al estado inicial y cancela el próximo \char`\"{}handler\char`\"{} si existe. Es utilizado para que los \char`\"{}handlers\char`\"{} que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en caso de error por ejemplo. 
+
+
+
+Implemented in \mbox{\hyperlink{class_chat_bot_project_1_1_base_handler_a798ae308c4cdaca87d7f4c53f0be8ba0}{Base\+Handler}}.
+
+\mbox{\Hypertarget{interface_chat_bot_project_1_1_i_handler_acd408de95ee91a19016fd762f4e585eb}\label{interface_chat_bot_project_1_1_i_handler_acd408de95ee91a19016fd762f4e585eb}} 
+\index{IHandler@{IHandler}!Handle@{Handle}}
+\index{Handle@{Handle}!IHandler@{IHandler}}
+\doxysubsubsection{\texorpdfstring{Handle()}{Handle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interface_chat_bot_project_1_1_i_handler}{IHandler}} Handle (\begin{DoxyParamCaption}\item[{string}]{message,  }\item[{long}]{chatid,  }\item[{out string}]{response }\end{DoxyParamCaption})}
+
+
+
+Procesa todos los mensajes y retorna true siempre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & El mensaje a procesar.\\
+\hline
+{\em chatid} & La id del chat del usuario, la utilizamos para poder indicar que usuario es el que esta usando el bot..\\
+\hline
+{\em response} & La respuesta al mensaje procesado indicando que el mensaje no pudo ser procesado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si el mensaje fue procesado; false en caso contrario.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_chat_bot_project_1_1_base_handler_acd408de95ee91a19016fd762f4e585eb}{Base\+Handler}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{interface_chat_bot_project_1_1_i_handler_a6e8f73f9cd7cea32681aa8386c013269}\label{interface_chat_bot_project_1_1_i_handler_a6e8f73f9cd7cea32681aa8386c013269}} 
+\index{IHandler@{IHandler}!Next@{Next}}
+\index{Next@{Next}!IHandler@{IHandler}}
+\doxysubsubsection{\texorpdfstring{Next}{Next}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interface_chat_bot_project_1_1_i_handler}{IHandler}} Next\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Obtiene el próximo \char`\"{}handler\char`\"{}. 
+
+El \char`\"{}handler\char`\"{} que será invocado si este \char`\"{}handler\char`\"{} no procesa el mensaje.
+
+Implemented in \mbox{\hyperlink{class_chat_bot_project_1_1_base_handler_a6e8f73f9cd7cea32681aa8386c013269}{Base\+Handler}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/admin/\+Desktop/\+Chatbot\+\_\+\+Proyect/src/\+Library/\+Chain\+Of\+Responsibility/\mbox{\hyperlink{_i_handler_8cs}{IHandler.\+cs}}\end{DoxyCompactItemize}

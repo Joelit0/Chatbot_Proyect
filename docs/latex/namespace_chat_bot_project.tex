@@ -1,0 +1,44 @@
+\hypertarget{namespace_chat_bot_project}{}\doxysection{Chat\+Bot\+Project Namespace Reference}
+\label{namespace_chat_bot_project}\index{ChatBotProject@{ChatBotProject}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_chat_bot_project_1_1_test}{Test}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_base_handler}{Base\+Handler}}
+\begin{DoxyCompactList}\small\item\em Clase base para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a través de una cadena de \char`\"{}handlers\char`\"{} que pueden procesar o no el mensaje. Cada \char`\"{}handler\char`\"{} decide si procesa el mensaje, o si se lo pasa al siguiente. Esta clase base implmementa la responsabilidad de recibir el mensaje y pasarlo al siguiente \char`\"{}handler\char`\"{} en caso que el mensaje no sea procesado. La responsabilidad de decidir si el mensaje se procesa o no, y de procesarlo, se delega a las clases sucesoras de esta clase base. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_board}{Board}}
+\begin{DoxyCompactList}\small\item\em La clase \mbox{\hyperlink{class_chat_bot_project_1_1_board}{Board}} se encarga de crear el tablero y de todos los movimientos del mismo. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler}{Change\+Profile\+Info\+Handler}}
+\begin{DoxyCompactList}\small\item\em Un \char`\"{}handler\char`\"{} del patrón Chain of Responsibility que implementa el comando \char`\"{}/\+Change\+Info\char`\"{}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_console_printer}{Console\+Printer}}
+\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_game}{Game}}
+\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_help_handler}{Help\+Handler}}
+\begin{DoxyCompactList}\small\item\em Un \char`\"{}handler\char`\"{} del patrón Chain of Responsibility que implementa el comando \char`\"{}/\+Help\char`\"{}. \end{DoxyCompactList}\item 
+interface \mbox{\hyperlink{interface_chat_bot_project_1_1_i_handler}{IHandler}}
+\begin{DoxyCompactList}\small\item\em Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a través de una cadena de \char`\"{}handlers\char`\"{} que pueden procesar o no el mensaje. Cada \char`\"{}handler\char`\"{} decide si procesa el mensaje, o si se lo pasa al siguiente. Esta interfaz define un atributo para definir el próximo \char`\"{}handler\char`\"{} y una una operación para recibir el mensaje y pasarlo al siguiente \char`\"{}handler\char`\"{} en caso que el mensaje no sea procesado. La responsabilidad de decidir si el mensaje se procesa o no, y de procesarlo, se realiza en las clases que implementan esta interfaz. La interfaz se crea en función del principio de inversión de dependencias, para que los clientes de la cadena de responsabilidad, que pueden ser concretos, no dependan de una clase \char`\"{}handler\char`\"{} que potencialmente es abstracta. \end{DoxyCompactList}\item 
+interface \mbox{\hyperlink{interface_chat_bot_project_1_1_i_printer}{IPrinter}}
+\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_keywords_list}{Keywords\+List}}
+\begin{DoxyCompactList}\small\item\em Clase singleton que contiene palabras clave baneadas, para que no puedan ser usadas como argumentos a la hora de crear usuarios. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_matchmaking_handler}{Matchmaking\+Handler}}
+\begin{DoxyCompactList}\small\item\em Un \char`\"{}handler\char`\"{} del patrón Chain of Responsibility que implementa el comando \char`\"{}/\+Matchamking\char`\"{}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_profile_handler}{Profile\+Handler}}
+\begin{DoxyCompactList}\small\item\em Un \char`\"{}handler\char`\"{} del patrón Chain of Responsibility que implementa el comando \char`\"{}/\+Profile\char`\"{}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_program}{Program}}
+\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_register_handler}{Register\+Handler}}
+\begin{DoxyCompactList}\small\item\em Un \char`\"{}handler\char`\"{} del patrón Chain of Responsibility que implementa el comando \char`\"{}/\+Register\char`\"{}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_ship}{Ship}}
+\begin{DoxyCompactList}\small\item\em Esta clase es la del barco. Cada barco tiene un puntuaje (Score), largo (Large), el booleano para ver si está vivo o hundido(\+Is\+Alive) y sus posiciones (Positions). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_timer}{Timer}}
+\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}
+\begin{DoxyCompactList}\small\item\em Clase creada para poder guardar toda la información de los usuarios, este será el cimiento que utilizara el bot para poder identificar las distintas sesions y brindarles los distintos servicios que este provee. Esta clase aplica expert y srp, ya que es experta en conocer sus datos y a su vez siendo esta última su única responsabilidad. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} es el experto en conocer a todos los usuarios, y por el patron Expert este tambien es quien posee la responsabilidad de agregar y/o remover Usuario. Debido a que \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} contiene instancias de \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}, por Creator, esta clase debe tener la responsabilidad de crear dichas instancias. \end{DoxyCompactList}\end{DoxyCompactItemize}

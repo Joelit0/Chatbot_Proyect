@@ -1,0 +1,138 @@
+\hypertarget{class_chat_bot_project_1_1_help_handler}{}\doxysection{Help\+Handler Class Reference}
+\label{class_chat_bot_project_1_1_help_handler}\index{HelpHandler@{HelpHandler}}
+
+
+Un \char`\"{}handler\char`\"{} del patrón Chain of Responsibility que implementa el comando \char`\"{}/\+Help\char`\"{}.  
+
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_chat_bot_project_1_1_help_handler_ae14850284f394dc2f2ffd930479766bb}{Help\+State}} \{ \mbox{\hyperlink{class_chat_bot_project_1_1_help_handler_ae14850284f394dc2f2ffd930479766bbaa6122a65eaa676f700ae68d393054a37}{Start}}
+ \}
+\begin{DoxyCompactList}\small\item\em Estados por los que pasara el handler para asi saber que mensaje esperar y que respuesta dar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chat_bot_project_1_1_help_handler_a5b565ed01515dfcce6c063bec7146f76}{Help\+Handler}} (\mbox{\hyperlink{class_chat_bot_project_1_1_base_handler}{Base\+Handler}} next)
+\begin{DoxyCompactList}\small\item\em Esta clase procesa el mensaje /\+Help. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_chat_bot_project_1_1_help_handler_a5e1509b128f706d654912d299f1aa736}{Internal\+Handle}} (string message, long chatid, out string response)
+\begin{DoxyCompactList}\small\item\em Procesa todos los mensajes y retorna true siempre. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_chat_bot_project_1_1_help_handler_a60f96e573a0149233cf3890679365e22}{Internal\+Cancel}} ()
+\begin{DoxyCompactList}\small\item\em Retorna este \char`\"{}handler\char`\"{} al estado inicial. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}} \mbox{\hyperlink{class_chat_bot_project_1_1_help_handler_a61ced58b949aeb924667fdd351b95628}{Player}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Utilizamos esta propiedad para saber que usuario esta usando el handler. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chat_bot_project_1_1_help_handler_ae14850284f394dc2f2ffd930479766bb}{Help\+State}} \mbox{\hyperlink{class_chat_bot_project_1_1_help_handler_a2bcfc9a14cdbc94188c27894196c03bb}{State}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em El estado del comando. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Un \char`\"{}handler\char`\"{} del patrón Chain of Responsibility que implementa el comando \char`\"{}/\+Help\char`\"{}. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_help_handler_ae14850284f394dc2f2ffd930479766bb}\label{class_chat_bot_project_1_1_help_handler_ae14850284f394dc2f2ffd930479766bb}} 
+\index{HelpHandler@{HelpHandler}!HelpState@{HelpState}}
+\index{HelpState@{HelpState}!HelpHandler@{HelpHandler}}
+\doxysubsubsection{\texorpdfstring{HelpState}{HelpState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_chat_bot_project_1_1_help_handler_ae14850284f394dc2f2ffd930479766bb}{Help\+State}}}
+
+
+
+Estados por los que pasara el handler para asi saber que mensaje esperar y que respuesta dar. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Start@{Start}!HelpHandler@{HelpHandler}}\index{HelpHandler@{HelpHandler}!Start@{Start}}}\mbox{\Hypertarget{class_chat_bot_project_1_1_help_handler_ae14850284f394dc2f2ffd930479766bbaa6122a65eaa676f700ae68d393054a37}\label{class_chat_bot_project_1_1_help_handler_ae14850284f394dc2f2ffd930479766bbaa6122a65eaa676f700ae68d393054a37}} 
+Start&-\/Start\+: Es el estadio inicial del comando. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_help_handler_a5b565ed01515dfcce6c063bec7146f76}\label{class_chat_bot_project_1_1_help_handler_a5b565ed01515dfcce6c063bec7146f76}} 
+\index{HelpHandler@{HelpHandler}!HelpHandler@{HelpHandler}}
+\index{HelpHandler@{HelpHandler}!HelpHandler@{HelpHandler}}
+\doxysubsubsection{\texorpdfstring{HelpHandler()}{HelpHandler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_bot_project_1_1_help_handler}{Help\+Handler}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chat_bot_project_1_1_base_handler}{Base\+Handler}}}]{next }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Esta clase procesa el mensaje /\+Help. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_help_handler_a60f96e573a0149233cf3890679365e22}\label{class_chat_bot_project_1_1_help_handler_a60f96e573a0149233cf3890679365e22}} 
+\index{HelpHandler@{HelpHandler}!InternalCancel@{InternalCancel}}
+\index{InternalCancel@{InternalCancel}!HelpHandler@{HelpHandler}}
+\doxysubsubsection{\texorpdfstring{InternalCancel()}{InternalCancel()}}
+{\footnotesize\ttfamily override void Internal\+Cancel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Retorna este \char`\"{}handler\char`\"{} al estado inicial. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_chat_bot_project_1_1_base_handler_afc9993d33d08d94d52a1001b9b9a2362}{Base\+Handler}}.
+
+\mbox{\Hypertarget{class_chat_bot_project_1_1_help_handler_a5e1509b128f706d654912d299f1aa736}\label{class_chat_bot_project_1_1_help_handler_a5e1509b128f706d654912d299f1aa736}} 
+\index{HelpHandler@{HelpHandler}!InternalHandle@{InternalHandle}}
+\index{InternalHandle@{InternalHandle}!HelpHandler@{HelpHandler}}
+\doxysubsubsection{\texorpdfstring{InternalHandle()}{InternalHandle()}}
+{\footnotesize\ttfamily override void Internal\+Handle (\begin{DoxyParamCaption}\item[{string}]{message,  }\item[{long}]{chatid,  }\item[{out string}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Procesa todos los mensajes y retorna true siempre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & El mensaje a procesar.\\
+\hline
+{\em chatid} & La id del chat del usuario, la utilizamos para poder indicar que usuario es el que esta usando el bot..\\
+\hline
+{\em response} & La respuesta al mensaje procesado indicando que el mensaje no pudo ser procesado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si el mensaje fue procesado; false en caso contrario.
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_chat_bot_project_1_1_base_handler_acf98546adcd94c35b21f4ec02e0bb59f}{Base\+Handler}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_help_handler_a61ced58b949aeb924667fdd351b95628}\label{class_chat_bot_project_1_1_help_handler_a61ced58b949aeb924667fdd351b95628}} 
+\index{HelpHandler@{HelpHandler}!Player@{Player}}
+\index{Player@{Player}!HelpHandler@{HelpHandler}}
+\doxysubsubsection{\texorpdfstring{Player}{Player}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}} Player\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Utilizamos esta propiedad para saber que usuario esta usando el handler. 
+
+\mbox{\Hypertarget{class_chat_bot_project_1_1_help_handler_a2bcfc9a14cdbc94188c27894196c03bb}\label{class_chat_bot_project_1_1_help_handler_a2bcfc9a14cdbc94188c27894196c03bb}} 
+\index{HelpHandler@{HelpHandler}!State@{State}}
+\index{State@{State}!HelpHandler@{HelpHandler}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_bot_project_1_1_help_handler_ae14850284f394dc2f2ffd930479766bb}{Help\+State}} State\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+El estado del comando. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/admin/\+Desktop/\+Chatbot\+\_\+\+Proyect/src/\+Library/\+Chain\+Of\+Responsibility/\mbox{\hyperlink{_help_handler_8cs}{Help\+Handler.\+cs}}\end{DoxyCompactItemize}

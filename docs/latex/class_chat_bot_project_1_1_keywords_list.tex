@@ -1,0 +1,95 @@
+\hypertarget{class_chat_bot_project_1_1_keywords_list}{}\doxysection{Keywords\+List Class Reference}
+\label{class_chat_bot_project_1_1_keywords_list}\index{KeywordsList@{KeywordsList}}
+
+
+Clase singleton que contiene palabras clave baneadas, para que no puedan ser usadas como argumentos a la hora de crear usuarios.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_keywords_list_a29271f7cadede895762ab694ffa2f8cc}{Add\+Banned\+Keyword}} (string banned\+Keyword)
+\begin{DoxyCompactList}\small\item\em Add\+Banned\+Keyword es el encargado de agregar palabra clave a la lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_keywords_list_a4c54e82c07f40bea74d8341dada70df1}{Remove\+Banned\+Keyword}} (string banned\+Keyword)
+\begin{DoxyCompactList}\small\item\em Remove\+Banned\+Keyword es el encargado de remover palabras clave de la lista. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chat_bot_project_1_1_keywords_list_aee907709be353237658656bc293e119f}{Verify\+Banned\+Keywords}} (string message\+To\+Verify)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_chat_bot_project_1_1_keywords_list}{Keywords\+List}} \mbox{\hyperlink{class_chat_bot_project_1_1_keywords_list_a33fcfc132639ca3d6511f27872061526}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Sirve para aplicar el singleton, verifica si la propiedad \mbox{\hyperlink{class_chat_bot_project_1_1_keywords_list}{Keywords\+List}} es nula y si no es nula te devuelve el valor de la property. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ string $>$ \mbox{\hyperlink{class_chat_bot_project_1_1_keywords_list_a5ec7392663286181380a5d923bbb30e7}{Banned\+Keywords}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase singleton que contiene palabras clave baneadas, para que no puedan ser usadas como argumentos a la hora de crear usuarios. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_keywords_list_a29271f7cadede895762ab694ffa2f8cc}\label{class_chat_bot_project_1_1_keywords_list_a29271f7cadede895762ab694ffa2f8cc}} 
+\index{KeywordsList@{KeywordsList}!AddBannedKeyword@{AddBannedKeyword}}
+\index{AddBannedKeyword@{AddBannedKeyword}!KeywordsList@{KeywordsList}}
+\doxysubsubsection{\texorpdfstring{AddBannedKeyword()}{AddBannedKeyword()}}
+{\footnotesize\ttfamily void Add\+Banned\+Keyword (\begin{DoxyParamCaption}\item[{string}]{banned\+Keyword }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add\+Banned\+Keyword es el encargado de agregar palabra clave a la lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+To\+Add} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_keywords_list_a33fcfc132639ca3d6511f27872061526}\label{class_chat_bot_project_1_1_keywords_list_a33fcfc132639ca3d6511f27872061526}} 
+\index{KeywordsList@{KeywordsList}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!KeywordsList@{KeywordsList}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_chat_bot_project_1_1_keywords_list}{Keywords\+List}} Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Sirve para aplicar el singleton, verifica si la propiedad \mbox{\hyperlink{class_chat_bot_project_1_1_keywords_list}{Keywords\+List}} es nula y si no es nula te devuelve el valor de la property. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_keywords_list_a4c54e82c07f40bea74d8341dada70df1}\label{class_chat_bot_project_1_1_keywords_list_a4c54e82c07f40bea74d8341dada70df1}} 
+\index{KeywordsList@{KeywordsList}!RemoveBannedKeyword@{RemoveBannedKeyword}}
+\index{RemoveBannedKeyword@{RemoveBannedKeyword}!KeywordsList@{KeywordsList}}
+\doxysubsubsection{\texorpdfstring{RemoveBannedKeyword()}{RemoveBannedKeyword()}}
+{\footnotesize\ttfamily void Remove\+Banned\+Keyword (\begin{DoxyParamCaption}\item[{string}]{banned\+Keyword }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove\+Banned\+Keyword es el encargado de remover palabras clave de la lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em banned\+Keyword} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_keywords_list_aee907709be353237658656bc293e119f}\label{class_chat_bot_project_1_1_keywords_list_aee907709be353237658656bc293e119f}} 
+\index{KeywordsList@{KeywordsList}!VerifyBannedKeywords@{VerifyBannedKeywords}}
+\index{VerifyBannedKeywords@{VerifyBannedKeywords}!KeywordsList@{KeywordsList}}
+\doxysubsubsection{\texorpdfstring{VerifyBannedKeywords()}{VerifyBannedKeywords()}}
+{\footnotesize\ttfamily bool Verify\+Banned\+Keywords (\begin{DoxyParamCaption}\item[{string}]{message\+To\+Verify }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_keywords_list_a5ec7392663286181380a5d923bbb30e7}\label{class_chat_bot_project_1_1_keywords_list_a5ec7392663286181380a5d923bbb30e7}} 
+\index{KeywordsList@{KeywordsList}!BannedKeywords@{BannedKeywords}}
+\index{BannedKeywords@{BannedKeywords}!KeywordsList@{KeywordsList}}
+\doxysubsubsection{\texorpdfstring{BannedKeywords}{BannedKeywords}}
+{\footnotesize\ttfamily List$<$string$>$ Banned\+Keywords\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/admin/\+Desktop/\+Chatbot\+\_\+\+Proyect/src/\+Library/\mbox{\hyperlink{_keywords_list_8cs}{Keywords\+List.\+cs}}\end{DoxyCompactItemize}

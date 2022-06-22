@@ -1,0 +1,100 @@
+\hypertarget{class_chat_bot_project_1_1_user}{}\doxysection{User Class Reference}
+\label{class_chat_bot_project_1_1_user}\index{User@{User}}
+
+
+Clase creada para poder guardar toda la información de los usuarios, este será el cimiento que utilizara el bot para poder identificar las distintas sesions y brindarles los distintos servicios que este provee. Esta clase aplica expert y srp, ya que es experta en conocer sus datos y a su vez siendo esta última su única responsabilidad.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chat_bot_project_1_1_user_a07444f2d82595fcb926693a21f8ac836}{User}} (string name, string password)
+\begin{DoxyCompactList}\small\item\em El constructor de la clase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_chat_bot_project_1_1_user_a0ddeea98eaa1e9d4f8621db2a2b9a866}{In\+Game}} = false
+\begin{DoxyCompactList}\small\item\em Esta propedad es utilizada para determinar si un jugador se encuentra o no en partida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_chat_bot_project_1_1_user_a7ee9065718e6628dc7791b756fa6c0f9}{Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em El nombre del usuario. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_chat_bot_project_1_1_user_a9c7aae3a8518d5efd22e991b5944e0d4}{Password}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em La contraseña del usuario. esta propiedad es creada para poder verificar ciertas acciones más delicadas, sirviendo como una forma de que el usuario de su consentimiento para ejecutar dichas funciones. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{class_chat_bot_project_1_1_user_ae9c27346afc38e44402e452477847b53}{ID}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Una manera de acceder a la id privada y cambiar sus valores, es de tipo long porque las id de telegram vienen en ese tipo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase creada para poder guardar toda la información de los usuarios, este será el cimiento que utilizara el bot para poder identificar las distintas sesions y brindarles los distintos servicios que este provee. Esta clase aplica expert y srp, ya que es experta en conocer sus datos y a su vez siendo esta última su única responsabilidad. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_user_a07444f2d82595fcb926693a21f8ac836}\label{class_chat_bot_project_1_1_user_a07444f2d82595fcb926693a21f8ac836}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}} (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+El constructor de la clase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em password} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_user_a0ddeea98eaa1e9d4f8621db2a2b9a866}\label{class_chat_bot_project_1_1_user_a0ddeea98eaa1e9d4f8621db2a2b9a866}} 
+\index{User@{User}!InGame@{InGame}}
+\index{InGame@{InGame}!User@{User}}
+\doxysubsubsection{\texorpdfstring{InGame}{InGame}}
+{\footnotesize\ttfamily bool In\+Game = false}
+
+
+
+Esta propedad es utilizada para determinar si un jugador se encuentra o no en partida. 
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_user_ae9c27346afc38e44402e452477847b53}\label{class_chat_bot_project_1_1_user_ae9c27346afc38e44402e452477847b53}} 
+\index{User@{User}!ID@{ID}}
+\index{ID@{ID}!User@{User}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily long ID\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Una manera de acceder a la id privada y cambiar sus valores, es de tipo long porque las id de telegram vienen en ese tipo. 
+
+\mbox{\Hypertarget{class_chat_bot_project_1_1_user_a7ee9065718e6628dc7791b756fa6c0f9}\label{class_chat_bot_project_1_1_user_a7ee9065718e6628dc7791b756fa6c0f9}} 
+\index{User@{User}!Name@{Name}}
+\index{Name@{Name}!User@{User}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily string Name\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+El nombre del usuario. 
+
+\mbox{\Hypertarget{class_chat_bot_project_1_1_user_a9c7aae3a8518d5efd22e991b5944e0d4}\label{class_chat_bot_project_1_1_user_a9c7aae3a8518d5efd22e991b5944e0d4}} 
+\index{User@{User}!Password@{Password}}
+\index{Password@{Password}!User@{User}}
+\doxysubsubsection{\texorpdfstring{Password}{Password}}
+{\footnotesize\ttfamily string Password\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+La contraseña del usuario. esta propiedad es creada para poder verificar ciertas acciones más delicadas, sirviendo como una forma de que el usuario de su consentimiento para ejecutar dichas funciones. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/admin/\+Desktop/\+Chatbot\+\_\+\+Proyect/src/\+Library/\mbox{\hyperlink{_user_8cs}{User.\+cs}}\end{DoxyCompactItemize}

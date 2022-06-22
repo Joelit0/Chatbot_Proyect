@@ -1,0 +1,12 @@
+var searchData=
+[
+  ['settime_0',['setTime',['../class_chat_bot_project_1_1_game.html#aca6d1513a53ecb679f3322e837631550',1,'ChatBotProject::Game']]],
+  ['settimeperround_1',['setTimePerRound',['../class_chat_bot_project_1_1_game.html#ac20e389fbcb4f1e8790d06bd1e8ff177',1,'ChatBotProject::Game']]],
+  ['setup_2',['Setup',['../class_chat_bot_project_1_1_test_1_1_board_test.html#a769404f2985a027a0d626fedfd4de1e9',1,'ChatBotProject.Test.BoardTest.Setup()'],['../class_chat_bot_project_1_1_test_1_1_change_profile_info_handler_tests.html#a769404f2985a027a0d626fedfd4de1e9',1,'ChatBotProject.Test.ChangeProfileInfoHandlerTests.Setup()'],['../class_chat_bot_project_1_1_test_1_1_help_handler_test.html#a769404f2985a027a0d626fedfd4de1e9',1,'ChatBotProject.Test.HelpHandlerTest.Setup()'],['../class_chat_bot_project_1_1_test_1_1_keywords_list_test.html#a769404f2985a027a0d626fedfd4de1e9',1,'ChatBotProject.Test.KeywordsListTest.Setup()'],['../class_chat_bot_project_1_1_test_1_1_profile_handler_test.html#a769404f2985a027a0d626fedfd4de1e9',1,'ChatBotProject.Test.ProfileHandlerTest.Setup()'],['../class_chat_bot_project_1_1_test_1_1_register_handler_tests.html#a769404f2985a027a0d626fedfd4de1e9',1,'ChatBotProject.Test.RegisterHandlerTests.Setup()'],['../class_chat_bot_project_1_1_test_1_1_ship_test.html#a769404f2985a027a0d626fedfd4de1e9',1,'ChatBotProject.Test.ShipTest.Setup()'],['../class_chat_bot_project_1_1_test_1_1_timer_test.html#a769404f2985a027a0d626fedfd4de1e9',1,'ChatBotProject.Test.TimerTest.Setup()'],['../class_chat_bot_project_1_1_test_1_1_users_list_test.html#a769404f2985a027a0d626fedfd4de1e9',1,'ChatBotProject.Test.UsersListTest.Setup()']]],
+  ['setwinner_3',['setWinner',['../class_chat_bot_project_1_1_game.html#afcff9715cf9d7659bc872e8c02ee7206',1,'ChatBotProject::Game']]],
+  ['ship_4',['Ship',['../class_chat_bot_project_1_1_ship.html#ad2291f6eb063121ca0b393164e9623b6',1,'ChatBotProject::Ship']]],
+  ['shipisalive_5',['shipIsAlive',['../class_chat_bot_project_1_1_ship.html#a85916f54405ccf5d0a3268070cb70616',1,'ChatBotProject::Ship']]],
+  ['shipisvalid_6',['shipIsValid',['../class_chat_bot_project_1_1_board.html#a586aac86beb9cf5634fd7a892747606d',1,'ChatBotProject::Board']]],
+  ['showships_7',['showShips',['../class_chat_bot_project_1_1_board.html#a528658ada47fad69d927b1cff1835035',1,'ChatBotProject::Board']]],
+  ['startgame_8',['StartGame',['../class_chat_bot_project_1_1_game.html#a93ecb4242527b80e76b5e28209f67d2d',1,'ChatBotProject::Game']]]
+];

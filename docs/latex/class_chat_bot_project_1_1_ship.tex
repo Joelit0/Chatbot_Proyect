@@ -1,0 +1,148 @@
+\hypertarget{class_chat_bot_project_1_1_ship}{}\doxysection{Ship Class Reference}
+\label{class_chat_bot_project_1_1_ship}\index{Ship@{Ship}}
+
+
+Esta clase es la del barco. Cada barco tiene un puntuaje (Score), largo (Large), el booleano para ver si está vivo o hundido(\+Is\+Alive) y sus posiciones (Positions).  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chat_bot_project_1_1_ship_ad2291f6eb063121ca0b393164e9623b6}{Ship}} (List$<$ string $>$ positions)
+\begin{DoxyCompactList}\small\item\em Este es el constructor del barco. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_chat_bot_project_1_1_ship_a62fb0c882fb270c9d04affeabc4ba1f0}{get\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Getter de Score. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_chat_bot_project_1_1_ship_a316af6db90b9b5528af3b64cded86767}{get\+Large}} ()
+\begin{DoxyCompactList}\small\item\em Getter de Large. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chat_bot_project_1_1_ship_a85916f54405ccf5d0a3268070cb70616}{ship\+Is\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em ship\+Is\+Alive se fija si el barco está vivo o hundido. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_chat_bot_project_1_1_ship_a10e8eaf73c8aaf46b4f82f297c32c859}{get\+Positions}} ()
+\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_ship_af875698708aa540affb140e0708b1bee}{remove\+Position}} (string position)
+\begin{DoxyCompactList}\small\item\em El método remove\+Position busca la posición dada por parámetro y la remueve. Chequea si se hundió el barco o no (check\+Is\+Alive) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_chat_bot_project_1_1_ship_ac9788085b20c9cdb32ac3629bb1fa7c0}{check\+Is\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em check\+Is\+Alive verifica si el ship está vivo. Está vivo solo si su largo es mayor que 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_chat_bot_project_1_1_ship_af8accc54acdf1feb2376dd92f1c4f559}{Score}}
+\item 
+int \mbox{\hyperlink{class_chat_bot_project_1_1_ship_adc2beb9f76f378333b122cc9c02a7b91}{Large}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Esta clase es la del barco. Cada barco tiene un puntuaje (Score), largo (Large), el booleano para ver si está vivo o hundido(\+Is\+Alive) y sus posiciones (Positions). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_ship_ad2291f6eb063121ca0b393164e9623b6}\label{class_chat_bot_project_1_1_ship_ad2291f6eb063121ca0b393164e9623b6}} 
+\index{Ship@{Ship}!Ship@{Ship}}
+\index{Ship@{Ship}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{Ship()}{Ship()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_bot_project_1_1_ship}{Ship}} (\begin{DoxyParamCaption}\item[{List$<$ string $>$}]{positions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este es el constructor del barco. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em positions} & Tiene las posiciones del barco.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_ship_ac9788085b20c9cdb32ac3629bb1fa7c0}\label{class_chat_bot_project_1_1_ship_ac9788085b20c9cdb32ac3629bb1fa7c0}} 
+\index{Ship@{Ship}!checkIsAlive@{checkIsAlive}}
+\index{checkIsAlive@{checkIsAlive}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{checkIsAlive()}{checkIsAlive()}}
+{\footnotesize\ttfamily bool check\+Is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+check\+Is\+Alive verifica si el ship está vivo. Está vivo solo si su largo es mayor que 0. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_ship_a316af6db90b9b5528af3b64cded86767}\label{class_chat_bot_project_1_1_ship_a316af6db90b9b5528af3b64cded86767}} 
+\index{Ship@{Ship}!getLarge@{getLarge}}
+\index{getLarge@{getLarge}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{getLarge()}{getLarge()}}
+{\footnotesize\ttfamily int get\+Large (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter de Large. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_ship_a10e8eaf73c8aaf46b4f82f297c32c859}\label{class_chat_bot_project_1_1_ship_a10e8eaf73c8aaf46b4f82f297c32c859}} 
+\index{Ship@{Ship}!getPositions@{getPositions}}
+\index{getPositions@{getPositions}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{getPositions()}{getPositions()}}
+{\footnotesize\ttfamily List$<$ string $>$ get\+Positions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_chat_bot_project_1_1_ship_a62fb0c882fb270c9d04affeabc4ba1f0}\label{class_chat_bot_project_1_1_ship_a62fb0c882fb270c9d04affeabc4ba1f0}} 
+\index{Ship@{Ship}!getScore@{getScore}}
+\index{getScore@{getScore}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily int get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter de Score. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_ship_af875698708aa540affb140e0708b1bee}\label{class_chat_bot_project_1_1_ship_af875698708aa540affb140e0708b1bee}} 
+\index{Ship@{Ship}!removePosition@{removePosition}}
+\index{removePosition@{removePosition}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{removePosition()}{removePosition()}}
+{\footnotesize\ttfamily void remove\+Position (\begin{DoxyParamCaption}\item[{string}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+El método remove\+Position busca la posición dada por parámetro y la remueve. Chequea si se hundió el barco o no (check\+Is\+Alive) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_ship_a85916f54405ccf5d0a3268070cb70616}\label{class_chat_bot_project_1_1_ship_a85916f54405ccf5d0a3268070cb70616}} 
+\index{Ship@{Ship}!shipIsAlive@{shipIsAlive}}
+\index{shipIsAlive@{shipIsAlive}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{shipIsAlive()}{shipIsAlive()}}
+{\footnotesize\ttfamily bool ship\+Is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ship\+Is\+Alive se fija si el barco está vivo o hundido. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_ship_adc2beb9f76f378333b122cc9c02a7b91}\label{class_chat_bot_project_1_1_ship_adc2beb9f76f378333b122cc9c02a7b91}} 
+\index{Ship@{Ship}!Large@{Large}}
+\index{Large@{Large}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{Large}{Large}}
+{\footnotesize\ttfamily int Large\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_chat_bot_project_1_1_ship_af8accc54acdf1feb2376dd92f1c4f559}\label{class_chat_bot_project_1_1_ship_af8accc54acdf1feb2376dd92f1c4f559}} 
+\index{Ship@{Ship}!Score@{Score}}
+\index{Score@{Score}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{Score}{Score}}
+{\footnotesize\ttfamily int Score\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/admin/\+Desktop/\+Chatbot\+\_\+\+Proyect/src/\+Library/\mbox{\hyperlink{_ship_8cs}{Ship.\+cs}}\end{DoxyCompactItemize}

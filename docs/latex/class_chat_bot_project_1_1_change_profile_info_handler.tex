@@ -1,0 +1,178 @@
+\hypertarget{class_chat_bot_project_1_1_change_profile_info_handler}{}\doxysection{Change\+Profile\+Info\+Handler Class Reference}
+\label{class_chat_bot_project_1_1_change_profile_info_handler}\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}
+
+
+Un \char`\"{}handler\char`\"{} del patrón Chain of Responsibility que implementa el comando \char`\"{}/\+Change\+Info\char`\"{}.  
+
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7}{Change\+Profile\+Info\+State}} \{ \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7aa6122a65eaa676f700ae68d393054a37}{Start}}
+, \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7af555e9b41c6c93a471f4114569dd3548}{Awaiting\+What\+To\+Change}}
+, \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7a20240056fe9b49e39114341ba853fcd4}{Change\+Name}}
+, \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7a0561b65d8a03a214a151b9deae851393}{Change\+Password}}
+ \}
+\begin{DoxyCompactList}\small\item\em Estados por los que pasara el handler para asi saber que mensaje esperar y que respuesta dar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a8a6e2704b964bcd3ff5738936c7ecf61}{Change\+Profile\+Info\+Handler}} (\mbox{\hyperlink{class_chat_bot_project_1_1_base_handler}{Base\+Handler}} next)
+\begin{DoxyCompactList}\small\item\em Esta clase procesa el mensaje /\+Change\+Info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override bool \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a8fbc33e057805b531b1ef5f748022876}{Can\+Handle}} (string message)
+\begin{DoxyCompactList}\small\item\em Determina si este \char`\"{}handler\char`\"{} puede procesar el mensaje. En la clase base se utiliza el array \mbox{\hyperlink{class_chat_bot_project_1_1_base_handler_a0275cca4c698078559d0a9094332ad2f}{Base\+Handler.\+Keywords}} para buscar el texto en el mensaje ignorando mayúsculas y minúsculas. Las clases sucesores pueden sobreescribir este método para proveer otro mecanismo para determina si procesan o no un mensaje. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a5e1509b128f706d654912d299f1aa736}{Internal\+Handle}} (string message, long chatid, out string response)
+\begin{DoxyCompactList}\small\item\em Procesa todos los mensajes y retorna true siempre. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a60f96e573a0149233cf3890679365e22}{Internal\+Cancel}} ()
+\begin{DoxyCompactList}\small\item\em Retorna este \char`\"{}handler\char`\"{} al estado inicial. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}} \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a61ced58b949aeb924667fdd351b95628}{Player}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Utilizamos esta propiedad para saber que usuario esta usando el handler. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7}{Change\+Profile\+Info\+State}} \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_ad1060c541689b727209712135236d249}{State}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em El estado del comando. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Un \char`\"{}handler\char`\"{} del patrón Chain of Responsibility que implementa el comando \char`\"{}/\+Change\+Info\char`\"{}. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7}\label{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7}} 
+\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!ChangeProfileInfoState@{ChangeProfileInfoState}}
+\index{ChangeProfileInfoState@{ChangeProfileInfoState}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}
+\doxysubsubsection{\texorpdfstring{ChangeProfileInfoState}{ChangeProfileInfoState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7}{Change\+Profile\+Info\+State}}}
+
+
+
+Estados por los que pasara el handler para asi saber que mensaje esperar y que respuesta dar. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Start@{Start}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!Start@{Start}}}\mbox{\Hypertarget{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7aa6122a65eaa676f700ae68d393054a37}\label{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7aa6122a65eaa676f700ae68d393054a37}} 
+Start&-\/Start\+: Es el estadio inicial del comando. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AwaitingWhatToChange@{AwaitingWhatToChange}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!AwaitingWhatToChange@{AwaitingWhatToChange}}}\mbox{\Hypertarget{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7af555e9b41c6c93a471f4114569dd3548}\label{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7af555e9b41c6c93a471f4114569dd3548}} 
+Awaiting\+What\+To\+Change&-\/Awaiting\+What\+To\+Change\+: En este estado el mensaje esperado es un /\+Name o /\+Password, para saber a que estado continuar. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ChangeName@{ChangeName}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!ChangeName@{ChangeName}}}\mbox{\Hypertarget{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7a20240056fe9b49e39114341ba853fcd4}\label{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7a20240056fe9b49e39114341ba853fcd4}} 
+Change\+Name&-\/Change\+Name\+: En este estado el mensaje esperado es el nuevo nombre que el usuario quiere utilizar. ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ChangePassword@{ChangePassword}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!ChangePassword@{ChangePassword}}}\mbox{\Hypertarget{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7a0561b65d8a03a214a151b9deae851393}\label{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7a0561b65d8a03a214a151b9deae851393}} 
+Change\+Password&-\/Change\+Password\+: En este estado el mensaje esperado es la nueva contraseña que el usuario quiere utilizar. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_change_profile_info_handler_a8a6e2704b964bcd3ff5738936c7ecf61}\label{class_chat_bot_project_1_1_change_profile_info_handler_a8a6e2704b964bcd3ff5738936c7ecf61}} 
+\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}
+\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}
+\doxysubsubsection{\texorpdfstring{ChangeProfileInfoHandler()}{ChangeProfileInfoHandler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler}{Change\+Profile\+Info\+Handler}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chat_bot_project_1_1_base_handler}{Base\+Handler}}}]{next }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Esta clase procesa el mensaje /\+Change\+Info. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_change_profile_info_handler_a8fbc33e057805b531b1ef5f748022876}\label{class_chat_bot_project_1_1_change_profile_info_handler_a8fbc33e057805b531b1ef5f748022876}} 
+\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!CanHandle@{CanHandle}}
+\index{CanHandle@{CanHandle}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}
+\doxysubsubsection{\texorpdfstring{CanHandle()}{CanHandle()}}
+{\footnotesize\ttfamily override bool Can\+Handle (\begin{DoxyParamCaption}\item[{string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Determina si este \char`\"{}handler\char`\"{} puede procesar el mensaje. En la clase base se utiliza el array \mbox{\hyperlink{class_chat_bot_project_1_1_base_handler_a0275cca4c698078559d0a9094332ad2f}{Base\+Handler.\+Keywords}} para buscar el texto en el mensaje ignorando mayúsculas y minúsculas. Las clases sucesores pueden sobreescribir este método para proveer otro mecanismo para determina si procesan o no un mensaje. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & El mensaje a procesar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si el mensaje puede ser pocesado; false en caso contrario.
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_chat_bot_project_1_1_base_handler_a053c58b83f55a59195a37fe6476c9cec}{Base\+Handler}}.
+
+\mbox{\Hypertarget{class_chat_bot_project_1_1_change_profile_info_handler_a60f96e573a0149233cf3890679365e22}\label{class_chat_bot_project_1_1_change_profile_info_handler_a60f96e573a0149233cf3890679365e22}} 
+\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!InternalCancel@{InternalCancel}}
+\index{InternalCancel@{InternalCancel}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}
+\doxysubsubsection{\texorpdfstring{InternalCancel()}{InternalCancel()}}
+{\footnotesize\ttfamily override void Internal\+Cancel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Retorna este \char`\"{}handler\char`\"{} al estado inicial. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_chat_bot_project_1_1_base_handler_afc9993d33d08d94d52a1001b9b9a2362}{Base\+Handler}}.
+
+\mbox{\Hypertarget{class_chat_bot_project_1_1_change_profile_info_handler_a5e1509b128f706d654912d299f1aa736}\label{class_chat_bot_project_1_1_change_profile_info_handler_a5e1509b128f706d654912d299f1aa736}} 
+\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!InternalHandle@{InternalHandle}}
+\index{InternalHandle@{InternalHandle}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}
+\doxysubsubsection{\texorpdfstring{InternalHandle()}{InternalHandle()}}
+{\footnotesize\ttfamily override void Internal\+Handle (\begin{DoxyParamCaption}\item[{string}]{message,  }\item[{long}]{chatid,  }\item[{out string}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Procesa todos los mensajes y retorna true siempre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & El mensaje a procesar.\\
+\hline
+{\em chatid} & La id del chat del usuario, la utilizamos para poder indicar que usuario es el que esta usando el bot..\\
+\hline
+{\em response} & La respuesta al mensaje procesado indicando que el mensaje no pudo ser procesado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si el mensaje fue procesado; false en caso contrario.
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_chat_bot_project_1_1_base_handler_acf98546adcd94c35b21f4ec02e0bb59f}{Base\+Handler}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_change_profile_info_handler_a61ced58b949aeb924667fdd351b95628}\label{class_chat_bot_project_1_1_change_profile_info_handler_a61ced58b949aeb924667fdd351b95628}} 
+\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!Player@{Player}}
+\index{Player@{Player}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}
+\doxysubsubsection{\texorpdfstring{Player}{Player}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}} Player\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Utilizamos esta propiedad para saber que usuario esta usando el handler. 
+
+\mbox{\Hypertarget{class_chat_bot_project_1_1_change_profile_info_handler_ad1060c541689b727209712135236d249}\label{class_chat_bot_project_1_1_change_profile_info_handler_ad1060c541689b727209712135236d249}} 
+\index{ChangeProfileInfoHandler@{ChangeProfileInfoHandler}!State@{State}}
+\index{State@{State}!ChangeProfileInfoHandler@{ChangeProfileInfoHandler}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_bot_project_1_1_change_profile_info_handler_a364ad04637d372784e3d9eff35b48ac7}{Change\+Profile\+Info\+State}} State\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+El estado del comando. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/admin/\+Desktop/\+Chatbot\+\_\+\+Proyect/src/\+Library/\+Chain\+Of\+Responsibility/\mbox{\hyperlink{_change_profile_info_handler_8cs}{Change\+Profile\+Info\+Handler.\+cs}}\end{DoxyCompactItemize}

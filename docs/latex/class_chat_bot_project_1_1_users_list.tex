@@ -1,0 +1,101 @@
+\hypertarget{class_chat_bot_project_1_1_users_list}{}\doxysection{Users\+List Class Reference}
+\label{class_chat_bot_project_1_1_users_list}\index{UsersList@{UsersList}}
+
+
+\mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} es el experto en conocer a todos los usuarios, y por el patron Expert este tambien es quien posee la responsabilidad de agregar y/o remover Usuario. Debido a que \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} contiene instancias de \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}, por Creator, esta clase debe tener la responsabilidad de crear dichas instancias.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}} \mbox{\hyperlink{class_chat_bot_project_1_1_users_list_acbe037b87566c4561b22699fe93ffc12}{Add\+User}} (string name, string password, long chat\+Id)
+\begin{DoxyCompactList}\small\item\em Siguienfo el patrón Creator Add\+User es el encargado de crear los nuevos usuarios y a su vez los añade a la lista de usuarios. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_users_list_a1235c1ed50cf4d62782393e225bc95af}{Remove\+User}} (string name\+Of\+User\+To\+Remove)
+\begin{DoxyCompactList}\small\item\em Remove\+User es el encargado de remover usuarios de la lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} \mbox{\hyperlink{class_chat_bot_project_1_1_users_list_ae9bf415507799c6ddc21bdc15b0a4fcc}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Sirve para aplicar el singleton, verifica si la propiedad \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} es nula y si no es nula te devuelve el valor de la property. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}} $>$ \mbox{\hyperlink{class_chat_bot_project_1_1_users_list_acdb5773e255293bc56fe74afa229e65e}{Users}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em La lista de usuarios. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} es el experto en conocer a todos los usuarios, y por el patron Expert este tambien es quien posee la responsabilidad de agregar y/o remover Usuario. Debido a que \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} contiene instancias de \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}, por Creator, esta clase debe tener la responsabilidad de crear dichas instancias. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_users_list_acbe037b87566c4561b22699fe93ffc12}\label{class_chat_bot_project_1_1_users_list_acbe037b87566c4561b22699fe93ffc12}} 
+\index{UsersList@{UsersList}!AddUser@{AddUser}}
+\index{AddUser@{AddUser}!UsersList@{UsersList}}
+\doxysubsubsection{\texorpdfstring{AddUser()}{AddUser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}} Add\+User (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{password,  }\item[{long}]{chat\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Siguienfo el patrón Creator Add\+User es el encargado de crear los nuevos usuarios y a su vez los añade a la lista de usuarios. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & El nombre del usuario\\
+\hline
+{\em password} & La contraseña del usuario\\
+\hline
+{\em chat\+Id} & La id del chat del usuario\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_users_list_ae9bf415507799c6ddc21bdc15b0a4fcc}\label{class_chat_bot_project_1_1_users_list_ae9bf415507799c6ddc21bdc15b0a4fcc}} 
+\index{UsersList@{UsersList}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!UsersList@{UsersList}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Sirve para aplicar el singleton, verifica si la propiedad \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} es nula y si no es nula te devuelve el valor de la property. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_users_list_a1235c1ed50cf4d62782393e225bc95af}\label{class_chat_bot_project_1_1_users_list_a1235c1ed50cf4d62782393e225bc95af}} 
+\index{UsersList@{UsersList}!RemoveUser@{RemoveUser}}
+\index{RemoveUser@{RemoveUser}!UsersList@{UsersList}}
+\doxysubsubsection{\texorpdfstring{RemoveUser()}{RemoveUser()}}
+{\footnotesize\ttfamily void Remove\+User (\begin{DoxyParamCaption}\item[{string}]{name\+Of\+User\+To\+Remove }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove\+User es el encargado de remover usuarios de la lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Of\+User\+To\+Remove} & Es el nombre del usuario que será removido\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_users_list_acdb5773e255293bc56fe74afa229e65e}\label{class_chat_bot_project_1_1_users_list_acdb5773e255293bc56fe74afa229e65e}} 
+\index{UsersList@{UsersList}!Users@{Users}}
+\index{Users@{Users}!UsersList@{UsersList}}
+\doxysubsubsection{\texorpdfstring{Users}{Users}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}$>$ Users\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+La lista de usuarios. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/admin/\+Desktop/\+Chatbot\+\_\+\+Proyect/src/\+Library/\mbox{\hyperlink{_users_list_8cs}{Users\+List.\+cs}}\end{DoxyCompactItemize}
