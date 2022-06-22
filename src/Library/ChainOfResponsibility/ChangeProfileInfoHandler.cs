@@ -5,13 +5,13 @@ using System.Text;
 namespace ChatBotProject
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "Registrarse".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/ChangeInfo".
     /// </summary>
     public class ChangeProfileInfoHandler : BaseHandler
     {
 
         /// <summary>
-        /// Los usuarios que usan este handler.
+        /// Utilizamos esta propiedad para saber que usuario esta usando el handler.
         /// </summary>
         /// <value></value>
         public User Player { get; private set; }
@@ -123,6 +123,10 @@ namespace ChatBotProject
                 response = $"Su nombre de usuario se ha cambiado a {this.Player.Name}";
               }
             }
+            else if (this.State == ChangeProfileInfoState.ChangePassword)
+            {
+
+            }
             else
             {
               response = string.Empty;
@@ -144,17 +148,20 @@ namespace ChatBotProject
         public enum ChangeProfileInfoState
         {
 
-            ///-Start: Es el estadio inicial del comando. En este comando pide el mensaje de invitación para
-            ///asi pasar al siguiente estado.
+            ///-Start: Es el estadio inicial del comando.
             Start,
 
+            ///-AwaitingWhatToChange: En este estado el mensaje esperado
+            /// es un /Name o /Password, para saber a que estado continuar.
             AwaitingWhatToChange,
-
+            
+            ///-ChangeName: En este estado el mensaje esperado es el nuevo nombre que
+            ///el usuario quiere utilizar. 
             ChangeName,
 
+            ///-ChangePassword: En este estado el mensaje esperado es la nueva contraseña que
+            ///el usuario quiere utilizar.
             ChangePassword,
-
-
         }
     }
 }

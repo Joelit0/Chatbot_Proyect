@@ -5,13 +5,13 @@ using System.Text;
 namespace ChatBotProject
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "Registrarse".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/Profile".
     /// </summary>
     public class ProfileHandler : BaseHandler
     {
 
         /// <summary>
-        /// Los usuarios que usan este handler.
+        /// Utilizamos esta propiedad para saber que usuario esta usando el handler.
         /// </summary>
         /// <value></value>
         public User Player { get; private set; }
@@ -22,7 +22,7 @@ namespace ChatBotProject
         public ProfileState State { get; private set; }
 
         /// <summary>
-        /// Esta clase procesa el mensaje /registrarse.
+        /// Esta clase procesa el mensaje /Profile.
         /// </summary>
 
         public ProfileHandler(BaseHandler next) : base(next)
@@ -83,8 +83,7 @@ namespace ChatBotProject
         public enum ProfileState
         {
 
-            ///-Start: Es el estadio inicial del comando. En este comando pide el mensaje de invitación para
-            ///asi pasar al siguiente estado.
+            ///-Start: Es el estadio inicial del comando.
             Start,
 
         }

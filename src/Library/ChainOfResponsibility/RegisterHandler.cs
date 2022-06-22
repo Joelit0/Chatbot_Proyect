@@ -4,13 +4,13 @@ using System.Collections.Generic;
 namespace ChatBotProject
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "Registrarse".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/Register".
     /// </summary>
     public class RegisterHandler : BaseHandler
     {
 
         /// <summary>
-        /// Los usuarios que usan este handler.
+        /// Utilizamos esta propiedad para saber que usuario esta usando el handler.
         /// </summary>
         /// <value></value>
         public User Player { get; private set; }
@@ -24,7 +24,7 @@ namespace ChatBotProject
         int intentos = 3;
 
         /// <summary>
-        /// Esta clase procesa el mensaje /registrarse.
+        /// Esta clase procesa el mensaje /Register.
         /// </summary>
         public RegisterHandler(BaseHandler next) : base(next)
         {
@@ -147,14 +147,20 @@ namespace ChatBotProject
         public enum RegisterState
         {
 
-            ///-Start: Es el estadio inicial del comando. En este comando pide el mensaje de invitación para
-            ///asi pasar al siguiente estado.
+            ///-Start: Es el estadio inicial del comando.
             Start,
 
+            ///-AwaitingInfoForRegister: En este estado se espera que el mensaje enviado 
+            ///por el usuario contenga el nombre que el usuario querra utilizar para registrarse.
             AwaitingInfoForRegister,
 
+            ///-AwaitingPasswordForRegister: En este estado se espera que el mensaje enviado
+            ///por el usuario contenga la contraseña que el usuario querra utilizar para registrarse.
             AwaitingPasswordForRegister,
 
+            ///-CheckingPasswordForRegister: En este estado se espera que el mensaje enviado
+            ///por el usuario contenga nuevamente la misma contraseña que el usuario envio en el estado 
+            ///anterior para poder confirmarla y terminar el proceso de registro, volviendo al estado Start.
             CheckingPasswordForRegister,
       
         }

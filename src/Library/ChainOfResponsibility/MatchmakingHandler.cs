@@ -5,17 +5,21 @@ using Telegram.Bot;
 namespace ChatBotProject
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "Registrarse".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/Matchamking".
     /// </summary>
     public class MatchmakingHandler : BaseHandler
     {
 
         /// <summary>
-        /// Los usuarios que usan este handler.
+        /// Utilizamos esta propiedad para saber que usuario esta usando el handler.
         /// </summary>
         /// <value></value>
         public User Player { get; private set; }
 
+        /// <summary>
+        /// Utilizamos esta propiedad para saber a que usuario vamos a invitar a la partida.
+        /// </summary>
+        /// <value></value>
         public User RivalPlayer { get; private set; }
         /// <summary>
         /// El estado del comando.

@@ -30,11 +30,10 @@ namespace ChatBotProject
       firstHandler =
         new HelpHandler(
         new RegisterHandler(
-        new LogInHandler(
         new ProfileHandler(
         new ChangeProfileInfoHandler(
         new MatchmakingHandler(null)
-      )))));
+      ))));
 
       var cts = new CancellationTokenSource();
 

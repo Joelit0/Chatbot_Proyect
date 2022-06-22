@@ -9,19 +9,23 @@ namespace ChatBotProject.Test
       [SetUp]
       public void Setup()
       {
-        UsersList.GetInstance().AddUser("Rodri", "16", 1234);
       }
 
       [Test]
       public void AddUserTest() //Prueba la funcionalidad del método AddUser para crear y añadir un usuario
       {
+        UsersList.GetInstance().AddUser("Benzema", "16", 1234);
         int contador = 0;
         foreach (User player in UsersList.GetInstance().Users)
-        {
-          contador += 1;
+        { 
+          if (player.Name == "Benzema")
+          {
+            contador += 1;
+          }
         }
         int expected = 1;
         Assert.AreEqual(expected, contador);
+        UsersList.GetInstance().RemoveUser("Rodri");
       }
 
       [Test]
@@ -32,10 +36,13 @@ namespace ChatBotProject.Test
         int contador = 0;
         foreach (User player in UsersList.GetInstance().Users)
         {
-          contador += 1;
+          if (player.Name == "Ro")
+          {
+            contador += 1;
+          }
         }
-        int expected = 0;
-        Assert.AreEqual(expected, contador);
+        int expectedInstances = 0;
+        Assert.AreEqual(expectedInstances, contador);
       }
   }
 
