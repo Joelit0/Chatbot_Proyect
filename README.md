@@ -6,4 +6,9 @@ Al hacer el diagrama UML (utilizamos la aplicación draw.io) comenzamos a dudar 
 No implementamos la funcionalidad de jugar contra la IA, debido a que nos falta la información del bot a esta altura del proyecto.
 Los recursos utilizados para esta primera entrega fueron principalmente los conceptos brindados por los profesores, consultas que hicimos en clase y también utilizamos el libro Object Design que está en la bibliografía del curso para hacer el informe de los roles de cada clase.
 
+|SEGUNDA ENTREGA|
+Para esta entrega nos organizamos usando la herramienta Trello, en la anterior también lo habíamos hecho pero esta vez fuimos más consistentes para mantener el flujo de trabajo, fuimos más organizados y buscamos dividir tareas equitativamente 
+Link de trello: https://trello.com/invite/b/ySMd3vZr/1457885ee6835b61e8ebd9db6ec27ec5/proyecto-programacion-2
+Enfrentamos algunas adversidades ya que priorizamos cosas como el Bot y terminamos con poco tiempo para otras cosas, pero igualm
+
 
