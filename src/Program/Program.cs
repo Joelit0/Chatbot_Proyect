@@ -18,6 +18,8 @@ namespace ChatBotProject
     
     static void Main(string[] args)
     {
+      // ===========================================================
+      // Lógica del juego
       List<User> users = new List<User>();
 
       User user1 = new User("Joel", "1234");
@@ -28,9 +30,10 @@ namespace ChatBotProject
 
       Game game = new Game(users, new Timer(20, 10), new Timer(2, 0));
       game.StartGame();
+      // ===========================================================
 
-      // Comentamos el Bot porque aun no estan sincronizadas ambas funcionalidades
-  
+      // // ===========================================================
+      // // Lógica del bot
       // botClient = new TelegramBotClient("5466014301:AAG2N5FeZRHo4xFQq0dAS9LG24onUy0Ng00");
 
       // firstHandler =
@@ -59,6 +62,7 @@ namespace ChatBotProject
 
       // // Terminamos el bot.
       // cts.Cancel();
+      // // ===========================================================
     }
     
     /// <summary>
