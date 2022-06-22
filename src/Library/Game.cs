@@ -27,54 +27,126 @@ namespace ChatBotProject
 
     public void StartGame()
     {
-    //   // Agregamos un barco al board
-    //   List<string> positions = new List<string>();
-    //   positions.Add("A1".ToUpper());
-    //   positions.Add("B1".ToUpper());
-    //   positions.Add("C1".ToUpper());
-    //   positions.Add("D1".ToUpper());
+      // Crear ConsolePrinter de tipo IPrinter
+      IPrinter consolePrinter = new ConsolePrinter();
 
-    //   this.Board.addShip(positions);
+      foreach(User user in this.Users)
+      {
+        List<List<string>> userShipsPositions = getUserShipsPositions();
+        Board userBoard = getUserBoard(user);
 
-    //   // Mostramos los barcos e imprimimos el tablero
-    //   this.Board.showShips();
+        foreach(List<string> shipPositions in userShipsPositions)
+        {
+          userBoard.addShip(shipPositions);
+        }
 
-    //   // Crear ConsolePrinter de tipo IPrinter e imprimir el board
-    //   IPrinter consolePrinter = new ConsolePrinter();
+        userBoard.showShips();
 
-    //   consolePrinter.printBoard(board);
+        consolePrinter.printBoard(userBoard);
+      }
 
-    //   // Agregamos un barco que se pise con el otro
-    //   positions = new List<string>();
-    //   positions.Add("d1".ToUpper());
-    //   positions.Add("d2".ToUpper());
-    //   positions.Add("d3".ToUpper());
-    //   positions.Add("D4".ToUpper());
+      Board firstUserBoard = getUserBoard(this.Users[0]);
+      Board secondUserBoard = getUserBoard(this.Users[1]);
+      string attackPosition;
 
-    //   this.Board.addShip(positions);
+      while(firstUserBoard.getShips().Count != 0 && secondUserBoard.getShips().Count != 0)
+      {
+        // Ataque del primer usuario
+        Console.WriteLine("===============================================");
+        Console.WriteLine($"Turno de {this.Users[0].Name}");
+        Console.WriteLine("===============================================");
 
-    //   // Atacar el barco completo
-    //   board.attack("A1".ToUpper());
-    //   consolePrinter.printBoard(board);
+        Console.WriteLine("Tu tablero:");
+        firstUserBoard.showShips();
+        consolePrinter.printBoard(firstUserBoard);
+  
+        Console.WriteLine($"Tablero de {this.Users[1].Name}:");
+        secondUserBoard.hideShips(); // Oculta los barcos
+        consolePrinter.printBoard(secondUserBoard);
 
-    //   board.attack("b1".ToUpper());
-    //   consolePrinter.printBoard(board);
+        // Leer ataque
+        attackPosition = Console.ReadLine().ToUpper();
+        secondUserBoard.attack(attackPosition);
 
-    //   board.attack("c1".ToUpper());
-    //   consolePrinter.printBoard(board);
+        // Ataque del segundo usuario
+        Console.WriteLine("===============================================");
+        Console.WriteLine($"Turno de {this.Users[1].Name}");
+        Console.WriteLine("===============================================");
 
-    //   board.attack("D1".ToUpper());
-    //   consolePrinter.printBoard(board);
+        Console.WriteLine("Tu tablero:");
+        secondUserBoard.showShips();
+        consolePrinter.printBoard(secondUserBoard);
+  
+        Console.WriteLine($"Tablero de {this.Users[0].Name}:");
+        firstUserBoard.hideShips(); // Oculta los barcos
+        consolePrinter.printBoard(firstUserBoard);
 
-    //  // Ocultuamos los barcos y mostramos el tablero
-    //   board.hideShips();
-    //   consolePrinter.printBoard(board);
+        // Leer ataque
+        attackPosition = Console.ReadLine().ToUpper();
+        firstUserBoard.attack(attackPosition);
+      }
 
+      // Actualiza el ganador de la partida
+      if (firstUserBoard.getShips().Count == 0) { this.Winner = this.Users[1]; }
+
+      if (secondUserBoard.getShips().Count == 0) { this.Winner = this.Users[0]; }
+
+      Console.WriteLine($"La partida terminó. El ganador es {this.Winner.Name}");
+
+      FinishGame();
     }
 
-    public void FinishGame()
+    private void FinishGame()
     {
+      this.InProgress = false;
+    }
 
+    private List<List<string>> getUserShipsPositions()
+    {
+      List<List<string>> allShipsPositions = new List<List<string>>();
+  
+      List<string> firstShipPositions = new List<string>();
+      List<string> secondShipPositions = new List<string>();
+      List<string> thirdShipPositions = new List<string>();
+      List<string> fourthShipPositions = new List<string>();
+
+      Console.WriteLine("Ingrese las 2 pocisiones del primer barco: ");
+  
+      for(int i = 0; i < 2; i++)
+      {
+        string position = Console.ReadLine().ToUpper();
+        firstShipPositions.Add(position);
+      }
+
+      Console.WriteLine("Ingrese las 3 pocisiones del segundo barco: ");
+
+      for(int i = 0; i < 3; i++)
+      {
+        string position = Console.ReadLine().ToUpper();
+        secondShipPositions.Add(position);
+      }
+
+      Console.WriteLine("Ingrese las 4 pocisiones del tercer barco: ");
+
+      for(int i = 0; i < 4; i++)
+      {
+        string position = Console.ReadLine().ToUpper();
+        thirdShipPositions.Add(position);
+      }
+
+      Console.WriteLine("Ingrese las 5 pocisiones del ultimo barco: ");
+      for(int i = 0; i < 5; i++)
+      {
+        string position = Console.ReadLine().ToUpper();
+        fourthShipPositions.Add(position);
+      }
+
+      allShipsPositions.Add(firstShipPositions);
+      allShipsPositions.Add(secondShipPositions);
+      allShipsPositions.Add(thirdShipPositions);
+      allShipsPositions.Add(fourthShipPositions);
+
+      return allShipsPositions;
     }
 
     // Winner Getters & Setters
