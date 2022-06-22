@@ -18,8 +18,9 @@ namespace ChatBotProject
     
     static void Main(string[] args)
     {
-      Board board = new Board(10, 10);
-
+      // Creamos el tablero de 10x10
+      Board board = new Board(10, 10)
+        
       board.Attack("A10");
       board.printBoard();
 
@@ -109,7 +110,3 @@ namespace ChatBotProject
         }
     }
 }
-
-    
-    
-  

@@ -2,7 +2,7 @@ namespace ChatBotProject
 {
   public class Board
   {
-    // Constants
+    // Constantes
     private const string HeaderLetters = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 
     // Variables
@@ -22,38 +22,37 @@ namespace ChatBotProject
       generateBoard();
     }
 
-    // Board Logic
+    // Getters
+
+    public int getWidth()
+    {
+      return this.Width;
+    }
+
+    public int getHeight()
+    {
+      return this.Height;
+    }
+
+    public string getHeaderLetters()
+    {
+      return HeaderLetters;
+    }
+
+    public string[,] getFields()
+    {
+      return this.Fields;
+    }
+
+    // Lógica del tablero
 
     private void generateBoard()
     {
-      // Fill Board
+      // Llenar tablero de pocisiones vacías
       for(int row = 0; row < this.Height; row++){
         for(int col = 0; col < this.Width; col++){
-          this.Fields[row, col] = "O";
+          this.Fields[row, col] = "-";
         }
-      }
-    }
-
-    public void printBoard()
-    {
-      Console.Write("   "); // Space between Cols & Rows
-
-      // Print Cols Header
-      for(int col = 0; col < this.Width; col++){
-        Console.Write($"{HeaderLetters[col]} ");
-      }
-
-      Console.WriteLine(); // End of header
-  
-      // Print Board
-      for(int row = 0; row < this.Height; row++){  
-        Console.Write($"{row + 1}".PadRight(3)); // Print Rows Sidebar
-
-        for(int col = 0; col < this.Width; col++){ 
-          Console.Write($"{this.Fields[row, col]}".PadRight(2)); // !!!Replace ConsoleWriter for IPrinter!!!
-        }
-
-        Console.WriteLine(); // Idem
       }
     }
 
@@ -62,51 +61,182 @@ namespace ChatBotProject
       this.Fields[row, col] = value;
     }
 
-    // Ship Logic
-
-    public void AddShip(Ship ship)
+    public void showShips()
     {
-      // If ships not contains the ship, add them
-      if (!this.Ships.Contains(ship)) { this.Ships.Add(ship); }
+      foreach(Ship ship in this.Ships)
+      {
+        foreach(string position in ship.getPositions())
+        {
+          var translatedPositions = translateToPositions(position);
+
+          int row = translatedPositions[0];
+          int col = translatedPositions[1];
+
+          updateBoard("#", row, col);
+        }
+      }
     }
 
-    public void RemoveShip(Ship ship)
+    public void hideShips()
     {
-      // If ships contains the ship, delete them
+      foreach(Ship ship in this.Ships)
+      {
+        foreach(string position in ship.getPositions())
+        {
+          var translatedPositions = translateToPositions(position);
+
+          int row = translatedPositions[0];
+          int col = translatedPositions[1];
+
+          updateBoard("-", row, col);
+        }
+      }
+    }
+
+    // Ship Lógica
+
+    public void addShip(List<string> positions)
+    {
+      // Si el board no contiene este ship, se agrega
+      Ship ship = new Ship(positions);
+
+      if (shipIsValid(ship)) { this.Ships.Add(ship); }
+    }
+
+    public void removeShip(Ship ship)
+    {
+      // Si el board contiene el ship, se borra
       if (this.Ships.Contains(ship)) { this.Ships.Remove(ship); }
     }
 
-    public List<Ship> GetShips()
+    // Retorna todos los ships del tablero
+    public List<Ship> getShips()
     {
       return this.Ships;
     }
 
-    // Attack Logic
+    public bool shipIsValid(Ship ship)
+    {
+      int totalRows = this.Fields.GetLength(0);
+      int totalCols = this.Fields.GetLength(1);
+
+      List<int> shipRows = new List<int>();
+      List<int> shipCols = new List<int>();
+
+      foreach(Ship boardShip in this.Ships)
+      {
+        foreach(string position in boardShip.getPositions())
+        {
+          if(ship.getPositions().Contains(position)) { return false; }
+        }
+      }
+
+      foreach(string position in ship.getPositions())
+      {
+        var translatedPositions = translateToPositions(position);
+        
+        int row = translatedPositions[0];
+        int col = translatedPositions[1];
+
+        // Si esta fuera del tablero
+        if(row >= totalRows || col >= totalCols) { return false; }
+
+        shipRows.Add(row);
+        shipCols.Add(col);
+      }
+
+      // Ordenar ambas listas
+      shipRows.Sort();
+      shipCols.Sort();
+
+      if (allElementsAreEqual(shipRows) && allElementsAreConsecutives(shipCols)) { return true; }
+
+      if (allElementsAreEqual(shipCols) && allElementsAreConsecutives(shipRows)) { return true; }
+
+      return false;
+    }
+
+    // Attack Lógica
   
-    public void Attack(string position)
+    public void attack(string position)
     {
       var translatedPositions = translateToPositions(position);
-  
       int row = translatedPositions[0];
       int col = translatedPositions[1];
 
-      updateBoard("-", row, col);
+      foreach(Ship ship in this.Ships)
+      {
+        foreach(string shipPosition in ship.getPositions())
+        {
+          if(position == shipPosition)
+          {
+            updateBoard("X", row, col);
+            ship.removePosition(shipPosition);
+            break;
+          }
+        }
+
+        if (!ship.shipIsAlive()) {
+          removeShip(ship);
+          break;
+        }
+      }
+
+      updateBoard("X", row, col);
     }
+
+    // Métodos de ayuda para board, por esa razón son privados
+
+    // Traducir las posiciones. Si recibe "A1" debería devolver [0,0]
 
     private List<int> translateToPositions(string position)
     {
       List<int> positions = new List<int>();
   
-      char letter = position[0];
+      char letter = Char.ToUpper(position[0]);
       string number = position.Substring(1);
 
-      int col = HeaderLetters.IndexOf(letter);
       int row =  Int32.Parse(number) - 1;
+      int col = HeaderLetters.IndexOf(letter);
 
       positions.Add(row);
       positions.Add(col);
 
       return positions;
+    }
+
+    // Verifica si todos los elementos de una lista son iguales
+
+    private bool allElementsAreEqual(List<int> array)
+    {
+      int index = 0;
+
+      for (index = 0; index < array.Count; index++)
+      {
+        if(array[0] == array[index])
+        { continue; } else
+        { break; }
+      }
+  
+      return index == array.Count;
+    }
+
+    // Verifica si todos los elementos de una lista son consecutivos
+
+    private bool allElementsAreConsecutives(List<int> array)
+    {
+      bool isConsecutive = true;
+
+      for (int i = 1; i < array.Count; i++)
+      {
+        if (array[i] - 1 != array[i - 1])
+        {
+          isConsecutive = false;
+          break;
+        }
+      }
+
+      return isConsecutive;
     }
   }
 }
