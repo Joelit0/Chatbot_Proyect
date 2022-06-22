@@ -182,7 +182,7 @@ namespace ChatBotProject
         }
       }
 
-      updateBoard("X", row, col);
+      if (this.Fields[row, col] != "X") { updateBoard("O", row, col); }
     }
 
     // Métodos de ayuda para board, por esa razón son privados
