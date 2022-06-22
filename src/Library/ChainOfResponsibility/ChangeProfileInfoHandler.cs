@@ -125,7 +125,8 @@ namespace ChatBotProject
             }
             else if (this.State == ChangeProfileInfoState.ChangePassword)
             {
-
+              this.Player.Password = message;
+              response = $"Su contraseña se ha cambiado a {this.Player.Password}";
             }
             else
             {

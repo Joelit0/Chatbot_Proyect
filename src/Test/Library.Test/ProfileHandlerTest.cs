@@ -16,7 +16,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void TestHandle()
+        public void TestHandle() //Verifica que ocurre si el handler puede manejar el comando inicial
         {
             string message = "";
             long Testid = 1234;
@@ -36,7 +36,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void TestDoesNotHandle()
+        public void TestDoesNotHandle() //Verifica que ocurre si el handler no puede manejar el comando inicial
         {
             string message = "adios";
             long Testid = 123456;

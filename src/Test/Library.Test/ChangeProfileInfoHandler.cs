@@ -14,7 +14,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void TestHandle()
+        public void TestHandle() //Verifica que ocurre si el handler puede manejar el comando inicial
         {
             
             string message = "";
@@ -30,7 +30,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void FullChangeNameInfoTest()
+        public void FullChangeNameInfoTest() //En este test comprobamos la funcionalidad del cambio de nombre.
         {
             
             string message = "";
@@ -52,7 +52,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void FullChangePasswordInfoTest()
+        public void FullChangePasswordInfoTest() //En este test comprobamos la funcionalidad del cambio de contraseña.
         {
             string message = "";
             long Testid = 0912348743;
@@ -73,7 +73,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void ChangeNameOnAlreadyRegisteredNameTest()
+        public void ChangeNameOnAlreadyRegisteredNameTest() //En este test verificamos que ocurre cuando ingresamos un nombre que ya esta registrado.
         { 
             long AlreadyRegisteredTestid = 747987427;
             UsersList.GetInstance().AddUser("AlreadyRegisteredName", "", AlreadyRegisteredTestid);
@@ -95,7 +95,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void ChangeToInvalidNameTest()
+        public void ChangeToInvalidNameTest() //En este test verificamos que ocurre cuando ingresamos un nombre inválido.
         {
             string message = "";
             long Testid = 9087423892;
@@ -115,7 +115,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void TestDoesNotHandle()
+        public void TestDoesNotHandle() //Verifica que ocurre si el handler no puede manejar el comando inicial
         {
             string message = "adios";
             long Testid = 123456;

@@ -16,7 +16,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void TestHandle()
+        public void TestHandle() //Verifica que ocurre si el handler puede manejar el comando inicial
         {
             string message = "";
             long Testid = 123456;
@@ -30,7 +30,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void FullRegisterTest()
+        public void FullRegisterTest() //En este test comprobamos la funcionalidad de registrarse como un usuario nuevo.
         {
             string message = "";
             long Testid = 123456;
@@ -52,7 +52,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void AlreadyRegisteredNameTest()
+        public void AlreadyRegisteredNameTest() //En este test verificamos que ocurre cuando ingresamos un nombre que ya esta registrado.
         {
             string message = "";
             long Testid = 123456;
@@ -68,7 +68,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void InvalidNameTest()
+        public void InvalidNameTest() //En este test verificamos que ocurre cuando ingresamos un nombre inválido.
         {
             string message = "";
             long Testid = 123456;
@@ -84,7 +84,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void WrongPasswordConfirmationTest()
+        public void WrongPasswordConfirmationTest() //En este test verificamos que ocurre cuando ingresamos de manera incorrecta la confirmación de la contraseña.
         {
             string message = "";
             long Testid = 123456;
@@ -106,7 +106,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void WrongPasswordConfirmationOutOfAttemptsTest()
+        public void WrongPasswordConfirmationOutOfAttemptsTest() //En este test verificamos que ocurre cuando ingresamos de manera incorrecta la confirmación de la contraseña y nos quedamos sin intentos.
         {
             string message = "";
             long Testid = 123456;
@@ -137,7 +137,7 @@ namespace ChatBotProject.Test
         }
 
         [Test]
-        public void TestDoesNotHandle()
+        public void TestDoesNotHandle() //Verifica que ocurre si el handler no puede manejar el comando inicial
         {
             string message = "adios";
             long Testid = 123456;
