@@ -1,5 +1,8 @@
 namespace ChatBotProject
 {
+  /// <summary>
+  /// La clase Board se encarga de crear el tablero y de todos los movimientos del mismo.
+  /// </summary>
   public class Board
   {
     // Constantes
@@ -11,7 +14,13 @@ namespace ChatBotProject
     private List<Ship> Ships;
     private string[,] Fields;
 
-    // Constructor
+    /// <summary>
+    /// Este es el constructor de Board.
+    /// Contiene la lista de barcos (List<Ship>) y los campos(Fiels).
+    /// Aquí también se llama al método generateBoard(), que nos crea un tablero con posiciones vacías.
+    /// </summary>
+    /// <param name="height">Es la altura del tablero.</param>
+    /// <param name="width">Es el ancho del tablero.</param>
     public Board(int height, int width)
     {
       this.Height = height;
@@ -46,6 +55,12 @@ namespace ChatBotProject
 
     // Lógica del tablero
 
+    /// <summary>
+    /// El método generateBoard crea un tablero con posiciones vacías.
+    /// row es una variable equivalente a las filas del tablero.
+    /// col es una variable equivalente a las columnas del tablero.
+    /// Se ponen guiones en todo el tablero vacio, respetando la altura y el ancho previamente pasado.
+    /// </summary>
     private void generateBoard()
     {
       // Llenar tablero de pocisiones vacías
@@ -56,11 +71,21 @@ namespace ChatBotProject
       }
     }
 
+    /// <summary>
+    /// Este método actualiza el tablero.
+    /// </summary>
+    /// <param name="value">Este parámetro tiene el valor que se quiere cambiar en el tablero</param>
+    /// <param name="row">Las filas del tablero</param>
+    /// <param name="col">Las columnas del tablero</param>
     public void updateBoard(string value, int row, int col)
     {
       this.Fields[row, col] = value;
     }
-
+    
+    /// <summary>
+    /// En este método se muestran los barcos.
+    /// Los barcos se representan con un simbolo "#".
+    /// </summary>
     public void showShips()
     {
       foreach(Ship ship in this.Ships)
@@ -77,6 +102,9 @@ namespace ChatBotProject
       }
     }
 
+    /// <summary>
+    /// No siempre se mostrarán los barcos en la partida, para esto está el método hideShips que cambia un barco que se está mostrando como "#" a "-"-
+    /// </summary>
     public void hideShips()
     {
       foreach(Ship ship in this.Ships)
@@ -94,7 +122,10 @@ namespace ChatBotProject
     }
 
     // Ship Lógica
-
+    /// <summary>
+    /// Se agrega el ship pasado como parámetro al tablero.
+    /// </summary>
+    /// <param name="positions">Posiciones para colocar el barco</param>
     public void addShip(List<string> positions)
     {
       // Si el board no contiene este ship, se agrega
@@ -103,13 +134,20 @@ namespace ChatBotProject
       if (shipIsValid(ship)) { this.Ships.Add(ship); }
     }
 
+    /// <summary>
+    /// Este método ve si el tablero contiene el barco que deseamos eliminar, y lo borra.
+    /// </summary>
+    /// <param name="ship">El barco que queremos eliminar.</param>
     public void removeShip(Ship ship)
     {
       // Si el board contiene el ship, se borra
       if (this.Ships.Contains(ship)) { this.Ships.Remove(ship); }
     }
 
-    // Retorna todos los ships del tablero
+    /// <summary>
+    /// Acá se retorna todos los ships del tablero.
+    /// </summary>
+    /// <returns></returns>
     public List<Ship> getShips()
     {
       return this.Ships;
@@ -156,8 +194,11 @@ namespace ChatBotProject
       return false;
     }
 
-    // Attack Lógica
-  
+    
+    /// <summary>
+    /// Lógica del ataque.
+    /// </summary>
+    /// <param name="position">Posición a atacar.</param>
     public void attack(string position)
     {
       var translatedPositions = translateToPositions(position);
@@ -186,9 +227,12 @@ namespace ChatBotProject
     }
 
     // Métodos de ayuda para board, por esa razón son privados
-
-    // Traducir las posiciones. Si recibe "A1" debería devolver [0,0]
-
+    
+    /// <summary>
+    /// Este método traduce las posiciones, si recibe "A1" debería delvoer [0.0]
+    /// </summary>
+    /// <param name="position">Se pasa la posición que se busca traducir</param>
+    /// <returns></returns>
     private List<int> translateToPositions(string position)
     {
       List<int> positions = new List<int>();
@@ -205,8 +249,11 @@ namespace ChatBotProject
       return positions;
     }
 
-    // Verifica si todos los elementos de una lista son iguales
-
+    /// <summary>
+    /// Verifica si todos los elementos de una lista son iguales.
+    /// </summary>
+    /// <param name="array">La lista para verificar.</param>
+    /// <returns></returns>
     private bool allElementsAreEqual(List<int> array)
     {
       int index = 0;
@@ -221,8 +268,11 @@ namespace ChatBotProject
       return index == array.Count;
     }
 
-    // Verifica si todos los elementos de una lista son consecutivos
-
+    /// <summary>
+    /// Verifica si todos los elementos de una lista son consecutivos. Retorna un booleano, si son consecutivos o no.
+    /// </summary>
+    /// <param name="array">La lista a verificar.</param>
+    /// <returns></returns>
     private bool allElementsAreConsecutives(List<int> array)
     {
       bool isConsecutive = true;
