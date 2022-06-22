@@ -1,5 +1,8 @@
 namespace ChatBotProject
 {
+  /// <summary>
+  /// Esta clase hace uso del Dependency Inversion Principle, ya que depende de una abstracción para implementar el metodo en vez de una clase normal.
+  /// </summary>
   public class ConsolePrinter : IPrinter
   {
     public void printBoard(Board board)
