@@ -79,6 +79,7 @@ namespace ChatBotProject
               {
                 this.State = MatchmakingState.CheckingAnswerForMatchmaking;
                 this.Player.InGame = true;
+                TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, $"{this.Player.Name} te ha desafiado a una partida");
                 response = "Se ha enviado la invitación al jugador, esperando su respuesta";
               }
               else

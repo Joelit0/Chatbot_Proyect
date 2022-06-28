@@ -13,11 +13,12 @@ namespace ChatBotProject
 {
   public class Program
   {
-    private static TelegramBotClient botClient;
+
     private static IHandler firstHandler;
     
     static void Main(string[] args)
     {
+      /*
       // ===========================================================
       // Lógica del juego
       List<User> users = new List<User>();
@@ -33,35 +34,35 @@ namespace ChatBotProject
       // ===========================================================
 
       // // ===========================================================
+      */
       // // Lógica del bot
-      // botClient = new TelegramBotClient("5466014301:AAG2N5FeZRHo4xFQq0dAS9LG24onUy0Ng00");
 
-      // firstHandler =
-      //   new HelpHandler(
-      //   new RegisterHandler(
-      //   new ProfileHandler(
-      //   new ChangeProfileInfoHandler(
-      //   new MatchmakingHandler(null)
-      // ))));
+       firstHandler =
+         new HelpHandler(
+         new RegisterHandler(
+         new ProfileHandler(
+         new ChangeProfileInfoHandler(
+         new MatchmakingHandler(null)
+       ))));
 
-      // var cts = new CancellationTokenSource();
+       var cts = new CancellationTokenSource();
 
-      // botClient.StartReceiving(
-      //           HandleUpdateAsync,
-      //           HandleErrorAsync,
-      //           new ReceiverOptions()
-      //           {
-      //               AllowedUpdates = Array.Empty<UpdateType>()
-      //           },
-      //           cts.Token);
+       TelegramBot.GetInstance().botClient.StartReceiving(
+                 HandleUpdateAsync,
+                 HandleErrorAsync,
+                 new ReceiverOptions()
+                 {
+                     AllowedUpdates = Array.Empty<UpdateType>()
+                 },
+                 cts.Token);
 
       // Console.WriteLine($"Bot is up!");
 
       // // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
-      // Console.ReadLine();
+       Console.ReadLine();
 
       // // Terminamos el bot.
-      // cts.Cancel();
+       cts.Cancel();
       // // ===========================================================
     }
     
