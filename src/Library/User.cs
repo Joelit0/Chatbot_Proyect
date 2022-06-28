@@ -26,6 +26,8 @@ namespace ChatBotProject
     /// <value></value>
     public string Password {get; set;}
 
+    public string LastMessage {get; set;}
+
     /// <summary>
     /// Esta propedad es utilizada para determinar si un jugador se encuentra o no en partida.
     /// </summary>

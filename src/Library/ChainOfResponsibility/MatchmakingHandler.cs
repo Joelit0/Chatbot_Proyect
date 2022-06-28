@@ -37,6 +37,19 @@ namespace ChatBotProject
 
         }
 
+        protected override bool CanHandle(string message)
+        {
+            if (this.State == MatchmakingState.Start)
+            {
+                return base.CanHandle(message);
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
 
         /// <summary>
         /// Procesa todos los mensajes y retorna true siempre.
@@ -89,6 +102,15 @@ namespace ChatBotProject
                     this.Player.InGame = false;
                   }
             }
+            /*
+            else if (this.State == MatchmakingState.AwaitingRivalNameForMatchmaking)
+            {
+              if (TelegramBot.GetInstance().botClient.GetChatAsync(RivalPlayer.ID))
+              {
+                
+              }
+            }
+            */
             else
             {
               response = string.Empty;
