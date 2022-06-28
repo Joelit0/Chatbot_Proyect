@@ -43,8 +43,9 @@ namespace ChatBotProject
          new RegisterHandler(
          new ProfileHandler(
          new ChangeProfileInfoHandler(
-         new MatchmakingHandler(null)
-       ))));
+         new MatchmakingHandler(
+         new GameHandler(null)
+       )))));
 
        var cts = new CancellationTokenSource();
 
@@ -98,6 +99,14 @@ namespace ChatBotProject
       Console.WriteLine($"Received a message from {message.From.FirstName} saying: {message.Text}");
 
       string response = string.Empty;
+
+      foreach(User player in UsersList.GetInstance().Users)
+      {
+        if (player.ID == message.MessageId)
+        {
+          player.LastMessage = message.Text;
+        }
+      }
 
       string messageContent = message.Text;
 

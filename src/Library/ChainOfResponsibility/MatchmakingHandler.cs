@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.Collections.Generic;
 using Telegram.Bot;
 
@@ -24,6 +25,11 @@ namespace ChatBotProject
         /// <summary>
         /// El estado del comando.
         /// </summary>
+        
+        public int GlobalMins = 0;
+
+        public int RoundSecs = 0;
+
         public MatchmakingState State { get; private set; }
 
         /// <summary>
@@ -34,7 +40,6 @@ namespace ChatBotProject
         {
             this.Keywords = new string[] { "/Matchmaking" };
             this.State = MatchmakingState.Start;
-
         }
 
         protected override bool CanHandle(string message)
@@ -68,12 +73,134 @@ namespace ChatBotProject
             if (this.State == MatchmakingState.Start && this.Player.Name == "")
             {
               this.State = MatchmakingState.Start;
-              response = "Usted no ha iniciado sesión, porfavor use /LogIn.";
+              response = "Usted no ha iniciado sesión, por favor use /LogIn.";
+            }
+            else if (this.State == MatchmakingState.Start && this.Player.Name != "" && this.Player.InGame == true)
+            {
+              this.State = MatchmakingState.Start;
+              response = "Usted ya tiene una partida creada, porfavor utiliza /Game para dirigirse a ella";
             }
             else if (this.State == MatchmakingState.Start && this.Player.Name != "")
             {
-              this.State = MatchmakingState.AwaitingRivalNameForMatchmaking;
-              response = "Introduce el nombre del usuario que quieres enfrentar";
+              this.State = MatchmakingState.AwaitingMatchmakingType;
+              StringBuilder MatchmakingHelp = new StringBuilder("Selecciona que tipo de partida estas buscando:\n")
+                                                                  .Append("/PvP: Una partida contra otro jugador\n")
+                                                                  .Append("/PvE: Una partida contra un npc controlado por el bot\n");
+              response = MatchmakingHelp.ToString();
+            }
+            else if (this.State == MatchmakingState.AwaitingMatchmakingType)
+            {
+              if (message == "/PvP")
+              {
+                this.State = MatchmakingState.AwaitingGlobalTimeConfig;
+                response = "¿Quiere jugar una partida por tiempo?\nIntroduzca /Si o /No para confirmar o denegar.";
+              }
+              else if (message == "/PvE")
+              {
+                this.State = MatchmakingState.AwaitingIaForMatchmaking;
+                response = "Prepárate para luchar contra la IA";
+              }
+              else
+              {
+                this.State = MatchmakingState.AwaitingMatchmakingType;
+                response = "Comando inválido, por favor intentelo nuevamente utilizando /PvP o /PvE";
+              }
+            }
+            else if (this.State == MatchmakingState.AwaitingGlobalTimeConfig)
+            {
+              if (message == "/Si")
+              {
+                this.State = MatchmakingState.AwaitingGlobalTime;
+                StringBuilder MatchmakingGlobalTimeHelp = new StringBuilder("Selecciona cuanto tiempo le gustaría que dure su partida:\n")
+                                                                  .Append("/10: Una partida de 10 min\n")
+                                                                  .Append("/20: Una partida de 20 min\n")
+                                                                  .Append("/20: Una partida de 20 min\n");
+                response = MatchmakingGlobalTimeHelp.ToString();
+              }
+              else if (message == "/No")
+              {
+                this.State = MatchmakingState.AwaitingRoundTimeConfig;
+                response = "¿Quiere añadir un límite de tiempo entre rondas?\nIntroduzca /Si o /No para confirmar o denegar.";
+              }
+              else
+              {
+                this.State = MatchmakingState.AwaitingGlobalTimeConfig;
+                response = "Comando inválido, por favor inténtelo de nuevo";
+              }
+            }
+            else if (this.State == MatchmakingState.AwaitingGlobalTime)
+            {
+              if ( message == "/10")
+              {
+                this.GlobalMins = 10;
+                this.State = MatchmakingState.AwaitingRoundTimeConfig;
+                response = "¿Quiere añadir un límite de tiempo entre rondas?\nIntroduzca /Si o /No para confirmar o denegar.";
+              }
+              else if ( message == "/20")
+              {
+                this.GlobalMins = 20;
+                this.State = MatchmakingState.AwaitingRoundTimeConfig;
+                response = "¿Quiere añadir un límite de tiempo entre rondas?\nIntroduzca /Si o /No para confirmar o denegar.";
+              }
+              else if ( message == "/20")
+              {
+                this.GlobalMins = 20;
+                this.State = MatchmakingState.AwaitingRoundTimeConfig;
+                response = "¿Quiere añadir un límite de tiempo entre rondas?\nIntroduzca /Si o /No para confirmar o denegar.";
+              }
+              else 
+              {
+                this.State = MatchmakingState.AwaitingGlobalTime;
+                response = "Comando invalido, por favor intentelo de nuevo";
+              }
+            }
+            else if (this.State == MatchmakingState.AwaitingRoundTimeConfig)
+            {
+              if (message == "/Si")
+              {
+                this.State = MatchmakingState.AwaitingRoundTime;
+                StringBuilder MatchmakingRoundTimeHelp = new StringBuilder("Selecciona cuanto tiempo le gustaría que duren sus rondas:\n")
+                                                                  .Append("/10: Una ronda de 10 segundos\n")
+                                                                  .Append("/20: Una ronda de 20 segundos\n")
+                                                                  .Append("/30: Una ronda de 30 segundos\n");
+                response = MatchmakingRoundTimeHelp.ToString();
+              }
+              else if (message == "/No")
+              {
+                this.State = MatchmakingState.AwaitingRivalNameForMatchmaking;
+                response = "Introduce el nombre del usuario que quieres enfrentar";
+              }
+              else
+              {
+                this.State = MatchmakingState.AwaitingRoundTimeConfig;
+                response = "Comando inválido, por favor inténtelo de nuevo";
+              }
+            }
+            else if (this.State == MatchmakingState.AwaitingRoundTime)
+            {
+              if ( message == "/10")
+              {
+                this.RoundSecs = 10;
+                this.State = MatchmakingState.AwaitingRivalNameForMatchmaking;
+                response = "Introduce el nombre del usuario que quieres enfrentar";
+              }
+              else if ( message == "/20")
+              {
+                this.RoundSecs = 20;
+                this.State = MatchmakingState.AwaitingRivalNameForMatchmaking;
+                response = "Introduce el nombre del usuario que quieres enfrentar";
+              }
+              else if ( message == "/30")
+              {
+                this.RoundSecs = 30;
+                this.State = MatchmakingState.AwaitingRivalNameForMatchmaking;
+                response = "Introduce el nombre del usuario que quieres enfrentar";
+              }
+              else 
+              {
+                this.State = MatchmakingState.AwaitingRoundTime;
+                response = "Comando invalido, por favor intentelo de nuevo";
+              }
             }
             else if (this.State == MatchmakingState.AwaitingRivalNameForMatchmaking)
             { 
@@ -88,27 +215,25 @@ namespace ChatBotProject
               }
               if (registeredRival == true && this.RivalPlayer.InGame == false)
               {
-                this.State = MatchmakingState.CheckingAnswerForMatchmaking;
+                List<User> matchedUsers = new List<User>();
+                matchedUsers.Add(Player);
+                matchedUsers.Add(RivalPlayer);
+                GamesList.GetInstance().AddGame(matchedUsers, this.GlobalMins, 0, 0, this.RoundSecs);
+                this.GlobalMins = 0;
+                this.RoundSecs = 0;
                 this.Player.InGame = true;
-                TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, $"{this.Player.Name} te ha desafiado a una partida");
-                response = "Se ha enviado la invitación al jugador, esperando su respuesta";
+                this.RivalPlayer.InGame = true;
+                TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, $"¡Prepárate!¡{this.Player.Name} te ha desafiado a una partida! Utiliza /Game para dirgitrte a tu partida.");
+                this.State = MatchmakingState.Start;
+                response = "Se ha creado la partida, usa /Game para dirigirte a tu partida. ¡Buena suerte!";
               }
               else
                   {
                     this.State = MatchmakingState.AwaitingRivalNameForMatchmaking;
-                    response = "Este usuario no existe o se encuentra en partida. Porfavor inténtalo de nuevo o prueba ponerte en contacto con dicho usuario";
+                    response = "Este usuario no existe o se encuentra en partida. por favor inténtalo de nuevo o prueba ponerte en contacto con dicho usuario";
                     this.Player.InGame = false;
                   }
             }
-            /*
-            else if (this.State == MatchmakingState.AwaitingRivalNameForMatchmaking)
-            {
-              if (TelegramBot.GetInstance().botClient.GetChatAsync(RivalPlayer.ID))
-              {
-                
-              }
-            }
-            */
             else
             {
               response = string.Empty;
@@ -134,10 +259,19 @@ namespace ChatBotProject
             ///asi pasar al siguiente estado.
             Start,
 
+            AwaitingMatchmakingType,
+
+            AwaitingGlobalTimeConfig,
+
+            AwaitingGlobalTime,
+
+            AwaitingRoundTimeConfig,
+
+            AwaitingRoundTime,
+
             AwaitingRivalNameForMatchmaking,
 
-            CheckingAnswerForMatchmaking
-      
+            AwaitingIaForMatchmaking
         }
     }
 }

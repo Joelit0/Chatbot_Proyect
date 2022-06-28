@@ -51,7 +51,6 @@ namespace ChatBotProject
             {
               StringBuilder helpStringBuilder = new StringBuilder("Lista de Comandos:\n")
                                                                             .Append("/Register: Registrate como un usuario nuevo\n")
-                                                                            .Append("/LogIn: Inicia sesión con un usuario ya creado\n")
                                                                             .Append("/Profile: Accede a tu perfil\n")
                                                                             .Append("/Matchmaking: Busca partida con un jugador que conoces\n");
               response = helpStringBuilder.ToString();
