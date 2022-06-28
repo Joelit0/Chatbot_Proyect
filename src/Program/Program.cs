@@ -28,7 +28,7 @@ namespace ChatBotProject
       users.Add(user1);
       users.Add(user2);
 
-      Game game = new Game(users, new Timer(20, 10), new Timer(2, 0));
+      Game game = new Game(users, 20, 10, 2, 0);
       game.StartGame();
       // ===========================================================
 
@@ -36,13 +36,15 @@ namespace ChatBotProject
       // // Lógica del bot
       // botClient = new TelegramBotClient("5466014301:AAG2N5FeZRHo4xFQq0dAS9LG24onUy0Ng00");
 
-      // firstHandler =
-      //   new HelpHandler(
+      // firstHandler = new HelpHandler(
       //   new RegisterHandler(
-      //   new ProfileHandler(
-      //   new ChangeProfileInfoHandler(
-      //   new MatchmakingHandler(null)
-      // ))));
+      //     new ProfileHandler(
+      //       new ChangeProfileInfoHandler(
+      //         new MatchmakingHandler(null)
+      //       )
+      //     )
+      //   )
+      // );
 
       // var cts = new CancellationTokenSource();
 

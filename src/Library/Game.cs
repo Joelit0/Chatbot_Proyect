@@ -9,13 +9,15 @@ namespace ChatBotProject
     private User Winner;
     private Dictionary<User, Board> UsersBoard;
 
-    public Game(List<User> users, Timer Time, Timer TimePerRound)
+    public Game(List<User> users, int totalMins, int totalSecs, int minsPerRound, int secsPerRound)
     {
       if (users.Count() == 2)
       {
         this.Users = users;
         this.InProgress = false;
         this.UsersBoard = new Dictionary<User, Board>();
+        this.Time = new Timer(totalMins, totalSecs);
+        this.TimePerRound = new Timer(minsPerRound, secsPerRound);
 
         // Llenar el diccionario con clave User y Valor Board
         foreach(User user in this.Users)
@@ -164,9 +166,9 @@ namespace ChatBotProject
     }
 
     // Users Getter
-    public User getUsers()
+    public List<User> getUsers()
     {
-      return this.Winner;
+      return this.Users;
     }
 
     // Time Getters & Setters
@@ -176,9 +178,10 @@ namespace ChatBotProject
       return this.Time;
     }
 
-    public void setTime(Timer time)
+    public void setTime(int mins, int secs)
     {
-      this.Time = time;
+      this.Time.setMins(mins);
+      this.Time.setSecs(secs);
     }
 
     // TimePerRound Getters & Setters
@@ -188,9 +191,10 @@ namespace ChatBotProject
       return this.TimePerRound;
     }
 
-    public void setTimePerRound(Timer timePerRound)
+    public void setTimePerRound(int mins, int secs)
     {
-      this.TimePerRound = timePerRound;
+      this.TimePerRound.setMins(mins);
+      this.TimePerRound.setSecs(secs);
     }
 
     // Devuelve el board del usuario que se le pase
