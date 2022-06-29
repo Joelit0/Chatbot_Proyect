@@ -8,6 +8,7 @@ using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.InputFiles;
+using System.Timers;
 
 namespace ChatBotProject
 {
@@ -15,21 +16,38 @@ namespace ChatBotProject
   {
     private static TelegramBotClient botClient;
     private static IHandler firstHandler;
-    
+    private static System.Timers.Timer aTimer;
+
     static void Main(string[] args)
     {
+      // Create a timer and set a one second interval.
+      aTimer = new System.Timers.Timer();
+      aTimer.Interval = 1000;
+
+      // Hook up the Elapsed event for the timer. 
+      aTimer.Elapsed += OnTimedEvent;
+
+      // Have the timer fire repeated events (true is the default)
+      aTimer.AutoReset = true;
+
+      // Start the timer
+      aTimer.Enabled = true;
+
+      Console.WriteLine("Press the Enter key to exit the program at any time... ");
+      Console.ReadLine();
+
       // ===========================================================
       // Lógica del juego
-      List<User> users = new List<User>();
+      // List<User> users = new List<User>();
 
-      User user1 = new User("Joel", "1234");
-      User user2 =new User("Rodrigo", "412f41");
+      // User user1 = new User("Joel", "1234");
+      // User user2 =new User("Rodrigo", "412f41");
 
-      users.Add(user1);
-      users.Add(user2);
+      // users.Add(user1);
+      // users.Add(user2);
 
-      Game game = new Game(users, 20, 10, 2, 0);
-      game.StartGame();
+      // Game game = new Game(users, 20, 10, 2, 0);
+      // game.StartGame();
       // ===========================================================
 
       // // ===========================================================
@@ -67,6 +85,11 @@ namespace ChatBotProject
       // // ===========================================================
     }
     
+    private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+    {
+      Console.WriteLine("La partida finalizo");
+    }
+
     /// <summary>
     /// Maneja las actualizaciones del bot (todo lo que llega), incluyendo mensajes, ediciones de mensajes,
     /// respuestas a botones, etc. En este ejemplo sólo manejamos mensajes de texto.
