@@ -83,7 +83,7 @@ namespace ChatBotProject
         public enum ProfileState
         {
 
-            ///-Start: Es el estadio inicial del comando.
+            ///-Start: Es el estado inicial del comando.
             Start,
 
         }
