@@ -37,6 +37,19 @@ namespace ChatBotProject
 
         }
 
+        protected override bool CanHandle(string message)
+        {
+            if (this.State == MatchmakingState.Start)
+            {
+                return base.CanHandle(message);
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
 
         /// <summary>
         /// Procesa todos los mensajes y retorna true siempre.
@@ -79,6 +92,7 @@ namespace ChatBotProject
               {
                 this.State = MatchmakingState.CheckingAnswerForMatchmaking;
                 this.Player.InGame = true;
+                TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, $"{this.Player.Name} te ha desafiado a una partida");
                 response = "Se ha enviado la invitación al jugador, esperando su respuesta";
               }
               else
@@ -88,6 +102,15 @@ namespace ChatBotProject
                     this.Player.InGame = false;
                   }
             }
+            /*
+            else if (this.State == MatchmakingState.AwaitingRivalNameForMatchmaking)
+            {
+              if (TelegramBot.GetInstance().botClient.GetChatAsync(RivalPlayer.ID))
+              {
+                
+              }
+            }
+            */
             else
             {
               response = string.Empty;
