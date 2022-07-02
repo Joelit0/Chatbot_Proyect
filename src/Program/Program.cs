@@ -29,7 +29,7 @@ namespace ChatBotProject
       users.Add(user1);
       users.Add(user2);
 
-      Game game = new Game(users, new Timer(20, 10), new Timer(2, 0));
+      Game game = new Game(users, 20, 10, 2, 0);
       game.StartGame();
       // ===========================================================
 
