@@ -47,6 +47,10 @@ namespace ChatBotProject
         this.Large -= 1;
         this.IsAlive = checkIsAlive();
       }
+      else
+      {
+        throw new PositionDoesNotExistException("Position does not exist");
+      }
     }
 
     // Verificar si el ship está vivo. Está vivo solo si su largo es mayor que 0
@@ -54,5 +58,13 @@ namespace ChatBotProject
     {
       return this.Large > 0;
     }
+
+    
+  }
+  
+  [Serializable]
+  public class PositionDoesNotExistException : Exception 
+  { 
+  public PositionDoesNotExistException(string message) : base(message) { }
   }
 }
