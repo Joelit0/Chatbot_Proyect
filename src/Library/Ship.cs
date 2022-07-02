@@ -62,6 +62,7 @@ namespace ChatBotProject
     
   }
   
+  //Excepción para cuando no existe la posisción pasada al metodo removePosition
   [Serializable]
   public class PositionDoesNotExistException : Exception 
   { 
