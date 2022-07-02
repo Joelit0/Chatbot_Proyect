@@ -21,16 +21,16 @@ namespace ChatBotProject
       /*
       // ===========================================================
       // Lógica del juego
-      List<User> users = new List<User>();
+      // List<User> users = new List<User>();
 
-      User user1 = new User("Joel", "1234");
-      User user2 =new User("Rodrigo", "412f41");
+      // User user1 = new User("Joel", "1234");
+      // User user2 =new User("Rodrigo", "412f41");
 
-      users.Add(user1);
-      users.Add(user2);
+      // users.Add(user1);
+      // users.Add(user2);
 
-      Game game = new Game(users, 20, 10, 2, 0);
-      game.StartGame();
+      // Game game = new Game(users, 20, 10, 2, 0);
+      // game.StartGame();
       // ===========================================================
 
       // // ===========================================================
