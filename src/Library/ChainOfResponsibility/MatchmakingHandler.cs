@@ -226,6 +226,7 @@ namespace ChatBotProject
                 TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, $"¡Prepárate!¡{this.Player.Name} te ha desafiado a una partida! Utiliza /Game para dirgitrte a tu partida.");
                 this.State = MatchmakingState.Start;
                 response = "Se ha creado la partida, usa /Game para dirigirte a tu partida. ¡Buena suerte!";
+
               }
               else
                   {

@@ -36,6 +36,8 @@ namespace ChatBotProject
     public bool InGame = false;
     public bool ReadyToStartMatch = false; 
 
+    public bool MyTurn = false;
+
     /// <summary>
     /// El constructor de la clase.
     /// </summary>
