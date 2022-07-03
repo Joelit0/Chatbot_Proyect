@@ -49,8 +49,6 @@ namespace ChatBotProject
             }
         }
 
-
-
         /// <summary>
         /// Procesa todos los mensajes y retorna true siempre.
         /// </summary>

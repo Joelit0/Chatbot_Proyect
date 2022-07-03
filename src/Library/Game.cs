@@ -44,7 +44,7 @@ namespace ChatBotProject
 
         userBoard.showShips();
 
-        telegramPrinter.printBoard(userBoard);
+        telegramPrinter.printBoard(userBoard, user.ID);
       }
 
       Board firstUserBoard = getUserBoard(this.Users[0]);
@@ -60,11 +60,11 @@ namespace ChatBotProject
 
         Console.WriteLine("Tu tablero:");
         firstUserBoard.showShips();
-        telegramPrinter.printBoard(firstUserBoard);
+        telegramPrinter.printBoard(firstUserBoard, this.Users[0].ID);
   
         Console.WriteLine($"Tablero de {this.Users[1].Name}:");
         secondUserBoard.hideShips(); // Oculta los barcos
-        telegramPrinter.printBoard(secondUserBoard);
+        telegramPrinter.printBoard(secondUserBoard, this.Users[0].ID);
 
         // Leer ataque
         attackPosition = Console.ReadLine().ToUpper();
@@ -77,11 +77,11 @@ namespace ChatBotProject
 
         Console.WriteLine("Tu tablero:");
         secondUserBoard.showShips();
-        telegramPrinter.printBoard(secondUserBoard);
+        telegramPrinter.printBoard(secondUserBoard, this.Users[1].ID);
   
         Console.WriteLine($"Tablero de {this.Users[0].Name}:");
         firstUserBoard.hideShips(); // Oculta los barcos
-        telegramPrinter.printBoard(firstUserBoard);
+        telegramPrinter.printBoard(firstUserBoard, this.Users[1].ID);
 
         // Leer ataque
         attackPosition = Console.ReadLine().ToUpper();

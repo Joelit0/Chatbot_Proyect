@@ -1,4 +1,9 @@
 using System.Text;
+using Telegram.Bot;
+using Telegram.Bot.Extensions.Polling;
+using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.InputFiles;
 
 namespace ChatBotProject
 {
@@ -9,32 +14,39 @@ namespace ChatBotProject
     /// Se encarga de imprimir el tablero en el mensaje que se envia al usuario.
     /// </summary>
 
-    public void printBoard(Board board)
+    public void printBoard(Board board, long id)
     {
-      StringBuilder helpStringBuilder = new StringBuilder("");
+      StringBuilder boardInText = new StringBuilder("");
 
-      helpStringBuilder.Append("   "); // Espacio entre columnas y filas
+      boardInText.Append("__"); // Espacio entre columnas y filas
 
       // Imprimir header de columnas
       for(int col = 0; col < board.getWidth(); col++)
       {
-        helpStringBuilder.Append($"{board.getHeaderLetters()[col]} ");
+        boardInText.Append($"{board.getHeaderLetters()[col]} ");
       }
 
-      helpStringBuilder.Append("\n"); // Final del header
+      boardInText.Append("\n"); // Final del header
   
       for(int row = 0; row < board.getHeight(); row++)
       {
-        helpStringBuilder.Append($"{row + 1}".PadRight(3)); // Imprimir rows sidebar
-
-        for(int col = 0; col < board.getWidth(); col++){ 
-          helpStringBuilder.Append($"{board.getFields()[row, col]}".PadRight(2));
+        if (row != 9)
+        {
+          boardInText.Append($"_{row + 1}".PadRight(3)); // Imprimir rows sidebar
+        }
+        else
+        {
+          boardInText.Append($"{row + 1}".PadRight(3)); // Imprimir rows sidebar
         }
 
-        helpStringBuilder.Append("\n");
+        for(int col = 0; col < board.getWidth(); col++){ 
+          boardInText.Append($"{board.getFields()[row, col]}".PadRight(3));
+        }
+
+        boardInText.Append("\n"); // Final de la fila
       }
 
-      Console.WriteLine(helpStringBuilder.ToString());
+      TelegramBot.GetInstance().botClient.SendTextMessageAsync(id, boardInText.ToString());
     }
   }
 }
