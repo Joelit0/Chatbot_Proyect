@@ -2,27 +2,27 @@ namespace ChatBotProject
 {
   public class Game
   {
-    private List<User> Users;
+    private List<User> InMatchUsers;
     private Timer Time;
     private Timer TimePerRound;
     private bool InProgress;
     private User Winner;
-    private Dictionary<User, Board> UsersBoard;
+    private Dictionary<User, Board> InMatchUsersBoard;
 
-    public Game(List<User> users, int totalMins, int totalSecs, int minsPerRound, int secsPerRound)
+    public Game(List<User> InMatchUsers, int totalMins, int totalSecs, int minsPerRound, int secsPerRound)
     {
-      if (users.Count() == 2)
+      if (InMatchUsers.Count() == 2)
       {
-        this.Users = users;
+        this.InMatchUsers = InMatchUsers;
         this.InProgress = false;
-        this.UsersBoard = new Dictionary<User, Board>();
+        this.InMatchUsersBoard = new Dictionary<User, Board>();
         this.Time = new Timer(totalMins, totalSecs);
         this.TimePerRound = new Timer(minsPerRound, secsPerRound);
 
         // Llenar el diccionario con clave User y Valor Board
-        foreach(User user in this.Users)
+        foreach(User user in this.InMatchUsers)
         {
-          this.UsersBoard.Add(user, new Board(10, 10));
+          this.InMatchUsersBoard.Add(user, new Board(10, 10));
         }
       }
     }
@@ -32,12 +32,12 @@ namespace ChatBotProject
       // Crear telegramPrinter de tipo IPrinter
       IPrinter telegramPrinter = new TelegramPrinter();
 
-      foreach(User user in this.Users)
+      foreach(User user in this.InMatchUsers)
       {
-        List<List<string>> userShipsPositions = getUserShipsPositions();
+        List<List<string>> InMatchUsershipsPositions = getInMatchUsershipsPositions();
         Board userBoard = getUserBoard(user);
 
-        foreach(List<string> shipPositions in userShipsPositions)
+        foreach(List<string> shipPositions in InMatchUsershipsPositions)
         {
           userBoard.addShip(shipPositions);
         }
@@ -47,24 +47,24 @@ namespace ChatBotProject
         telegramPrinter.printBoard(userBoard, user.ID);
       }
 
-      Board firstUserBoard = getUserBoard(this.Users[0]);
-      Board secondUserBoard = getUserBoard(this.Users[1]);
+      Board firstUserBoard = getUserBoard(this.InMatchUsers[0]);
+      Board secondUserBoard = getUserBoard(this.InMatchUsers[1]);
       string attackPosition;
 
       while(firstUserBoard.getShips().Count != 0 && secondUserBoard.getShips().Count != 0)
       {
         // Ataque del primer usuario
         Console.WriteLine("===============================================");
-        Console.WriteLine($"Turno de {this.Users[0].Name}");
+        Console.WriteLine($"Turno de {this.InMatchUsers[0].Name}");
         Console.WriteLine("===============================================");
 
         Console.WriteLine("Tu tablero:");
         firstUserBoard.showShips();
-        telegramPrinter.printBoard(firstUserBoard, this.Users[0].ID);
+        telegramPrinter.printBoard(firstUserBoard, this.InMatchUsers[0].ID);
   
-        Console.WriteLine($"Tablero de {this.Users[1].Name}:");
+        Console.WriteLine($"Tablero de {this.InMatchUsers[1].Name}:");
         secondUserBoard.hideShips(); // Oculta los barcos
-        telegramPrinter.printBoard(secondUserBoard, this.Users[0].ID);
+        telegramPrinter.printBoard(secondUserBoard, this.InMatchUsers[0].ID);
 
         // Leer ataque
         attackPosition = Console.ReadLine().ToUpper();
@@ -72,16 +72,16 @@ namespace ChatBotProject
 
         // Ataque del segundo usuario
         Console.WriteLine("===============================================");
-        Console.WriteLine($"Turno de {this.Users[1].Name}");
+        Console.WriteLine($"Turno de {this.InMatchUsers[1].Name}");
         Console.WriteLine("===============================================");
 
         Console.WriteLine("Tu tablero:");
         secondUserBoard.showShips();
-        telegramPrinter.printBoard(secondUserBoard, this.Users[1].ID);
+        telegramPrinter.printBoard(secondUserBoard, this.InMatchUsers[1].ID);
   
-        Console.WriteLine($"Tablero de {this.Users[0].Name}:");
+        Console.WriteLine($"Tablero de {this.InMatchUsers[0].Name}:");
         firstUserBoard.hideShips(); // Oculta los barcos
-        telegramPrinter.printBoard(firstUserBoard, this.Users[1].ID);
+        telegramPrinter.printBoard(firstUserBoard, this.InMatchUsers[1].ID);
 
         // Leer ataque
         attackPosition = Console.ReadLine().ToUpper();
@@ -89,9 +89,9 @@ namespace ChatBotProject
       }
 
       // Actualiza el ganador de la partida
-      if (firstUserBoard.getShips().Count == 0) { this.Winner = this.Users[1]; }
+      if (firstUserBoard.getShips().Count == 0) { this.Winner = this.InMatchUsers[1]; }
 
-      if (secondUserBoard.getShips().Count == 0) { this.Winner = this.Users[0]; }
+      if (secondUserBoard.getShips().Count == 0) { this.Winner = this.InMatchUsers[0]; }
 
       Console.WriteLine($"La partida terminó. El ganador es {this.Winner.Name}");
 
@@ -103,7 +103,7 @@ namespace ChatBotProject
       this.InProgress = false;
     }
 
-    private List<List<string>> getUserShipsPositions()
+    private List<List<string>> getInMatchUsershipsPositions()
     {
       List<List<string>> allShipsPositions = new List<List<string>>();
   
@@ -159,16 +159,16 @@ namespace ChatBotProject
 
     public void setWinner(User user)
     {
-      if (this.Users.Contains(user))
+      if (this.InMatchUsers.Contains(user))
       {
         this.Winner = user;
       }
     }
 
-    // Users Getter
-    public List<User> getUsers()
+    // InMatchUsers Getter
+    public List<User> getInMatchUsers()
     {
-      return this.Users;
+      return this.InMatchUsers;
     }
 
     // Time Getters & Setters
@@ -200,9 +200,9 @@ namespace ChatBotProject
     // Devuelve el board del usuario que se le pase
     public Board getUserBoard(User user)
     {
-      if (this.Users.Contains(user)) 
+      if (this.InMatchUsers.Contains(user)) 
       {
-        foreach (KeyValuePair<User, Board> userBoard in this.UsersBoard)
+        foreach (KeyValuePair<User, Board> userBoard in this.InMatchUsersBoard)
         {
           if (userBoard.Key == user)
           {

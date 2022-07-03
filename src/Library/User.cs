@@ -28,10 +28,15 @@ namespace ChatBotProject
 
     public string LastMessage {get; set;}
 
+    public string State {get; set;}
+
     /// <summary>
     /// Esta propedad es utilizada para determinar si un jugador se encuentra o no en partida.
     /// </summary>
     public bool InGame = false;
+    public bool ReadyToStartMatch = false; 
+
+    public bool MyTurn = false;
 
     /// <summary>
     /// El constructor de la clase.
@@ -60,6 +65,16 @@ namespace ChatBotProject
         this.id = value;
       }
 
+    }
+
+    public bool GetReadyToStartMatch()
+    {
+      return this.ReadyToStartMatch;
+    }
+
+    public void SetReadyToStartMatch(bool value)
+    {
+      this.ReadyToStartMatch = value;
     }
   }
 }
