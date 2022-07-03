@@ -54,7 +54,7 @@ namespace ChatBotProject
         /// RemoveUser es el encargado de remover usuarios de la lista.
         /// </summary>
         /// <param name="gameToBeRemoved">Es el nombre del usuario que será removido</param>
-        public void RemoveUser(Game gameToBeRemoved)
+        public void RemoveGame(Game gameToBeRemoved)
         {
           /*
           foreach (Game game in this.Games)

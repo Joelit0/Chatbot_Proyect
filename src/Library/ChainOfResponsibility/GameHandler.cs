@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.Collections.Generic;
 using Telegram.Bot;
 
@@ -25,6 +26,8 @@ namespace ChatBotProject
         /// El estado del comando.
         /// </summary>
         public GameState State { get; private set; }
+
+        public Game CurrentGame { get; private set; }
 
         /// <summary>
         /// Esta clase procesa el mensaje /Game.
@@ -60,59 +63,76 @@ namespace ChatBotProject
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override void InternalHandle(string message, long chatid, out string response)
         {   
-            foreach(User player in UsersList.GetInstance().Users)
+            foreach(Game game in GamesList.GetInstance().Games)
             {
-              if (player.ID == chatid)
+              if (game.getInMatchUsers()[0].ID == chatid)
               {
-                this.Player = player;
+                this.Player = game.getInMatchUsers()[0];
+                this.RivalPlayer = game.getInMatchUsers()[1];
+                this.CurrentGame = game;
               }
-            }
-            if (this.State == GameState.Start && this.Player.Name == "")
-            {
-              this.State = GameState.Start;
-              response = "Usted no ha iniciado sesión, porfavor use /LogIn.";
-            }
-            else if (this.State == GameState.Start && this.Player.Name != "")
-            {
-              this.State = GameState.AwaitingRivalNameForGame;
-              response = "Introduce el nombre del usuario que quieres enfrentar";
-            }
-            else if (this.State == GameState.AwaitingRivalNameForGame)
-            { 
-              bool registeredRival = false;  
-              foreach(User player in UsersList.GetInstance().Users)
+              else if (game.getInMatchUsers()[1].ID == chatid)
               {
-                  if (player.Name == message)
-                  {
-                    registeredRival = true;
-                    this.RivalPlayer = player;
-                  }
-              }
-              if (registeredRival == true && this.RivalPlayer.InGame == false)
-              {
-                List<User> matchedUsers = new List<User>();
-                matchedUsers.Add(Player);
-                matchedUsers.Add(RivalPlayer);
-                GamesList.GetInstance().AddGame(matchedUsers,);
-                this.State = GameState.CheckingAnswerForGame;
-                this.Player.InGame = true;
-                TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, $"¡Prepárate!{this.Player.Name} te ha desafiado a una partida!");
-                response = "Se ha creado la partida, usa /Game para dirigirte a tu partida, buena suerte!";
+                this.RivalPlayer = game.getInMatchUsers()[1];
+                this.Player = game.getInMatchUsers()[0];
+                this.CurrentGame = game;
               }
               else
-                  {
-                    this.State = GameState.AwaitingRivalNameForGame;
-                    response = "Este usuario no existe o se encuentra en partida. Porfavor inténtalo de nuevo o prueba ponerte en contacto con dicho usuario";
-                    this.Player.InGame = false;
-                  }
+              {
+                TelegramBot.GetInstance().botClient.SendTextMessageAsync(chatid, "No tiene ninguna partida creada, utilice /Matchmaking para crear una.");
+              }
+            }
+            if (this.State == GameState.Start && this.Player.Name != "" && this.RivalPlayer.Name != "")
+            {
+              this.State = GameState.ReadyToStartConfirmation;
+              StringBuilder GameLobbyHelpStringBuilder = new StringBuilder("Lista de Comandos:\n")
+                                                                            .Append("/Ready: Listo para iniciar la partida\n")
+                                                                            .Append("/Leave: Salir de la partida, esta acción eliminara la partida actual.\n");
+              response = GameLobbyHelpStringBuilder.ToString();
+            }
+            else if (this.State == GameState.ReadyToStartConfirmation)
+            {
+              if (message == "/Ready")
+              {
+                if (this.Player.ID == chatid)
+                {
+                  this.Player.SetReadyToStartMatch(true);
+                }
+                else if (this.RivalPlayer.ID == chatid)
+                {
+                  this.RivalPlayer.SetReadyToStartMatch(true);
+                }
+              }
+              else if (message == "/Leave")
+              {
+                Player.InGame = false;
+                Player.ReadyToStartMatch = false;
+                RivalPlayer.InGame = false;
+                RivalPlayer.ReadyToStartMatch = false;
+                GamesList.GetInstance().RemoveGame(this.CurrentGame);
+                response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
+                TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+                TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+              }
+              else
+              {
+                this.State = GameState.ReadyToStartConfirmation;
+                response = "Comando inválido, por favor intentelo nuevamente utilizando /Ready o /Leave";
+              }
+
+              response = string.Empty;
+            }
+            else if (this.Player.ReadyToStartMatch == true && this.RivalPlayer.ReadyToStartMatch == true )
+            {
+                this.CurrentGame.StartGame();
+                response = "La partida ha iniciado.";
             }
             else
             {
               response = string.Empty;
             }
-        }
-
-
+      }
+        
         /// <summary>
         /// Retorna este "handler" al estado inicial.
         /// </summary>
@@ -131,7 +151,7 @@ namespace ChatBotProject
             ///asi pasar al siguiente estado.
             Start,
 
-            AwaitingRivalNameForGame,
+            ReadyToStartConfirmation,
 
             CheckingAnswerForGame
       
