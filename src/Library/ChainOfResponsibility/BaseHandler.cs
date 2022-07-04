@@ -97,6 +97,7 @@ namespace ChatBotProject
             if (this.CanHandle(message))
             {
                 this.InternalHandle(message, chatid, out response);
+
                 return this;
             }
             else if (this.Next != null)

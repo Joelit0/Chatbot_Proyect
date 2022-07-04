@@ -1,5 +1,9 @@
 namespace ChatBotProject
 {
+  /// <summary>
+  /// Esta clase es la del barco.
+  /// Cada barco tiene un puntuaje (Score), largo (Large), el booleano para ver si está vivo o hundido(IsAlive) y sus posiciones (Positions).
+  /// </summary>
   public class Ship
   {
     protected int Score;
@@ -7,6 +11,10 @@ namespace ChatBotProject
     private bool IsAlive;
     private List<string> Positions;
 
+    /// <summary>
+    /// Este es el constructor del barco.
+    /// </summary>
+    /// <param name="positions">Tiene las posiciones del barco.</param>
     public Ship(List<string> positions)
     {
       this.Large = positions.Count();
@@ -15,30 +23,43 @@ namespace ChatBotProject
       this.Positions = positions;
     }
 
-    // Score Getter.
+    /// <summary>
+    /// Getter de Score.
+    /// </summary>
+    /// <returns></returns>
     public int getScore()
     {
       return this.Score;
     }
 
-    // Large Getter
+    /// <summary>
+    /// Getter de Large.
+    /// </summary>
+    /// <returns></returns>
     public int getLarge()
     {
       return this.Large;
     }
 
-    // Large Getter
+    /// <summary>
+    ///shipIsAlive se fija si el barco está vivo o hundido.
+    /// </summary>
+    /// <returns></returns>
     public bool shipIsAlive()
     {
       return this.IsAlive;
     }
-  
-    // Positions Getter
+
     public List<string> getPositions()
     {
       return this.Positions;
     }
 
+    /// <summary>
+    /// El método removePosition busca la posición dada por parámetro y la remueve.
+    /// Chequea si se hundió el barco o no (checkIsAlive)
+    /// </summary>
+    /// <param name="position"></param>
     public void removePosition(string position)
     {
       if(this.Positions.Contains(position))
@@ -53,7 +74,10 @@ namespace ChatBotProject
       }
     }
 
-    // Verificar si el ship está vivo. Está vivo solo si su largo es mayor que 0
+    /// <summary>
+    /// checkIsAlive verifica si el ship está vivo. Está vivo solo si su largo es mayor que 0.
+    /// </summary>
+    /// <returns></returns>
     public bool checkIsAlive()
     {
       return this.Large > 0;
