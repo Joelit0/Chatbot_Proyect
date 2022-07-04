@@ -51,7 +51,7 @@ namespace ChatBotProject
             if (this.State == ProfileState.Start && this.Player.Name == "")
             {
               this.State = ProfileState.Start;
-              response = "Usted no ha iniciado sesión, porfavor use /LogIn.";
+              response = "Usted no se ha registrado, porfavor use /Register.";
             }
             else if (this.State == ProfileState.Start && this.Player.Name != "")
             {

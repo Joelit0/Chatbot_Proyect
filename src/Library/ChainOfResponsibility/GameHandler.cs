@@ -83,6 +83,97 @@ namespace ChatBotProject
               }
             }
 
+            if (this.Player.ID == chatid)
+            {
+              if (this.Player.State == "ReadyOrNot")
+              {
+                this.State = GameState.ReadyToStartConfirmation;
+                StringBuilder GameLobbyHelpStringBuilder = new StringBuilder("Lista de Comandos:\n")
+                                                                              .Append("/Ready: Listo para iniciar la partida\n")
+                                                                              .Append("/Leave: Salir de la partida, esta acción eliminara la partida actual.\n");
+                response = GameLobbyHelpStringBuilder.ToString();
+                
+              }
+              else if (this.Player.State == "StartGame")
+              {
+                this.State = GameState.ReadyToStartConfirmation;
+              }
+
+              else if (this.State == GameState.Start && this.Player.Name != "" && this.RivalPlayer.Name != "")
+              {
+                this.State = GameState.ReadyToStartConfirmation;
+                this.Player.State = "ReadyOrNot";
+                StringBuilder GameLobbyHelpStringBuilder = new StringBuilder("Lista de Comandos:\n")
+                                                                              .Append("/Ready: Listo para comenzar a colocar los barcos\n")
+                                                                              .Append("/Leave: Salir de la partida, esta acción eliminara la partida actual.\n");
+                response = GameLobbyHelpStringBuilder.ToString();
+              }
+              else if (this.State == GameState.ReadyToStartConfirmation)
+              {
+                if (message == "/Ready")
+                {
+                  this.Player.SetReadyToStartMatch(true);
+                  /*
+                  if (this.Player.ID == chatid)
+                  {
+                    this.Player.SetReadyToStartMatch(true);
+                  }
+                  else if (this.RivalPlayer.ID == chatid)
+                  {
+                    this.RivalPlayer.SetReadyToStartMatch(true);
+                    this.RivalPlayer.State = "";
+                  }
+                  */
+                  this.State = GameState.ReadyToStart;
+                  this.Player.State = "StartGame";
+                  response = "Has confirmado que estas listo para empezar la partida";
+                }
+                else if (message == "/Leave")
+                {
+                  Player.InGame = false;
+                  Player.ReadyToStartMatch = false;
+                  RivalPlayer.InGame = false;
+                  RivalPlayer.ReadyToStartMatch = false;
+                  GamesList.GetInstance().RemoveGame(this.CurrentGame);
+                  response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
+                  TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+                  TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+                }
+                else
+                {
+                  this.State = GameState.ReadyToStartConfirmation;
+                  this.Player.State = "ReadyOrNot";
+                  response = "Comando inválido, por favor intentelo nuevamente utilizando /Ready o /Leave";
+                }
+              }
+              else if (this.State == GameState.ReadyToStart && this.Player.ReadyToStartMatch == true && this.RivalPlayer.ReadyToStartMatch == true)
+              {
+                Console.WriteLine("x");
+                this.CurrentGame.StartGame();
+                response = "La partida ha iniciado.";
+              }
+              else if (this.State == GameState.ReadyToStart)
+              {
+                this.State = GameState.Start;
+                response = "Esperando al otro usuario...";
+              }
+              else
+              {
+                response = string.Empty;
+              }
+            }
+            else if (this.RivalPlayer.ID == chatid)
+            {
+              if (this.RivalPlayer.State == "ReadyOrNot")
+              {
+                this.State = GameState.ReadyToStartConfirmation;
+              }
+              else if (this.RivalPlayer.State == "ReadyOrNot")
+              {
+                this.State = GameState.ReadyToStartConfirmation;
+              }
+            }
+
             if (this.State == GameState.Start && this.Player.Name != "" && this.RivalPlayer.Name != "")
             {
               this.State = GameState.ReadyToStartConfirmation;

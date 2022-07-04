@@ -30,7 +30,7 @@ namespace ChatBotProject
     {
       this.BotBoard.attack(attackPosition);
     }
-
+    
     public void printBotBoard()
     {
       this.BotBoard.hideShips();
@@ -42,7 +42,6 @@ namespace ChatBotProject
     {
       this.PlayerBoard.addShip(positions);
     }
-
     public void generateBotShips()
     {
       List<List<List<string>>> possibleShips = new List<List<List<string>>>() {
@@ -67,6 +66,7 @@ namespace ChatBotProject
       };
 
       int shipNumber = new Random().Next(0, 2);
+
 
       foreach (List<string> shipList in possibleShips[shipNumber])
       {

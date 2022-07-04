@@ -1,3 +1,4 @@
+
 using System;
 using System.Text;
 using System.Collections.Generic;
@@ -95,7 +96,7 @@ namespace ChatBotProject
         {
           Player.InGame = false;
           GamesVsIAList.GetInstance().RemoveGame(this.CurrentGame);
-          response = "La partida te has salido";
+          response = "Te has salido de la partida";
         }
         else
         {
