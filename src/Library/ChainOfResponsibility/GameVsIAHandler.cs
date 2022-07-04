@@ -83,8 +83,9 @@ namespace ChatBotProject
       {
         if (message == "/Ready")
         {
-          Player.InGame = true;
+          this.Player.InGame = true;
           this.Player.SetReadyToStartMatch(true);
+          this.CurrentGame.StartGame();
           this.CurrentGame.printPlayerBoard();
           this.CurrentGame.generateBotShips();
           response = "Ahora deberá ingresar el primer barco de 2 posiciones. Los barcos se ingresan de la siguiente manera **A1,A2,A3,A4** dependiendo del tamaño y posicion del barco";
@@ -130,13 +131,51 @@ namespace ChatBotProject
       {
         string[] shipPositions = message.Split(',');
         this.CurrentGame.AddShipToBoard(stringArrayToList(shipPositions));
-        response = "Todos los Ships correctos han sido colocados";
+
+        TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, "Tu tablero");
         this.CurrentGame.printPlayerBoard();
+
+        TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, "Tablero del bot");
+        this.CurrentGame.printBotBoard();
+
+        this.State = GameVsIAState.InGame;
+        response = "Comienze a atacar el Board del Bot. Por ejemplo, A1.";
       }
-      else if (this.State == GameVsIAState.ReadyToPlay && this.Player.ReadyToStartMatch)
+      else if (this.State == GameVsIAState.InGame && this.Player.ReadyToStartMatch)
       {
-        // this.CurrentGame.StartGame();
-        response = "La partida ha iniciado.";
+        if(this.CurrentGame.playerBoardHasShips() && this.CurrentGame.botBoardHasShips())
+        {
+          this.CurrentGame.attackBotBoard(message);
+
+          TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, "Tu tablero");
+          this.CurrentGame.printPlayerBoard();
+
+          TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, "Tablero del bot");
+          this.CurrentGame.printBotBoard();
+  
+          this.State = GameVsIAState.InGame;
+          response = "El bot te ha atacado. Ahora ingrese su siguiente ataque.";
+        }
+
+        if(!this.CurrentGame.playerBoardHasShips() || !this.CurrentGame.botBoardHasShips())
+        {
+          this.Player.InGame = false;
+          this.Player.SetReadyToStartMatch(false);
+          this.CurrentGame.FinishGame();
+          this.State = GameVsIAState.Start;
+
+          if (!this.CurrentGame.playerBoardHasShips())
+          {
+            response = "Has perdido";
+            this.CurrentGame.setWinner("BOT");
+          } else
+          {
+            response = "Felicidades, ganaste!";
+            this.CurrentGame.setWinner(this.Player.Name);
+          }
+        }
+
+        response = string.Empty;
       }
       else
       {
@@ -162,11 +201,11 @@ namespace ChatBotProject
       ///asi pasar al siguiente estado.
       Start,
       ReadyToPlayConfirmation,
-      ReadyToPlay,
       CreatingShip1,
       CreatingShip2,
       CreatingShip3,
-      CreatingShip4
+      CreatingShip4,
+      InGame
     }
 
     private List<String> stringArrayToList(string[] stringArray)

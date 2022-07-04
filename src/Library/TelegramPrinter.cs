@@ -18,12 +18,12 @@ namespace ChatBotProject
     {
       StringBuilder boardInText = new StringBuilder("");
 
-      boardInText.Append("__"); // Espacio entre columnas y filas
+      boardInText.Append(".."); // Espacio entre columnas y filas
 
       // Imprimir header de columnas
       for(int col = 0; col < board.getWidth(); col++)
       {
-        boardInText.Append($"{board.getHeaderLetters()[col]} ");
+        boardInText.Append($"{board.getHeaderLetters()[col]}.");
       }
 
       boardInText.Append("\n"); // Final del header
@@ -32,15 +32,15 @@ namespace ChatBotProject
       {
         if (row != 9)
         {
-          boardInText.Append($"_{row + 1}".PadRight(3)); // Imprimir rows sidebar
+          boardInText.Append($".{row + 1}".PadRight(3, '.')); // Imprimir rows sidebar
         }
         else
         {
-          boardInText.Append($"{row + 1}".PadRight(3)); // Imprimir rows sidebar
+          boardInText.Append($"{row + 1}".PadRight(3, '.')); // Imprimir rows sidebar
         }
 
         for(int col = 0; col < board.getWidth(); col++){ 
-          boardInText.Append($"{board.getFields()[row, col]}".PadRight(3));
+          boardInText.Append($"{board.getFields()[row, col]}".PadRight(3, '.'));
         }
 
         boardInText.Append("\n"); // Final de la fila
