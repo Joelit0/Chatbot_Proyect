@@ -15,6 +15,7 @@ namespace ChatBotProject
       this.Player = player;
       this.InProgress = false;
       this.PlayerBoard = new Board(10, 10);
+      this.BotBoard = new Board(10, 10);
       this.telegramPrinter = new TelegramPrinter();
     }
 
@@ -25,6 +26,18 @@ namespace ChatBotProject
       this.telegramPrinter.printBoard(this.PlayerBoard, this.Player.ID);
     }
 
+    public void attackBotBoard(string attackPosition)
+    {
+      this.BotBoard.attack(attackPosition);
+    }
+
+    public void printBotBoard()
+    {
+      this.BotBoard.hideShips();
+
+      this.telegramPrinter.printBoard(this.BotBoard, this.Player.ID);
+    }
+
     public void AddShipToBoard(List<string> positions)
     {
       this.PlayerBoard.addShip(positions);
@@ -32,81 +45,51 @@ namespace ChatBotProject
 
     public void generateBotShips()
     {
-      List<List<List<string>>> ships = new List<List<List<string>>>() {
-        [
-          ["J1", "J2"],
-          ["H1", "H2", "H3"],
-          ["H10", "G10", "I10", "J10"],
-          ["B3", "B4", "B5", "B6", "B7"]
-        ],
-        [
-          ["I1", "I2"],
-          ["C4", "C5", "C6"],
-          ["D10", "D9", "D8", "D7"],
-          ["J2", "I2", "H2", "G2", "F2"]
-        ],
-        [
-          ["F5", "F6"],
-          ["A1", "A2", "A3"],
-          ["A10", "B10", "C10", "D10"],
-          ["J8", "I8", "H8", "G8", "F8"]
-        ]
+      List<List<List<string>>> possibleShips = new List<List<List<string>>>() {
+        new List<List<string>>() {
+          new List<string>() {"J1", "J2"},
+          new List<string>() {"H1", "H2", "H3"},
+          new List<string>() {"H10", "G10", "I10", "J10"},
+          new List<string>() {"B3", "B4", "B5", "B6", "B7"}
+        },
+        new List<List<string>>() {
+          new List<string>() {"J1", "J2"},
+          new List<string>() {"H1", "H2", "H3"},
+          new List<string>() {"H10", "G10", "I10", "J10"},
+          new List<string>() {"B3", "B4", "B5", "B6", "B7"}
+        },
+        new List<List<string>>() {
+          new List<string>() {"J1", "J2"},
+          new List<string>() {"H1", "H2", "H3"},
+          new List<string>() {"H10", "G10", "I10", "J10"},
+          new List<string>() {"B3", "B4", "B5", "B6", "B7"}
+        }
       };
 
-      Random Rdn = new Random();
-      int shipNumber = Rdn.next(0, 2);
+      int shipNumber = new Random().Next(0, 2);
 
-      foreach (List<string> ship in ships[shipNumber])
+      foreach (List<string> shipList in possibleShips[shipNumber])
       {
-        Console.WriteLine(ship);
+        this.BotBoard.addShip(shipList);
       }
     }
 
-    // public void StartGame()
-    // {
-    //   Board firstUserBoard = getUserBoard(this.InMatchUsers[0]);
-    //   Board secondUserBoard = getUserBoard(this.InMatchUsers[1]);
-    //   string attackPosition;
+    public bool playerBoardHasShips()
+    {
+      return this.PlayerBoard.getShips().Count != 0;
+    }
 
-      // while(firstUserBoard.getShips().Count != 0 && secondUserBoard.getShips().Count != 0)
-      // {
-      //   // Ataque del primer usuario
-      //   Console.WriteLine("===============================================");
-      //   Console.WriteLine($"Turno de {this.InMatchUsers[0].Name}");
-      //   Console.WriteLine("===============================================");
+    public bool botBoardHasShips()
+    {
+      return this.BotBoard.getShips().Count != 0;
+    }
 
-      //   Console.WriteLine("Tu tablero:");
-      //   firstUserBoard.showShips();
-      //   telegramPrinter.printBoard(firstUserBoard, this.InMatchUsers[0].ID);
-  
-      //   Console.WriteLine($"Tablero de {this.InMatchUsers[1].Name}:");
-      //   secondUserBoard.hideShips(); // Oculta los barcos
-      //   telegramPrinter.printBoard(secondUserBoard, this.InMatchUsers[0].ID);
+    public void StartGame()
+    {
+      this.InProgress = true;
+    }
 
-      //   // Leer ataque
-      //   attackPosition = Console.ReadLine().ToUpper();
-      //   secondUserBoard.attack(attackPosition);
-
-      //   // Ataque del segundo usuario
-      //   Console.WriteLine("===============================================");
-      //   Console.WriteLine($"Turno de {this.InMatchUsers[1].Name}");
-      //   Console.WriteLine("===============================================");
-
-      //   Console.WriteLine("Tu tablero:");
-      //   secondUserBoard.showShips();
-      //   telegramPrinter.printBoard(secondUserBoard, this.InMatchUsers[1].ID);
-  
-      //   Console.WriteLine($"Tablero de {this.InMatchUsers[0].Name}:");
-      //   firstUserBoard.hideShips(); // Oculta los barcos
-      //   telegramPrinter.printBoard(firstUserBoard, this.InMatchUsers[1].ID);
-
-      //   // Leer ataque
-      //   attackPosition = Console.ReadLine().ToUpper();
-      //   firstUserBoard.attack(attackPosition);
-      // }
-    // }
-
-    private void FinishGame()
+    public void FinishGame()
     {
       this.InProgress = false;
     }
