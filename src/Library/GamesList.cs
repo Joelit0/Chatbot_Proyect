@@ -12,7 +12,7 @@ namespace ChatBotProject
     public class GamesList
     {
         /// <summary>
-        /// La lista de usuarios.
+        /// La lista de games.
         /// </summary>
         /// <returns></returns>
     
@@ -22,12 +22,7 @@ namespace ChatBotProject
         /// Instancia necesaria para aplicar Singleton.
         /// </summary>
         private static GamesList _instance;
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        private User userToRemove;
-        
+    
         /// <summary>
         /// Constructor privado, necesario para aplicar Singleton, asegurando que solo haya una instancia creada de esta clase.
         /// </summary>
@@ -43,11 +38,10 @@ namespace ChatBotProject
         /// <param name="password">La contraseña del usuario</param>
         /// <param name="chatId">La id del chat del usuario</param>
         /// <returns></returns>
-        public Game AddGame(List<User> users, int totalMins, int totalSecs, int minsPerRound, int secsPerRound)
+        public void AddGame(List<User> users, int totalMins, int totalSecs, int minsPerRound, int secsPerRound)
         {
             Game NewGame = new Game(users, totalMins, totalSecs, minsPerRound, secsPerRound);
             this.Games.Add(NewGame);
-            return NewGame;
         }
 
         /// <summary>
@@ -56,15 +50,6 @@ namespace ChatBotProject
         /// <param name="gameToBeRemoved">Es el nombre del usuario que será removido</param>
         public void RemoveGame(Game gameToBeRemoved)
         {
-          /*
-          foreach (Game game in this.Games)
-          {
-            if (user.Name == gameToBeRemoved)
-            {
-                userToRemove = user;
-            }
-          }
-          */
           this.Games.Remove(gameToBeRemoved);
         }
 
