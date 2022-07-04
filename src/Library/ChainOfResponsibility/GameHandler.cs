@@ -10,7 +10,6 @@ namespace ChatBotProject
     /// </summary>
     public class GameHandler : BaseHandler
     {
-
         /// <summary>
         /// Utilizamos esta propiedad para saber que usuario esta usando el handler.
         /// </summary>
@@ -22,11 +21,15 @@ namespace ChatBotProject
         /// </summary>
         /// <value></value>
         public User RivalPlayer { get; private set; }
+
         /// <summary>
         /// El estado del comando.
         /// </summary>
         public GameState State { get; private set; }
 
+        /// <summary>
+        /// El game actual.
+        /// </summary>
         public Game CurrentGame { get; private set; }
 
         /// <summary>
@@ -35,24 +38,21 @@ namespace ChatBotProject
 
         public GameHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "/Game" };
-            this.State = GameState.Start;
-
+          this.Keywords = new string[] { "/Game" };
+          this.State = GameState.Start;
         }
 
         protected override bool CanHandle(string message)
         {
-            if (this.State == GameState.Start)
-            {
-                return base.CanHandle(message);
-            }
-            else
-            {
-                return true;
-            }
+          if (this.State == GameState.Start)
+          {
+            return base.CanHandle(message);
+          }
+          else
+          {
+            return true;
+          }
         }
-
-
 
         /// <summary>
         /// Procesa todos los mensajes y retorna true siempre.
@@ -82,6 +82,7 @@ namespace ChatBotProject
                 TelegramBot.GetInstance().botClient.SendTextMessageAsync(chatid, "No tiene ninguna partida creada, utilice /Matchmaking para crear una.");
               }
             }
+
             if (this.State == GameState.Start && this.Player.Name != "" && this.RivalPlayer.Name != "")
             {
               this.State = GameState.ReadyToStartConfirmation;
@@ -101,7 +102,12 @@ namespace ChatBotProject
                 else if (this.RivalPlayer.ID == chatid)
                 {
                   this.RivalPlayer.SetReadyToStartMatch(true);
+                  this.RivalPlayer.State = "";
                 }
+
+                this.State = GameState.ReadyToStart;
+
+                response = "sd";
               }
               else if (message == "/Leave")
               {
@@ -119,26 +125,30 @@ namespace ChatBotProject
                 this.State = GameState.ReadyToStartConfirmation;
                 response = "Comando inválido, por favor intentelo nuevamente utilizando /Ready o /Leave";
               }
-
-              response = string.Empty;
             }
-            else if (this.Player.ReadyToStartMatch == true && this.RivalPlayer.ReadyToStartMatch == true )
+            else if (this.State == GameState.ReadyToStart && this.Player.ReadyToStartMatch && this.RivalPlayer.ReadyToStartMatch)
             {
-                this.CurrentGame.StartGame();
-                response = "La partida ha iniciado.";
+              Console.WriteLine("x");
+              this.CurrentGame.StartGame();
+              response = "La partida ha iniciado.";
+            }
+            else if (this.State == GameState.ReadyToStart)
+            {
+              this.State = GameState.Start;
+              response = "Esperando al otro usuario...";
             }
             else
             {
               response = string.Empty;
             }
-      }
+        }
         
         /// <summary>
         /// Retorna este "handler" al estado inicial.
         /// </summary>
         protected override void InternalCancel()
         {
-            this.State = GameState.Start;
+          this.State = GameState.Start;
         }
         
         /// <summary>
@@ -146,15 +156,12 @@ namespace ChatBotProject
         /// </summary>
         public enum GameState
         {
-
-            ///-Start: Es el estadio inicial del comando. En este comando pide el mensaje de invitación para
-            ///asi pasar al siguiente estado.
-            Start,
-
-            ReadyToStartConfirmation,
-
-            CheckingAnswerForGame
-      
+          ///-Start: Es el estado inicial del comando. En este comando pide el mensaje de invitación para
+          ///asi pasar al siguiente estado.
+          Start,
+          ReadyToStartConfirmation,
+          ReadyToStart,
+          CheckingAnswerForGame
         }
     }
 }

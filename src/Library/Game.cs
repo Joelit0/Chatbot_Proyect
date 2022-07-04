@@ -34,8 +34,11 @@ namespace ChatBotProject
 
       foreach(User user in this.InMatchUsers)
       {
-        List<List<string>> InMatchUsershipsPositions = getInMatchUsershipsPositions();
         Board userBoard = getUserBoard(user);
+    
+        telegramPrinter.printBoard(userBoard, user.ID);
+
+        List<List<string>> InMatchUsershipsPositions = getInMatchUsershipsPositions();
 
         foreach(List<string> shipPositions in InMatchUsershipsPositions)
         {
@@ -116,7 +119,7 @@ namespace ChatBotProject
   
       for(int i = 0; i < 2; i++)
       {
-        string position = Console.ReadLine().ToUpper();
+        string position = "A1";
         firstShipPositions.Add(position);
       }
 
@@ -124,7 +127,7 @@ namespace ChatBotProject
 
       for(int i = 0; i < 3; i++)
       {
-        string position = Console.ReadLine().ToUpper();
+        string position = "A2";
         secondShipPositions.Add(position);
       }
 
@@ -132,14 +135,14 @@ namespace ChatBotProject
 
       for(int i = 0; i < 4; i++)
       {
-        string position = Console.ReadLine().ToUpper();
+        string position = "A3";
         thirdShipPositions.Add(position);
       }
 
       Console.WriteLine("Ingrese las 5 pocisiones del ultimo barco: ");
       for(int i = 0; i < 5; i++)
       {
-        string position = Console.ReadLine().ToUpper();
+        string position = "A4";
         fourthShipPositions.Add(position);
       }
 

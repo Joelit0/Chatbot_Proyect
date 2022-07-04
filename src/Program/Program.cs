@@ -19,53 +19,39 @@ namespace ChatBotProject
 
     static void Main(string[] args)
     {
-      /*
-      // ===========================================================
-      // Lógica del juego
-      // List<User> users = new List<User>();
+      firstHandler = new HelpHandler(
+        new RegisterHandler(
+          new ProfileHandler(
+            new ChangeProfileInfoHandler(
+              new MatchmakingHandler(
+                new GameHandler(
+                  new GameVsIAHandler(
+                    null
+                  )
+                )
+              )
+            )
+          )
+        )
+      );
 
-      // User user1 = new User("Joel", "1234");
-      // User user2 =new User("Rodrigo", "412f41");
+      var cts = new CancellationTokenSource();
 
-      // users.Add(user1);
-      // users.Add(user2);
+      TelegramBot.GetInstance().botClient.StartReceiving(
+        HandleUpdateAsync,
+        HandleErrorAsync,
+        new ReceiverOptions()
+        {
+          AllowedUpdates = Array.Empty<UpdateType>()
+        },
+        cts.Token
+      );
 
-      // Game game = new Game(users, 20, 10, 2, 0);
-      // game.StartGame();
-      // ===========================================================
-
-      // // ===========================================================
-      */
-      // // Lógica del bot
-
-       firstHandler =
-         new HelpHandler(
-         new RegisterHandler(
-         new ProfileHandler(
-         new ChangeProfileInfoHandler(
-         new MatchmakingHandler(
-         new GameHandler(null)
-       )))));
-
-       var cts = new CancellationTokenSource();
-
-       TelegramBot.GetInstance().botClient.StartReceiving(
-                 HandleUpdateAsync,
-                 HandleErrorAsync,
-                 new ReceiverOptions()
-                 {
-                     AllowedUpdates = Array.Empty<UpdateType>()
-                 },
-                 cts.Token);
-
-      // Console.WriteLine($"Bot is up!");
-
-      // // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
-       Console.ReadLine();
+      // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
+      Console.ReadLine();
 
       // // Terminamos el bot.
-       cts.Cancel();
-      // // ===========================================================
+      cts.Cancel();
     }
 
     /// <summary>

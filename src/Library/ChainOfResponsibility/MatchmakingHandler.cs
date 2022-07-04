@@ -46,11 +46,11 @@ namespace ChatBotProject
         {
             if (this.State == MatchmakingState.Start)
             {
-                return base.CanHandle(message);
+              return base.CanHandle(message);
             }
             else
             {
-                return true;
+              return true;
             }
         }
 
@@ -70,6 +70,7 @@ namespace ChatBotProject
                 this.Player = player;
               }
             }
+
             if (this.State == MatchmakingState.Start && this.Player.Name == "")
             {
               this.State = MatchmakingState.Start;
@@ -97,8 +98,9 @@ namespace ChatBotProject
               }
               else if (message == "/PvE")
               {
-                this.State = MatchmakingState.AwaitingIaForMatchmaking;
-                response = "Prepárate para luchar contra la IA";
+                GamesVsIAList.GetInstance().AddGameVsIA(this.Player);
+                this.State = MatchmakingState.Start;
+                response = "Prepárate para luchar contra la IA. Introduzca /GameVsIA para ir a su partida.";
               }
               else
               {
@@ -229,11 +231,11 @@ namespace ChatBotProject
 
               }
               else
-                  {
-                    this.State = MatchmakingState.AwaitingRivalNameForMatchmaking;
-                    response = "Este usuario no existe o se encuentra en partida. por favor inténtalo de nuevo o prueba ponerte en contacto con dicho usuario";
-                    this.Player.InGame = false;
-                  }
+                {
+                  this.State = MatchmakingState.AwaitingRivalNameForMatchmaking;
+                  response = "Este usuario no existe o se encuentra en partida. por favor inténtalo de nuevo o prueba ponerte en contacto con dicho usuario";
+                  this.Player.InGame = false;
+                }
             }
             else
             {
@@ -241,13 +243,12 @@ namespace ChatBotProject
             }
         }
 
-
         /// <summary>
         /// Retorna este "handler" al estado inicial.
         /// </summary>
         protected override void InternalCancel()
         {
-            this.State = MatchmakingState.Start;
+          this.State = MatchmakingState.Start;
         }
         
         /// <summary>
@@ -259,20 +260,12 @@ namespace ChatBotProject
             ///-Start: Es el estadio inicial del comando. En este comando pide el mensaje de invitación para
             ///asi pasar al siguiente estado.
             Start,
-
             AwaitingMatchmakingType,
-
             AwaitingGlobalTimeConfig,
-
             AwaitingGlobalTime,
-
             AwaitingRoundTimeConfig,
-
             AwaitingRoundTime,
-
-            AwaitingRivalNameForMatchmaking,
-
-            AwaitingIaForMatchmaking
+            AwaitingRivalNameForMatchmaking
         }
     }
 }
