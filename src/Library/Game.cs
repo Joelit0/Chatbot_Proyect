@@ -6,7 +6,7 @@ namespace ChatBotProject
     private Timer Time;
     private Timer TimePerRound;
     private bool InProgress;
-    private User Winner;
+    private string Winner;
     private Dictionary<User, Board> InMatchUsersBoard;
     private TelegramPrinter telegramPrinter;
 
@@ -30,79 +30,10 @@ namespace ChatBotProject
 
     public void StartGame()
     {
-      // Crear telegramPrinter de tipo IPrinter
-      IPrinter telegramPrinter = new TelegramPrinter();
-
-      foreach(User user in this.InMatchUsers)
-      {
-        Board userBoard = getUserBoard(user);
-    
-        telegramPrinter.printBoard(userBoard, user.ID);
-
-        List<List<string>> InMatchUsershipsPositions = getInMatchUsershipsPositions();
-
-        foreach(List<string> shipPositions in InMatchUsershipsPositions)
-        {
-          userBoard.addShip(shipPositions);
-        }
-
-        userBoard.showShips();
-
-        telegramPrinter.printBoard(userBoard, user.ID);
-      }
-
-      Board firstUserBoard = getUserBoard(this.InMatchUsers[0]);
-      Board secondUserBoard = getUserBoard(this.InMatchUsers[1]);
-      string attackPosition;
-
-      while(firstUserBoard.getShips().Count != 0 && secondUserBoard.getShips().Count != 0)
-      {
-        // Ataque del primer usuario
-        Console.WriteLine("===============================================");
-        Console.WriteLine($"Turno de {this.InMatchUsers[0].Name}");
-        Console.WriteLine("===============================================");
-
-        Console.WriteLine("Tu tablero:");
-        firstUserBoard.showShips();
-        telegramPrinter.printBoard(firstUserBoard, this.InMatchUsers[0].ID);
-  
-        Console.WriteLine($"Tablero de {this.InMatchUsers[1].Name}:");
-        secondUserBoard.hideShips(); // Oculta los barcos
-        telegramPrinter.printBoard(secondUserBoard, this.InMatchUsers[0].ID);
-
-        // Leer ataque
-        attackPosition = Console.ReadLine().ToUpper();
-        secondUserBoard.attack(attackPosition);
-
-        // Ataque del segundo usuario
-        Console.WriteLine("===============================================");
-        Console.WriteLine($"Turno de {this.InMatchUsers[1].Name}");
-        Console.WriteLine("===============================================");
-
-        Console.WriteLine("Tu tablero:");
-        secondUserBoard.showShips();
-        telegramPrinter.printBoard(secondUserBoard, this.InMatchUsers[1].ID);
-  
-        Console.WriteLine($"Tablero de {this.InMatchUsers[0].Name}:");
-        firstUserBoard.hideShips(); // Oculta los barcos
-        telegramPrinter.printBoard(firstUserBoard, this.InMatchUsers[1].ID);
-
-        // Leer ataque
-        attackPosition = Console.ReadLine().ToUpper();
-        firstUserBoard.attack(attackPosition);
-      }
-
-      // Actualiza el ganador de la partida
-      if (firstUserBoard.getShips().Count == 0) { this.Winner = this.InMatchUsers[1]; }
-
-      if (secondUserBoard.getShips().Count == 0) { this.Winner = this.InMatchUsers[0]; }
-
-      Console.WriteLine($"La partida terminó. El ganador es {this.Winner.Name}");
-
-      FinishGame();
+      this.InProgress = true;
     }
 
-    private void FinishGame()
+    public void FinishGame()
     {
       this.InProgress = false;
     }
@@ -223,16 +154,20 @@ namespace ChatBotProject
     
 
     // Winner Getters & Setters
-    public User getWinner()
+    public string getWinner()
     {
       return this.Winner;
     }
 
-    public void setWinner(User user)
+    public void setWinner(string winner)
     {
-      if (this.InMatchUsers.Contains(user))
+      foreach( User player in this.InMatchUsers)
       {
-        this.Winner = user;
+        if (player.Name == winner)
+        {
+          this.Winner = winner;
+        }
+        
       }
     }
 

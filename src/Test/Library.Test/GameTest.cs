@@ -24,9 +24,9 @@ namespace ChatBotProject.Test
 
       Game game = new Game(users, 20, 10, 2, 0);
 
-      game.setWinner(joelUser);
+      game.setWinner(joelUser.Name);
 
-      Assert.AreEqual(game.getWinner(), joelUser);
+      Assert.AreEqual(game.getWinner(), joelUser.Name);
     }
 
     // Este test se encarga de verificar que no setee un usuario como ganador si este no pertenece al Game.
@@ -39,7 +39,7 @@ namespace ChatBotProject.Test
 
       User otherUser = new User("Juan", "0904");
 
-      game.setWinner(otherUser);
+      game.setWinner(otherUser.Name);
 
       Assert.AreEqual(game.getWinner(), null);
     } 

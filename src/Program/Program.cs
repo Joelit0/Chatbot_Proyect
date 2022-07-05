@@ -95,7 +95,7 @@ namespace ChatBotProject
       }
 
       UsersList.GetInstance().AddUser("TestUser","TestPassword",56468496842);
-      
+      UsersList.GetInstance().AddUser("B","TestPassword2",5489768110);
       UsersList.GetInstance().AddUser("RodrigoTest","RodrigoTestPassword",5575587972);
       string messageContent = message.Text;
 
