@@ -110,7 +110,7 @@ namespace ChatBotProject
                   UsersList newUsers = UsersList.GetInstance();
                   newUsers.AddUser(this.SentName, this.SentPassword, chatid);
                   Console.WriteLine($"Su id es {chatid}");
-                  response = "Felicidades, se ha registrado con éxito! Utilice /LogIn para iniciar sesión.";
+                  response = "¡Felicidades, se ha registrado con éxito!";
                   this.intentos = 3;
                   this.State = RegisterState.Start;
                 }

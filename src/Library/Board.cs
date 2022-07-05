@@ -209,7 +209,7 @@ namespace ChatBotProject
       {
         foreach(string shipPosition in ship.getPositions())
         {
-          if(position == shipPosition)
+          if(position.ToUpper() == shipPosition)
           {
             updateBoard("X", row, col);
             ship.removePosition(shipPosition);
@@ -240,7 +240,7 @@ namespace ChatBotProject
       char letter = Char.ToUpper(position[0]);
       string number = position.Substring(1);
 
-      int row =  Int32.Parse(number) - 1;
+      int row = Int32.Parse(number) - 1;
       int col = HeaderLetters.IndexOf(letter);
 
       positions.Add(row);
