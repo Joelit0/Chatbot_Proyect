@@ -434,6 +434,8 @@ namespace ChatBotProject
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
                   this.RivalPlayer.State = "RivalPlayerStart";
+                  this.Player.State = "PlayerStart";
+                  this.CurrentGame = null;
                   this.State = GameState.RivalPlayerStart;
                   
                 }
