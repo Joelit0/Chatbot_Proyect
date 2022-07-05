@@ -143,8 +143,11 @@ namespace ChatBotProject
       }
       else if (this.State == GameVsIAState.InGame && this.Player.ReadyToStartMatch)
       {
+        response = string.Empty;
+
         if(this.CurrentGame.playerBoardHasShips() && this.CurrentGame.botBoardHasShips())
         {
+          this.CurrentGame.botAttack();
           this.CurrentGame.attackBotBoard(message);
 
           TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, "Tu tablero");
@@ -164,18 +167,16 @@ namespace ChatBotProject
           this.CurrentGame.FinishGame();
           this.State = GameVsIAState.Start;
 
-          if (!this.CurrentGame.playerBoardHasShips())
-          {
-            response = "Has perdido";
-            this.CurrentGame.setWinner("BOT");
-          } else
+          if (this.CurrentGame.playerBoardHasShips())
           {
             response = "Felicidades, ganaste!";
             this.CurrentGame.setWinner(this.Player.Name);
+          } else
+          {
+            response = "Has perdido";
+            this.CurrentGame.setWinner("BOT");
           }
         }
-
-        response = string.Empty;
       }
       else
       {
