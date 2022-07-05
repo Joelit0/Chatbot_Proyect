@@ -63,28 +63,6 @@ namespace ChatBotProject
           {
             return base.CanHandle(message);
           }
-          /*
-          else if (this.State == GameState.PlayerReadyToStartConfirmation)
-          {
-            return base.CanHandle(message);
-          }
-          else if (this.State == GameState.PlayerPlacingShip1)
-          {
-            return base.CanHandle(message);
-          }
-          else if (this.State == GameState.RivalPlayerStart)
-          {
-            return base.CanHandle(message);
-          }
-          else if (this.State == GameState.RivalPlayerReadyToStartConfirmation)
-          {
-            return base.CanHandle(message);
-          }
-          else if (this.State == GameState.RivalPlayerPlacingShip1)
-          {
-            return base.CanHandle(message);
-          }
-          */
           else
           {
             return true;
@@ -101,6 +79,8 @@ namespace ChatBotProject
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override void InternalHandle(string message, long chatid, out string response)
         {   
+            //Utilizamos las siguientes variables así como el foreach para identificar a los usuarios 
+            //que interactuan con el bot y poder guiarlos por el flujo adecuado.
             bool RealPlayer = false;
             bool RealRivalPlayer = false;
             foreach(Game game in GamesList.GetInstance().Games)
@@ -122,54 +102,65 @@ namespace ChatBotProject
                 TelegramBot.GetInstance().botClient.SendTextMessageAsync(chatid, "No tiene ninguna partida creada, utilice /Matchmaking para crear una.");
               }
             }
-
+            //Flujo del player, el jugador que crea la partida siempre será identificado
+            //como player.
             if (this.Player.ID == chatid)
             {
               Console.WriteLine("Entro al flujo de Player");
               RealPlayer = true;
-              //Estados de Usuario
+              //Estados de Usuario, los usamos para guardar la ubicación de un usuario dentro del 
+              //handler.
               if (RealPlayer == true)
               {
+                // Este estado de usuario está asociado al estado PlayerStart del handler.
                 if (this.Player.State == "PlayerStart")
                 {
                   this.State = GameState.PlayerStart;
                   response = "PlayerStart";
                 }
+                // Este estado de usuario está asociado al estado PlayerReadyToStartConfirmation del handler.
                 else if (this.Player.State == "PlayerReadyToStartConfirmation")
                 {
                   this.State = GameState.PlayerReadyToStartConfirmation;
                   response = "Entro al estado de usuario PlayerReadyToStartConfirmation";
                 }
+                // Este estado de usuario está asociado al estado PlayerPlacingShip1 del handler.
                 else if (this.Player.State == "PlayerPlacingShip1")
                 {
                   this.State = GameState.PlayerPlacingShip1;
                   response = "Entro al estado de usuario PlayerPlacingShip1";
                 }
+                // Este estado de usuario está asociado al estado PlayerPlacingShip2 del handler.
                 else if (this.Player.State == "PlayerPlacingShip2")
                 {
                   this.State = GameState.PlayerPlacingShip2;
                   response = "Entro al estado de usuario PlayerPlacingShip2";
                 }
+                // Este estado de usuario está asociado al estado PlayerPlacingShip3 del handler.
                 else if (this.Player.State == "PlayerPlacingShip3")
                 {
                   this.State = GameState.PlayerPlacingShip3;
                   response = "Entro al estado de usuario PlayerPlacingShip3";
                 }
+                // Este estado de usuario está asociado al estado PlayerPlacingShip4 del handler.
                 else if (this.Player.State == "PlayerPlacingShip4")
                 {
                   this.State = GameState.PlayerPlacingShip4;
                   response = "Entro al estado de usuario PlayerPlacingShip4";
                 }
+                // Este estado de usuario está asociado al estado PlayerBeginConfirmation del handler.
                 else if (this.Player.State == "PlayerBeginConfirmation")
                 {
                   this.State = GameState.PlayerBeginConfirmation;
                   response = "Entro al estado de usuario PlayerBeginConfirmation";
                 }
+                // Este estado de usuario está asociado al estado PlayerReadyToStart del handler.
                 else if (this.Player.State == "PlayerReadyToStart")
                 {
                   this.State = GameState.PlayerReadyToStart;
                   response = "Entro al estado de usuario PlayerReadyToStart";
                 }
+                // Este estado de usuario está asociado al estado PlayerPvpBattleship del handler.
                 else if (this.Player.State == "PlayerPvpBattleship")
                 {
                   this.State = GameState.PlayerPvpBattleship;
@@ -177,8 +168,10 @@ namespace ChatBotProject
                 }
               }
               //Estados del Handler
+    
               if (this.State == GameState.PlayerStart && this.Player.Name != "" && this.RivalPlayer.Name != "")
               {
+                //En el estado PlayerStart se espera que el mensaje recibido contenga /Matchmaking.
                 this.State = GameState.PlayerReadyToStartConfirmation;
                 this.Player.State = "PlayerReadyToStartConfirmation";
                 StringBuilder GameLobbyHelpStringBuilder = new StringBuilder("Lista de Comandos:\n")
@@ -188,8 +181,11 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerReadyToStartConfirmation)
               {
+                //En el estado PlayerStart se espera que el mensaje recibido contenga /Ready o /Leave
+                //para poder continuar progresando a lo largo del handler.
                 if (message == "/Ready")
                 {
+                  //En caso de que el mensaje recibido sea /Ready, continuamos nuestra progresión a travez del handler.
                   this.State = GameState.PlayerPlacingShip1;
                   this.Player.State = "PlayerPlacingShip1";
                   this.CurrentGame.PrintPlayerBoardToSelf();
@@ -197,6 +193,8 @@ namespace ChatBotProject
                 }
                 else if (message == "/Leave")
                 {
+                  //En caso de que el mensaje recibido sea /Leave, entendemos que el usuario quiere retirarse de la partida
+                  //por lo que acabamos con la progresión del handler y eliminamos la partida..
                   Player.InGame = false;
                   Player.ReadyToStartMatch = false;
                   RivalPlayer.InGame = false;
@@ -210,6 +208,8 @@ namespace ChatBotProject
                 }
                 else
                 {
+                  //En caso de que el usuario ingrese un comando inválido, se lo enviará al comienzo de esta etapa,
+                  //por lo que tendrá que decidir si enviar /Ready o /Leave nuevamente.
                   this.State = GameState.PlayerReadyToStartConfirmation;
                   this.Player.State = "PlayerReadyToStartConfirmation";
                   response = "Comando inválido, por favor intentelo nuevamente utilizando /Ready o /Leave";
@@ -217,6 +217,8 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerPlacingShip1)
               {
+                //En el estado PlayerPlacingShip1 se espera que el mensaje recibido contenga las 
+                //coordenadas de una nave de 2 posiciones.
                 string[] shipPositions = message.ToUpper().Split(',');
                 this.CurrentGame.PlayerAddShipToBoard(stringArrayToList(shipPositions));
                 this.CurrentGame.PrintPlayerBoardToSelf();
@@ -226,6 +228,8 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerPlacingShip2)
               {
+                //En el estado PlayerPlacingShip2 se espera que el mensaje recibido contenga las 
+                //coordenadas de una nave de 3 posiciones.
                 string[] shipPositions = message.ToUpper().Split(',');
                 this.CurrentGame.PlayerAddShipToBoard(stringArrayToList(shipPositions));
                 this.CurrentGame.PrintPlayerBoardToSelf();
@@ -235,6 +239,8 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerPlacingShip3)
               {
+                //En el estado PlayerPlacingShip3 se espera que el mensaje recibido contenga las 
+                //coordenadas de una nave de 4 posiciones.
                 string[] shipPositions = message.ToUpper().Split(',');
                 this.CurrentGame.PlayerAddShipToBoard(stringArrayToList(shipPositions));
                 this.CurrentGame.PrintPlayerBoardToSelf();
@@ -244,6 +250,8 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerPlacingShip4)
               {
+                //En el estado PlayerPlacingShip4 se espera que el mensaje recibido contenga las 
+                //coordenadas de una nave de 5 posiciones.
                 string[] shipPositions = message.ToUpper().Split(',');
                 this.CurrentGame.PlayerAddShipToBoard(stringArrayToList(shipPositions));
                 this.CurrentGame.PrintPlayerBoardToSelf();
