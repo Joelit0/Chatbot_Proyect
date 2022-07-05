@@ -60,6 +60,7 @@ namespace ChatBotProject.Test
       List<User> users = new List<User>() { new User("Joel", "1234") };
 
       Game game = new Game(users, 20, 10, 2, 0);
+
       Assert.AreNotEqual(game.getInMatchUsers(), users);
     }
 
