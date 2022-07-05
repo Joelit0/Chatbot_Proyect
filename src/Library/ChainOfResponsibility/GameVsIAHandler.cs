@@ -140,7 +140,7 @@ namespace ChatBotProject
         this.CurrentGame.printBotBoard();
 
         this.State = GameVsIAState.InGame;
-        response = "Comienze a atacar el Board del Bot. Por ejemplo, A1.";
+        response = "Comience a atacar el Board del Bot. Por ejemplo, A1.";
       }
       else if (this.State == GameVsIAState.InGame && this.Player.ReadyToStartMatch)
       {
