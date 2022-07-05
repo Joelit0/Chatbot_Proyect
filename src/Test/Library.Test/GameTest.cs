@@ -51,7 +51,7 @@ namespace ChatBotProject.Test
       List<User> users = new List<User>() { new User("Joel", "1234"), new User("Rodrigo", "abcd") };
 
       Game game = new Game(users, 20, 10, 2, 0);
-      Assert.AreEqual(game.getUsers(), users);
+      Assert.AreEqual(game.getUser(), users);
     }
 
     [Test]
@@ -60,7 +60,7 @@ namespace ChatBotProject.Test
       List<User> users = new List<User>() { new User("Joel", "1234") };
 
       Game game = new Game(users, 20, 10, 2, 0);
-      Assert.AreNotEqual(game.getUsers(), users);
+      Assert.AreNotEqual(game.getUser(), users);
     }
 
     // Este test verifica que se cree el UserBoard correctamente. Tambien funciona como test del getter de UserBoard
