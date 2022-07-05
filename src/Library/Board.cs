@@ -209,7 +209,7 @@ namespace ChatBotProject
       {
         foreach(string shipPosition in ship.getPositions())
         {
-          if(position == shipPosition)
+          if(position.ToUpper() == shipPosition)
           {
             updateBoard("X", row, col);
             ship.removePosition(shipPosition);

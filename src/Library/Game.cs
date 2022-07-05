@@ -38,55 +38,6 @@ namespace ChatBotProject
       this.InProgress = false;
     }
 
-    private List<List<string>> getInMatchUsershipsPositions()
-    {
-      List<List<string>> allShipsPositions = new List<List<string>>();
-  
-      List<string> firstShipPositions = new List<string>();
-      List<string> secondShipPositions = new List<string>();
-      List<string> thirdShipPositions = new List<string>();
-      List<string> fourthShipPositions = new List<string>();
-
-      Console.WriteLine("Ingrese las 2 pocisiones del primer barco: ");
-  
-      for(int i = 0; i < 2; i++)
-      {
-        string position = "A1";
-        firstShipPositions.Add(position);
-      }
-
-      Console.WriteLine("Ingrese las 3 pocisiones del segundo barco: ");
-
-      for(int i = 0; i < 3; i++)
-      {
-        string position = "A2";
-        secondShipPositions.Add(position);
-      }
-
-      Console.WriteLine("Ingrese las 4 pocisiones del tercer barco: ");
-
-      for(int i = 0; i < 4; i++)
-      {
-        string position = "A3";
-        thirdShipPositions.Add(position);
-      }
-
-      Console.WriteLine("Ingrese las 5 pocisiones del ultimo barco: ");
-      for(int i = 0; i < 5; i++)
-      {
-        string position = "A4";
-        fourthShipPositions.Add(position);
-      }
-
-      allShipsPositions.Add(firstShipPositions);
-      allShipsPositions.Add(secondShipPositions);
-      allShipsPositions.Add(thirdShipPositions);
-      allShipsPositions.Add(fourthShipPositions);
-
-      return allShipsPositions;
-    }
-
-
     public void PrintPlayerBoardToSelf()
     {
       Board firstUserBoard = getUserBoard(this.InMatchUsers[0]);
@@ -147,8 +98,14 @@ namespace ChatBotProject
 
     public void AttackPlayerBoard(string attackPosition)
     {
+      
       Board firstUserBoard = getUserBoard(this.InMatchUsers[0]);
       firstUserBoard.attack(attackPosition);
+      Console.WriteLine($"{attackPosition}");
+      foreach (Ship ship in firstUserBoard.getShips())
+      {
+        Console.WriteLine(ship.getLarge());
+      }
     }
 
     

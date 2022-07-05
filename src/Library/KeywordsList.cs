@@ -16,7 +16,7 @@ namespace ChatBotProject
         /// </summary>
         private KeywordsList()
         {
-            this.BannedKeywords = new List<string>() {"/LogIn","/Profile", "/Matchmacking", "/Help", "/Register"};
+            this.BannedKeywords = new List<string>() {"/LogIn","/Profile", "/Matchmacking", "/Help", "/Register", "/ChangeInfo"};
         }
 
         /// <summary>

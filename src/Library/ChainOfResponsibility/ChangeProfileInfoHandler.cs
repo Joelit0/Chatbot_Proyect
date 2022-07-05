@@ -54,6 +54,7 @@ namespace ChatBotProject
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override void InternalHandle(string message, long chatid, out string response)
         {   
+            bool registeredUser = false;
             foreach(User player in UsersList.GetInstance().Users)
             {
               if (player.ID == chatid)
@@ -61,73 +62,109 @@ namespace ChatBotProject
                 this.Player = player;
               }
             }
-            if (this.State == ChangeProfileInfoState.Start && this.Player.Name == "")
+            if (this.Player.ID == chatid)
             {
-              this.State = ChangeProfileInfoState.Start;
-              response = "Usted no ha iniciado sesión, porfavor use /LogIn.";
-            }
-            else if (this.State == ChangeProfileInfoState.Start && this.Player.Name != "")
-            {
-              this.State = ChangeProfileInfoState.AwaitingWhatToChange;
-              response = "Porfavor use /Name si quiere cambiar su nombre y /Password si quiere cambiar su contraseña";
-            }
-            else if (this.State == ChangeProfileInfoState.AwaitingWhatToChange)
-            {
-              if (message == "/Name")
+              registeredUser = true;
+              response = string.Empty;
+              
+              //Estados del Usuario
+              if (registeredUser == true)
               {
-                this.State = ChangeProfileInfoState.ChangeName;
-                response = "Introduzca su nuevo nombre";
-              }
-              else if (message == "/Password")
-              {
-                this.State = ChangeProfileInfoState.ChangePassword;
-                response = "Introduzca su nueva contraseña";
-              }
-              else
-              {
-                this.State = ChangeProfileInfoState.AwaitingWhatToChange;
-                response = "Comando Invalido! Porfavor use /Name si quiere cambiar su nombre o /Password si quiere cambiar su contraseña";
-              }
-            }
-            else if (this.State == ChangeProfileInfoState.ChangeName)
-            {
-              bool alreadyRegistered = false;
-              foreach(User player in UsersList.GetInstance().Users)
-              {
-                  if (player.Name == message)
+                if (this.Player.State == "AwaitingWhatToChange")
                   {
-                    alreadyRegistered = true;
+                    this.State = ChangeProfileInfoState.AwaitingWhatToChange;
+                    response = "AwaitingWhatToChange";
                   }
-              }
-              bool bannedName = false;
-              foreach( string bannedKeyword in KeywordsList.GetInstance().BannedKeywords)
-              {
-                  if (bannedKeyword == message)
+                else if (this.Player.State == "ChangeName")
                   {
-                    bannedName = true;
-                  }
-              }    
-              if (alreadyRegistered == true)
-              {
-                this.State = ChangeProfileInfoState.ChangeName;
-                response = "Este nombre de usuario ya existe, porfavor ingresa otro";                
+                    this.State = ChangeProfileInfoState.ChangeName;
+                    response = "ChangeName";
+                  }   
+                else if (this.Player.State == "ChangePassword")
+                  {
+                    this.State = ChangeProfileInfoState.ChangePassword;
+                    response = "ChangePassword";
+                  }             
               }
-              else if (bannedName == true)
+              //Estados del Handler
+              if (this.State == ChangeProfileInfoState.Start && this.Player.Name == "")
               {
-                this.State = ChangeProfileInfoState.ChangeName;
-                response = "Este nombre de usuario no es válido"; 
-              }
-              else
-              {
-                this.Player.Name = message;
+                
                 this.State = ChangeProfileInfoState.Start;
-                response = $"Su nombre de usuario se ha cambiado a {this.Player.Name}";
+                response = "Usted no se ha registrado, porfavor use /Register.";
               }
-            }
-            else if (this.State == ChangeProfileInfoState.ChangePassword)
-            {
-              this.Player.Password = message;
-              response = $"Su contraseña se ha cambiado a {this.Player.Password}";
+              else if (this.State == ChangeProfileInfoState.Start && this.Player.Name != "")
+              {
+                this.Player.State = "AwaitingWhatToChange";
+                this.State = ChangeProfileInfoState.AwaitingWhatToChange;
+                response = "Porfavor use /Name si quiere cambiar su nombre y /Password si quiere cambiar su contraseña";
+              }
+              else if (this.State == ChangeProfileInfoState.AwaitingWhatToChange)
+              {
+                if (message == "/Name")
+                {
+                  this.Player.State = "ChangeName";
+                  this.State = ChangeProfileInfoState.ChangeName;
+                  response = "Introduzca su nuevo nombre";
+                }
+                else if (message == "/Password")
+                {
+                  this.Player.State = "ChangePassword";
+                  this.State = ChangeProfileInfoState.ChangePassword;
+                  response = "Introduzca su nueva contraseña";
+                }
+                else
+                {
+                  this.Player.State = "AwaitingWhatToChange";
+                  this.State = ChangeProfileInfoState.AwaitingWhatToChange;
+                  response = "Comando Invalido! Porfavor use /Name si quiere cambiar su nombre o /Password si quiere cambiar su contraseña";
+                }
+              }
+              else if (this.State == ChangeProfileInfoState.ChangeName)
+              {
+                bool alreadyRegistered = false;
+                foreach(User player in UsersList.GetInstance().Users)
+                {
+                    if (player.Name == message)
+                    {
+                      alreadyRegistered = true;
+                    }
+                }
+                bool bannedName = false;
+                foreach( string bannedKeyword in KeywordsList.GetInstance().BannedKeywords)
+                {
+                    if (bannedKeyword == message)
+                    {
+                      bannedName = true;
+                    }
+                }    
+                if (alreadyRegistered == true)
+                {
+                  this.Player.State = "ChangeName";
+                  this.State = ChangeProfileInfoState.ChangeName;
+                  response = "Este nombre de usuario ya existe, porfavor ingresa otro";                
+                }
+                else if (bannedName == true)
+                {
+                  this.Player.State = "ChangeName";
+                  this.State = ChangeProfileInfoState.ChangeName;
+                  response = "Este nombre de usuario no es válido"; 
+                }
+                else
+                {
+                  this.Player.Name = message;
+                  this.Player.State = "";
+                  this.State = ChangeProfileInfoState.Start;
+                  response = $"Su nombre de usuario se ha cambiado a {this.Player.Name}";
+                }
+              }
+              else if (this.State == ChangeProfileInfoState.ChangePassword)
+              {
+                this.Player.Password = message;
+                response = $"Su contraseña se ha cambiado a {this.Player.Password}";
+                this.Player.State = "";
+                this.State = ChangeProfileInfoState.Start;
+              }
             }
             else
             {
