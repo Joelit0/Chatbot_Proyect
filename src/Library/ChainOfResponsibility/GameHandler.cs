@@ -308,6 +308,7 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerPvpBattleship)
               {
+                response = string.Empty;
                 if (this.CurrentGame.PlayerBoardHasShips() && this.CurrentGame.RivalPlayerBoardHasShips())
                 {
                   if (this.Player.MyTurn == true)
@@ -338,11 +339,26 @@ namespace ChatBotProject
                     response = "No sé que pasó";
                   }
                 }
-                else
+                if(!this.CurrentGame.PlayerBoardHasShips() || !this.CurrentGame.RivalPlayerBoardHasShips()) //Revisa si uno de los tableros ya no tiene barcos.
                 {
-                  this.State = GameState.PlayerStart;
+                  this.Player.InGame = false;
+                  this.Player.SetReadyToStartMatch(false);
+                  this.RivalPlayer.InGame = false;
+                  this.RivalPlayer.SetReadyToStartMatch(false);
+                  this.CurrentGame.FinishGame();
                   this.Player.State = "PlayerStart";
-                  response = "alguien perdio";
+                  this.State = GameState.PlayerStart;
+                  
+                  if (this.CurrentGame.RivalPlayerBoardHasShips())
+                  {
+                    response = $"Felicidades {this.Player.Name}, ganaste!";
+                    this.CurrentGame.setWinner(this.Player.Name);
+                  } 
+                  else
+                  {
+                    response = $"Lo siento {this.Player.Name}, pero has perdido";
+                    this.CurrentGame.setWinner(this.RivalPlayer.Name);
+                  }
                 }
               }
               else
