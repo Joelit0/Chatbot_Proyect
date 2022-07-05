@@ -33,7 +33,7 @@ namespace ChatBotProject
     {
       this.telegramPrinter.printBoard(this.BotBoard, this.Player.ID);
     }
-
+    
     public void botAttack()
     {
       bool invalidBotAttack = true;
@@ -63,7 +63,6 @@ namespace ChatBotProject
     {
       this.PlayerBoard.addShip(positions);
     }
-
     public void generateBotShips()
     {
       List<List<List<string>>> possibleShips = new List<List<List<string>>>() {
@@ -88,6 +87,7 @@ namespace ChatBotProject
       };
 
       int shipNumber = new Random().Next(0, 2);
+
 
       foreach (List<string> shipList in possibleShips[shipNumber])
       {

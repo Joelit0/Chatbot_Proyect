@@ -12,7 +12,7 @@ namespace ChatBotProject
     /// en estre caso de Telegram.
     /// </summary>
     /// <value></value>
-    private long id {get; set;}
+    private long id = 0;
     /// <summary>
     /// El nombre del usuario.
     /// </summary>

@@ -1,3 +1,4 @@
+
 using System;
 using System.Text;
 using System.Collections.Generic;
@@ -95,7 +96,7 @@ namespace ChatBotProject
         {
           Player.InGame = false;
           GamesVsIAList.GetInstance().RemoveGame(this.CurrentGame);
-          response = "La partida te has salido";
+          response = "Te has salido de la partida";
         }
         else
         {
@@ -139,7 +140,7 @@ namespace ChatBotProject
         this.CurrentGame.printBotBoard();
 
         this.State = GameVsIAState.InGame;
-        response = "Comienze a atacar el Board del Bot. Por ejemplo, A1.";
+        response = "Comience a atacar el Board del Bot. Por ejemplo, A1.";
       }
       else if (this.State == GameVsIAState.InGame && this.Player.ReadyToStartMatch)
       {
