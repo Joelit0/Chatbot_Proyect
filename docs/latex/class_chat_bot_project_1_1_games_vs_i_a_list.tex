@@ -1,0 +1,97 @@
+\hypertarget{class_chat_bot_project_1_1_games_vs_i_a_list}{}\doxysection{Games\+Vs\+IAList Class Reference}
+\label{class_chat_bot_project_1_1_games_vs_i_a_list}\index{GamesVsIAList@{GamesVsIAList}}
+
+
+\mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}} es el experto en conocer a todos los usuarios, y por el patron Expert este tambien es quien posee la responsabilidad de agregar y/o remover Usuario. Debido a que \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}} contiene instancias de \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}, por Creator, esta clase debe tener la responsabilidad de crear dichas instancias.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list_accca5ff80bb8712248669dde1046456e}{Add\+Game\+Vs\+IA}} (\mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}} player)
+\begin{DoxyCompactList}\small\item\em Siguiendo el patrón Creator Add\+Game es el encargado de crear las nuevas \mbox{\hyperlink{class_chat_bot_project_1_1_game_vs_i_a}{Game\+Vs\+IA}} y a su vez los añade a Games\+Vs\+IA. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list_ae5aa96e766863c97e7a80b631b6addd8}{Remove\+Game}} (\mbox{\hyperlink{class_chat_bot_project_1_1_game_vs_i_a}{Game\+Vs\+IA}} game\+To\+Be\+Removed)
+\begin{DoxyCompactList}\small\item\em Remove\+Game\+Vs\+IA es el encargado de remover una \mbox{\hyperlink{class_chat_bot_project_1_1_game_vs_i_a}{Game\+Vs\+IA}} de Games\+Vs\+IA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}} \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list_ac621a360feb16f89c9e97cd16755e59e}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Sirve para aplicar el singleton, verifica si la propiedad \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}} es nula y si no es nula te devuelve el valor de la propiedad. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{class_chat_bot_project_1_1_game_vs_i_a}{Game\+Vs\+IA}} $>$ \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list_a97d7be180c50b2dc83b8560c35af8354}{Games\+Vs\+IA}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em La lista de \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}} es el experto en conocer a todos los usuarios, y por el patron Expert este tambien es quien posee la responsabilidad de agregar y/o remover Usuario. Debido a que \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}} contiene instancias de \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}, por Creator, esta clase debe tener la responsabilidad de crear dichas instancias. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_games_vs_i_a_list_accca5ff80bb8712248669dde1046456e}\label{class_chat_bot_project_1_1_games_vs_i_a_list_accca5ff80bb8712248669dde1046456e}} 
+\index{GamesVsIAList@{GamesVsIAList}!AddGameVsIA@{AddGameVsIA}}
+\index{AddGameVsIA@{AddGameVsIA}!GamesVsIAList@{GamesVsIAList}}
+\doxysubsubsection{\texorpdfstring{AddGameVsIA()}{AddGameVsIA()}}
+{\footnotesize\ttfamily void Add\+Game\+Vs\+IA (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Siguiendo el patrón Creator Add\+Game es el encargado de crear las nuevas \mbox{\hyperlink{class_chat_bot_project_1_1_game_vs_i_a}{Game\+Vs\+IA}} y a su vez los añade a Games\+Vs\+IA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & El usuario que juega la partida\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_games_vs_i_a_list_ac621a360feb16f89c9e97cd16755e59e}\label{class_chat_bot_project_1_1_games_vs_i_a_list_ac621a360feb16f89c9e97cd16755e59e}} 
+\index{GamesVsIAList@{GamesVsIAList}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!GamesVsIAList@{GamesVsIAList}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}} Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Sirve para aplicar el singleton, verifica si la propiedad \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}} es nula y si no es nula te devuelve el valor de la propiedad. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_games_vs_i_a_list_ae5aa96e766863c97e7a80b631b6addd8}\label{class_chat_bot_project_1_1_games_vs_i_a_list_ae5aa96e766863c97e7a80b631b6addd8}} 
+\index{GamesVsIAList@{GamesVsIAList}!RemoveGame@{RemoveGame}}
+\index{RemoveGame@{RemoveGame}!GamesVsIAList@{GamesVsIAList}}
+\doxysubsubsection{\texorpdfstring{RemoveGame()}{RemoveGame()}}
+{\footnotesize\ttfamily void Remove\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chat_bot_project_1_1_game_vs_i_a}{Game\+Vs\+IA}}}]{game\+To\+Be\+Removed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove\+Game\+Vs\+IA es el encargado de remover una \mbox{\hyperlink{class_chat_bot_project_1_1_game_vs_i_a}{Game\+Vs\+IA}} de Games\+Vs\+IA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+To\+Be\+Removed} & El \mbox{\hyperlink{class_chat_bot_project_1_1_game}{Game}} que será removido\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_games_vs_i_a_list_a97d7be180c50b2dc83b8560c35af8354}\label{class_chat_bot_project_1_1_games_vs_i_a_list_a97d7be180c50b2dc83b8560c35af8354}} 
+\index{GamesVsIAList@{GamesVsIAList}!GamesVsIA@{GamesVsIA}}
+\index{GamesVsIA@{GamesVsIA}!GamesVsIAList@{GamesVsIAList}}
+\doxysubsubsection{\texorpdfstring{GamesVsIA}{GamesVsIA}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_chat_bot_project_1_1_game_vs_i_a}{Game\+Vs\+IA}}$>$ Games\+Vs\+IA\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+La lista de \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/Games\+Vs\+IAList.\+cs\end{DoxyCompactItemize}

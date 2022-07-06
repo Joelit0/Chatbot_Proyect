@@ -546,7 +546,6 @@ namespace ChatBotProject
               {
                 if (message == "/Begin")
                 {
-                  Console.WriteLine("Llegamos hasta aca");
                   this.RivalPlayer.SetReadyToStartMatch(true);
                   this.RivalPlayer.State = "RivalPlayerReadyToStart"; 
                   this.State = GameState.RivalPlayerReadyToStart;
@@ -580,7 +579,6 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.RivalPlayerReadyToStart)
               {
-                Console.WriteLine("Y hasta aca también llegamos");
                 if (this.RivalPlayer.ReadyToStartMatch == true && this.Player.ReadyToStartMatch == true)
                 {
                   this.RivalPlayer.State = "RivalPlayerPvpBattleship";

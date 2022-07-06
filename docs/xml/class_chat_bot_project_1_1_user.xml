@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_chat_bot_project_1_1_user" kind="class" language="C#" prot="public">
+    <compoundname>ChatBotProject::User</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_user_1a7350fbd6ad10618f3b750b1f99ca5c3c" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>ChatBotProject.User.id</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Esta propiedad privada guarda el id de la sesión por la cual el usuario esta interactuando en estre caso de Telegram. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="15" column="18" bodyfile="src/Library/User.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_chat_bot_project_1_1_user_1a7ee9065718e6628dc7791b756fa6c0f9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>ChatBotProject.User.Name</qualifiedname>
+        <briefdescription>
+<para>El nombre del usuario. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="20" column="19" bodyfile="src/Library/User.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="property" id="class_chat_bot_project_1_1_user_1a9c7aae3a8518d5efd22e991b5944e0d4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Password</definition>
+        <argsstring></argsstring>
+        <name>Password</name>
+        <qualifiedname>ChatBotProject.User.Password</qualifiedname>
+        <briefdescription>
+<para>La contraseña del usuario. esta propiedad es creada para poder verificar ciertas acciones más delicadas, sirviendo como una forma de que el usuario de su consentimiento para ejecutar dichas funciones. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="27" column="19" bodyfile="src/Library/User.cs" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="property" id="class_chat_bot_project_1_1_user_1a008e2421bafecce5a94045b08706aa31" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string LastMessage</definition>
+        <argsstring></argsstring>
+        <name>LastMessage</name>
+        <qualifiedname>ChatBotProject.User.LastMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="29" column="19" bodyfile="src/Library/User.cs" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="property" id="class_chat_bot_project_1_1_user_1a522e965bbae5a9446d697aa3c704331d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string State</definition>
+        <argsstring></argsstring>
+        <name>State</name>
+        <qualifiedname>ChatBotProject.User.State</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="31" column="19" bodyfile="src/Library/User.cs" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="property" id="class_chat_bot_project_1_1_user_1ae9c27346afc38e44402e452477847b53" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>long</type>
+        <definition>long ID</definition>
+        <argsstring></argsstring>
+        <name>ID</name>
+        <qualifiedname>ChatBotProject.User.ID</qualifiedname>
+        <briefdescription>
+<para>Una manera de acceder a la id privada y cambiar sus valores, es de tipo long porque las id de telegram vienen en ese tipo. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="57" column="17" bodyfile="src/Library/User.cs" bodystart="58" bodyend="68"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_user_1a0ddeea98eaa1e9d4f8621db2a2b9a866" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool InGame</definition>
+        <argsstring></argsstring>
+        <name>InGame</name>
+        <qualifiedname>ChatBotProject.User.InGame</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Esta propedad es utilizada para determinar si un jugador se encuentra o no en partida. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="36" column="17" bodyfile="src/Library/User.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_user_1a4557789433e004586accbc6f63084e28" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ReadyToStartMatch</definition>
+        <argsstring></argsstring>
+        <name>ReadyToStartMatch</name>
+        <qualifiedname>ChatBotProject.User.ReadyToStartMatch</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="37" column="17" bodyfile="src/Library/User.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_user_1a7cf301f1bbc40e861dde50f6cb5f349b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MyTurn</definition>
+        <argsstring></argsstring>
+        <name>MyTurn</name>
+        <qualifiedname>ChatBotProject.User.MyTurn</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="39" column="17" bodyfile="src/Library/User.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_user_1a07444f2d82595fcb926693a21f8ac836" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>User</definition>
+        <argsstring>(string name, string password)</argsstring>
+        <name>User</name>
+        <qualifiedname>ChatBotProject.User.User</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+<para>El constructor de la clase. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>password</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="46" column="12" bodyfile="src/Library/User.cs" bodystart="46" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_user_1a760f59a7f9c5676ae60ba4038412b828" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GetReadyToStartMatch</definition>
+        <argsstring>()</argsstring>
+        <name>GetReadyToStartMatch</name>
+        <qualifiedname>ChatBotProject.User.GetReadyToStartMatch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="70" column="17" bodyfile="src/Library/User.cs" bodystart="70" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_user_1a41a7bdcaadf8c7c495911d6d25d11251" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void SetReadyToStartMatch</definition>
+        <argsstring>(bool value)</argsstring>
+        <name>SetReadyToStartMatch</name>
+        <qualifiedname>ChatBotProject.User.SetReadyToStartMatch</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/User.cs" line="75" column="17" bodyfile="src/Library/User.cs" bodystart="75" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Clase creada para poder guardar toda la información de los usuarios, este será el cimiento que utilizara el bot para poder identificar las distintas sesions y brindarles los distintos servicios que este provee. Esta clase aplica expert y srp, ya que es experta en conocer sus datos y a su vez siendo esta última su única responsabilidad. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Library/User.cs" line="8" column="9" bodyfile="src/Library/User.cs" bodystart="9" bodyend="79"/>
+    <listofallmembers>
+      <member refid="class_chat_bot_project_1_1_user_1a760f59a7f9c5676ae60ba4038412b828" prot="public" virt="non-virtual"><scope>ChatBotProject::User</scope><name>GetReadyToStartMatch</name></member>
+      <member refid="class_chat_bot_project_1_1_user_1a7350fbd6ad10618f3b750b1f99ca5c3c" prot="private" virt="non-virtual"><scope>ChatBotProject::User</scope><name>id</name></member>
+      <member refid="class_chat_bot_project_1_1_user_1ae9c27346afc38e44402e452477847b53" prot="public" virt="non-virtual"><scope>ChatBotProject::User</scope><name>ID</name></member>
+      <member refid="class_chat_bot_project_1_1_user_1a0ddeea98eaa1e9d4f8621db2a2b9a866" prot="public" virt="non-virtual"><scope>ChatBotProject::User</scope><name>InGame</name></member>
+      <member refid="class_chat_bot_project_1_1_user_1a008e2421bafecce5a94045b08706aa31" prot="public" virt="non-virtual"><scope>ChatBotProject::User</scope><name>LastMessage</name></member>
+      <member refid="class_chat_bot_project_1_1_user_1a7cf301f1bbc40e861dde50f6cb5f349b" prot="public" virt="non-virtual"><scope>ChatBotProject::User</scope><name>MyTurn</name></member>
+      <member refid="class_chat_bot_project_1_1_user_1a7ee9065718e6628dc7791b756fa6c0f9" prot="public" virt="non-virtual"><scope>ChatBotProject::User</scope><name>Name</name></member>
+      <member refid="class_chat_bot_project_1_1_user_1a9c7aae3a8518d5efd22e991b5944e0d4" prot="public" virt="non-virtual"><scope>ChatBotProject::User</scope><name>Password</name></member>
+      <member refid="class_chat_bot_project_1_1_user_1a4557789433e004586accbc6f63084e28" prot="public" virt="non-virtual"><scope>ChatBotProject::User</scope><name>ReadyToStartMatch</name></member>
+      <member refid="class_chat_bot_project_1_1_user_1a41a7bdcaadf8c7c495911d6d25d11251" prot="public" virt="non-virtual"><scope>ChatBotProject::User</scope><name>SetReadyToStartMatch</name></member>
+      <member refid="class_chat_bot_project_1_1_user_1a522e965bbae5a9446d697aa3c704331d" prot="public" virt="non-virtual"><scope>ChatBotProject::User</scope><name>State</name></member>
+      <member refid="class_chat_bot_project_1_1_user_1a07444f2d82595fcb926693a21f8ac836" prot="public" virt="non-virtual"><scope>ChatBotProject::User</scope><name>User</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

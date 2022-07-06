@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Proyecto<sp/>2022<sp/>-<sp/>Programación<sp/>2_</highlight></codeline>
+<codeline><highlight class="normal">PRIMERA<sp/>ENTREGA:</highlight></codeline>
+<codeline><highlight class="normal">Comenzamos<sp/>haciendo<sp/>las<sp/>tarjetas<sp/>CRC<sp/>(utilizamos<sp/>la<sp/>página<sp/>CRC<sp/>Card<sp/>Maker)<sp/>para<sp/>darle<sp/>forma<sp/>al<sp/>proyecto<sp/>y<sp/>tener<sp/>un<sp/>punto<sp/>de<sp/>inicio;<sp/>definimos<sp/>las<sp/>clases,<sp/>sus<sp/>responsabilidades<sp/>y<sp/>colaboradores,<sp/>esto<sp/>nos<sp/>ayudó<sp/>a<sp/>tener<sp/>una<sp/>base<sp/>sobre<sp/>la<sp/>cual<sp/>trabajar<sp/>y<sp/>buscar<sp/>mejorar.</highlight></codeline>
+<codeline><highlight class="normal">Al<sp/>hacer<sp/>el<sp/>diagrama<sp/>UML<sp/>(utilizamos<sp/>la<sp/>aplicación<sp/>draw.io)<sp/>comenzamos<sp/>a<sp/>dudar<sp/>acerca<sp/>de<sp/>las<sp/>relaciones<sp/>de<sp/>ciertas<sp/>clases<sp/>y<sp/>los<sp/>métodos<sp/>de<sp/>algunas.<sp/>Un<sp/>gran<sp/>dilema<sp/>que<sp/>se<sp/>creo<sp/>fue<sp/>si<sp/>hacer<sp/>cuatro<sp/>Boards<sp/>por<sp/>partida,<sp/>cada<sp/>jugador<sp/>tendría<sp/>dos<sp/>tableros;<sp/>uno<sp/>de<sp/>defensa<sp/>y<sp/>otro<sp/>de<sp/>ataque,<sp/>para<sp/>posicionar<sp/>sus<sp/>barcos<sp/>y<sp/>los<sp/>ataques<sp/>al<sp/>tablero<sp/>enemigo,<sp/>pero<sp/>llegamos<sp/>a<sp/>la<sp/>conclusion<sp/>de<sp/>que<sp/>no<sp/>era<sp/>necesario,<sp/>se<sp/>crearía<sp/>un<sp/>tablero<sp/>por<sp/>jugador<sp/>y<sp/>se<sp/>envia<sp/>una<sp/>copia<sp/>del<sp/>mismo<sp/>al<sp/>oponente,<sp/>solo<sp/>que<sp/>el<sp/>oponente<sp/>no<sp/>puede<sp/>ver<sp/>la<sp/>posicion<sp/>de<sp/>los<sp/>barcos,<sp/>a<sp/>menos<sp/>que<sp/>emboque<sp/>a<sp/>uno.<sp/>Este<sp/>cambio<sp/>nos<sp/>ayuda<sp/>a<sp/>evitar<sp/>la<sp/>repeticion<sp/>innecesaria<sp/>de<sp/>informacion.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">No<sp/>implementamos<sp/>la<sp/>funcionalidad<sp/>de<sp/>jugar<sp/>contra<sp/>la<sp/>IA,<sp/>debido<sp/>a<sp/>que<sp/>nos<sp/>falta<sp/>la<sp/>información<sp/>del<sp/>bot<sp/>a<sp/>esta<sp/>altura<sp/>del<sp/>proyecto.</highlight></codeline>
+<codeline><highlight class="normal">Los<sp/>recursos<sp/>utilizados<sp/>para<sp/>esta<sp/>primera<sp/>entrega<sp/>fueron<sp/>principalmente<sp/>los<sp/>conceptos<sp/>brindados<sp/>por<sp/>los<sp/>profesores,<sp/>consultas<sp/>que<sp/>hicimos<sp/>en<sp/>clase<sp/>y<sp/>también<sp/>utilizamos<sp/>el<sp/>libro<sp/>Object<sp/>Design<sp/>que<sp/>está<sp/>en<sp/>la<sp/>bibliografía<sp/>del<sp/>curso<sp/>para<sp/>hacer<sp/>el<sp/>informe<sp/>de<sp/>los<sp/>roles<sp/>de<sp/>cada<sp/>clase.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|SEGUNDA<sp/>ENTREGA|</highlight></codeline>
+<codeline><highlight class="normal">Para<sp/>esta<sp/>entrega<sp/>nos<sp/>organizamos<sp/>usando<sp/>la<sp/>herramienta<sp/>Trello,<sp/>en<sp/>la<sp/>anterior<sp/>también<sp/>lo<sp/>habíamos<sp/>hecho<sp/>pero<sp/>esta<sp/>vez<sp/>fuimos<sp/>más<sp/>consistentes<sp/>para<sp/>mantener<sp/>el<sp/>flujo<sp/>de<sp/>trabajo,<sp/>fuimos<sp/>más<sp/>organizados<sp/>y<sp/>buscamos<sp/>dividir<sp/>tareas<sp/>equitativamente<sp/></highlight></codeline>
+<codeline><highlight class="normal">Link<sp/>de<sp/>trello:<sp/>https://trello.com/invite/b/ySMd3vZr/1457885ee6835b61e8ebd9db6ec27ec5/proyecto-programacion-2</highlight></codeline>
+<codeline><highlight class="normal">Enfrentamos<sp/>algunas<sp/>adversidades<sp/>ya<sp/>que<sp/>priorizamos<sp/>cosas<sp/>como<sp/>el<sp/>Bot<sp/>y<sp/>terminamos<sp/>con<sp/>poco<sp/>tiempo<sp/>para<sp/>otras<sp/>cosas,<sp/>pero<sp/>igualm</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">En<sp/>el<sp/>Program.cs<sp/>dejamos<sp/>un<sp/>ejemplo<sp/>de<sp/>como<sp/>está<sp/>funcionando<sp/>el<sp/>juego.<sp/>Luego,<sp/>debajo<sp/>de<sp/>ese<sp/>fragmento<sp/>de<sp/>código<sp/>dejamos<sp/>comentado<sp/>todo<sp/>lo<sp/>relacionado<sp/>al<sp/>Bot.<sp/>Ambas<sp/>cosas<sp/>funcionan<sp/>pero<sp/>no<sp/>están<sp/>conectadas<sp/>aún,<sp/>por<sp/>lo<sp/>tanto,<sp/>si<sp/>se<sp/>quiere<sp/>probar<sp/>el<sp/>Bot<sp/>deben<sp/>de<sp/>comentar<sp/>el<sp/>fragmento<sp/>de<sp/>código<sp/>que<sp/>dice<sp/>&quot;Lógica<sp/>del<sp/>juego&quot;<sp/>y<sp/>descomentar<sp/>el<sp/>fragmento<sp/>de<sp/>código<sp/>que<sp/>dice<sp/>&quot;Lógica<sp/>del<sp/>Bot&quot;.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Id<sp/>de<sp/>Telegram<sp/>del<sp/>bot<sp/>en<sp/>caso<sp/>de<sp/>que<sp/>quieran<sp/>probarlo<sp/>=<sp/>@SuperBattleship_bot.</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/admin/Desktop/Chatbot_Proyect/README.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_chat_bot_project_1_1_ship" kind="class" language="C#" prot="public">
+    <compoundname>ChatBotProject::Ship</compoundname>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_ship_1af8accc54acdf1feb2376dd92f1c4f559" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Score</definition>
+        <argsstring></argsstring>
+        <name>Score</name>
+        <qualifiedname>ChatBotProject.Ship.Score</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Ship.cs" line="9" column="19" bodyfile="src/Library/Ship.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_ship_1adc2beb9f76f378333b122cc9c02a7b91" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Large</definition>
+        <argsstring></argsstring>
+        <name>Large</name>
+        <qualifiedname>ChatBotProject.Ship.Large</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Ship.cs" line="10" column="19" bodyfile="src/Library/Ship.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_ship_1a2bdb54e111b7cfeed1d46b5a7ef64dbf" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool IsAlive</definition>
+        <argsstring></argsstring>
+        <name>IsAlive</name>
+        <qualifiedname>ChatBotProject.Ship.IsAlive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Ship.cs" line="11" column="18" bodyfile="src/Library/Ship.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_ship_1acc8b8dd4a7a77ebb9b6aa10b00ceb718" prot="private" static="no" mutable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; Positions</definition>
+        <argsstring></argsstring>
+        <name>Positions</name>
+        <qualifiedname>ChatBotProject.Ship.Positions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Ship.cs" line="12" column="18" bodyfile="src/Library/Ship.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_ship_1ad2291f6eb063121ca0b393164e9623b6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Ship</definition>
+        <argsstring>(List&lt; string &gt; positions)</argsstring>
+        <name>Ship</name>
+        <qualifiedname>ChatBotProject.Ship.Ship</qualifiedname>
+        <param>
+          <type>List&lt; string &gt;</type>
+          <declname>positions</declname>
+        </param>
+        <briefdescription>
+<para>Este es el constructor del barco. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>positions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tiene las posiciones del barco.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Ship.cs" line="18" column="12" bodyfile="src/Library/Ship.cs" bodystart="18" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_ship_1a62fb0c882fb270c9d04affeabc4ba1f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int getScore</definition>
+        <argsstring>()</argsstring>
+        <name>getScore</name>
+        <qualifiedname>ChatBotProject.Ship.getScore</qualifiedname>
+        <briefdescription>
+<para>Getter de Score. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Ship.cs" line="30" column="16" bodyfile="src/Library/Ship.cs" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_ship_1a316af6db90b9b5528af3b64cded86767" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int getLarge</definition>
+        <argsstring>()</argsstring>
+        <name>getLarge</name>
+        <qualifiedname>ChatBotProject.Ship.getLarge</qualifiedname>
+        <briefdescription>
+<para>Getter de Large. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Ship.cs" line="39" column="16" bodyfile="src/Library/Ship.cs" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_ship_1a85916f54405ccf5d0a3268070cb70616" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool shipIsAlive</definition>
+        <argsstring>()</argsstring>
+        <name>shipIsAlive</name>
+        <qualifiedname>ChatBotProject.Ship.shipIsAlive</qualifiedname>
+        <briefdescription>
+<para>shipIsAlive se fija si el barco está vivo o hundido. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Ship.cs" line="48" column="17" bodyfile="src/Library/Ship.cs" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_ship_1a10e8eaf73c8aaf46b4f82f297c32c859" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt; string &gt; getPositions</definition>
+        <argsstring>()</argsstring>
+        <name>getPositions</name>
+        <qualifiedname>ChatBotProject.Ship.getPositions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Ship.cs" line="53" column="17" bodyfile="src/Library/Ship.cs" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_ship_1af875698708aa540affb140e0708b1bee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void removePosition</definition>
+        <argsstring>(string position)</argsstring>
+        <name>removePosition</name>
+        <qualifiedname>ChatBotProject.Ship.removePosition</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>El método removePosition busca la posición dada por parámetro y la remueve. Chequea si se hundió el barco o no (checkIsAlive) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Ship.cs" line="63" column="17" bodyfile="src/Library/Ship.cs" bodystart="63" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_ship_1ac9788085b20c9cdb32ac3629bb1fa7c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool checkIsAlive</definition>
+        <argsstring>()</argsstring>
+        <name>checkIsAlive</name>
+        <qualifiedname>ChatBotProject.Ship.checkIsAlive</qualifiedname>
+        <briefdescription>
+<para>checkIsAlive verifica si el ship está vivo. Está vivo solo si su largo es mayor que 0. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Ship.cs" line="77" column="17" bodyfile="src/Library/Ship.cs" bodystart="77" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Esta clase es la del barco. Cada barco tiene un puntuaje (Score), largo (Large), el booleano para ver si está vivo o hundido(IsAlive) y sus posiciones (Positions). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Library/Ship.cs" line="7" column="9" bodyfile="src/Library/Ship.cs" bodystart="8" bodyend="81"/>
+    <listofallmembers>
+      <member refid="class_chat_bot_project_1_1_ship_1ac9788085b20c9cdb32ac3629bb1fa7c0" prot="public" virt="non-virtual"><scope>ChatBotProject::Ship</scope><name>checkIsAlive</name></member>
+      <member refid="class_chat_bot_project_1_1_ship_1a316af6db90b9b5528af3b64cded86767" prot="public" virt="non-virtual"><scope>ChatBotProject::Ship</scope><name>getLarge</name></member>
+      <member refid="class_chat_bot_project_1_1_ship_1a10e8eaf73c8aaf46b4f82f297c32c859" prot="public" virt="non-virtual"><scope>ChatBotProject::Ship</scope><name>getPositions</name></member>
+      <member refid="class_chat_bot_project_1_1_ship_1a62fb0c882fb270c9d04affeabc4ba1f0" prot="public" virt="non-virtual"><scope>ChatBotProject::Ship</scope><name>getScore</name></member>
+      <member refid="class_chat_bot_project_1_1_ship_1a2bdb54e111b7cfeed1d46b5a7ef64dbf" prot="private" virt="non-virtual"><scope>ChatBotProject::Ship</scope><name>IsAlive</name></member>
+      <member refid="class_chat_bot_project_1_1_ship_1adc2beb9f76f378333b122cc9c02a7b91" prot="protected" virt="non-virtual"><scope>ChatBotProject::Ship</scope><name>Large</name></member>
+      <member refid="class_chat_bot_project_1_1_ship_1acc8b8dd4a7a77ebb9b6aa10b00ceb718" prot="private" virt="non-virtual"><scope>ChatBotProject::Ship</scope><name>Positions</name></member>
+      <member refid="class_chat_bot_project_1_1_ship_1af875698708aa540affb140e0708b1bee" prot="public" virt="non-virtual"><scope>ChatBotProject::Ship</scope><name>removePosition</name></member>
+      <member refid="class_chat_bot_project_1_1_ship_1af8accc54acdf1feb2376dd92f1c4f559" prot="protected" virt="non-virtual"><scope>ChatBotProject::Ship</scope><name>Score</name></member>
+      <member refid="class_chat_bot_project_1_1_ship_1ad2291f6eb063121ca0b393164e9623b6" prot="public" virt="non-virtual"><scope>ChatBotProject::Ship</scope><name>Ship</name></member>
+      <member refid="class_chat_bot_project_1_1_ship_1a85916f54405ccf5d0a3268070cb70616" prot="public" virt="non-virtual"><scope>ChatBotProject::Ship</scope><name>shipIsAlive</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

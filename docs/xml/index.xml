@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.4" xml:lang="en-US">
+  <compound refid="class_chat_bot_project_1_1_board" kind="class"><name>ChatBotProject::Board</name>
+    <member refid="class_chat_bot_project_1_1_board_1a08256bc0824c2c9790d4bf727edbdc67" kind="variable"><name>HeaderLetters</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1aaadefba794062a2ca7e58ceb10b955a1" kind="variable"><name>Height</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1abbe7749c3b402f7dfe64f936774cfcd4" kind="variable"><name>Width</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1acfa902ece73ee98e7de0aa3792a7a17c" kind="variable"><name>Ships</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1aff2a5c15ab11869cef02a5e50c6ba012" kind="variable"><name>Fields</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1addbf92f6a6147b2f81dbff546e724d59" kind="function"><name>Board</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1a67a0997183f24da19b776d96c1052998" kind="function"><name>getWidth</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1a07efb2a4e9a982688c8bb3c3f21d1092" kind="function"><name>getHeight</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1a8858603c25b5da13395f702034bb619e" kind="function"><name>getHeaderLetters</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1ae037b5dafe8fc65128956dc6e9943cf9" kind="function"><name>getFields</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1a52c69745f9023e101bbac38e896640b3" kind="function"><name>updateBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1a528658ada47fad69d927b1cff1835035" kind="function"><name>showShips</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1ab93ba2c94c2fc3053d7a6408234aa9e7" kind="function"><name>hideShips</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1a7e8fb570ecc001f087e234ad7a752ede" kind="function"><name>addShip</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1aa8b040dce73bbab45d72a8b14d2921c8" kind="function"><name>removeShip</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1a1e177f272bd66d42f3ad8bf53a8ab3e8" kind="function"><name>getShips</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1a586aac86beb9cf5634fd7a892747606d" kind="function"><name>shipIsValid</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1a27d2083a7afb624b0ef350ef3ac93a3c" kind="function"><name>attack</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1a4fe4510685fac82c211f44c687a4a762" kind="function"><name>generateBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1a1c9dcd0abb56d512ccf9074644db1ae7" kind="function"><name>translateToPositions</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1aeb20d86d059add9fcc2726250f0c0f2d" kind="function"><name>allElementsAreEqual</name></member>
+    <member refid="class_chat_bot_project_1_1_board_1adf8ca6dcb6ae19e6470b0a75c23fb242" kind="function"><name>allElementsAreConsecutives</name></member>
+  </compound>
+  <compound refid="class_chat_bot_project_1_1_game" kind="class"><name>ChatBotProject::Game</name>
+    <member refid="class_chat_bot_project_1_1_game_1a7383bd89b65d1484bd9f5d10de343fd2" kind="variable"><name>InMatchUsers</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1abcc9f1ff31de1805e549695a6d663ced" kind="variable"><name>Time</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a18d68e480797e265d747bd4a7b0d7271" kind="variable"><name>TimePerRound</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a287ffc4705cf769466e3bc28f5d80ba2" kind="variable"><name>InProgress</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1aeba2c2d723ee254d48b7cbf3ee672892" kind="variable"><name>Winner</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a22e0dc6d15ebfc7144bb8eab93b4286f" kind="variable"><name>InMatchUsersBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a898f52d5af983ac7469751d87dd77347" kind="variable"><name>telegramPrinter</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a4fdc15a243a2e7c255cf478b8ec9dfd8" kind="function"><name>Game</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a93ecb4242527b80e76b5e28209f67d2d" kind="function"><name>StartGame</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1af578a88bcbfbb55beda09124934aeaa6" kind="function"><name>FinishGame</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a2fdac5446f0c78b75a702c3eb0695b51" kind="function"><name>PrintPlayerBoardToSelf</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a56f295c28f1b9701a67a4346e79eadd9" kind="function"><name>PrintPlayerBoardToEnemy</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a23d097bfb4564b804945cf17fd336894" kind="function"><name>PlayerAddShipToBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a5f0c7e070d0fc700b8b9261b9cce7a31" kind="function"><name>PlayerBoardHasShips</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1ae22264b1efb2d79cb21b882c90e4f4d0" kind="function"><name>AttackRivalPlayerBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a977245df77ba97c459d97a5745888679" kind="function"><name>PrintRivalPlayerBoardToSelf</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1aa0a81672695f4c4622d36df97b8ae0de" kind="function"><name>PrintRivalPlayerBoardToEnemy</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a52d04b81a156e08c85693346da342d89" kind="function"><name>RivalPlayerAddShipToBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a4ac89c4e731cec921f5ed922bde7e1fc" kind="function"><name>RivalPlayerBoardHasShips</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1aeb8e5354a3b8b958c921ecee5bb4607a" kind="function"><name>AttackPlayerBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1ad442b47a56f3c6bcb8f62df1887a4cdd" kind="function"><name>getWinner</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a8408fb7488bf0193a2bf0195f99b3467" kind="function"><name>setWinner</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a6362085680417cb784e792a476ad04a1" kind="function"><name>getInMatchUsers</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a42ae43794a0a85a8fc9675c612c09cbb" kind="function"><name>getTime</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a60411f4d98258424bad90dc50184b698" kind="function"><name>setTime</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a0c373a07850af824d9fa5c6ac1517d79" kind="function"><name>getTimePerRound</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a4bad9173e6da57a45202804f99944705" kind="function"><name>setTimePerRound</name></member>
+    <member refid="class_chat_bot_project_1_1_game_1a6b86bda0d3f1773c4b793faf3b2dccb1" kind="function"><name>getUserBoard</name></member>
+  </compound>
+  <compound refid="class_chat_bot_project_1_1_games_list" kind="class"><name>ChatBotProject::GamesList</name>
+    <member refid="class_chat_bot_project_1_1_games_list_1af8a5f886e8fa86d58cd033037129e720" kind="property"><name>Games</name></member>
+    <member refid="class_chat_bot_project_1_1_games_list_1a12a45a0350bb55f27f27158f55860dde" kind="variable"><name>_instance</name></member>
+    <member refid="class_chat_bot_project_1_1_games_list_1ae93b91451af687e03c84ea98ea088851" kind="function"><name>GamesList</name></member>
+    <member refid="class_chat_bot_project_1_1_games_list_1afcf4203095ced21a9e750567725c8b3d" kind="function"><name>AddGame</name></member>
+    <member refid="class_chat_bot_project_1_1_games_list_1ae52a25a43ca6b9651233ff237a8613f5" kind="function"><name>RemoveGame</name></member>
+    <member refid="class_chat_bot_project_1_1_games_list_1ad83fad126adf950b34722eb9ca313a77" kind="function"><name>GetInstance</name></member>
+  </compound>
+  <compound refid="class_chat_bot_project_1_1_games_vs_i_a_list" kind="class"><name>ChatBotProject::GamesVsIAList</name>
+    <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1a97d7be180c50b2dc83b8560c35af8354" kind="property"><name>GamesVsIA</name></member>
+    <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1a0f6b4071cef2d1becfd631f612404c76" kind="variable"><name>_instance</name></member>
+    <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1af37d3372889954ad5a951754d9e997cd" kind="function"><name>GamesVsIAList</name></member>
+    <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1accca5ff80bb8712248669dde1046456e" kind="function"><name>AddGameVsIA</name></member>
+    <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1ae5aa96e766863c97e7a80b631b6addd8" kind="function"><name>RemoveGame</name></member>
+    <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1ac621a360feb16f89c9e97cd16755e59e" kind="function"><name>GetInstance</name></member>
+  </compound>
+  <compound refid="class_chat_bot_project_1_1_game_vs_i_a" kind="class"><name>ChatBotProject::GameVsIA</name>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a61ced58b949aeb924667fdd351b95628" kind="variable"><name>Player</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a287ffc4705cf769466e3bc28f5d80ba2" kind="variable"><name>InProgress</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1aeba2c2d723ee254d48b7cbf3ee672892" kind="variable"><name>Winner</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a6e2903b518d669ea4d8c1595dd8d7464" kind="variable"><name>PlayerBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1ab562999292a6820e104280a08feb5a78" kind="variable"><name>BotBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a79cb65d6074b92fe3e9fa6006984d9cd" kind="variable"><name>BotAtacks</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a898f52d5af983ac7469751d87dd77347" kind="variable"><name>telegramPrinter</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a440a4cc425fb1cbf114ccaadd213f34d" kind="function"><name>GameVsIA</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1aec6eb04d6efdca971669f9de135e62dd" kind="function"><name>printPlayerBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a6ce49216eb2632346a6a98ce56b77c37" kind="function"><name>printBotBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a1f6ad1a37d9790b86e085fc275ce94a6" kind="function"><name>botAttack</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1aead351d068541f2a00f55a3fd82e6c88" kind="function"><name>attackBotBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a5f2e5604b2d71fa5357c7240f9614a5f" kind="function"><name>AddShipToBoard</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1ae31119391749a011a7230e53ec0e5eb9" kind="function"><name>generateBotShips</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a4de8763760df180ce903d8a15a2092de" kind="function"><name>playerBoardHasShips</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a96095b6b14c1971a3a0b0598fd8f532a" kind="function"><name>botBoardHasShips</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a93ecb4242527b80e76b5e28209f67d2d" kind="function"><name>StartGame</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1af578a88bcbfbb55beda09124934aeaa6" kind="function"><name>FinishGame</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1ad442b47a56f3c6bcb8f62df1887a4cdd" kind="function"><name>getWinner</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a8408fb7488bf0193a2bf0195f99b3467" kind="function"><name>setWinner</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1aa5e67f9b34242a7e30ab11250a9dce2a" kind="function"><name>getPlayer</name></member>
+    <member refid="class_chat_bot_project_1_1_game_vs_i_a_1a753e5cade274e449652d63d1eba47fa6" kind="function"><name>getPlayerBoard</name></member>
+  </compound>
+  <compound refid="interface_chat_bot_project_1_1_i_printer" kind="interface"><name>ChatBotProject::IPrinter</name>
+    <member refid="interface_chat_bot_project_1_1_i_printer_1ad6483e8647bfcaeeeeb920aa230fa1ce" kind="function"><name>printBoard</name></member>
+  </compound>
+  <compound refid="class_chat_bot_project_1_1_keywords_list" kind="class"><name>ChatBotProject::KeywordsList</name>
+    <member refid="class_chat_bot_project_1_1_keywords_list_1a5ec7392663286181380a5d923bbb30e7" kind="property"><name>BannedKeywords</name></member>
+    <member refid="class_chat_bot_project_1_1_keywords_list_1aaf2e697c4bb69850a5fc54f2a7caf5ef" kind="variable"><name>_instance</name></member>
+    <member refid="class_chat_bot_project_1_1_keywords_list_1a7993f52c56248424063c643a1f273696" kind="function"><name>KeywordsList</name></member>
+    <member refid="class_chat_bot_project_1_1_keywords_list_1a29271f7cadede895762ab694ffa2f8cc" kind="function"><name>AddBannedKeyword</name></member>
+    <member refid="class_chat_bot_project_1_1_keywords_list_1a4c54e82c07f40bea74d8341dada70df1" kind="function"><name>RemoveBannedKeyword</name></member>
+    <member refid="class_chat_bot_project_1_1_keywords_list_1aee907709be353237658656bc293e119f" kind="function"><name>VerifyBannedKeywords</name></member>
+    <member refid="class_chat_bot_project_1_1_keywords_list_1a33fcfc132639ca3d6511f27872061526" kind="function"><name>GetInstance</name></member>
+  </compound>
+  <compound refid="class_chat_bot_project_1_1_ship" kind="class"><name>ChatBotProject::Ship</name>
+    <member refid="class_chat_bot_project_1_1_ship_1af8accc54acdf1feb2376dd92f1c4f559" kind="variable"><name>Score</name></member>
+    <member refid="class_chat_bot_project_1_1_ship_1adc2beb9f76f378333b122cc9c02a7b91" kind="variable"><name>Large</name></member>
+    <member refid="class_chat_bot_project_1_1_ship_1a2bdb54e111b7cfeed1d46b5a7ef64dbf" kind="variable"><name>IsAlive</name></member>
+    <member refid="class_chat_bot_project_1_1_ship_1acc8b8dd4a7a77ebb9b6aa10b00ceb718" kind="variable"><name>Positions</name></member>
+    <member refid="class_chat_bot_project_1_1_ship_1ad2291f6eb063121ca0b393164e9623b6" kind="function"><name>Ship</name></member>
+    <member refid="class_chat_bot_project_1_1_ship_1a62fb0c882fb270c9d04affeabc4ba1f0" kind="function"><name>getScore</name></member>
+    <member refid="class_chat_bot_project_1_1_ship_1a316af6db90b9b5528af3b64cded86767" kind="function"><name>getLarge</name></member>
+    <member refid="class_chat_bot_project_1_1_ship_1a85916f54405ccf5d0a3268070cb70616" kind="function"><name>shipIsAlive</name></member>
+    <member refid="class_chat_bot_project_1_1_ship_1a10e8eaf73c8aaf46b4f82f297c32c859" kind="function"><name>getPositions</name></member>
+    <member refid="class_chat_bot_project_1_1_ship_1af875698708aa540affb140e0708b1bee" kind="function"><name>removePosition</name></member>
+    <member refid="class_chat_bot_project_1_1_ship_1ac9788085b20c9cdb32ac3629bb1fa7c0" kind="function"><name>checkIsAlive</name></member>
+  </compound>
+  <compound refid="class_chat_bot_project_1_1_telegram_bot" kind="class"><name>ChatBotProject::TelegramBot</name>
+    <member refid="class_chat_bot_project_1_1_telegram_bot_1ac8788b922678f3f2308341326347f6c9" kind="property"><name>botClient</name></member>
+    <member refid="class_chat_bot_project_1_1_telegram_bot_1a1d1aaf54cca4c5a02cb7762cdce4b25f" kind="variable"><name>_instance</name></member>
+    <member refid="class_chat_bot_project_1_1_telegram_bot_1a5ba9e3a042ac37529f826dccd73773e4" kind="function"><name>TelegramBot</name></member>
+    <member refid="class_chat_bot_project_1_1_telegram_bot_1a7b8d6a5a42c6cae338661d26024cc1d2" kind="function"><name>GetInstance</name></member>
+  </compound>
+  <compound refid="class_chat_bot_project_1_1_telegram_printer" kind="class"><name>ChatBotProject::TelegramPrinter</name>
+    <member refid="class_chat_bot_project_1_1_telegram_printer_1ad6483e8647bfcaeeeeb920aa230fa1ce" kind="function"><name>printBoard</name></member>
+  </compound>
+  <compound refid="class_chat_bot_project_1_1_timer" kind="class"><name>ChatBotProject::Timer</name>
+    <member refid="class_chat_bot_project_1_1_timer_1ac07e1d8d4092a87058fe2b8c50393b3e" kind="variable"><name>Mins</name></member>
+    <member refid="class_chat_bot_project_1_1_timer_1ab32f584b3d9170642f1231d218636f30" kind="variable"><name>Secs</name></member>
+    <member refid="class_chat_bot_project_1_1_timer_1a43a82f708ddd27ca383a7e1fac2b344b" kind="variable"><name>timerClock</name></member>
+    <member refid="class_chat_bot_project_1_1_timer_1a79f0950bfdb4fc673870b9b96e9dd217" kind="function"><name>Timer</name></member>
+    <member refid="class_chat_bot_project_1_1_timer_1a6ab320eb327964e02f88bd0e14175137" kind="function"><name>getMins</name></member>
+    <member refid="class_chat_bot_project_1_1_timer_1a544c7ae025942a44526c1ef2857f3c1a" kind="function"><name>setMins</name></member>
+    <member refid="class_chat_bot_project_1_1_timer_1a094eefa15f098ff8aafe70f090231145" kind="function"><name>getSecs</name></member>
+    <member refid="class_chat_bot_project_1_1_timer_1a0ecec3ff976064cae15940b375de5d06" kind="function"><name>setSecs</name></member>
+    <member refid="class_chat_bot_project_1_1_timer_1aec53975ffc59ffaf3080db21af0d2f6e" kind="function"><name>startTimer</name></member>
+    <member refid="class_chat_bot_project_1_1_timer_1aa6f6bfef028c7b053444cbd48567d286" kind="function"><name>stopTimer</name></member>
+    <member refid="class_chat_bot_project_1_1_timer_1ab432eeb7286e57ee0e934633f02e7700" kind="function"><name>OnTimedEvent</name></member>
+  </compound>
+  <compound refid="class_chat_bot_project_1_1_user" kind="class"><name>ChatBotProject::User</name>
+    <member refid="class_chat_bot_project_1_1_user_1a7350fbd6ad10618f3b750b1f99ca5c3c" kind="variable"><name>id</name></member>
+    <member refid="class_chat_bot_project_1_1_user_1a7ee9065718e6628dc7791b756fa6c0f9" kind="property"><name>Name</name></member>
+    <member refid="class_chat_bot_project_1_1_user_1a9c7aae3a8518d5efd22e991b5944e0d4" kind="property"><name>Password</name></member>
+    <member refid="class_chat_bot_project_1_1_user_1a008e2421bafecce5a94045b08706aa31" kind="property"><name>LastMessage</name></member>
+    <member refid="class_chat_bot_project_1_1_user_1a522e965bbae5a9446d697aa3c704331d" kind="property"><name>State</name></member>
+    <member refid="class_chat_bot_project_1_1_user_1ae9c27346afc38e44402e452477847b53" kind="property"><name>ID</name></member>
+    <member refid="class_chat_bot_project_1_1_user_1a0ddeea98eaa1e9d4f8621db2a2b9a866" kind="variable"><name>InGame</name></member>
+    <member refid="class_chat_bot_project_1_1_user_1a4557789433e004586accbc6f63084e28" kind="variable"><name>ReadyToStartMatch</name></member>
+    <member refid="class_chat_bot_project_1_1_user_1a7cf301f1bbc40e861dde50f6cb5f349b" kind="variable"><name>MyTurn</name></member>
+    <member refid="class_chat_bot_project_1_1_user_1a07444f2d82595fcb926693a21f8ac836" kind="function"><name>User</name></member>
+    <member refid="class_chat_bot_project_1_1_user_1a760f59a7f9c5676ae60ba4038412b828" kind="function"><name>GetReadyToStartMatch</name></member>
+    <member refid="class_chat_bot_project_1_1_user_1a41a7bdcaadf8c7c495911d6d25d11251" kind="function"><name>SetReadyToStartMatch</name></member>
+  </compound>
+  <compound refid="class_chat_bot_project_1_1_users_list" kind="class"><name>ChatBotProject::UsersList</name>
+    <member refid="class_chat_bot_project_1_1_users_list_1acdb5773e255293bc56fe74afa229e65e" kind="property"><name>Users</name></member>
+    <member refid="class_chat_bot_project_1_1_users_list_1ae03f6912d269b18dda8d0cbb177fe153" kind="variable"><name>_instance</name></member>
+    <member refid="class_chat_bot_project_1_1_users_list_1a867d8adf251c8df41ef4af37639a620c" kind="variable"><name>userToRemove</name></member>
+    <member refid="class_chat_bot_project_1_1_users_list_1a6dfc8449e42031ed5589c7f614f68637" kind="function"><name>UsersList</name></member>
+    <member refid="class_chat_bot_project_1_1_users_list_1acbe037b87566c4561b22699fe93ffc12" kind="function"><name>AddUser</name></member>
+    <member refid="class_chat_bot_project_1_1_users_list_1a1235c1ed50cf4d62782393e225bc95af" kind="function"><name>RemoveUser</name></member>
+    <member refid="class_chat_bot_project_1_1_users_list_1ae9bf415507799c6ddc21bdc15b0a4fcc" kind="function"><name>GetInstance</name></member>
+  </compound>
+  <compound refid="namespace_chat_bot_project" kind="namespace"><name>ChatBotProject</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="namespace_telegram_1_1_bot" kind="namespace"><name>Telegram::Bot</name>
+  </compound>
+  <compound refid="namespace_telegram_1_1_bot_1_1_extensions_1_1_polling" kind="namespace"><name>Telegram::Bot::Extensions::Polling</name>
+  </compound>
+  <compound refid="namespace_telegram_1_1_bot_1_1_types" kind="namespace"><name>Telegram::Bot::Types</name>
+  </compound>
+  <compound refid="namespace_telegram_1_1_bot_1_1_types_1_1_enums" kind="namespace"><name>Telegram::Bot::Types::Enums</name>
+  </compound>
+  <compound refid="namespace_telegram_1_1_bot_1_1_types_1_1_input_files" kind="namespace"><name>Telegram::Bot::Types::InputFiles</name>
+  </compound>
+  <compound refid="_board_8cs" kind="file"><name>Board.cs</name>
+  </compound>
+  <compound refid="_game_8cs" kind="file"><name>Game.cs</name>
+  </compound>
+  <compound refid="_games_list_8cs" kind="file"><name>GamesList.cs</name>
+  </compound>
+  <compound refid="_games_vs_i_a_list_8cs" kind="file"><name>GamesVsIAList.cs</name>
+  </compound>
+  <compound refid="_game_vs_i_a_8cs" kind="file"><name>GameVsIA.cs</name>
+  </compound>
+  <compound refid="_i_printer_8cs" kind="file"><name>IPrinter.cs</name>
+  </compound>
+  <compound refid="_keywords_list_8cs" kind="file"><name>KeywordsList.cs</name>
+  </compound>
+  <compound refid="_ship_8cs" kind="file"><name>Ship.cs</name>
+  </compound>
+  <compound refid="_telegram_bot_8cs" kind="file"><name>TelegramBot.cs</name>
+  </compound>
+  <compound refid="_telegram_printer_8cs" kind="file"><name>TelegramPrinter.cs</name>
+  </compound>
+  <compound refid="_timer_8cs" kind="file"><name>Timer.cs</name>
+  </compound>
+  <compound refid="_user_8cs" kind="file"><name>User.cs</name>
+  </compound>
+  <compound refid="_users_list_8cs" kind="file"><name>UsersList.cs</name>
+  </compound>
+  <compound refid="dir_f741251061e5c7c7ed48ab45c3348f11" kind="dir"><name>src/Library</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

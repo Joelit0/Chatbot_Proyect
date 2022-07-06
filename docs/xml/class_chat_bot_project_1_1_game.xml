@@ -1,0 +1,497 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_chat_bot_project_1_1_game" kind="class" language="C#" prot="public">
+    <compoundname>ChatBotProject::Game</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_game_1a7383bd89b65d1484bd9f5d10de343fd2" prot="private" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_chat_bot_project_1_1_user" kindref="compound">User</ref> &gt;</type>
+        <definition>List&lt;User&gt; InMatchUsers</definition>
+        <argsstring></argsstring>
+        <name>InMatchUsers</name>
+        <qualifiedname>ChatBotProject.Game.InMatchUsers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="5" column="18" bodyfile="src/Library/Game.cs" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_game_1abcc9f1ff31de1805e549695a6d663ced" prot="private" static="no" mutable="no">
+        <type><ref refid="class_chat_bot_project_1_1_timer" kindref="compound">Timer</ref></type>
+        <definition>Timer Time</definition>
+        <argsstring></argsstring>
+        <name>Time</name>
+        <qualifiedname>ChatBotProject.Game.Time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="6" column="19" bodyfile="src/Library/Game.cs" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_game_1a18d68e480797e265d747bd4a7b0d7271" prot="private" static="no" mutable="no">
+        <type><ref refid="class_chat_bot_project_1_1_timer" kindref="compound">Timer</ref></type>
+        <definition>Timer TimePerRound</definition>
+        <argsstring></argsstring>
+        <name>TimePerRound</name>
+        <qualifiedname>ChatBotProject.Game.TimePerRound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="7" column="19" bodyfile="src/Library/Game.cs" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_game_1a287ffc4705cf769466e3bc28f5d80ba2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool InProgress</definition>
+        <argsstring></argsstring>
+        <name>InProgress</name>
+        <qualifiedname>ChatBotProject.Game.InProgress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="8" column="18" bodyfile="src/Library/Game.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_game_1aeba2c2d723ee254d48b7cbf3ee672892" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Winner</definition>
+        <argsstring></argsstring>
+        <name>Winner</name>
+        <qualifiedname>ChatBotProject.Game.Winner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="9" column="20" bodyfile="src/Library/Game.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_game_1a22e0dc6d15ebfc7144bb8eab93b4286f" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; <ref refid="class_chat_bot_project_1_1_user" kindref="compound">User</ref>, <ref refid="class_chat_bot_project_1_1_board" kindref="compound">Board</ref> &gt;</type>
+        <definition>Dictionary&lt;User, Board&gt; InMatchUsersBoard</definition>
+        <argsstring></argsstring>
+        <name>InMatchUsersBoard</name>
+        <qualifiedname>ChatBotProject.Game.InMatchUsersBoard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="10" column="24" bodyfile="src/Library/Game.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_game_1a898f52d5af983ac7469751d87dd77347" prot="private" static="no" mutable="no">
+        <type><ref refid="class_chat_bot_project_1_1_telegram_printer" kindref="compound">TelegramPrinter</ref></type>
+        <definition>TelegramPrinter telegramPrinter</definition>
+        <argsstring></argsstring>
+        <name>telegramPrinter</name>
+        <qualifiedname>ChatBotProject.Game.telegramPrinter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="11" column="29" bodyfile="src/Library/Game.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a4fdc15a243a2e7c255cf478b8ec9dfd8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Game</definition>
+        <argsstring>(List&lt; User &gt; InMatchUsers, int totalMins, int totalSecs, int minsPerRound, int secsPerRound)</argsstring>
+        <name>Game</name>
+        <qualifiedname>ChatBotProject.Game.Game</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="class_chat_bot_project_1_1_user" kindref="compound">User</ref> &gt;</type>
+          <declname>InMatchUsers</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>totalMins</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>totalSecs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>minsPerRound</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>secsPerRound</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="13" column="12" bodyfile="src/Library/Game.cs" bodystart="13" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a93ecb4242527b80e76b5e28209f67d2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void StartGame</definition>
+        <argsstring>()</argsstring>
+        <name>StartGame</name>
+        <qualifiedname>ChatBotProject.Game.StartGame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="31" column="17" bodyfile="src/Library/Game.cs" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1af578a88bcbfbb55beda09124934aeaa6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FinishGame</definition>
+        <argsstring>()</argsstring>
+        <name>FinishGame</name>
+        <qualifiedname>ChatBotProject.Game.FinishGame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="36" column="17" bodyfile="src/Library/Game.cs" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a2fdac5446f0c78b75a702c3eb0695b51" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintPlayerBoardToSelf</definition>
+        <argsstring>()</argsstring>
+        <name>PrintPlayerBoardToSelf</name>
+        <qualifiedname>ChatBotProject.Game.PrintPlayerBoardToSelf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="41" column="17" bodyfile="src/Library/Game.cs" bodystart="41" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a56f295c28f1b9701a67a4346e79eadd9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintPlayerBoardToEnemy</definition>
+        <argsstring>()</argsstring>
+        <name>PrintPlayerBoardToEnemy</name>
+        <qualifiedname>ChatBotProject.Game.PrintPlayerBoardToEnemy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="48" column="17" bodyfile="src/Library/Game.cs" bodystart="48" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a23d097bfb4564b804945cf17fd336894" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlayerAddShipToBoard</definition>
+        <argsstring>(List&lt; string &gt; positions)</argsstring>
+        <name>PlayerAddShipToBoard</name>
+        <qualifiedname>ChatBotProject.Game.PlayerAddShipToBoard</qualifiedname>
+        <param>
+          <type>List&lt; string &gt;</type>
+          <declname>positions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="55" column="17" bodyfile="src/Library/Game.cs" bodystart="55" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a5f0c7e070d0fc700b8b9261b9cce7a31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PlayerBoardHasShips</definition>
+        <argsstring>()</argsstring>
+        <name>PlayerBoardHasShips</name>
+        <qualifiedname>ChatBotProject.Game.PlayerBoardHasShips</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="61" column="17" bodyfile="src/Library/Game.cs" bodystart="61" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1ae22264b1efb2d79cb21b882c90e4f4d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttackRivalPlayerBoard</definition>
+        <argsstring>(string attackPosition)</argsstring>
+        <name>AttackRivalPlayerBoard</name>
+        <qualifiedname>ChatBotProject.Game.AttackRivalPlayerBoard</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>attackPosition</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="67" column="17" bodyfile="src/Library/Game.cs" bodystart="67" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a977245df77ba97c459d97a5745888679" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintRivalPlayerBoardToSelf</definition>
+        <argsstring>()</argsstring>
+        <name>PrintRivalPlayerBoardToSelf</name>
+        <qualifiedname>ChatBotProject.Game.PrintRivalPlayerBoardToSelf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="73" column="17" bodyfile="src/Library/Game.cs" bodystart="73" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1aa0a81672695f4c4622d36df97b8ae0de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintRivalPlayerBoardToEnemy</definition>
+        <argsstring>()</argsstring>
+        <name>PrintRivalPlayerBoardToEnemy</name>
+        <qualifiedname>ChatBotProject.Game.PrintRivalPlayerBoardToEnemy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="80" column="17" bodyfile="src/Library/Game.cs" bodystart="80" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a52d04b81a156e08c85693346da342d89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RivalPlayerAddShipToBoard</definition>
+        <argsstring>(List&lt; string &gt; positions)</argsstring>
+        <name>RivalPlayerAddShipToBoard</name>
+        <qualifiedname>ChatBotProject.Game.RivalPlayerAddShipToBoard</qualifiedname>
+        <param>
+          <type>List&lt; string &gt;</type>
+          <declname>positions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="87" column="17" bodyfile="src/Library/Game.cs" bodystart="87" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a4ac89c4e731cec921f5ed922bde7e1fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RivalPlayerBoardHasShips</definition>
+        <argsstring>()</argsstring>
+        <name>RivalPlayerBoardHasShips</name>
+        <qualifiedname>ChatBotProject.Game.RivalPlayerBoardHasShips</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="93" column="17" bodyfile="src/Library/Game.cs" bodystart="93" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1aeb8e5354a3b8b958c921ecee5bb4607a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttackPlayerBoard</definition>
+        <argsstring>(string attackPosition)</argsstring>
+        <name>AttackPlayerBoard</name>
+        <qualifiedname>ChatBotProject.Game.AttackPlayerBoard</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>attackPosition</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="99" column="17" bodyfile="src/Library/Game.cs" bodystart="99" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1ad442b47a56f3c6bcb8f62df1887a4cdd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string getWinner</definition>
+        <argsstring>()</argsstring>
+        <name>getWinner</name>
+        <qualifiedname>ChatBotProject.Game.getWinner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="114" column="19" bodyfile="src/Library/Game.cs" bodystart="114" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a8408fb7488bf0193a2bf0195f99b3467" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setWinner</definition>
+        <argsstring>(string winner)</argsstring>
+        <name>setWinner</name>
+        <qualifiedname>ChatBotProject.Game.setWinner</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>winner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="119" column="17" bodyfile="src/Library/Game.cs" bodystart="119" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a6362085680417cb784e792a476ad04a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_chat_bot_project_1_1_user" kindref="compound">User</ref> &gt;</type>
+        <definition>List&lt; User &gt; getInMatchUsers</definition>
+        <argsstring>()</argsstring>
+        <name>getInMatchUsers</name>
+        <qualifiedname>ChatBotProject.Game.getInMatchUsers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="132" column="17" bodyfile="src/Library/Game.cs" bodystart="132" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a42ae43794a0a85a8fc9675c612c09cbb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_chat_bot_project_1_1_timer" kindref="compound">Timer</ref></type>
+        <definition>Timer getTime</definition>
+        <argsstring>()</argsstring>
+        <name>getTime</name>
+        <qualifiedname>ChatBotProject.Game.getTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="139" column="18" bodyfile="src/Library/Game.cs" bodystart="139" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a60411f4d98258424bad90dc50184b698" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTime</definition>
+        <argsstring>(int mins, int secs)</argsstring>
+        <name>setTime</name>
+        <qualifiedname>ChatBotProject.Game.setTime</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>mins</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>secs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="144" column="17" bodyfile="src/Library/Game.cs" bodystart="144" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a0c373a07850af824d9fa5c6ac1517d79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_chat_bot_project_1_1_timer" kindref="compound">Timer</ref></type>
+        <definition>Timer getTimePerRound</definition>
+        <argsstring>()</argsstring>
+        <name>getTimePerRound</name>
+        <qualifiedname>ChatBotProject.Game.getTimePerRound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="152" column="18" bodyfile="src/Library/Game.cs" bodystart="152" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a4bad9173e6da57a45202804f99944705" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTimePerRound</definition>
+        <argsstring>(int mins, int secs)</argsstring>
+        <name>setTimePerRound</name>
+        <qualifiedname>ChatBotProject.Game.setTimePerRound</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>mins</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>secs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="157" column="17" bodyfile="src/Library/Game.cs" bodystart="157" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_game_1a6b86bda0d3f1773c4b793faf3b2dccb1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_chat_bot_project_1_1_board" kindref="compound">Board</ref></type>
+        <definition>Board getUserBoard</definition>
+        <argsstring>(User user)</argsstring>
+        <name>getUserBoard</name>
+        <qualifiedname>ChatBotProject.Game.getUserBoard</qualifiedname>
+        <param>
+          <type><ref refid="class_chat_bot_project_1_1_user" kindref="compound">User</ref></type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Game.cs" line="164" column="18" bodyfile="src/Library/Game.cs" bodystart="164" bodyend="178"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Library/Game.cs" line="3" column="9" bodyfile="src/Library/Game.cs" bodystart="4" bodyend="179"/>
+    <listofallmembers>
+      <member refid="class_chat_bot_project_1_1_game_1aeb8e5354a3b8b958c921ecee5bb4607a" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>AttackPlayerBoard</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1ae22264b1efb2d79cb21b882c90e4f4d0" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>AttackRivalPlayerBoard</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1af578a88bcbfbb55beda09124934aeaa6" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>FinishGame</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a4fdc15a243a2e7c255cf478b8ec9dfd8" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>Game</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a6362085680417cb784e792a476ad04a1" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>getInMatchUsers</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a42ae43794a0a85a8fc9675c612c09cbb" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>getTime</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a0c373a07850af824d9fa5c6ac1517d79" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>getTimePerRound</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a6b86bda0d3f1773c4b793faf3b2dccb1" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>getUserBoard</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1ad442b47a56f3c6bcb8f62df1887a4cdd" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>getWinner</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a7383bd89b65d1484bd9f5d10de343fd2" prot="private" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>InMatchUsers</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a22e0dc6d15ebfc7144bb8eab93b4286f" prot="private" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>InMatchUsersBoard</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a287ffc4705cf769466e3bc28f5d80ba2" prot="private" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>InProgress</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a23d097bfb4564b804945cf17fd336894" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>PlayerAddShipToBoard</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a5f0c7e070d0fc700b8b9261b9cce7a31" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>PlayerBoardHasShips</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a56f295c28f1b9701a67a4346e79eadd9" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>PrintPlayerBoardToEnemy</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a2fdac5446f0c78b75a702c3eb0695b51" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>PrintPlayerBoardToSelf</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1aa0a81672695f4c4622d36df97b8ae0de" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>PrintRivalPlayerBoardToEnemy</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a977245df77ba97c459d97a5745888679" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>PrintRivalPlayerBoardToSelf</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a52d04b81a156e08c85693346da342d89" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>RivalPlayerAddShipToBoard</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a4ac89c4e731cec921f5ed922bde7e1fc" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>RivalPlayerBoardHasShips</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a60411f4d98258424bad90dc50184b698" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>setTime</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a4bad9173e6da57a45202804f99944705" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>setTimePerRound</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a8408fb7488bf0193a2bf0195f99b3467" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>setWinner</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a93ecb4242527b80e76b5e28209f67d2d" prot="public" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>StartGame</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a898f52d5af983ac7469751d87dd77347" prot="private" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>telegramPrinter</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1abcc9f1ff31de1805e549695a6d663ced" prot="private" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>Time</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1a18d68e480797e265d747bd4a7b0d7271" prot="private" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>TimePerRound</name></member>
+      <member refid="class_chat_bot_project_1_1_game_1aeba2c2d723ee254d48b7cbf3ee672892" prot="private" virt="non-virtual"><scope>ChatBotProject::Game</scope><name>Winner</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

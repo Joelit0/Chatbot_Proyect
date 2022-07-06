@@ -1,0 +1,526 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_chat_bot_project_1_1_board" kind="class" language="C#" prot="public">
+    <compoundname>ChatBotProject::Board</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_board_1a08256bc0824c2c9790d4bf727edbdc67" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string HeaderLetters</definition>
+        <argsstring></argsstring>
+        <name>HeaderLetters</name>
+        <qualifiedname>ChatBotProject.Board.HeaderLetters</qualifiedname>
+        <initializer>= &quot;ABCDEFGHIJKLMNÑOPQRSTUVWXYZ&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="9" column="26" bodyfile="src/Library/Board.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_board_1aaadefba794062a2ca7e58ceb10b955a1" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Height</definition>
+        <argsstring></argsstring>
+        <name>Height</name>
+        <qualifiedname>ChatBotProject.Board.Height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="12" column="17" bodyfile="src/Library/Board.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_board_1abbe7749c3b402f7dfe64f936774cfcd4" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Width</definition>
+        <argsstring></argsstring>
+        <name>Width</name>
+        <qualifiedname>ChatBotProject.Board.Width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="13" column="17" bodyfile="src/Library/Board.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_board_1acfa902ece73ee98e7de0aa3792a7a17c" prot="private" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_chat_bot_project_1_1_ship" kindref="compound">Ship</ref> &gt;</type>
+        <definition>List&lt;Ship&gt; Ships</definition>
+        <argsstring></argsstring>
+        <name>Ships</name>
+        <qualifiedname>ChatBotProject.Board.Ships</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="14" column="18" bodyfile="src/Library/Board.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_board_1aff2a5c15ab11869cef02a5e50c6ba012" prot="private" static="no" mutable="no">
+        <type>string[,]</type>
+        <definition>string [,] Fields</definition>
+        <argsstring></argsstring>
+        <name>Fields</name>
+        <qualifiedname>ChatBotProject.Board.Fields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="15" column="20" bodyfile="src/Library/Board.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1addbf92f6a6147b2f81dbff546e724d59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Board</definition>
+        <argsstring>(int height, int width)</argsstring>
+        <name>Board</name>
+        <qualifiedname>ChatBotProject.Board.Board</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+<para>Este es el constructor de <ref refid="class_chat_bot_project_1_1_board" kindref="compound">Board</ref>. Contiene la lista de barcos (List&lt;Ship&gt;) y los campos(Fiels). Aquí también se llama al método generateBoard(), que nos crea un tablero con posiciones vacías. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Es la altura del tablero.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Es el ancho del tablero.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="24" column="12" bodyfile="src/Library/Board.cs" bodystart="24" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1a67a0997183f24da19b776d96c1052998" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int getWidth</definition>
+        <argsstring>()</argsstring>
+        <name>getWidth</name>
+        <qualifiedname>ChatBotProject.Board.getWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="36" column="16" bodyfile="src/Library/Board.cs" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1a07efb2a4e9a982688c8bb3c3f21d1092" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int getHeight</definition>
+        <argsstring>()</argsstring>
+        <name>getHeight</name>
+        <qualifiedname>ChatBotProject.Board.getHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="41" column="16" bodyfile="src/Library/Board.cs" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1a8858603c25b5da13395f702034bb619e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string getHeaderLetters</definition>
+        <argsstring>()</argsstring>
+        <name>getHeaderLetters</name>
+        <qualifiedname>ChatBotProject.Board.getHeaderLetters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="46" column="19" bodyfile="src/Library/Board.cs" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1ae037b5dafe8fc65128956dc6e9943cf9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string[,]</type>
+        <definition>string[,] getFields</definition>
+        <argsstring>()</argsstring>
+        <name>getFields</name>
+        <qualifiedname>ChatBotProject.Board.getFields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="51" column="19" bodyfile="src/Library/Board.cs" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1a52c69745f9023e101bbac38e896640b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void updateBoard</definition>
+        <argsstring>(string value, int row, int col)</argsstring>
+        <name>updateBoard</name>
+        <qualifiedname>ChatBotProject.Board.updateBoard</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+<para>Este método actualiza el tablero. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Este parámetro tiene el valor que se quiere cambiar en el tablero</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Las filas del tablero</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Las columnas del tablero</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="80" column="17" bodyfile="src/Library/Board.cs" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1a528658ada47fad69d927b1cff1835035" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void showShips</definition>
+        <argsstring>()</argsstring>
+        <name>showShips</name>
+        <qualifiedname>ChatBotProject.Board.showShips</qualifiedname>
+        <briefdescription>
+<para>En este método se muestran los barcos. Los barcos se representan con un simbolo &quot;#&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="89" column="17" bodyfile="src/Library/Board.cs" bodystart="89" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1ab93ba2c94c2fc3053d7a6408234aa9e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hideShips</definition>
+        <argsstring>()</argsstring>
+        <name>hideShips</name>
+        <qualifiedname>ChatBotProject.Board.hideShips</qualifiedname>
+        <briefdescription>
+<para>No siempre se mostrarán los barcos en la partida, para esto está el método hideShips que cambia un barco que se está mostrando como &quot;#&quot; a &quot;-&quot;- </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="108" column="17" bodyfile="src/Library/Board.cs" bodystart="108" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1a7e8fb570ecc001f087e234ad7a752ede" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void addShip</definition>
+        <argsstring>(List&lt; string &gt; positions)</argsstring>
+        <name>addShip</name>
+        <qualifiedname>ChatBotProject.Board.addShip</qualifiedname>
+        <param>
+          <type>List&lt; string &gt;</type>
+          <declname>positions</declname>
+        </param>
+        <briefdescription>
+<para>Se agrega el ship pasado como parámetro al tablero. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>positions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Posiciones para colocar el barco</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="129" column="17" bodyfile="src/Library/Board.cs" bodystart="129" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1aa8b040dce73bbab45d72a8b14d2921c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void removeShip</definition>
+        <argsstring>(Ship ship)</argsstring>
+        <name>removeShip</name>
+        <qualifiedname>ChatBotProject.Board.removeShip</qualifiedname>
+        <param>
+          <type><ref refid="class_chat_bot_project_1_1_ship" kindref="compound">Ship</ref></type>
+          <declname>ship</declname>
+        </param>
+        <briefdescription>
+<para>Este método ve si el tablero contiene el barco que deseamos eliminar, y lo borra. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ship</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>El barco que queremos eliminar.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="141" column="17" bodyfile="src/Library/Board.cs" bodystart="141" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1a1e177f272bd66d42f3ad8bf53a8ab3e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_chat_bot_project_1_1_ship" kindref="compound">Ship</ref> &gt;</type>
+        <definition>List&lt; Ship &gt; getShips</definition>
+        <argsstring>()</argsstring>
+        <name>getShips</name>
+        <qualifiedname>ChatBotProject.Board.getShips</qualifiedname>
+        <briefdescription>
+<para>Acá se retorna todos los ships del tablero. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="151" column="17" bodyfile="src/Library/Board.cs" bodystart="151" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1a586aac86beb9cf5634fd7a892747606d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool shipIsValid</definition>
+        <argsstring>(Ship ship)</argsstring>
+        <name>shipIsValid</name>
+        <qualifiedname>ChatBotProject.Board.shipIsValid</qualifiedname>
+        <param>
+          <type><ref refid="class_chat_bot_project_1_1_ship" kindref="compound">Ship</ref></type>
+          <declname>ship</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="156" column="17" bodyfile="src/Library/Board.cs" bodystart="156" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1a27d2083a7afb624b0ef350ef3ac93a3c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void attack</definition>
+        <argsstring>(string position)</argsstring>
+        <name>attack</name>
+        <qualifiedname>ChatBotProject.Board.attack</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Lógica del ataque. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Posición a atacar.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="202" column="17" bodyfile="src/Library/Board.cs" bodystart="202" bodyend="227"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1a4fe4510685fac82c211f44c687a4a762" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void generateBoard</definition>
+        <argsstring>()</argsstring>
+        <name>generateBoard</name>
+        <qualifiedname>ChatBotProject.Board.generateBoard</qualifiedname>
+        <briefdescription>
+<para>El método generateBoard crea un tablero con posiciones vacías. row es una variable equivalente a las filas del tablero. col es una variable equivalente a las columnas del tablero. Se ponen guiones en todo el tablero vacio, respetando la altura y el ancho previamente pasado. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="64" column="18" bodyfile="src/Library/Board.cs" bodystart="64" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1a1c9dcd0abb56d512ccf9074644db1ae7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; int &gt;</type>
+        <definition>List&lt; int &gt; translateToPositions</definition>
+        <argsstring>(string position)</argsstring>
+        <name>translateToPositions</name>
+        <qualifiedname>ChatBotProject.Board.translateToPositions</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Este método traduce las posiciones, si recibe &quot;A1&quot; debería delvoer [0.0] </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Se pasa la posición que se busca traducir</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="236" column="18" bodyfile="src/Library/Board.cs" bodystart="236" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1aeb20d86d059add9fcc2726250f0c0f2d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool allElementsAreEqual</definition>
+        <argsstring>(List&lt; int &gt; array)</argsstring>
+        <name>allElementsAreEqual</name>
+        <qualifiedname>ChatBotProject.Board.allElementsAreEqual</qualifiedname>
+        <param>
+          <type>List&lt; int &gt;</type>
+          <declname>array</declname>
+        </param>
+        <briefdescription>
+<para>Verifica si todos los elementos de una lista son iguales. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La lista para verificar.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="257" column="18" bodyfile="src/Library/Board.cs" bodystart="257" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_board_1adf8ca6dcb6ae19e6470b0a75c23fb242" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool allElementsAreConsecutives</definition>
+        <argsstring>(List&lt; int &gt; array)</argsstring>
+        <name>allElementsAreConsecutives</name>
+        <qualifiedname>ChatBotProject.Board.allElementsAreConsecutives</qualifiedname>
+        <param>
+          <type>List&lt; int &gt;</type>
+          <declname>array</declname>
+        </param>
+        <briefdescription>
+<para>Verifica si todos los elementos de una lista son consecutivos. Retorna un booleano, si son consecutivos o no. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La lista a verificar.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Board.cs" line="276" column="18" bodyfile="src/Library/Board.cs" bodystart="276" bodyend="290"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>La clase <ref refid="class_chat_bot_project_1_1_board" kindref="compound">Board</ref> se encarga de crear el tablero y de todos los movimientos del mismo. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Library/Board.cs" line="6" column="9" bodyfile="src/Library/Board.cs" bodystart="7" bodyend="291"/>
+    <listofallmembers>
+      <member refid="class_chat_bot_project_1_1_board_1a7e8fb570ecc001f087e234ad7a752ede" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>addShip</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1adf8ca6dcb6ae19e6470b0a75c23fb242" prot="private" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>allElementsAreConsecutives</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1aeb20d86d059add9fcc2726250f0c0f2d" prot="private" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>allElementsAreEqual</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1a27d2083a7afb624b0ef350ef3ac93a3c" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>attack</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1addbf92f6a6147b2f81dbff546e724d59" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>Board</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1aff2a5c15ab11869cef02a5e50c6ba012" prot="private" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>Fields</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1a4fe4510685fac82c211f44c687a4a762" prot="private" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>generateBoard</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1ae037b5dafe8fc65128956dc6e9943cf9" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>getFields</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1a8858603c25b5da13395f702034bb619e" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>getHeaderLetters</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1a07efb2a4e9a982688c8bb3c3f21d1092" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>getHeight</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1a1e177f272bd66d42f3ad8bf53a8ab3e8" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>getShips</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1a67a0997183f24da19b776d96c1052998" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>getWidth</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1a08256bc0824c2c9790d4bf727edbdc67" prot="private" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>HeaderLetters</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1aaadefba794062a2ca7e58ceb10b955a1" prot="private" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>Height</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1ab93ba2c94c2fc3053d7a6408234aa9e7" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>hideShips</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1aa8b040dce73bbab45d72a8b14d2921c8" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>removeShip</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1a586aac86beb9cf5634fd7a892747606d" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>shipIsValid</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1acfa902ece73ee98e7de0aa3792a7a17c" prot="private" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>Ships</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1a528658ada47fad69d927b1cff1835035" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>showShips</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1a1c9dcd0abb56d512ccf9074644db1ae7" prot="private" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>translateToPositions</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1a52c69745f9023e101bbac38e896640b3" prot="public" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>updateBoard</name></member>
+      <member refid="class_chat_bot_project_1_1_board_1abbe7749c3b402f7dfe64f936774cfcd4" prot="private" virt="non-virtual"><scope>ChatBotProject::Board</scope><name>Width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="namespace_chat_bot_project" kind="namespace" language="C#">
+    <compoundname>ChatBotProject</compoundname>
+    <innerclass refid="class_chat_bot_project_1_1_board" prot="public">ChatBotProject::Board</innerclass>
+    <innerclass refid="class_chat_bot_project_1_1_game" prot="public">ChatBotProject::Game</innerclass>
+    <innerclass refid="class_chat_bot_project_1_1_games_list" prot="public">ChatBotProject::GamesList</innerclass>
+    <innerclass refid="class_chat_bot_project_1_1_games_vs_i_a_list" prot="public">ChatBotProject::GamesVsIAList</innerclass>
+    <innerclass refid="class_chat_bot_project_1_1_game_vs_i_a" prot="public">ChatBotProject::GameVsIA</innerclass>
+    <innerclass refid="interface_chat_bot_project_1_1_i_printer" prot="public">ChatBotProject::IPrinter</innerclass>
+    <innerclass refid="class_chat_bot_project_1_1_keywords_list" prot="public">ChatBotProject::KeywordsList</innerclass>
+    <innerclass refid="class_chat_bot_project_1_1_ship" prot="public">ChatBotProject::Ship</innerclass>
+    <innerclass refid="class_chat_bot_project_1_1_telegram_bot" prot="public">ChatBotProject::TelegramBot</innerclass>
+    <innerclass refid="class_chat_bot_project_1_1_telegram_printer" prot="public">ChatBotProject::TelegramPrinter</innerclass>
+    <innerclass refid="class_chat_bot_project_1_1_timer" prot="public">ChatBotProject::Timer</innerclass>
+    <innerclass refid="class_chat_bot_project_1_1_user" prot="public">ChatBotProject::User</innerclass>
+    <innerclass refid="class_chat_bot_project_1_1_users_list" prot="public">ChatBotProject::UsersList</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Library/Board.cs" line="1" column="1"/>
+  </compounddef>
+</doxygen>

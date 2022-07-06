@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_chat_bot_project_1_1_telegram_bot" kind="class" language="C#" prot="public">
+    <compoundname>ChatBotProject::TelegramBot</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_chat_bot_project_1_1_telegram_bot_1ac8788b922678f3f2308341326347f6c9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>TelegramBotClient</type>
+        <definition>TelegramBotClient botClient</definition>
+        <argsstring></argsstring>
+        <name>botClient</name>
+        <qualifiedname>ChatBotProject.TelegramBot.botClient</qualifiedname>
+        <briefdescription>
+<para>El bot de telegram al que podremos acceder globalmente gracias al singleton. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/TelegramBot.cs" line="20" column="34" bodyfile="src/Library/TelegramBot.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_telegram_bot_1a1d1aaf54cca4c5a02cb7762cdce4b25f" prot="private" static="yes" mutable="no">
+        <type><ref refid="class_chat_bot_project_1_1_telegram_bot" kindref="compound">TelegramBot</ref></type>
+        <definition>TelegramBot _instance</definition>
+        <argsstring></argsstring>
+        <name>_instance</name>
+        <qualifiedname>ChatBotProject.TelegramBot._instance</qualifiedname>
+        <briefdescription>
+<para>Instancia privada y estática necesaria para aplicar Singleton. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/TelegramBot.cs" line="25" column="36" bodyfile="src/Library/TelegramBot.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_telegram_bot_1a5ba9e3a042ac37529f826dccd73773e4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TelegramBot</definition>
+        <argsstring>()</argsstring>
+        <name>TelegramBot</name>
+        <qualifiedname>ChatBotProject.TelegramBot.TelegramBot</qualifiedname>
+        <briefdescription>
+<para>Constructor privado, necesario para aplicar Singleton, asegurando que solo haya una instancia creada de esta clase. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/TelegramBot.cs" line="30" column="17" bodyfile="src/Library/TelegramBot.cs" bodystart="30" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_telegram_bot_1a7b8d6a5a42c6cae338661d26024cc1d2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_chat_bot_project_1_1_telegram_bot" kindref="compound">TelegramBot</ref></type>
+        <definition>static TelegramBot GetInstance</definition>
+        <argsstring>()</argsstring>
+        <name>GetInstance</name>
+        <qualifiedname>ChatBotProject.TelegramBot.GetInstance</qualifiedname>
+        <briefdescription>
+<para>Sirve para aplicar el singleton, verifica si la propiedad <ref refid="class_chat_bot_project_1_1_telegram_bot" kindref="compound">TelegramBot</ref> es nula y si no es nula te devuelve el valor de la propiedad. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/TelegramBot.cs" line="40" column="35" bodyfile="src/Library/TelegramBot.cs" bodystart="40" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Clase singleton para permitir tener acceso a el bot de telegram y sus métodos en cualquier parte del programa. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Library/TelegramBot.cs" line="14" column="11" bodyfile="src/Library/TelegramBot.cs" bodystart="15" bodyend="48"/>
+    <listofallmembers>
+      <member refid="class_chat_bot_project_1_1_telegram_bot_1a1d1aaf54cca4c5a02cb7762cdce4b25f" prot="private" virt="non-virtual"><scope>ChatBotProject::TelegramBot</scope><name>_instance</name></member>
+      <member refid="class_chat_bot_project_1_1_telegram_bot_1ac8788b922678f3f2308341326347f6c9" prot="public" virt="non-virtual"><scope>ChatBotProject::TelegramBot</scope><name>botClient</name></member>
+      <member refid="class_chat_bot_project_1_1_telegram_bot_1a7b8d6a5a42c6cae338661d26024cc1d2" prot="public" virt="non-virtual"><scope>ChatBotProject::TelegramBot</scope><name>GetInstance</name></member>
+      <member refid="class_chat_bot_project_1_1_telegram_bot_1a5ba9e3a042ac37529f826dccd73773e4" prot="private" virt="non-virtual"><scope>ChatBotProject::TelegramBot</scope><name>TelegramBot</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

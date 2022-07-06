@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="dir_f741251061e5c7c7ed48ab45c3348f11" kind="dir">
+    <compoundname>src/Library</compoundname>
+    <innerfile refid="_board_8cs">Board.cs</innerfile>
+    <innerfile refid="_game_8cs">Game.cs</innerfile>
+    <innerfile refid="_games_list_8cs">GamesList.cs</innerfile>
+    <innerfile refid="_games_vs_i_a_list_8cs">GamesVsIAList.cs</innerfile>
+    <innerfile refid="_game_vs_i_a_8cs">GameVsIA.cs</innerfile>
+    <innerfile refid="_i_printer_8cs">IPrinter.cs</innerfile>
+    <innerfile refid="_keywords_list_8cs">KeywordsList.cs</innerfile>
+    <innerfile refid="_ship_8cs">Ship.cs</innerfile>
+    <innerfile refid="_telegram_bot_8cs">TelegramBot.cs</innerfile>
+    <innerfile refid="_telegram_printer_8cs">TelegramPrinter.cs</innerfile>
+    <innerfile refid="_timer_8cs">Timer.cs</innerfile>
+    <innerfile refid="_user_8cs">User.cs</innerfile>
+    <innerfile refid="_users_list_8cs">UsersList.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Library/"/>
+  </compounddef>
+</doxygen>

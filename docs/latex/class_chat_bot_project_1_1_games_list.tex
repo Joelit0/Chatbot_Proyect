@@ -1,0 +1,101 @@
+\hypertarget{class_chat_bot_project_1_1_games_list}{}\doxysection{Games\+List Class Reference}
+\label{class_chat_bot_project_1_1_games_list}\index{GamesList@{GamesList}}
+
+
+\mbox{\hyperlink{class_chat_bot_project_1_1_games_list}{Games\+List}} es el experto en conocer a todos los usuarios, y por el patron Expert este tambien es quien posee la responsabilidad de agregar y/o remover Usuario. Debido a que \mbox{\hyperlink{class_chat_bot_project_1_1_games_list}{Games\+List}} contiene instancias de \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}, por Creator, esta clase debe tener la responsabilidad de crear dichas instancias.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_games_list_afcf4203095ced21a9e750567725c8b3d}{Add\+Game}} (List$<$ \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}} $>$ users, int total\+Mins, int total\+Secs, int mins\+Per\+Round, int secs\+Per\+Round)
+\begin{DoxyCompactList}\small\item\em Siguienfo el patrón Creator Add\+User es el encargado de crear los nuevos usuarios y a su vez los añade a la lista de usuarios. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_games_list_ae52a25a43ca6b9651233ff237a8613f5}{Remove\+Game}} (\mbox{\hyperlink{class_chat_bot_project_1_1_game}{Game}} game\+To\+Be\+Removed)
+\begin{DoxyCompactList}\small\item\em Remove\+User es el encargado de remover usuarios de la lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_chat_bot_project_1_1_games_list}{Games\+List}} \mbox{\hyperlink{class_chat_bot_project_1_1_games_list_ad83fad126adf950b34722eb9ca313a77}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Sirve para aplicar el singleton, verifica si la propiedad \mbox{\hyperlink{class_chat_bot_project_1_1_games_list}{Games\+List}} es nula y si no es nula te devuelve el valor de la propiedad. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{class_chat_bot_project_1_1_game}{Game}} $>$ \mbox{\hyperlink{class_chat_bot_project_1_1_games_list_af8a5f886e8fa86d58cd033037129e720}{Games}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em La lista de games. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_chat_bot_project_1_1_games_list}{Games\+List}} es el experto en conocer a todos los usuarios, y por el patron Expert este tambien es quien posee la responsabilidad de agregar y/o remover Usuario. Debido a que \mbox{\hyperlink{class_chat_bot_project_1_1_games_list}{Games\+List}} contiene instancias de \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}, por Creator, esta clase debe tener la responsabilidad de crear dichas instancias. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_games_list_afcf4203095ced21a9e750567725c8b3d}\label{class_chat_bot_project_1_1_games_list_afcf4203095ced21a9e750567725c8b3d}} 
+\index{GamesList@{GamesList}!AddGame@{AddGame}}
+\index{AddGame@{AddGame}!GamesList@{GamesList}}
+\doxysubsubsection{\texorpdfstring{AddGame()}{AddGame()}}
+{\footnotesize\ttfamily void Add\+Game (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}} $>$}]{users,  }\item[{int}]{total\+Mins,  }\item[{int}]{total\+Secs,  }\item[{int}]{mins\+Per\+Round,  }\item[{int}]{secs\+Per\+Round }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Siguienfo el patrón Creator Add\+User es el encargado de crear los nuevos usuarios y a su vez los añade a la lista de usuarios. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & El nombre del usuario\\
+\hline
+{\em password} & La contraseña del usuario\\
+\hline
+{\em chat\+Id} & La id del chat del usuario\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_games_list_ad83fad126adf950b34722eb9ca313a77}\label{class_chat_bot_project_1_1_games_list_ad83fad126adf950b34722eb9ca313a77}} 
+\index{GamesList@{GamesList}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!GamesList@{GamesList}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_chat_bot_project_1_1_games_list}{Games\+List}} Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Sirve para aplicar el singleton, verifica si la propiedad \mbox{\hyperlink{class_chat_bot_project_1_1_games_list}{Games\+List}} es nula y si no es nula te devuelve el valor de la propiedad. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_games_list_ae52a25a43ca6b9651233ff237a8613f5}\label{class_chat_bot_project_1_1_games_list_ae52a25a43ca6b9651233ff237a8613f5}} 
+\index{GamesList@{GamesList}!RemoveGame@{RemoveGame}}
+\index{RemoveGame@{RemoveGame}!GamesList@{GamesList}}
+\doxysubsubsection{\texorpdfstring{RemoveGame()}{RemoveGame()}}
+{\footnotesize\ttfamily void Remove\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chat_bot_project_1_1_game}{Game}}}]{game\+To\+Be\+Removed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove\+User es el encargado de remover usuarios de la lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+To\+Be\+Removed} & Es el nombre del usuario que será removido\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_games_list_af8a5f886e8fa86d58cd033037129e720}\label{class_chat_bot_project_1_1_games_list_af8a5f886e8fa86d58cd033037129e720}} 
+\index{GamesList@{GamesList}!Games@{Games}}
+\index{Games@{Games}!GamesList@{GamesList}}
+\doxysubsubsection{\texorpdfstring{Games}{Games}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_chat_bot_project_1_1_game}{Game}}$>$ Games\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+La lista de games. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/Games\+List.\+cs\end{DoxyCompactItemize}
