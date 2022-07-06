@@ -328,6 +328,7 @@ namespace ChatBotProject
                   //se dara si y solo si la propiedad MyTurn de dicho player esta en true. 
                   if (this.Player.MyTurn == true)
                   {
+                    //Realizo mi ataque, imprimo los boards correspondientes y cambio mi MyTurn a false y el MyTurn de mi rival a true.
                     this.CurrentGame.AttackRivalPlayerBoard(message);
 
                     TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, "Tu tablero");
@@ -351,7 +352,7 @@ namespace ChatBotProject
                   }
                   else
                   {
-                    response = "No sé que pasó";
+                    response = string.Empty;
                   }
                 }
                 if(!this.CurrentGame.PlayerBoardHasShips() || !this.CurrentGame.RivalPlayerBoardHasShips()) //Revisa si uno de los tableros ya no tiene barcos.
@@ -391,8 +392,10 @@ namespace ChatBotProject
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
                   this.State = GameState.PlayerStart;
                   this.Player.State = "";
+                  this.RivalPlayer.State = "";
                   this.Player = null;
                   this.RivalPlayer = null;
+                  this.CurrentGame = null;
                 }
               }
               else
@@ -483,8 +486,10 @@ namespace ChatBotProject
                   response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
-                  this.RivalPlayer.State = "RivalPlayerStart";
-                  this.Player.State = "PlayerStart";
+                  this.Player.State = "";
+                  this.RivalPlayer.State = "";
+                  this.Player = null;
+                  this.RivalPlayer = null;
                   this.CurrentGame = null;
                   this.State = GameState.RivalPlayerStart;
                   
@@ -558,8 +563,12 @@ namespace ChatBotProject
                   response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
-                  this.RivalPlayer.State = "RivalPlayerStart"; 
                   this.State = GameState.RivalPlayerStart;
+                  this.Player.State = "";
+                  this.RivalPlayer.State = "";
+                  this.Player = null;
+                  this.RivalPlayer = null;
+                  this.CurrentGame = null;
                   
                 }
                 else
@@ -665,8 +674,10 @@ namespace ChatBotProject
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
                   this.State = GameState.PlayerStart;
                   this.Player.State = "";
+                  this.RivalPlayer.State = "";
                   this.Player = null;
                   this.RivalPlayer = null;
+                  this.CurrentGame = null;
                 }
               }
               else
@@ -693,27 +704,62 @@ namespace ChatBotProject
         /// </summary>
         public enum GameState
         {
-          ///-Start: Es el estado inicial del comando. En este comando pide el mensaje de invitación para
+          ///-PlayerStart: Es el estado inicial del comando. En este comando pide el mensaje de /Game para
           ///asi pasar al siguiente estado.
           PlayerStart,
+
+          ///-PlayerReadyToStartConfirmation. En este comando espera /Ready o /Leave.
           PlayerReadyToStartConfirmation,
+
+          ///-PlayerPlacingShip1. En este comando espera una coordenada para colocar un barco de 2 posiciones.
           PlayerPlacingShip1,
+
+          ///-PlayerPlacingShip2. En este comando espera una coordenada para colocar un barco de 3 posiciones.
           PlayerPlacingShip2,
+
+          ///-PlayerPlacingShip3. En este comando espera una coordenada para colocar un barco de 4 posiciones.
           PlayerPlacingShip3,
+
+          ///-PlayerPlacingShip4. En este comando espera una coordenada para colocar un barco de 5 posiciones.
           PlayerPlacingShip4,
+
+          ///-PlayerBeginConfirmation. En este comando espera /Begin o /Leaves.
           PlayerBeginConfirmation,
+
+          ///-PlayerReadyToStart. En este comando espera que se le ingrese cualquier letra para continuar.
           PlayerReadyToStart,
+
+          ///-PlayerPvpBattleship. En este comando espera coordenadas para atacar a los barcos del oponente.
           PlayerPvpBattleship,
+
+          ///-RivalPlayerStart: Es el estado inicial del comando. En este comando pide el mensaje de /Game para
+          ///asi pasar al siguiente estado.
           RivalPlayerStart,
+
+          ///-RivalPlayerReadyToStartConfirmation. En este comando espera /Ready o /Leave.
           RivalPlayerReadyToStartConfirmation,
+
+          ///-RivalPlayerPlacingShip1. En este comando espera una coordenada para colocar un barco de 2 posiciones.
           RivalPlayerPlacingShip1,
+
+          ///-RivalPlayerPlacingShip2. En este comando espera una coordenada para colocar un barco de 3 posiciones.
           RivalPlayerPlacingShip2,
+
+          ///-RivalPlayerPlacingShip3. En este comando espera una coordenada para colocar un barco de 4 posiciones.
           RivalPlayerPlacingShip3,
+
+          ///-RivalPlayerPlacingShip4. En este comando espera una coordenada para colocar un barco de 5 posiciones.
           RivalPlayerPlacingShip4,
+
+          ///-RivalPlayerBeginConfirmation. En este comando espera /Begin o /Leaves.
           RivalPlayerBeginConfirmation,
+
+          ///-RivalPlayerReadyToStart. En este comando espera que se le ingrese cualquier letra para continuar.
           RivalPlayerReadyToStart,
-          RivalPlayerPvpBattleship,
-          CheckingAnswerForGame
+
+          ///-RivalPlayerPvpBattleship. En este comando espera coordenadas para atacar a los barcos del oponente.
+          RivalPlayerPvpBattleship
+
         }
     }
 }
