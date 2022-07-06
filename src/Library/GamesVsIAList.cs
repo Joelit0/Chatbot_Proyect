@@ -4,10 +4,10 @@ using System.Collections.Generic;
 namespace ChatBotProject
 {
   /// <summary>
-  /// GamesVsIAList es el experto en conocer a todos los usuarios, y 
+  /// GamesVsIAList es el experto en conocer a todos los GameVsIA, y 
   /// por el patron Expert este tambien es quien
-  /// posee la responsabilidad de agregar y/o remover Usuario.
-  /// Debido a que GamesVsIAList contiene instancias de User, por Creator, esta clase
+  /// posee la responsabilidad de agregar y/o remover un GameVsIA.
+  /// Debido a que GamesVsIAList contiene instancias de GameVsIA, por Creator, esta clase
   /// debe tener la responsabilidad de crear dichas instancias.
   /// </summary>
   public class GamesVsIAList
@@ -33,9 +33,9 @@ namespace ChatBotProject
     }
 
     /// <summary>
-    /// Siguiendo el patrón Creator AddGame es el encargado de crear las nuevas GameVsIA y a su vez los añade a GamesVsIA.
+    /// Siguiendo el patrón Creator AddGameVsIA es el encargado de crear las nuevas GameVsIA y a su vez los añade a GamesVsIA.
     /// </summary>
-    /// <param name="name">El usuario que juega la partida</param>
+    /// <param name="player">El usuario que juega la partida contra el Bot</param>
     /// <returns></returns>
     public void AddGameVsIA(User player)
     {
@@ -44,9 +44,9 @@ namespace ChatBotProject
     }
 
     /// <summary>
-    /// RemoveGameVsIA es el encargado de remover una GameVsIA de GamesVsIA.
+    /// RemoveGame es el encargado de remover una GameVsIA de GamesVsIA.
     /// </summary>
-    /// <param name="gameToBeRemoved">El Game que será removido</param>
+    /// <param name="gameToBeRemoved">El GameVsIA que será removido</param>
     public void RemoveGame(GameVsIA gameToBeRemoved)
     {
       this.GamesVsIA.Remove(gameToBeRemoved);

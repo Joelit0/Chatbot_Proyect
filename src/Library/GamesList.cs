@@ -32,11 +32,13 @@ namespace ChatBotProject
         }
 
         /// <summary>
-        /// Siguienfo el patrón Creator AddUser es el encargado de crear los nuevos usuarios y a su vez los añade a la lista de usuarios.
+        /// Siguiendo el patrón Creator AddGame es el encargado de crear los nuevos games y a su vez los añade a la lista de games.
         /// </summary>
-        /// <param name="name">El nombre del usuario</param>
-        /// <param name="password">La contraseña del usuario</param>
-        /// <param name="chatId">La id del chat del usuario</param>
+        /// <param name="users">La lista de users</param>
+        /// <param name="totalMins">Minutos totales por partida</param>
+        /// <param name="totalSecs">Segundos totales por partida</param>
+        /// <param name="minsPerRound">Minutos totales por ronda</param>
+        /// <param name="secsPerRound">Segundos totales por ronda</param>
         /// <returns></returns>
         public void AddGame(List<User> users, int totalMins, int totalSecs, int minsPerRound, int secsPerRound)
         {
@@ -45,9 +47,9 @@ namespace ChatBotProject
         }
 
         /// <summary>
-        /// RemoveUser es el encargado de remover usuarios de la lista.
+        /// RemoveGame es el encargado de remover un Game de la lista.
         /// </summary>
-        /// <param name="gameToBeRemoved">Es el nombre del usuario que será removido</param>
+        /// <param name="gameToBeRemoved">Es la instancia de Game que será removida de la lista</param>
         public void RemoveGame(Game gameToBeRemoved)
         {
           this.Games.Remove(gameToBeRemoved);
