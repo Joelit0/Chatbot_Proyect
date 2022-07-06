@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_chat_bot_project_1_1_timer" kind="class" language="C#" prot="public">
+    <compoundname>ChatBotProject::Timer</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_timer_1ac07e1d8d4092a87058fe2b8c50393b3e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Mins</definition>
+        <argsstring></argsstring>
+        <name>Mins</name>
+        <qualifiedname>ChatBotProject.Timer.Mins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Timer.cs" line="8" column="17" bodyfile="src/Library/Timer.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_timer_1ab32f584b3d9170642f1231d218636f30" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Secs</definition>
+        <argsstring></argsstring>
+        <name>Secs</name>
+        <qualifiedname>ChatBotProject.Timer.Secs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Timer.cs" line="9" column="17" bodyfile="src/Library/Timer.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_timer_1a43a82f708ddd27ca383a7e1fac2b344b" prot="private" static="no" mutable="no">
+        <type>System.Timers.Timer</type>
+        <definition>System.Timers.Timer timerClock</definition>
+        <argsstring></argsstring>
+        <name>timerClock</name>
+        <qualifiedname>ChatBotProject.Timer.timerClock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Timer.cs" line="10" column="31" bodyfile="src/Library/Timer.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_timer_1a79f0950bfdb4fc673870b9b96e9dd217" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Timer</definition>
+        <argsstring>(int mins, int secs)</argsstring>
+        <name>Timer</name>
+        <qualifiedname>ChatBotProject.Timer.Timer</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>mins</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>secs</declname>
+        </param>
+        <briefdescription>
+<para>Constructor timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Recibe mins, de tipo int</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>secs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Recibe secs, de tipo int</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Timer.cs" line="17" column="12" bodyfile="src/Library/Timer.cs" bodystart="17" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_timer_1a6ab320eb327964e02f88bd0e14175137" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int getMins</definition>
+        <argsstring>()</argsstring>
+        <name>getMins</name>
+        <qualifiedname>ChatBotProject.Timer.getMins</qualifiedname>
+        <briefdescription>
+<para>Getter de los minutos. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Timer.cs" line="29" column="16" bodyfile="src/Library/Timer.cs" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_timer_1a544c7ae025942a44526c1ef2857f3c1a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setMins</definition>
+        <argsstring>(int mins)</argsstring>
+        <name>setMins</name>
+        <qualifiedname>ChatBotProject.Timer.setMins</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>mins</declname>
+        </param>
+        <briefdescription>
+<para>Setter de los minutos. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Recibe mins, de tipo int</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Timer.cs" line="38" column="17" bodyfile="src/Library/Timer.cs" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_timer_1a094eefa15f098ff8aafe70f090231145" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int getSecs</definition>
+        <argsstring>()</argsstring>
+        <name>getSecs</name>
+        <qualifiedname>ChatBotProject.Timer.getSecs</qualifiedname>
+        <briefdescription>
+<para>Getter de los segundos. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Timer.cs" line="46" column="16" bodyfile="src/Library/Timer.cs" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_timer_1a0ecec3ff976064cae15940b375de5d06" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setSecs</definition>
+        <argsstring>(int secs)</argsstring>
+        <name>setSecs</name>
+        <qualifiedname>ChatBotProject.Timer.setSecs</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>secs</declname>
+        </param>
+        <briefdescription>
+<para>Setter de los segundos. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>secs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Recibe secs, de tipo int</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Timer.cs" line="55" column="17" bodyfile="src/Library/Timer.cs" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_timer_1aec53975ffc59ffaf3080db21af0d2f6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void startTimer</definition>
+        <argsstring>()</argsstring>
+        <name>startTimer</name>
+        <qualifiedname>ChatBotProject.Timer.startTimer</qualifiedname>
+        <briefdescription>
+<para>Se encarga de comenzar el timer. Setea el tiempo basado en los atributos minutos y segundos, luego habilita el timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Timer.cs" line="63" column="17" bodyfile="src/Library/Timer.cs" bodystart="63" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_timer_1aa6f6bfef028c7b053444cbd48567d286" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void stopTimer</definition>
+        <argsstring>()</argsstring>
+        <name>stopTimer</name>
+        <qualifiedname>ChatBotProject.Timer.stopTimer</qualifiedname>
+        <briefdescription>
+<para>Se encarga de detener el timer. Es el proceso inverso de habilitar el timer. En vez de cargar true en Eneabled, carga false </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Timer.cs" line="75" column="17" bodyfile="src/Library/Timer.cs" bodystart="75" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_timer_1ab432eeb7286e57ee0e934633f02e7700" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void OnTimedEvent</definition>
+        <argsstring>(Object source, System.Timers.ElapsedEventArgs e)</argsstring>
+        <name>OnTimedEvent</name>
+        <qualifiedname>ChatBotProject.Timer.OnTimedEvent</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>System.Timers.ElapsedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Este método es el encargado de manejar la interrupción del timer. Es decir, cuando el timer termine &quot;caerá&quot; en este método </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/Timer.cs" line="84" column="18" bodyfile="src/Library/Timer.cs" bodystart="84" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Esta clase <ref refid="class_chat_bot_project_1_1_timer" kindref="compound">Timer</ref> es un temporizador. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Library/Timer.cs" line="6" column="9" bodyfile="src/Library/Timer.cs" bodystart="7" bodyend="87"/>
+    <listofallmembers>
+      <member refid="class_chat_bot_project_1_1_timer_1a6ab320eb327964e02f88bd0e14175137" prot="public" virt="non-virtual"><scope>ChatBotProject::Timer</scope><name>getMins</name></member>
+      <member refid="class_chat_bot_project_1_1_timer_1a094eefa15f098ff8aafe70f090231145" prot="public" virt="non-virtual"><scope>ChatBotProject::Timer</scope><name>getSecs</name></member>
+      <member refid="class_chat_bot_project_1_1_timer_1ac07e1d8d4092a87058fe2b8c50393b3e" prot="private" virt="non-virtual"><scope>ChatBotProject::Timer</scope><name>Mins</name></member>
+      <member refid="class_chat_bot_project_1_1_timer_1ab432eeb7286e57ee0e934633f02e7700" prot="private" virt="non-virtual"><scope>ChatBotProject::Timer</scope><name>OnTimedEvent</name></member>
+      <member refid="class_chat_bot_project_1_1_timer_1ab32f584b3d9170642f1231d218636f30" prot="private" virt="non-virtual"><scope>ChatBotProject::Timer</scope><name>Secs</name></member>
+      <member refid="class_chat_bot_project_1_1_timer_1a544c7ae025942a44526c1ef2857f3c1a" prot="public" virt="non-virtual"><scope>ChatBotProject::Timer</scope><name>setMins</name></member>
+      <member refid="class_chat_bot_project_1_1_timer_1a0ecec3ff976064cae15940b375de5d06" prot="public" virt="non-virtual"><scope>ChatBotProject::Timer</scope><name>setSecs</name></member>
+      <member refid="class_chat_bot_project_1_1_timer_1aec53975ffc59ffaf3080db21af0d2f6e" prot="public" virt="non-virtual"><scope>ChatBotProject::Timer</scope><name>startTimer</name></member>
+      <member refid="class_chat_bot_project_1_1_timer_1aa6f6bfef028c7b053444cbd48567d286" prot="public" virt="non-virtual"><scope>ChatBotProject::Timer</scope><name>stopTimer</name></member>
+      <member refid="class_chat_bot_project_1_1_timer_1a79f0950bfdb4fc673870b9b96e9dd217" prot="public" virt="non-virtual"><scope>ChatBotProject::Timer</scope><name>Timer</name></member>
+      <member refid="class_chat_bot_project_1_1_timer_1a43a82f708ddd27ca383a7e1fac2b344b" prot="private" virt="non-virtual"><scope>ChatBotProject::Timer</scope><name>timerClock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

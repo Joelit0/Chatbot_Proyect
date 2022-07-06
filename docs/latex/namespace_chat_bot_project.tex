@@ -1,0 +1,31 @@
+\hypertarget{namespace_chat_bot_project}{}\doxysection{Chat\+Bot\+Project Namespace Reference}
+\label{namespace_chat_bot_project}\index{ChatBotProject@{ChatBotProject}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_board}{Board}}
+\begin{DoxyCompactList}\small\item\em La clase \mbox{\hyperlink{class_chat_bot_project_1_1_board}{Board}} se encarga de crear el tablero y de todos los movimientos del mismo. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_game}{Game}}
+\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_games_list}{Games\+List}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_chat_bot_project_1_1_games_list}{Games\+List}} es el experto en conocer a todos los usuarios, y por el patron Expert este tambien es quien posee la responsabilidad de agregar y/o remover Usuario. Debido a que \mbox{\hyperlink{class_chat_bot_project_1_1_games_list}{Games\+List}} contiene instancias de \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}, por Creator, esta clase debe tener la responsabilidad de crear dichas instancias. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}} es el experto en conocer a todos los usuarios, y por el patron Expert este tambien es quien posee la responsabilidad de agregar y/o remover Usuario. Debido a que \mbox{\hyperlink{class_chat_bot_project_1_1_games_vs_i_a_list}{Games\+Vs\+IAList}} contiene instancias de \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}, por Creator, esta clase debe tener la responsabilidad de crear dichas instancias. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_game_vs_i_a}{Game\+Vs\+IA}}
+\item 
+interface \mbox{\hyperlink{interface_chat_bot_project_1_1_i_printer}{IPrinter}}
+\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_keywords_list}{Keywords\+List}}
+\begin{DoxyCompactList}\small\item\em Clase singleton que contiene palabras clave baneadas, para que no puedan ser usadas como argumentos a la hora de crear usuarios. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_ship}{Ship}}
+\begin{DoxyCompactList}\small\item\em Esta clase es la del barco. Cada barco tiene un puntuaje (Score), largo (Large), el booleano para ver si está vivo o hundido(\+Is\+Alive) y sus posiciones (Positions). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_telegram_bot}{Telegram\+Bot}}
+\begin{DoxyCompactList}\small\item\em Clase singleton para permitir tener acceso a el bot de telegram y sus métodos en cualquier parte del programa. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_telegram_printer}{Telegram\+Printer}}
+\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_timer}{Timer}}
+\begin{DoxyCompactList}\small\item\em Esta clase \mbox{\hyperlink{class_chat_bot_project_1_1_timer}{Timer}} es un temporizador. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}
+\begin{DoxyCompactList}\small\item\em Clase creada para poder guardar toda la información de los usuarios, este será el cimiento que utilizara el bot para poder identificar las distintas sesions y brindarles los distintos servicios que este provee. Esta clase aplica expert y srp, ya que es experta en conocer sus datos y a su vez siendo esta última su única responsabilidad. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} es el experto en conocer a todos los usuarios, y por el patron Expert este tambien es quien posee la responsabilidad de agregar y/o remover Usuario. Debido a que \mbox{\hyperlink{class_chat_bot_project_1_1_users_list}{Users\+List}} contiene instancias de \mbox{\hyperlink{class_chat_bot_project_1_1_user}{User}}, por Creator, esta clase debe tener la responsabilidad de crear dichas instancias. \end{DoxyCompactList}\end{DoxyCompactItemize}

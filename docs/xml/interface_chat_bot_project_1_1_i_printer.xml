@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="interface_chat_bot_project_1_1_i_printer" kind="interface" language="C#" prot="public">
+    <compoundname>ChatBotProject::IPrinter</compoundname>
+    <derivedcompoundref refid="class_chat_bot_project_1_1_telegram_printer" prot="public" virt="non-virtual">TelegramPrinter</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_chat_bot_project_1_1_i_printer_1ad6483e8647bfcaeeeeb920aa230fa1ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void printBoard</definition>
+        <argsstring>(Board board, long id)</argsstring>
+        <name>printBoard</name>
+        <qualifiedname>ChatBotProject.IPrinter.printBoard</qualifiedname>
+        <reimplementedby refid="class_chat_bot_project_1_1_telegram_printer_1ad6483e8647bfcaeeeeb920aa230fa1ce">printBoard</reimplementedby>
+        <param>
+          <type><ref refid="class_chat_bot_project_1_1_board" kindref="compound">Board</ref></type>
+          <declname>board</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Se usa el Dependency Inversion Principle, ya que esta interfaz se implementa en la clase ConsolePrinter de forma que la clase ConsolePrinter no dependa de otra clase que no sea una abstracción. Esta clase es una interfaz para implementar en la clase ConsolePrinter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/IPrinter.cs" line="9" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>TelegramPrinter</label>
+        <link refid="class_chat_bot_project_1_1_telegram_printer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>IPrinter</label>
+        <link refid="interface_chat_bot_project_1_1_i_printer"/>
+      </node>
+    </inheritancegraph>
+    <location file="src/Library/IPrinter.cs" line="3" column="20" bodyfile="src/Library/IPrinter.cs" bodystart="4" bodyend="10"/>
+    <listofallmembers>
+      <member refid="interface_chat_bot_project_1_1_i_printer_1ad6483e8647bfcaeeeeb920aa230fa1ce" prot="public" virt="non-virtual"><scope>ChatBotProject::IPrinter</scope><name>printBoard</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

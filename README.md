@@ -14,3 +14,10 @@ Enfrentamos algunas adversidades ya que priorizamos cosas como el Bot y terminam
 En el Program.cs dejamos un ejemplo de como está funcionando el juego. Luego, debajo de ese fragmento de código dejamos comentado todo lo relacionado al Bot. Ambas cosas funcionan pero no están conectadas aún, por lo tanto, si se quiere probar el Bot deben de comentar el fragmento de código que dice "Lógica del juego" y descomentar el fragmento de código que dice "Lógica del Bot".
 
 Id de Telegram del bot en caso de que quieran probarlo = @SuperBattleship_bot.
+
+|ENTREGA FINAL|
+Para esta entrega centramos nuestros esfuerzos en dejar nuestro proyecto lo más funcional y sólido posible, lamentablemente la falta de tiempo nos forzó a renunciar a la implementación de excepciones
+así como de la funcionalidad de Timer para poner limites de tiempo globales y entre rondas a las partidas. Sin embargo apreciamos el soporte de los profesores para ayudarnos a llegar a un estandar de
+calidad que nosotros consideramos bueno en nuestro proyecto, este semestre nos ha hecho mejorar como 
+individuos y como equipo.
+

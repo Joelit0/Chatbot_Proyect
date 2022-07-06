@@ -6,7 +6,7 @@ using Telegram.Bot;
 namespace ChatBotProject
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/Matchamking".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/Game".
     /// </summary>
     public class GameHandler : BaseHandler
     {
@@ -44,11 +44,9 @@ namespace ChatBotProject
           return stringList;
         }
   
-
         /// <summary>
         /// Esta clase procesa el mensaje /Game.
         /// </summary>
-
         public GameHandler(BaseHandler next) : base(next)
         {
           this.Keywords = new string[] { "/Game" };
@@ -56,42 +54,18 @@ namespace ChatBotProject
           
         }
 
-      
         protected override bool CanHandle(string message)
         {
           if (this.State == GameState.PlayerStart)
           {
             return base.CanHandle(message);
           }
-          /*
-          else if (this.State == GameState.PlayerReadyToStartConfirmation)
-          {
-            return base.CanHandle(message);
-          }
-          else if (this.State == GameState.PlayerPlacingShip1)
-          {
-            return base.CanHandle(message);
-          }
-          else if (this.State == GameState.RivalPlayerStart)
-          {
-            return base.CanHandle(message);
-          }
-          else if (this.State == GameState.RivalPlayerReadyToStartConfirmation)
-          {
-            return base.CanHandle(message);
-          }
-          else if (this.State == GameState.RivalPlayerPlacingShip1)
-          {
-            return base.CanHandle(message);
-          }
-          */
           else
           {
             return true;
           }
         }
       
-
         /// <summary>
         /// Procesa todos los mensajes y retorna true siempre.
         /// </summary>
@@ -101,6 +75,8 @@ namespace ChatBotProject
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override void InternalHandle(string message, long chatid, out string response)
         {   
+            //Utilizamos las siguientes variables así como el foreach para identificar a los usuarios 
+            //que interactuan con el bot y poder guiarlos por el flujo adecuado.
             bool RealPlayer = false;
             bool RealRivalPlayer = false;
             foreach(Game game in GamesList.GetInstance().Games)
@@ -122,54 +98,65 @@ namespace ChatBotProject
                 TelegramBot.GetInstance().botClient.SendTextMessageAsync(chatid, "No tiene ninguna partida creada, utilice /Matchmaking para crear una.");
               }
             }
-
+            //Flujo del player, el jugador que crea la partida siempre será identificado
+            //como player.
             if (this.Player.ID == chatid)
             {
               Console.WriteLine("Entro al flujo de Player");
               RealPlayer = true;
-              //Estados de Usuario
+              //Estados de Usuario, los usamos para guardar la ubicación de un usuario dentro del 
+              //handler.
               if (RealPlayer == true)
               {
+                // Este estado de usuario está asociado al estado PlayerStart del handler.
                 if (this.Player.State == "PlayerStart")
                 {
                   this.State = GameState.PlayerStart;
                   response = "PlayerStart";
                 }
+                // Este estado de usuario está asociado al estado PlayerReadyToStartConfirmation del handler.
                 else if (this.Player.State == "PlayerReadyToStartConfirmation")
                 {
                   this.State = GameState.PlayerReadyToStartConfirmation;
                   response = "Entro al estado de usuario PlayerReadyToStartConfirmation";
                 }
+                // Este estado de usuario está asociado al estado PlayerPlacingShip1 del handler.
                 else if (this.Player.State == "PlayerPlacingShip1")
                 {
                   this.State = GameState.PlayerPlacingShip1;
                   response = "Entro al estado de usuario PlayerPlacingShip1";
                 }
+                // Este estado de usuario está asociado al estado PlayerPlacingShip2 del handler.
                 else if (this.Player.State == "PlayerPlacingShip2")
                 {
                   this.State = GameState.PlayerPlacingShip2;
                   response = "Entro al estado de usuario PlayerPlacingShip2";
                 }
+                // Este estado de usuario está asociado al estado PlayerPlacingShip3 del handler.
                 else if (this.Player.State == "PlayerPlacingShip3")
                 {
                   this.State = GameState.PlayerPlacingShip3;
                   response = "Entro al estado de usuario PlayerPlacingShip3";
                 }
+                // Este estado de usuario está asociado al estado PlayerPlacingShip4 del handler.
                 else if (this.Player.State == "PlayerPlacingShip4")
                 {
                   this.State = GameState.PlayerPlacingShip4;
                   response = "Entro al estado de usuario PlayerPlacingShip4";
                 }
+                // Este estado de usuario está asociado al estado PlayerBeginConfirmation del handler.
                 else if (this.Player.State == "PlayerBeginConfirmation")
                 {
                   this.State = GameState.PlayerBeginConfirmation;
                   response = "Entro al estado de usuario PlayerBeginConfirmation";
                 }
+                // Este estado de usuario está asociado al estado PlayerReadyToStart del handler.
                 else if (this.Player.State == "PlayerReadyToStart")
                 {
                   this.State = GameState.PlayerReadyToStart;
                   response = "Entro al estado de usuario PlayerReadyToStart";
                 }
+                // Este estado de usuario está asociado al estado PlayerPvpBattleship del handler.
                 else if (this.Player.State == "PlayerPvpBattleship")
                 {
                   this.State = GameState.PlayerPvpBattleship;
@@ -177,8 +164,10 @@ namespace ChatBotProject
                 }
               }
               //Estados del Handler
+    
               if (this.State == GameState.PlayerStart && this.Player.Name != "" && this.RivalPlayer.Name != "")
               {
+                //En el estado PlayerStart se espera que el mensaje recibido contenga /Matchmaking.
                 this.State = GameState.PlayerReadyToStartConfirmation;
                 this.Player.State = "PlayerReadyToStartConfirmation";
                 StringBuilder GameLobbyHelpStringBuilder = new StringBuilder("Lista de Comandos:\n")
@@ -188,8 +177,11 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerReadyToStartConfirmation)
               {
+                //En el estado PlayerStart se espera que el mensaje recibido contenga /Ready o /Leave
+                //para poder continuar progresando a lo largo del handler.
                 if (message == "/Ready")
                 {
+                  //En caso de que el mensaje recibido sea /Ready, continuamos nuestra progresión a travez del handler.
                   this.State = GameState.PlayerPlacingShip1;
                   this.Player.State = "PlayerPlacingShip1";
                   this.CurrentGame.PrintPlayerBoardToSelf();
@@ -197,6 +189,8 @@ namespace ChatBotProject
                 }
                 else if (message == "/Leave")
                 {
+                  //En caso de que el mensaje recibido sea /Leave, entendemos que el usuario quiere retirarse de la partida
+                  //por lo que acabamos con la progresión del handler y eliminamos la partida..
                   Player.InGame = false;
                   Player.ReadyToStartMatch = false;
                   RivalPlayer.InGame = false;
@@ -210,6 +204,8 @@ namespace ChatBotProject
                 }
                 else
                 {
+                  //En caso de que el usuario ingrese un comando inválido, se lo enviará al comienzo de esta etapa,
+                  //por lo que tendrá que decidir si enviar /Ready o /Leave nuevamente.
                   this.State = GameState.PlayerReadyToStartConfirmation;
                   this.Player.State = "PlayerReadyToStartConfirmation";
                   response = "Comando inválido, por favor intentelo nuevamente utilizando /Ready o /Leave";
@@ -217,6 +213,8 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerPlacingShip1)
               {
+                //En el estado PlayerPlacingShip1 se espera que el mensaje recibido contenga las 
+                //coordenadas de una nave de 2 posiciones.
                 string[] shipPositions = message.ToUpper().Split(',');
                 this.CurrentGame.PlayerAddShipToBoard(stringArrayToList(shipPositions));
                 this.CurrentGame.PrintPlayerBoardToSelf();
@@ -226,6 +224,8 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerPlacingShip2)
               {
+                //En el estado PlayerPlacingShip2 se espera que el mensaje recibido contenga las 
+                //coordenadas de una nave de 3 posiciones.
                 string[] shipPositions = message.ToUpper().Split(',');
                 this.CurrentGame.PlayerAddShipToBoard(stringArrayToList(shipPositions));
                 this.CurrentGame.PrintPlayerBoardToSelf();
@@ -235,6 +235,8 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerPlacingShip3)
               {
+                //En el estado PlayerPlacingShip3 se espera que el mensaje recibido contenga las 
+                //coordenadas de una nave de 4 posiciones.
                 string[] shipPositions = message.ToUpper().Split(',');
                 this.CurrentGame.PlayerAddShipToBoard(stringArrayToList(shipPositions));
                 this.CurrentGame.PrintPlayerBoardToSelf();
@@ -244,6 +246,8 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerPlacingShip4)
               {
+                //En el estado PlayerPlacingShip4 se espera que el mensaje recibido contenga las 
+                //coordenadas de una nave de 5 posiciones.
                 string[] shipPositions = message.ToUpper().Split(',');
                 this.CurrentGame.PlayerAddShipToBoard(stringArrayToList(shipPositions));
                 this.CurrentGame.PrintPlayerBoardToSelf();
@@ -256,8 +260,11 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerBeginConfirmation)
               {
+                //En el estado PlayerBeginConfirmation se espera que el mensaje recibido sea
+                // /Begin o /Leave.
                 if (message == "/Begin")
                 {
+                  //Si el mensaje es begin continua hacia el siguiente estado, confirmado que el jugador esta listo para comenzar
                   this.Player.SetReadyToStartMatch(true);
                   this.Player.State = "PlayerReadyToStart";
                   this.State = GameState.PlayerReadyToStart;
@@ -266,6 +273,7 @@ namespace ChatBotProject
                 }
                 else if (message == "/Leave")
                 {
+                  //Si el mensaje es /Leave elimina la instancia del juego y resetea el estado del handler al estado inicial
                   Player.InGame = false;
                   Player.ReadyToStartMatch = false;
                   RivalPlayer.InGame = false;
@@ -275,10 +283,14 @@ namespace ChatBotProject
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
                   this.State = GameState.PlayerStart;
-                  this.Player.State = "PlayerStart";
+                  this.Player.State = "";
+                  this.Player = null;
+                  this.RivalPlayer = null;
                 }
                 else
                 {
+                  //En caso de que el mensaje no sea ni /Begin ni /Leave, el handler vuelve al estado PlayerBeginConfirmation
+                  // y espera a recibir /Begin o /Leave.
                   this.State = GameState.PlayerBeginConfirmation;
                   this.Player.State = "PlayerBeginConfirmation";
                   response = "Comando inválido, por favor utiliza /Begin para confirmar que estas listo para comenzar";
@@ -286,12 +298,13 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.PlayerReadyToStart)
               {
+                //En este estado el mensaje esperado puede ser cualquier letra, la progresion depende si ambos players estan listos para empezar.
                 if (this.Player.ReadyToStartMatch == true && this.RivalPlayer.ReadyToStartMatch == true)
                 {
                   this.State = GameState.PlayerPvpBattleship;
                   this.Player.State = "PlayerPvpBattleship";
                   this.Player.MyTurn = true;
-                  response = "Es tu turno, porfavor ingresa una coordenada de ataque, por ejemplo C1. ¡Que comience la batalla naval!";
+                  response = "Es tu turno, porfavor ingresa una coordenada de ataque, por ejemplo C1. ¡Que comience la batalla naval! Recuerda que puedes usar /Leave para salir de la partida";
                 }
                 else if (this.Player.ReadyToStartMatch == true && this.RivalPlayer.ReadyToStartMatch == false)
                 {
@@ -303,7 +316,7 @@ namespace ChatBotProject
                 {
                   this.State = GameState.PlayerReadyToStart;
                   this.Player.State = "PlayerReadyToStart";
-                  response = "Unexpected error, no sé que pasó";
+                  response = string.Empty;
                 }
               }
               else if (this.State == GameState.PlayerPvpBattleship)
@@ -311,8 +324,11 @@ namespace ChatBotProject
                 response = string.Empty;
                 if (this.CurrentGame.PlayerBoardHasShips() && this.CurrentGame.RivalPlayerBoardHasShips())
                 {
+                  //En este estado el mensaje esperado es una coordenada a la cual atacar, el ataque de un player 
+                  //se dara si y solo si la propiedad MyTurn de dicho player esta en true. 
                   if (this.Player.MyTurn == true)
                   {
+                    //Realizo mi ataque, imprimo los boards correspondientes y cambio mi MyTurn a false y el MyTurn de mi rival a true.
                     this.CurrentGame.AttackRivalPlayerBoard(message);
 
                     TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, "Tu tablero");
@@ -326,7 +342,7 @@ namespace ChatBotProject
                     this.Player.State = "PlayerPvpBattleship";
                     this.State = GameState.PlayerPvpBattleship;
                     TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"{this.Player.Name} ha atacado y terminado su turno");
-                    response = "Has atacado, ahora espera a que sea tu turno para poder atacar nuevamente";
+                    response = "Has atacado, ahora espera a que sea tu turno para poder atacar nuevamente. Recuerda que puedes usar /Leave para salir de la partida";
                   }
                   else if (this.Player.MyTurn == false)
                   {
@@ -336,7 +352,7 @@ namespace ChatBotProject
                   }
                   else
                   {
-                    response = "No sé que pasó";
+                    response = string.Empty;
                   }
                 }
                 if(!this.CurrentGame.PlayerBoardHasShips() || !this.CurrentGame.RivalPlayerBoardHasShips()) //Revisa si uno de los tableros ya no tiene barcos.
@@ -353,12 +369,33 @@ namespace ChatBotProject
                   {
                     response = $"Felicidades {this.Player.Name}, ganaste!";
                     this.CurrentGame.setWinner(this.Player.Name);
+                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"Lo siento {this.RivalPlayer.Name}, pero has perdido");
+                    this.State = GameState.PlayerStart;
                   } 
                   else
                   {
                     response = $"Lo siento {this.Player.Name}, pero has perdido";
                     this.CurrentGame.setWinner(this.RivalPlayer.Name);
+                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"Felicidades {this.RivalPlayer.Name}, ganaste!");
+                    this.State = GameState.PlayerStart;
                   }
+                }
+                else if (message == "/Leave")
+                {
+                  Player.InGame = false;
+                  Player.ReadyToStartMatch = false;
+                  RivalPlayer.InGame = false;
+                  RivalPlayer.ReadyToStartMatch = false;
+                  GamesList.GetInstance().RemoveGame(this.CurrentGame);
+                  response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
+                  TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+                  TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+                  this.State = GameState.PlayerStart;
+                  this.Player.State = "";
+                  this.RivalPlayer.State = "";
+                  this.Player = null;
+                  this.RivalPlayer = null;
+                  this.CurrentGame = null;
                 }
               }
               else
@@ -449,8 +486,10 @@ namespace ChatBotProject
                   response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
-                  this.RivalPlayer.State = "RivalPlayerStart";
-                  this.Player.State = "PlayerStart";
+                  this.Player.State = "";
+                  this.RivalPlayer.State = "";
+                  this.Player = null;
+                  this.RivalPlayer = null;
                   this.CurrentGame = null;
                   this.State = GameState.RivalPlayerStart;
                   
@@ -507,7 +546,6 @@ namespace ChatBotProject
               {
                 if (message == "/Begin")
                 {
-                  Console.WriteLine("Llegamos hasta aca");
                   this.RivalPlayer.SetReadyToStartMatch(true);
                   this.RivalPlayer.State = "RivalPlayerReadyToStart"; 
                   this.State = GameState.RivalPlayerReadyToStart;
@@ -524,8 +562,12 @@ namespace ChatBotProject
                   response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
                   TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
-                  this.RivalPlayer.State = "RivalPlayerStart"; 
                   this.State = GameState.RivalPlayerStart;
+                  this.Player.State = "";
+                  this.RivalPlayer.State = "";
+                  this.Player = null;
+                  this.RivalPlayer = null;
+                  this.CurrentGame = null;
                   
                 }
                 else
@@ -537,13 +579,12 @@ namespace ChatBotProject
               }
               else if (this.State == GameState.RivalPlayerReadyToStart)
               {
-                Console.WriteLine("Y hasta aca también llegamos");
                 if (this.RivalPlayer.ReadyToStartMatch == true && this.Player.ReadyToStartMatch == true)
                 {
                   this.RivalPlayer.State = "RivalPlayerPvpBattleship";
                   this.RivalPlayer.MyTurn = false;
                   this.State = GameState.RivalPlayerPvpBattleship;
-                  response = "Porfavor espera tu turno para ingresar una coordenada de ataque, por ejemplo C1. ¡Que comience la batalla naval!";
+                  response = "Porfavor espera tu turno para ingresar una coordenada de ataque, por ejemplo C1. ¡Que comience la batalla naval! Recuerda que puedes utilizar /Leave para poder salir de la partida";
                 }
                 else if (this.RivalPlayer.ReadyToStartMatch == true && this.Player.ReadyToStartMatch == false)
                 {
@@ -577,8 +618,8 @@ namespace ChatBotProject
                     this.Player.MyTurn = true;
                     this.RivalPlayer.State = "RivalPlayerPvpBattleship";
                     this.State = GameState.RivalPlayerPvpBattleship;
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"{this.RivalPlayer.Name} ha atacado y terminado su turno");
-                    response = "Has atacado, ahora espera a que sea tu turno para poder atacar nuevamente";
+                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"{this.RivalPlayer.Name} ha atacado y terminado su turno.");
+                    response = "Has atacado, ahora espera a que sea tu turno para poder atacar nuevamente. Recuerda que puedes utilizar /Leave para poder salir de la partida";
                   }
                   else if (this.RivalPlayer.MyTurn == false)
                   {
@@ -608,12 +649,33 @@ namespace ChatBotProject
                   {
                     response = $"Felicidades {this.RivalPlayer.Name}, ganaste!";
                     this.CurrentGame.setWinner(this.RivalPlayer.Name);
+                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"Lo siento {this.Player.Name}, pero has perdido");
+                    this.State = GameState.PlayerStart;
                   } 
                   else
                   {
                     response = $"Lo siento {this.RivalPlayer.Name}, pero has perdido";
+                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"Felicidades {this.Player.Name}, ganaste!");
                     this.CurrentGame.setWinner(this.Player.Name);
+                    this.State = GameState.PlayerStart;
                   }
+                }
+                else if (message == "/Leave")
+                {
+                  Player.InGame = false;
+                  Player.ReadyToStartMatch = false;
+                  RivalPlayer.InGame = false;
+                  RivalPlayer.ReadyToStartMatch = false;
+                  GamesList.GetInstance().RemoveGame(this.CurrentGame);
+                  response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
+                  TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+                  TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+                  this.State = GameState.PlayerStart;
+                  this.Player.State = "";
+                  this.RivalPlayer.State = "";
+                  this.Player = null;
+                  this.RivalPlayer = null;
+                  this.CurrentGame = null;
                 }
               }
               else
@@ -640,27 +702,62 @@ namespace ChatBotProject
         /// </summary>
         public enum GameState
         {
-          ///-Start: Es el estado inicial del comando. En este comando pide el mensaje de invitación para
+          ///-PlayerStart: Es el estado inicial del comando. En este comando pide el mensaje de /Game para
           ///asi pasar al siguiente estado.
           PlayerStart,
+
+          ///-PlayerReadyToStartConfirmation. En este comando espera /Ready o /Leave.
           PlayerReadyToStartConfirmation,
+
+          ///-PlayerPlacingShip1. En este comando espera una coordenada para colocar un barco de 2 posiciones.
           PlayerPlacingShip1,
+
+          ///-PlayerPlacingShip2. En este comando espera una coordenada para colocar un barco de 3 posiciones.
           PlayerPlacingShip2,
+
+          ///-PlayerPlacingShip3. En este comando espera una coordenada para colocar un barco de 4 posiciones.
           PlayerPlacingShip3,
+
+          ///-PlayerPlacingShip4. En este comando espera una coordenada para colocar un barco de 5 posiciones.
           PlayerPlacingShip4,
+
+          ///-PlayerBeginConfirmation. En este comando espera /Begin o /Leaves.
           PlayerBeginConfirmation,
+
+          ///-PlayerReadyToStart. En este comando espera que se le ingrese cualquier letra para continuar.
           PlayerReadyToStart,
+
+          ///-PlayerPvpBattleship. En este comando espera coordenadas para atacar a los barcos del oponente.
           PlayerPvpBattleship,
+
+          ///-RivalPlayerStart: Es el estado inicial del comando. En este comando pide el mensaje de /Game para
+          ///asi pasar al siguiente estado.
           RivalPlayerStart,
+
+          ///-RivalPlayerReadyToStartConfirmation. En este comando espera /Ready o /Leave.
           RivalPlayerReadyToStartConfirmation,
+
+          ///-RivalPlayerPlacingShip1. En este comando espera una coordenada para colocar un barco de 2 posiciones.
           RivalPlayerPlacingShip1,
+
+          ///-RivalPlayerPlacingShip2. En este comando espera una coordenada para colocar un barco de 3 posiciones.
           RivalPlayerPlacingShip2,
+
+          ///-RivalPlayerPlacingShip3. En este comando espera una coordenada para colocar un barco de 4 posiciones.
           RivalPlayerPlacingShip3,
+
+          ///-RivalPlayerPlacingShip4. En este comando espera una coordenada para colocar un barco de 5 posiciones.
           RivalPlayerPlacingShip4,
+
+          ///-RivalPlayerBeginConfirmation. En este comando espera /Begin o /Leaves.
           RivalPlayerBeginConfirmation,
+
+          ///-RivalPlayerReadyToStart. En este comando espera que se le ingrese cualquier letra para continuar.
           RivalPlayerReadyToStart,
-          RivalPlayerPvpBattleship,
-          CheckingAnswerForGame
+
+          ///-RivalPlayerPvpBattleship. En este comando espera coordenadas para atacar a los barcos del oponente.
+          RivalPlayerPvpBattleship
+
         }
     }
 }

@@ -1,0 +1,151 @@
+\hypertarget{class_chat_bot_project_1_1_board}{}\doxysection{Board Class Reference}
+\label{class_chat_bot_project_1_1_board}\index{Board@{Board}}
+
+
+La clase \mbox{\hyperlink{class_chat_bot_project_1_1_board}{Board}} se encarga de crear el tablero y de todos los movimientos del mismo.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chat_bot_project_1_1_board_addbf92f6a6147b2f81dbff546e724d59}{Board}} (int height, int width)
+\begin{DoxyCompactList}\small\item\em Este es el constructor de \mbox{\hyperlink{class_chat_bot_project_1_1_board}{Board}}. Contiene la lista de barcos (List$<$\+Ship$>$) y los campos(\+Fiels). Aquí también se llama al método generate\+Board(), que nos crea un tablero con posiciones vacías. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_a67a0997183f24da19b776d96c1052998}\label{class_chat_bot_project_1_1_board_a67a0997183f24da19b776d96c1052998}} 
+int {\bfseries get\+Width} ()
+\item 
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_a07efb2a4e9a982688c8bb3c3f21d1092}\label{class_chat_bot_project_1_1_board_a07efb2a4e9a982688c8bb3c3f21d1092}} 
+int {\bfseries get\+Height} ()
+\item 
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_a8858603c25b5da13395f702034bb619e}\label{class_chat_bot_project_1_1_board_a8858603c25b5da13395f702034bb619e}} 
+string {\bfseries get\+Header\+Letters} ()
+\item 
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_ae037b5dafe8fc65128956dc6e9943cf9}\label{class_chat_bot_project_1_1_board_ae037b5dafe8fc65128956dc6e9943cf9}} 
+string\mbox{[},\mbox{]} {\bfseries get\+Fields} ()
+\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_board_a52c69745f9023e101bbac38e896640b3}{update\+Board}} (string value, int row, int col)
+\begin{DoxyCompactList}\small\item\em Este método actualiza el tablero. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_a528658ada47fad69d927b1cff1835035}\label{class_chat_bot_project_1_1_board_a528658ada47fad69d927b1cff1835035}} 
+void {\bfseries show\+Ships} ()
+\begin{DoxyCompactList}\small\item\em En este método se muestran los barcos. Los barcos se representan con un simbolo \char`\"{}\#\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_ab93ba2c94c2fc3053d7a6408234aa9e7}\label{class_chat_bot_project_1_1_board_ab93ba2c94c2fc3053d7a6408234aa9e7}} 
+void {\bfseries hide\+Ships} ()
+\begin{DoxyCompactList}\small\item\em No siempre se mostrarán los barcos en la partida, para esto está el método hide\+Ships que cambia un barco que se está mostrando como \char`\"{}\#\char`\"{} a \char`\"{}-\/\char`\"{}-\/ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_board_a7e8fb570ecc001f087e234ad7a752ede}{add\+Ship}} (List$<$ string $>$ positions)
+\begin{DoxyCompactList}\small\item\em Se agrega el ship pasado como parámetro al tablero. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_board_aa8b040dce73bbab45d72a8b14d2921c8}{remove\+Ship}} (\mbox{\hyperlink{class_chat_bot_project_1_1_ship}{Ship}} ship)
+\begin{DoxyCompactList}\small\item\em Este método ve si el tablero contiene el barco que deseamos eliminar, y lo borra. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_chat_bot_project_1_1_ship}{Ship}} $>$ \mbox{\hyperlink{class_chat_bot_project_1_1_board_a1e177f272bd66d42f3ad8bf53a8ab3e8}{get\+Ships}} ()
+\begin{DoxyCompactList}\small\item\em Acá se retorna todos los ships del tablero. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_a586aac86beb9cf5634fd7a892747606d}\label{class_chat_bot_project_1_1_board_a586aac86beb9cf5634fd7a892747606d}} 
+bool {\bfseries ship\+Is\+Valid} (\mbox{\hyperlink{class_chat_bot_project_1_1_ship}{Ship}} ship)
+\item 
+void \mbox{\hyperlink{class_chat_bot_project_1_1_board_a27d2083a7afb624b0ef350ef3ac93a3c}{attack}} (string position)
+\begin{DoxyCompactList}\small\item\em Lógica del ataque. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+La clase \mbox{\hyperlink{class_chat_bot_project_1_1_board}{Board}} se encarga de crear el tablero y de todos los movimientos del mismo. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_addbf92f6a6147b2f81dbff546e724d59}\label{class_chat_bot_project_1_1_board_addbf92f6a6147b2f81dbff546e724d59}} 
+\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_bot_project_1_1_board}{Board}} (\begin{DoxyParamCaption}\item[{int}]{height,  }\item[{int}]{width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este es el constructor de \mbox{\hyperlink{class_chat_bot_project_1_1_board}{Board}}. Contiene la lista de barcos (List$<$\+Ship$>$) y los campos(\+Fiels). Aquí también se llama al método generate\+Board(), que nos crea un tablero con posiciones vacías. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em height} & Es la altura del tablero.\\
+\hline
+{\em width} & Es el ancho del tablero.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_a7e8fb570ecc001f087e234ad7a752ede}\label{class_chat_bot_project_1_1_board_a7e8fb570ecc001f087e234ad7a752ede}} 
+\index{Board@{Board}!addShip@{addShip}}
+\index{addShip@{addShip}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{addShip()}{addShip()}}
+{\footnotesize\ttfamily void add\+Ship (\begin{DoxyParamCaption}\item[{List$<$ string $>$}]{positions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Se agrega el ship pasado como parámetro al tablero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em positions} & Posiciones para colocar el barco\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_a27d2083a7afb624b0ef350ef3ac93a3c}\label{class_chat_bot_project_1_1_board_a27d2083a7afb624b0ef350ef3ac93a3c}} 
+\index{Board@{Board}!attack@{attack}}
+\index{attack@{attack}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void attack (\begin{DoxyParamCaption}\item[{string}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lógica del ataque. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Posición a atacar.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_a1e177f272bd66d42f3ad8bf53a8ab3e8}\label{class_chat_bot_project_1_1_board_a1e177f272bd66d42f3ad8bf53a8ab3e8}} 
+\index{Board@{Board}!getShips@{getShips}}
+\index{getShips@{getShips}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getShips()}{getShips()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_chat_bot_project_1_1_ship}{Ship}} $>$ get\+Ships (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Acá se retorna todos los ships del tablero. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_aa8b040dce73bbab45d72a8b14d2921c8}\label{class_chat_bot_project_1_1_board_aa8b040dce73bbab45d72a8b14d2921c8}} 
+\index{Board@{Board}!removeShip@{removeShip}}
+\index{removeShip@{removeShip}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{removeShip()}{removeShip()}}
+{\footnotesize\ttfamily void remove\+Ship (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chat_bot_project_1_1_ship}{Ship}}}]{ship }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este método ve si el tablero contiene el barco que deseamos eliminar, y lo borra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ship} & El barco que queremos eliminar.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chat_bot_project_1_1_board_a52c69745f9023e101bbac38e896640b3}\label{class_chat_bot_project_1_1_board_a52c69745f9023e101bbac38e896640b3}} 
+\index{Board@{Board}!updateBoard@{updateBoard}}
+\index{updateBoard@{updateBoard}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{updateBoard()}{updateBoard()}}
+{\footnotesize\ttfamily void update\+Board (\begin{DoxyParamCaption}\item[{string}]{value,  }\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este método actualiza el tablero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Este parámetro tiene el valor que se quiere cambiar en el tablero\\
+\hline
+{\em row} & Las filas del tablero\\
+\hline
+{\em col} & Las columnas del tablero\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/Board.\+cs\end{DoxyCompactItemize}

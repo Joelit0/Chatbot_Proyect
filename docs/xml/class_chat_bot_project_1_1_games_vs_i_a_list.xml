@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_chat_bot_project_1_1_games_vs_i_a_list" kind="class" language="C#" prot="public">
+    <compoundname>ChatBotProject::GamesVsIAList</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_chat_bot_project_1_1_games_vs_i_a_list_1a97d7be180c50b2dc83b8560c35af8354" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; <ref refid="class_chat_bot_project_1_1_game_vs_i_a" kindref="compound">GameVsIA</ref> &gt;</type>
+        <definition>List&lt;GameVsIA&gt; GamesVsIA</definition>
+        <argsstring></argsstring>
+        <name>GamesVsIA</name>
+        <qualifiedname>ChatBotProject.GamesVsIAList.GamesVsIA</qualifiedname>
+        <briefdescription>
+<para>La lista de <ref refid="class_chat_bot_project_1_1_games_vs_i_a_list" kindref="compound">GamesVsIAList</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/GamesVsIAList.cs" line="20" column="17" bodyfile="src/Library/GamesVsIAList.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_chat_bot_project_1_1_games_vs_i_a_list_1a0f6b4071cef2d1becfd631f612404c76" prot="private" static="yes" mutable="no">
+        <type><ref refid="class_chat_bot_project_1_1_games_vs_i_a_list" kindref="compound">GamesVsIAList</ref></type>
+        <definition>GamesVsIAList _instance</definition>
+        <argsstring></argsstring>
+        <name>_instance</name>
+        <qualifiedname>ChatBotProject.GamesVsIAList._instance</qualifiedname>
+        <briefdescription>
+<para>Instancia necesaria para aplicar Singleton. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/GamesVsIAList.cs" line="25" column="34" bodyfile="src/Library/GamesVsIAList.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_games_vs_i_a_list_1af37d3372889954ad5a951754d9e997cd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GamesVsIAList</definition>
+        <argsstring>()</argsstring>
+        <name>GamesVsIAList</name>
+        <qualifiedname>ChatBotProject.GamesVsIAList.GamesVsIAList</qualifiedname>
+        <briefdescription>
+<para>Constructor privado, necesario para aplicar Singleton, asegurando que solo haya una instancia creada de esta clase. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/GamesVsIAList.cs" line="30" column="13" bodyfile="src/Library/GamesVsIAList.cs" bodystart="30" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_games_vs_i_a_list_1accca5ff80bb8712248669dde1046456e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AddGameVsIA</definition>
+        <argsstring>(User player)</argsstring>
+        <name>AddGameVsIA</name>
+        <qualifiedname>ChatBotProject.GamesVsIAList.AddGameVsIA</qualifiedname>
+        <param>
+          <type><ref refid="class_chat_bot_project_1_1_user" kindref="compound">User</ref></type>
+          <declname>player</declname>
+        </param>
+        <briefdescription>
+<para>Siguiendo el patrón Creator AddGame es el encargado de crear las nuevas <ref refid="class_chat_bot_project_1_1_game_vs_i_a" kindref="compound">GameVsIA</ref> y a su vez los añade a GamesVsIA. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>El usuario que juega la partida</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/GamesVsIAList.cs" line="40" column="17" bodyfile="src/Library/GamesVsIAList.cs" bodystart="40" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_chat_bot_project_1_1_games_vs_i_a_list_1ae5aa96e766863c97e7a80b631b6addd8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RemoveGame</definition>
+        <argsstring>(GameVsIA gameToBeRemoved)</argsstring>
+        <name>RemoveGame</name>
+        <qualifiedname>ChatBotProject.GamesVsIAList.RemoveGame</qualifiedname>
+        <param>
+          <type><ref refid="class_chat_bot_project_1_1_game_vs_i_a" kindref="compound">GameVsIA</ref></type>
+          <declname>gameToBeRemoved</declname>
+        </param>
+        <briefdescription>
+<para>RemoveGameVsIA es el encargado de remover una <ref refid="class_chat_bot_project_1_1_game_vs_i_a" kindref="compound">GameVsIA</ref> de GamesVsIA. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gameToBeRemoved</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>El <ref refid="class_chat_bot_project_1_1_game" kindref="compound">Game</ref> que será removido</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/GamesVsIAList.cs" line="50" column="17" bodyfile="src/Library/GamesVsIAList.cs" bodystart="50" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_chat_bot_project_1_1_games_vs_i_a_list_1ac621a360feb16f89c9e97cd16755e59e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_chat_bot_project_1_1_games_vs_i_a_list" kindref="compound">GamesVsIAList</ref></type>
+        <definition>static GamesVsIAList GetInstance</definition>
+        <argsstring>()</argsstring>
+        <name>GetInstance</name>
+        <qualifiedname>ChatBotProject.GamesVsIAList.GetInstance</qualifiedname>
+        <briefdescription>
+<para>Sirve para aplicar el singleton, verifica si la propiedad <ref refid="class_chat_bot_project_1_1_games_vs_i_a_list" kindref="compound">GamesVsIAList</ref> es nula y si no es nula te devuelve el valor de la propiedad. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Library/GamesVsIAList.cs" line="60" column="33" bodyfile="src/Library/GamesVsIAList.cs" bodystart="60" bodyend="67"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_chat_bot_project_1_1_games_vs_i_a_list" kindref="compound">GamesVsIAList</ref> es el experto en conocer a todos los usuarios, y por el patron Expert este tambien es quien posee la responsabilidad de agregar y/o remover Usuario. Debido a que <ref refid="class_chat_bot_project_1_1_games_vs_i_a_list" kindref="compound">GamesVsIAList</ref> contiene instancias de <ref refid="class_chat_bot_project_1_1_user" kindref="compound">User</ref>, por Creator, esta clase debe tener la responsabilidad de crear dichas instancias. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Library/GamesVsIAList.cs" line="13" column="9" bodyfile="src/Library/GamesVsIAList.cs" bodystart="14" bodyend="68"/>
+    <listofallmembers>
+      <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1a0f6b4071cef2d1becfd631f612404c76" prot="private" virt="non-virtual"><scope>ChatBotProject::GamesVsIAList</scope><name>_instance</name></member>
+      <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1accca5ff80bb8712248669dde1046456e" prot="public" virt="non-virtual"><scope>ChatBotProject::GamesVsIAList</scope><name>AddGameVsIA</name></member>
+      <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1a97d7be180c50b2dc83b8560c35af8354" prot="public" virt="non-virtual"><scope>ChatBotProject::GamesVsIAList</scope><name>GamesVsIA</name></member>
+      <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1af37d3372889954ad5a951754d9e997cd" prot="private" virt="non-virtual"><scope>ChatBotProject::GamesVsIAList</scope><name>GamesVsIAList</name></member>
+      <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1ac621a360feb16f89c9e97cd16755e59e" prot="public" virt="non-virtual"><scope>ChatBotProject::GamesVsIAList</scope><name>GetInstance</name></member>
+      <member refid="class_chat_bot_project_1_1_games_vs_i_a_list_1ae5aa96e766863c97e7a80b631b6addd8" prot="public" virt="non-virtual"><scope>ChatBotProject::GamesVsIAList</scope><name>RemoveGame</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
