@@ -6,7 +6,7 @@ namespace ChatBotProject
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/Help".
     /// </summary>
-    public class HelpHandler : BaseHandler
+    public class CountingShotsHandler : BaseHandler
     {
 
         /// <summary>
@@ -18,18 +18,28 @@ namespace ChatBotProject
         /// <summary>
         /// El estado del comando.
         /// </summary>
-        public HelpState State { get; private set; }
+        public CountingShotsState State { get; private set; }
 
         /// <summary>
         /// Esta clase procesa el mensaje /Help.
         /// </summary>
 
-        public HelpHandler(BaseHandler next) : base(next)
+        public CountingShotsHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "/Help" };
-            this.State = HelpState.Start;
+            this.Keywords = new string[] { "/CountingShots" };
+            this.State = CountingShotsState.Start;
         }
-
+        protected override bool CanHandle(string message)
+        {
+            if (this.State ==CountingShotsState.Start)
+            {
+                return base.CanHandle(message);
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         /// <summary>
         /// Procesa todos los mensajes y retorna true siempre.
@@ -47,19 +57,37 @@ namespace ChatBotProject
                 this.Player = player;
               }
             }
-            if (this.State == HelpState.Start)
+            if (this.State == CountingShotsState.Start)
+            {                                                                            
+              StringBuilder CountingShotss1 = new StringBuilder("Selecciona que Shots quiere contar:\n")
+                                                                  .Append("/ShotsOnShipsCount : para contar shots en barcos\n")
+                                                                  .Append("/ShotsOnWaterCount : para contar shots en agua\n");
+              this.State = CountingShotsState.CountingShots;
+              response = CountingShotss1.ToString();
+            }
+            else if (this.State == CountingShotsState.CountingShots)
             {
-              StringBuilder helpStringBuilder = new StringBuilder("Lista de Comandos:\n")
-                                                                            .Append("/Register: Registrate como un usuario nuevo\n")
-                                                                            .Append("/Profile: Accede a tu perfil\n")
-                                                                            .Append("/Matchmaking: Busca partida con un jugador que conoces\n")
-                                                                            .Append("/CountingShots: Para contar los shots\n");
-              response = helpStringBuilder.ToString();
+              if (message == "/ShotsOnShipsCount") 
+              {
+                this.State = CountingShotsState.Start;
+                response = "Cantidad de veces que disparaste un barco:";
+              }
+              else if (message == "/ShotsOnWaterCount") 
+              {
+                this.State = CountingShotsState.Start;
+                response = "Cantidad de veces que disparaste agua:";
+              }
+              else
+              {  
+                response = "Comando inválido";
+              }
+             
             }
             else
             {
               response = string.Empty;
             }
+            
         }
 
 
@@ -68,17 +96,19 @@ namespace ChatBotProject
         /// </summary>
         protected override void InternalCancel()
         {
-            this.State = HelpState.Start;
+            this.State = CountingShotsState.Start;
         }
         
         /// <summary>
         /// Estados por los que pasara el handler para asi saber que mensaje esperar y que respuesta dar.
         /// </summary>
-        public enum HelpState
+        public enum CountingShotsState
         {
 
             ///-Start: Es el estadio inicial del comando.
-            Start
+            Start,
+
+            CountingShots,   
         }
     }
 }

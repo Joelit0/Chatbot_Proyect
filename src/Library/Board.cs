@@ -13,10 +13,13 @@ namespace ChatBotProject
     private int Width;
     private List<Ship> Ships;
     private string[,] Fields;
+    public int ShotsOnWaterCount;
+    public int ShotsOnShipCount;
+
 
     /// <summary>
     /// Este es el constructor de Board.
-    /// Contiene la lista de barcos (List<Ship>) y los campos(Fiels).
+    /// Contiene la lista de barcos (List<Ship>) y los campos(Fields).
     /// Aquí también se llama al método generateBoard(), que nos crea un tablero con posiciones vacías.
     /// </summary>
     /// <param name="height">Es la altura del tablero.</param>
@@ -212,6 +215,7 @@ namespace ChatBotProject
           if(position.ToUpper() == shipPosition)
           {
             updateBoard("X", row, col);
+            ShotsOnShipCount++;
             ship.removePosition(shipPosition);
             break;
           }
@@ -223,7 +227,23 @@ namespace ChatBotProject
         }
       }
 
-      if (this.Fields[row, col] != "X") { updateBoard("O", row, col); }
+      if (this.Fields[row, col] != "X") 
+      {
+        updateBoard("O", row, col);
+        ShotsOnWaterCount++;
+      }
+    }
+
+    // Retorna cuandos shots dio a su respectiva board |SHOTS EN AGUA|.
+    public int getShotsOnWaterCount()
+    {
+      return this.ShotsOnWaterCount;
+    }
+
+    // Retorna cuandos shots dio a su respectiva board |SHOTS A SHIPS|.
+    public int getShotsOnShipsCount()
+    {
+      return this.ShotsOnShipCount;
     }
 
     // Métodos de ayuda para board, por esa razón son privados

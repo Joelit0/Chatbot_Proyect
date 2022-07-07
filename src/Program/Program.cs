@@ -26,7 +26,9 @@ namespace ChatBotProject
               new MatchmakingHandler(
                 new GameHandler(
                   new GameVsIAHandler(
+                    new CountingShotsHandler(
                     null
+                    )
                   )
                 )
               )
