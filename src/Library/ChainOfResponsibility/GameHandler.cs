@@ -79,6 +79,7 @@ namespace ChatBotProject
             //que interactuan con el bot y poder guiarlos por el flujo adecuado.
             bool RealPlayer = false;
             bool RealRivalPlayer = false;
+
             foreach(Game game in GamesList.GetInstance().Games)
             {
               if (game.getInMatchUsers()[0].ID == chatid)
@@ -322,80 +323,95 @@ namespace ChatBotProject
               else if (this.State == GameState.PlayerPvpBattleship)
               {
                 response = string.Empty;
-                if (this.CurrentGame.PlayerBoardHasShips() && this.CurrentGame.RivalPlayerBoardHasShips())
+
+                if (message == "/Fails") // Si el comando es fail
                 {
-                  //En este estado el mensaje esperado es una coordenada a la cual atacar, el ataque de un player 
-                  //se dara si y solo si la propiedad MyTurn de dicho player esta en true. 
-                  if (this.Player.MyTurn == true)
-                  {
-                    //Realizo mi ataque, imprimo los boards correspondientes y cambio mi MyTurn a false y el MyTurn de mi rival a true.
-                    this.CurrentGame.AttackRivalPlayerBoard(message);
-
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, "Tu tablero");
-                    this.CurrentGame.PrintPlayerBoardToSelf();
-
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"Tablero de {this.RivalPlayer.Name}");
-                    this.CurrentGame.PrintRivalPlayerBoardToEnemy();
-
-                    this.Player.MyTurn = false;
-                    this.RivalPlayer.MyTurn = true;
-                    this.Player.State = "PlayerPvpBattleship";
-                    this.State = GameState.PlayerPvpBattleship;
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"{this.Player.Name} ha atacado y terminado su turno");
-                    response = "Has atacado, ahora espera a que sea tu turno para poder atacar nuevamente. Recuerda que puedes usar /Leave para salir de la partida";
-                  }
-                  else if (this.Player.MyTurn == false)
-                  {
-                    this.State = GameState.PlayerPvpBattleship;
-                    this.Player.State = "PlayerPvpBattleship";
-                    response = "Aún no es tu turno de atacar, porfavor espera a que sea tu turno para poder atacar nuevamente";
-                  }
-                  else
-                  {
-                    response = string.Empty;
-                  }
+                  this.Player.State = "PlayerPvpBattleship";
+                  response = $"La cantidad de fallos tuyos y del rival son {this.CurrentGame.getTotalFails()}";
                 }
-                if(!this.CurrentGame.PlayerBoardHasShips() || !this.CurrentGame.RivalPlayerBoardHasShips()) //Revisa si uno de los tableros ya no tiene barcos.
+                else if (message == "/Hits") // Si el comando es hits
                 {
-                  this.Player.InGame = false;
-                  this.Player.SetReadyToStartMatch(false);
-                  this.RivalPlayer.InGame = false;
-                  this.RivalPlayer.SetReadyToStartMatch(false);
-                  this.CurrentGame.FinishGame();
-                  this.Player.State = "PlayerStart";
-                  this.State = GameState.PlayerStart;
-                  
-                  if (!this.CurrentGame.RivalPlayerBoardHasShips())
-                  {
-                    response = $"Felicidades {this.Player.Name}, ganaste!";
-                    this.CurrentGame.setWinner(this.Player.Name);
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"Lo siento {this.RivalPlayer.Name}, pero has perdido");
-                    this.State = GameState.PlayerStart;
-                  } 
-                  else
-                  {
-                    response = $"Lo siento {this.Player.Name}, pero has perdido";
-                    this.CurrentGame.setWinner(this.RivalPlayer.Name);
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"Felicidades {this.RivalPlayer.Name}, ganaste!");
-                    this.State = GameState.PlayerStart;
-                  }
+                  this.Player.State = "PlayerPvpBattleship";
+                  response = $"La cantidad de aciertos tuyos y del rival son {this.CurrentGame.getTotalHits()}";
                 }
-                else if (message == "/Leave")
+                else // Si no, seguí con la lógica del juego
                 {
-                  Player.InGame = false;
-                  Player.ReadyToStartMatch = false;
-                  RivalPlayer.InGame = false;
-                  RivalPlayer.ReadyToStartMatch = false;
-                  GamesList.GetInstance().RemoveGame(this.CurrentGame);
-                  response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
-                  TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
-                  TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
-                  this.State = GameState.PlayerStart;
-                  this.Player.State = "";
-                  this.RivalPlayer.State = "";
-                  this.Player = null;
-                  this.RivalPlayer = null;
-                  this.CurrentGame = null;
+                  if (this.CurrentGame.PlayerBoardHasShips() && this.CurrentGame.RivalPlayerBoardHasShips())
+                  {
+                    //En este estado el mensaje esperado es una coordenada a la cual atacar, el ataque de un player 
+                    //se dara si y solo si la propiedad MyTurn de dicho player esta en true. 
+                    if (this.Player.MyTurn == true)
+                    {
+                      //Realizo mi ataque, imprimo los boards correspondientes y cambio mi MyTurn a false y el MyTurn de mi rival a true.
+                      this.CurrentGame.AttackRivalPlayerBoard(message);
+
+                      TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, "Tu tablero");
+                      this.CurrentGame.PrintPlayerBoardToSelf();
+
+                      TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"Tablero de {this.RivalPlayer.Name}");
+                      this.CurrentGame.PrintRivalPlayerBoardToEnemy();
+
+                      this.Player.MyTurn = false;
+                      this.RivalPlayer.MyTurn = true;
+                      this.Player.State = "PlayerPvpBattleship";
+                      this.State = GameState.PlayerPvpBattleship;
+                      TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"{this.Player.Name} ha atacado y terminado su turno");
+                      response = "Has atacado, ahora espera a que sea tu turno para poder atacar nuevamente. Recuerda que puedes usar /Leave para salir de la partida";
+                    }
+                    else if (this.Player.MyTurn == false)
+                    {
+                      this.State = GameState.PlayerPvpBattleship;
+                      this.Player.State = "PlayerPvpBattleship";
+                      response = "Aún no es tu turno de atacar, porfavor espera a que sea tu turno para poder atacar nuevamente";
+                    }
+                    else
+                    {
+                      response = string.Empty;
+                    }
+                  }
+
+                  if(!this.CurrentGame.PlayerBoardHasShips() || !this.CurrentGame.RivalPlayerBoardHasShips()) //Revisa si uno de los tableros ya no tiene barcos.
+                  {
+                    this.Player.InGame = false;
+                    this.Player.SetReadyToStartMatch(false);
+                    this.RivalPlayer.InGame = false;
+                    this.RivalPlayer.SetReadyToStartMatch(false);
+                    this.CurrentGame.FinishGame();
+                    this.Player.State = "PlayerStart";
+                    this.State = GameState.PlayerStart;
+                    
+                    if (!this.CurrentGame.RivalPlayerBoardHasShips())
+                    {
+                      response = $"Felicidades {this.Player.Name}, ganaste!";
+                      this.CurrentGame.setWinner(this.Player.Name);
+                      TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"Lo siento {this.RivalPlayer.Name}, pero has perdido");
+                      this.State = GameState.PlayerStart;
+                    } 
+                    else
+                    {
+                      response = $"Lo siento {this.Player.Name}, pero has perdido";
+                      this.CurrentGame.setWinner(this.RivalPlayer.Name);
+                      TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"Felicidades {this.RivalPlayer.Name}, ganaste!");
+                      this.State = GameState.PlayerStart;
+                    }
+                  }
+                  else if (message == "/Leave")
+                  {
+                    Player.InGame = false;
+                    Player.ReadyToStartMatch = false;
+                    RivalPlayer.InGame = false;
+                    RivalPlayer.ReadyToStartMatch = false;
+                    GamesList.GetInstance().RemoveGame(this.CurrentGame);
+                    response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
+                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+                    this.State = GameState.PlayerStart;
+                    this.Player.State = "";
+                    this.RivalPlayer.State = "";
+                    this.Player = null;
+                    this.RivalPlayer = null;
+                    this.CurrentGame = null;
+                  }
                 }
               }
               else
@@ -602,80 +618,94 @@ namespace ChatBotProject
               else if (this.State == GameState.RivalPlayerPvpBattleship)
               {
                 response = string.Empty;
-                if (this.CurrentGame.RivalPlayerBoardHasShips() && this.CurrentGame.PlayerBoardHasShips())
+
+                if (message == "/Fails") // Si el comando es Fail
                 {
-                  if (this.RivalPlayer.MyTurn == true)
-                  {
-                    this.CurrentGame.AttackPlayerBoard(message);
-
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, "Tu tablero");
-                    this.CurrentGame.PrintRivalPlayerBoardToSelf();
-
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"Tablero de {this.Player.Name}");
-                    this.CurrentGame.PrintPlayerBoardToEnemy();
-
-                    this.RivalPlayer.MyTurn = false;
-                    this.Player.MyTurn = true;
-                    this.RivalPlayer.State = "RivalPlayerPvpBattleship";
-                    this.State = GameState.RivalPlayerPvpBattleship;
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"{this.RivalPlayer.Name} ha atacado y terminado su turno.");
-                    response = "Has atacado, ahora espera a que sea tu turno para poder atacar nuevamente. Recuerda que puedes utilizar /Leave para poder salir de la partida";
-                  }
-                  else if (this.RivalPlayer.MyTurn == false)
-                  {
-                    this.RivalPlayer.State = "RivalPlayerPvpBattleship";
-                    this.State = GameState.RivalPlayerPvpBattleship;
-                    response = "Aún no es tu turno de atacar, porfavor espera a que sea tu turno para poder atacar nuevamente";
-                  }
-                  else
-                  {
-                    this.RivalPlayer.State = "RivalPlayerPvpBattleship";
-                    this.State = GameState.RivalPlayerPvpBattleship;
-                    response = "No se que paso";
-                  }
+                  this.RivalPlayer.State = "PlayerPvpBattleship";
+                  response = $"La cantidad de fallos tuyos y del rival son {this.CurrentGame.getTotalFails()}";
                 }
-
-                if(!this.CurrentGame.PlayerBoardHasShips() || !this.CurrentGame.RivalPlayerBoardHasShips()) //Revisa si uno de los tableros ya no tiene barcos.
+                else if (message == "/Hits") // Si el comando es Hits
                 {
-                  this.Player.InGame = false;
-                  this.Player.SetReadyToStartMatch(false);
-                  this.RivalPlayer.InGame = false;
-                  this.RivalPlayer.SetReadyToStartMatch(false);
-                  this.CurrentGame.FinishGame();
-                  this.RivalPlayer.State = "RivalPlayerStart";
-                  this.State = GameState.RivalPlayerStart;
-                  
-                  if (!this.CurrentGame.PlayerBoardHasShips())
-                  {
-                    response = $"Felicidades {this.RivalPlayer.Name}, ganaste!";
-                    this.CurrentGame.setWinner(this.RivalPlayer.Name);
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"Lo siento {this.Player.Name}, pero has perdido");
-                    this.State = GameState.PlayerStart;
-                  } 
-                  else
-                  {
-                    response = $"Lo siento {this.RivalPlayer.Name}, pero has perdido";
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"Felicidades {this.Player.Name}, ganaste!");
-                    this.CurrentGame.setWinner(this.Player.Name);
-                    this.State = GameState.PlayerStart;
-                  }
+                  this.RivalPlayer.State = "PlayerPvpBattleship";
+                  response = $"La cantidad de aciertos tuyos y del rival son {this.CurrentGame.getTotalHits()}";
                 }
-                else if (message == "/Leave")
+                else // Si no, seguí con la lógica del juego
                 {
-                  Player.InGame = false;
-                  Player.ReadyToStartMatch = false;
-                  RivalPlayer.InGame = false;
-                  RivalPlayer.ReadyToStartMatch = false;
-                  GamesList.GetInstance().RemoveGame(this.CurrentGame);
-                  response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
-                  TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
-                  TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
-                  this.State = GameState.PlayerStart;
-                  this.Player.State = "";
-                  this.RivalPlayer.State = "";
-                  this.Player = null;
-                  this.RivalPlayer = null;
-                  this.CurrentGame = null;
+                  if (this.CurrentGame.RivalPlayerBoardHasShips() && this.CurrentGame.PlayerBoardHasShips())
+                  {
+                    if (this.RivalPlayer.MyTurn == true)
+                    {
+                      this.CurrentGame.AttackPlayerBoard(message);
+
+                      TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, "Tu tablero");
+                      this.CurrentGame.PrintRivalPlayerBoardToSelf();
+
+                      TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"Tablero de {this.Player.Name}");
+                      this.CurrentGame.PrintPlayerBoardToEnemy();
+
+                      this.RivalPlayer.MyTurn = false;
+                      this.Player.MyTurn = true;
+                      this.RivalPlayer.State = "RivalPlayerPvpBattleship";
+                      this.State = GameState.RivalPlayerPvpBattleship;
+                      TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"{this.RivalPlayer.Name} ha atacado y terminado su turno.");
+                      response = "Has atacado, ahora espera a que sea tu turno para poder atacar nuevamente. Recuerda que puedes utilizar /Leave para poder salir de la partida";
+                    }
+                    else if (this.RivalPlayer.MyTurn == false)
+                    {
+                      this.RivalPlayer.State = "RivalPlayerPvpBattleship";
+                      this.State = GameState.RivalPlayerPvpBattleship;
+                      response = "Aún no es tu turno de atacar, porfavor espera a que sea tu turno para poder atacar nuevamente";
+                    }
+                    else
+                    {
+                      this.RivalPlayer.State = "RivalPlayerPvpBattleship";
+                      this.State = GameState.RivalPlayerPvpBattleship;
+                      response = "No se que paso";
+                    }
+                  }
+
+                  if(!this.CurrentGame.PlayerBoardHasShips() || !this.CurrentGame.RivalPlayerBoardHasShips()) //Revisa si uno de los tableros ya no tiene barcos.
+                  {
+                    this.Player.InGame = false;
+                    this.Player.SetReadyToStartMatch(false);
+                    this.RivalPlayer.InGame = false;
+                    this.RivalPlayer.SetReadyToStartMatch(false);
+                    this.CurrentGame.FinishGame();
+                    this.RivalPlayer.State = "RivalPlayerStart";
+                    this.State = GameState.RivalPlayerStart;
+                    
+                    if (!this.CurrentGame.PlayerBoardHasShips())
+                    {
+                      response = $"Felicidades {this.RivalPlayer.Name}, ganaste!";
+                      this.CurrentGame.setWinner(this.RivalPlayer.Name);
+                      TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"Lo siento {this.Player.Name}, pero has perdido");
+                      this.State = GameState.PlayerStart;
+                    } 
+                    else
+                    {
+                      response = $"Lo siento {this.RivalPlayer.Name}, pero has perdido";
+                      TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.Player.ID, $"Felicidades {this.Player.Name}, ganaste!");
+                      this.CurrentGame.setWinner(this.Player.Name);
+                      this.State = GameState.PlayerStart;
+                    }
+                  }
+                  else if (message == "/Leave")
+                  {
+                    Player.InGame = false;
+                    Player.ReadyToStartMatch = false;
+                    RivalPlayer.InGame = false;
+                    RivalPlayer.ReadyToStartMatch = false;
+                    GamesList.GetInstance().RemoveGame(this.CurrentGame);
+                    response = "La partida ha sido cancelada porque uno de los jugadores se ha salido.";
+                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(Player.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(RivalPlayer.ID, "La partida ha sido cancelada porque uno de los jugadores se ha salido.");
+                    this.State = GameState.PlayerStart;
+                    this.Player.State = "";
+                    this.RivalPlayer.State = "";
+                    this.Player = null;
+                    this.RivalPlayer = null;
+                    this.CurrentGame = null;
+                  }
                 }
               }
               else

@@ -293,5 +293,13 @@ namespace ChatBotProject.Test
         boardPosition4 == "-"
       );
     }
+
+    [Test]
+    public void TestGetPositionValue()
+    {
+      Board board = new Board(10, 10);
+
+      Assert.AreEqual("-", board.getPositionValue("A1"));
+    }
   }
 }

@@ -16,6 +16,8 @@ namespace ChatBotProject
     private string Winner;
     private Dictionary<User, Board> InMatchUsersBoard;
     private TelegramPrinter telegramPrinter;
+    private int totalHits; // Atributo utilizado para el total de aciertos
+    private int totalFails; // Atributo utilizado para el total de fallos
 
     /// <summary>
     /// Consturctor de Game
@@ -37,6 +39,8 @@ namespace ChatBotProject
         this.Time = new Timer(totalMins, totalSecs); // Creo el timer de la partida
         this.TimePerRound = new Timer(minsPerRound, secsPerRound); // Creo el timer por ronda
         this.telegramPrinter = new TelegramPrinter();
+        this.totalHits = 0;
+        this.totalFails = 0;
 
         // Llenar el diccionario con clave User y Valor Board
         foreach(User user in this.InMatchUsers)
@@ -112,6 +116,17 @@ namespace ChatBotProject
     {
       Board secondUserBoard = getUserBoard(this.InMatchUsers[1]); // Obtiene el board del rival player
       secondUserBoard.attack(attackPosition); // Ataca al board del rival player con la posición que llegó por parámetro
+
+      string value = secondUserBoard.getPositionValue(attackPosition); // Llamo al método de Board que me da la el valor de una posición
+
+      if (value == "X") // Si hay un X. Si le pegó
+      {
+        this.totalHits += 1; // Aumento 1 al totalHits del Game
+      }
+      else // Si no, es decir que hay un O. No le pegó
+      {
+        this.totalFails += 1; // Aumento 1 al totalFails del Game
+      }
     }
 
     /// <summary>
@@ -163,13 +178,30 @@ namespace ChatBotProject
       
       Board firstUserBoard = getUserBoard(this.InMatchUsers[0]);
       firstUserBoard.attack(attackPosition);
-      Console.WriteLine($"{attackPosition}");
-      foreach (Ship ship in firstUserBoard.getShips())
+
+      // Funciona igual que el anterior método definido y explicado
+
+      string value = firstUserBoard.getPositionValue(attackPosition);
+
+      if (value == "X")
       {
-        Console.WriteLine(ship.getLarge());
+        this.totalHits += 1;
+      }
+      else
+      {
+        this.totalFails += 1;
       }
     }
 
+    public int getTotalHits()
+    {
+      return this.totalHits;
+    }
+  
+    public int getTotalFails()
+    {
+      return this.totalFails;
+    }
 
     /// <summary>
     /// Este método es el getter del winner de la partida

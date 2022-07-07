@@ -143,5 +143,25 @@ namespace ChatBotProject.Test
       Assert.AreEqual(game.getTimePerRound().getMins(), 5);
       Assert.AreEqual(game.getTimePerRound().getSecs(), 10);
     }
+
+    [Test]
+    public void GetTotalHitsTest() // Test de clase
+    {
+      List<User> users = new List<User>() { new User("Joel", "1234"), new User("Rodrigo", "abcd") };
+
+      Game game = new Game(users, 20, 10, 2, 0);
+
+      Assert.AreEqual(game.getTotalHits(), 0);
+    }
+
+    [Test]
+    public void GetTotalHitsFails() // Test de clase
+    {
+      List<User> users = new List<User>() { new User("Joel", "1234"), new User("Rodrigo", "abcd") };
+
+      Game game = new Game(users, 20, 10, 2, 0);
+
+      Assert.AreEqual(game.getTotalFails(), 0);
+    }
   }
 }

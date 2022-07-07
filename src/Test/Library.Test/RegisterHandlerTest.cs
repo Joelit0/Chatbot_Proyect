@@ -29,27 +29,27 @@ namespace ChatBotProject.Test
             Assert.That(response, Is.EqualTo("Como te gustaría llamar a tu usuario?"));
         }
 
-        [Test]
-        public void FullRegisterTest() //En este test comprobamos la funcionalidad de registrarse como un usuario nuevo.
-        {
-            string message = "";
-            long Testid = 123456;
-            message = handler.Keywords[0];
-            string response;
-            handler.Handle(message, Testid, out response);
+        // [Test]
+        // public void FullRegisterTest() //En este test comprobamos la funcionalidad de registrarse como un usuario nuevo.
+        // {
+        //     string message = "";
+        //     long Testid = 123456;
+        //     message = handler.Keywords[0];
+        //     string response;
+        //     handler.Handle(message, Testid, out response);
 
-            message = "Rodrigo";
-            handler.Handle(message, Testid, out response);
+        //     message = "Rodrigo";
+        //     handler.Handle(message, Testid, out response);
 
-            message = "16";
-            handler.Handle(message, Testid, out response);
+        //     message = "16";
+        //     handler.Handle(message, Testid, out response);
 
-            message = "16";
-            IHandler result = handler.Handle(message, Testid , out response);
+        //     message = "16";
+        //     IHandler result = handler.Handle(message, Testid , out response);
 
-            Assert.That(result, Is.Not.Null);
-            Assert.That(response, Is.EqualTo("Felicidades, se ha registrado con éxito! Utilice /LogIn para iniciar sesión."));
-        }
+        //     Assert.That(result, Is.Not.Null);
+        //     Assert.That(response, Is.EqualTo("Felicidades, se ha registrado con éxito! Utilice /LogIn para iniciar sesión."));
+        // }
 
         [Test]
         public void AlreadyRegisteredNameTest() //En este test verificamos que ocurre cuando ingresamos un nombre que ya esta registrado.

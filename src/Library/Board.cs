@@ -226,6 +226,15 @@ namespace ChatBotProject
       if (this.Fields[row, col] != "X") { updateBoard("O", row, col); }
     }
 
+    public string getPositionValue(string position) // Este método se encarga de devolver el valor de una posición del board
+    {
+      var translatedPositions = translateToPositions(position);
+      int row = translatedPositions[0];
+      int col = translatedPositions[1];
+
+      return this.Fields[row, col]; // Termina retornando lo que haya ahi
+    }
+
     // Métodos de ayuda para board, por esa razón son privados
     
     /// <summary>
