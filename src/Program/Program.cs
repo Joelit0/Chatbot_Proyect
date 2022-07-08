@@ -94,6 +94,9 @@ namespace ChatBotProject
         }
       }
 
+      UsersList.GetInstance().AddUser("TestRival", "123",1561984894615);
+      UsersList.GetInstance().AddUser("Rodrigo", "123",5575587972);
+
       string messageContent = message.Text;
 
       firstHandler.Handle(messageContent, chatInfo.Id , out response);

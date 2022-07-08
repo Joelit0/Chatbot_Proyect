@@ -15,6 +15,19 @@ namespace ChatBotProject
     private string[,] Fields;
 
     /// <summary>
+    /// Propiedad utilizada para mantener un registro de los ataques que han
+    /// impactado en barcos en este tablero.
+    /// </summary>
+    /// <value></value>
+    public int MatchShipHits { get; set;} = 0;
+    /// <summary>
+    /// Propiedad utilizada para mantener un registro de los ataques que han
+    /// impactado en agua en este tablero.
+    /// </summary>
+    /// <value></value>
+    public int MatchWaterHits { get; set;} = 0;
+
+    /// <summary>
     /// Este es el constructor de Board.
     /// Contiene la lista de barcos (List<Ship>) y los campos(Fiels).
     /// Aquí también se llama al método generateBoard(), que nos crea un tablero con posiciones vacías.
@@ -212,6 +225,7 @@ namespace ChatBotProject
           if(position.ToUpper() == shipPosition)
           {
             updateBoard("X", row, col);
+            this.MatchShipHits += 1;
             ship.removePosition(shipPosition);
             break;
           }
@@ -223,7 +237,11 @@ namespace ChatBotProject
         }
       }
 
-      if (this.Fields[row, col] != "X") { updateBoard("O", row, col); }
+      if (this.Fields[row, col] != "X") 
+      { 
+        updateBoard("O", row, col); 
+        this.MatchWaterHits += 1;
+      }
     }
 
     // Métodos de ayuda para board, por esa razón son privados

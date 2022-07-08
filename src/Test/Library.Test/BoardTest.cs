@@ -5,6 +5,7 @@ using NUnit.Framework;
 
 namespace ChatBotProject.Test
 {
+  //AÑADÍ AQUI ALGUNOS DE LOS TEST PARA LA DEFENSA
   public class BoardTest
   {
     [SetUp]
@@ -292,6 +293,49 @@ namespace ChatBotProject.Test
         boardPosition3 == "-" &&
         boardPosition4 == "-"
       );
+      
+    }
+
+    [Test]
+    public void CounterRegistersShipHitTest() //Este test comprueba que los ataques a barcos quedan registrados en la propiedad MatchShipHits
+    {
+      Board board = new Board(10, 10);
+      List<string> positions =  new List<string>() { "A1", "B1", "C1", "D1" };
+      board.addShip(positions);
+  
+      board.attack("A1");
+      int expectedHits = 1;
+      Assert.AreEqual(expectedHits, board.MatchShipHits);
+    }
+
+    [Test]
+    public void CounterRegistersWaterHitTest() //Este test comprueba que los ataques al agua quedan registrados en la propiedad MatchWaterHits
+    {
+      Board board = new Board(10, 10);
+      List<string> positions =  new List<string>() { "A1", "B1", "C1", "D1" };
+      board.addShip(positions);
+  
+      board.attack("C4");
+      int expectedHits = 1;
+      Assert.AreEqual(expectedHits, board.MatchWaterHits);
+    }
+
+    [Test]
+    public void CounterRegistersBothHitTest() //Este test comprueba que tanto los ataques a barcos como los ataques al agua quedan registrados en las propiedades MatchShipHits y MatchWaterHits
+    {
+      Board board = new Board(10, 10);
+      List<string> positions =  new List<string>() { "A1", "B1", "C1", "D1" };
+      board.addShip(positions);
+  
+      board.attack("A1");
+      board.attack("B1");
+      board.attack("C1");
+      board.attack("F4");
+      board.attack("C4");
+      int expectedShipHits = 3;
+      int expectedWaterHits = 2;
+      Assert.AreEqual(expectedShipHits, board.MatchShipHits);
+      Assert.AreEqual(expectedWaterHits, board.MatchWaterHits);
     }
   }
 }

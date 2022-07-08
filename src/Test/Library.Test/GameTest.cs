@@ -1,10 +1,12 @@
 using System;
+using System.Text;
 using System.Collections.Generic;
 using ChatBotProject;
 using NUnit.Framework;
 
 namespace ChatBotProject.Test
 {
+  //AÑADÍ AQUI ALGUNOS DE LOS TEST PARA LA DEFENSA
   // En esta clase hay muchos tests que no se pueden hacer debido a que dependen del metodo StartGame.
   // En ese metodo se le piden datos al usuario, lo cual no es posible dentro de un test.
 
@@ -142,6 +144,96 @@ namespace ChatBotProject.Test
 
       Assert.AreEqual(game.getTimePerRound().getMins(), 5);
       Assert.AreEqual(game.getTimePerRound().getSecs(), 10);
+    }
+    
+    [Test]
+    public void GetTotalMatchHitsWaterHitsTest() // Este test prueba el registro de impactos en agua.
+    {
+      List<User> users = new List<User>() { new User("RivalTest", "1234"), new User("Rodrigo", "abcd") };
+
+      Game game = new Game(users, 20, 10, 2, 0);
+
+      List<string> RodrigoShip = new List<string>() { "A10" };
+      List<string> RivalTestShip = new List<string>() { "A10" };
+
+      game.PlayerAddShipToBoard(RodrigoShip);
+      game.RivalPlayerAddShipToBoard(RivalTestShip);
+
+      game.AttackRivalPlayerBoard("J1");
+
+      StringBuilder TestMatchStringBuilder = new StringBuilder("Las estadísticas de la partida son:\n")
+                                                                  .Append($"Impactos al agua: 1\n")
+                                                                  .Append($"Impactos a barcos: 0\n")
+                                                                  .Append($"Puedes usar /MatchInfo para recibir estas actualizaciones, también puedes usar /Leave para salir de la partida.\n");
+      string ExpectedResponse = TestMatchStringBuilder.ToString();
+
+      string response = game.GetTotalMatchHits();
+      Assert.AreEqual(ExpectedResponse, response);
+    }
+
+    [Test]
+    public void GetTotalMatchHitsShipHitsTest() // Este test prueba el registro de impactos en barcos.
+    {
+      List<User> users = new List<User>() { new User("RivalTest", "1234"), new User("Rodrigo", "abcd") };
+
+      Game game = new Game(users, 20, 10, 2, 0);
+
+      List<string> RodrigoShip = new List<string>() { "A10" };
+      List<string> RivalTestShip = new List<string>() { "A10" };
+
+      game.PlayerAddShipToBoard(RodrigoShip);
+      game.RivalPlayerAddShipToBoard(RivalTestShip);
+
+      game.AttackRivalPlayerBoard("A10");
+
+      StringBuilder TestMatchStringBuilder = new StringBuilder("Las estadísticas de la partida son:\n")
+                                                                  .Append($"Impactos al agua: 0\n")
+                                                                  .Append($"Impactos a barcos: 1\n")
+                                                                  .Append($"Puedes usar /MatchInfo para recibir estas actualizaciones, también puedes usar /Leave para salir de la partida.\n");
+      string ExpectedResponse = TestMatchStringBuilder.ToString();
+
+      string response = game.GetTotalMatchHits();
+      Assert.AreEqual(ExpectedResponse, response);
+    }
+    
+    [Test]
+    public void GetTotalMatchHitsFullBattleshipHitsTest() // Este test prueba el registro de varios impactos tanto en barcos como en agua
+    {
+      List<User> users = new List<User>() { new User("RivalTest", "1234"), new User("Rodrigo", "abcd") };
+
+      Game game = new Game(users, 20, 10, 2, 0);
+
+      List<string> RodrigoShip = new List<string>() { "A10" };
+      List<string> RivalTestShip = new List<string>() { "A1" };
+      List<string> RodrigoShip2 = new List<string>() { "J1" };
+      List<string> RivalTestShip2 = new List<string>() { "C4" };
+      List<string> RodrigoShip3 = new List<string>() { "B8" };
+      List<string> RivalTestShip3 = new List<string>() { "C9" };
+
+      game.PlayerAddShipToBoard(RodrigoShip);
+      game.RivalPlayerAddShipToBoard(RivalTestShip);
+      game.PlayerAddShipToBoard(RodrigoShip2);
+      game.RivalPlayerAddShipToBoard(RivalTestShip2);
+      game.PlayerAddShipToBoard(RodrigoShip3);
+      game.RivalPlayerAddShipToBoard(RivalTestShip3);
+
+      game.AttackRivalPlayerBoard("A1");
+      game.AttackPlayerBoard("A10");
+      game.AttackRivalPlayerBoard("C4");
+      game.AttackPlayerBoard("J1");
+      game.AttackRivalPlayerBoard("C9");
+      game.AttackPlayerBoard("H5");
+      game.AttackRivalPlayerBoard("C2");
+
+
+      StringBuilder TestMatchStringBuilder = new StringBuilder("Las estadísticas de la partida son:\n")
+                                                                  .Append($"Impactos al agua: 2\n")
+                                                                  .Append($"Impactos a barcos: 5\n")
+                                                                  .Append($"Puedes usar /MatchInfo para recibir estas actualizaciones, también puedes usar /Leave para salir de la partida.\n");
+      string ExpectedResponse = TestMatchStringBuilder.ToString();
+
+      string response = game.GetTotalMatchHits();
+      Assert.AreEqual(ExpectedResponse, response);
     }
   }
 }

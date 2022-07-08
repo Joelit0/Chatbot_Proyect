@@ -342,7 +342,7 @@ namespace ChatBotProject
                     this.Player.State = "PlayerPvpBattleship";
                     this.State = GameState.PlayerPvpBattleship;
                     TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"{this.Player.Name} ha atacado y terminado su turno");
-                    response = "Has atacado, ahora espera a que sea tu turno para poder atacar nuevamente. Recuerda que puedes usar /Leave para salir de la partida";
+                    response = "Has atacado, ahora espera a que sea tu turno para poder atacar nuevamente. Recuerda que puedes usar /MatchInfo para recibir información de la partida o /Leave para salir de la partida";
                   }
                   else if (this.Player.MyTurn == false)
                   {
@@ -364,7 +364,6 @@ namespace ChatBotProject
                   this.CurrentGame.FinishGame();
                   this.Player.State = "PlayerStart";
                   this.State = GameState.PlayerStart;
-                  
                   if (!this.CurrentGame.RivalPlayerBoardHasShips())
                   {
                     response = $"Felicidades {this.Player.Name}, ganaste!";
@@ -396,6 +395,12 @@ namespace ChatBotProject
                   this.Player = null;
                   this.RivalPlayer = null;
                   this.CurrentGame = null;
+                }
+                else if (message == "/MatchInfo")
+                {
+                  this.State = GameState.PlayerPvpBattleship;
+                  this.Player.State = "PlayerPvpBattleship";
+                  response = this.CurrentGame.GetTotalMatchHits();
                 }
               }
               else
@@ -676,6 +681,12 @@ namespace ChatBotProject
                   this.Player = null;
                   this.RivalPlayer = null;
                   this.CurrentGame = null;
+                }
+                else if (message == "/MatchInfo")
+                {
+                  this.State = GameState.RivalPlayerPvpBattleship;
+                  this.RivalPlayer.State = "RivalPlayerPvpBattleship";
+                  response = this.CurrentGame.GetTotalMatchHits();
                 }
               }
               else

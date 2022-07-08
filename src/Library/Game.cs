@@ -1,3 +1,7 @@
+using System;
+using System.Text;
+using System.Collections.Generic;
+
 namespace ChatBotProject
 {
   /// <summary>
@@ -16,6 +20,18 @@ namespace ChatBotProject
     private string Winner;
     private Dictionary<User, Board> InMatchUsersBoard;
     private TelegramPrinter telegramPrinter;
+    /// <summary>
+    /// Propiedad utilizada para mantener un registro de los ataques que han
+    /// impactado en barcos en toda la partida.
+    /// </summary>
+    /// <value></value>
+    public int TotalMatchShipHits { get; set;} = 0;
+    /// <summary>
+    /// Propiedad utilizada para mantener un registro de los ataques que han
+    /// impactado en agua en toda la partida.
+    /// </summary>
+    /// <value></value>
+    public int TotalMatchWaterHits { get; set;} = 0;
 
     /// <summary>
     /// Consturctor de Game
@@ -122,6 +138,28 @@ namespace ChatBotProject
       Board secondUserBoard = getUserBoard(this.InMatchUsers[1]);
       secondUserBoard.showShips();
       this.telegramPrinter.printBoard(secondUserBoard, this.InMatchUsers[1].ID);
+    }
+    
+    /// <summary>
+    /// Este método se encarga de registrar los impactos totales de la partida, tanto en barcos como en agua. 
+    /// </summary>
+    /// <returns>Devuelve un string que podemos utilizar para enviar como mensaje a los usuarios</returns>
+    public string GetTotalMatchHits()
+    {
+      Board firstUserBoard = getUserBoard(this.InMatchUsers[0]);
+      Board secondUserBoard = getUserBoard(this.InMatchUsers[1]);
+
+      TotalMatchShipHits = firstUserBoard.MatchShipHits + secondUserBoard.MatchShipHits;
+      TotalMatchWaterHits = firstUserBoard.MatchWaterHits + secondUserBoard.MatchWaterHits;
+
+      StringBuilder MatchStringBuilder = new StringBuilder("Las estadísticas de la partida son:\n")
+                                                                  .Append($"Impactos al agua: {this.TotalMatchWaterHits}\n")
+                                                                  .Append($"Impactos a barcos: {this.TotalMatchShipHits}\n")
+                                                                  .Append($"Puedes usar /MatchInfo para recibir estas actualizaciones, también puedes usar /Leave para salir de la partida.\n");
+                                                                                                                                 
+      string MatchStatistics = MatchStringBuilder.ToString();
+
+      return MatchStatistics;
     }
 
     /// <summary>

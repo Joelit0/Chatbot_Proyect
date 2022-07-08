@@ -29,7 +29,7 @@ namespace ChatBotProject
         /// </summary>
         private TelegramBot()
         {
-            this.botClient = new TelegramBotClient("5466014301:AAG2N5FeZRHo4xFQq0dAS9LG24onUy0Ng00");
+            this.botClient = new TelegramBotClient("5460015886:AAE3M3H-AWdFUXHuGrr0LKGfXduBCyYhf6Y");
         }
 
         /// <summary>
