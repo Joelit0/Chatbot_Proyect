@@ -27,6 +27,7 @@ namespace ChatBotProject
       this.Width = width;
       this.Ships = new List<Ship>();
       this.Fields = new string[this.Height, this.Width];
+      this.count = new Counter(0,0);
 
       generateBoard();
     }
@@ -51,6 +52,11 @@ namespace ChatBotProject
     public string[,] getFields()
     {
       return this.Fields;
+    }
+
+    public string getCounter()
+    {
+      return $"Golpes directos: {this.count.getHitShots}; Golpes Fallidos: {this.count.getWaterShots}";
     }
 
     // Lógica del tablero
@@ -223,7 +229,10 @@ namespace ChatBotProject
         }
       }
 
-      if (this.Fields[row, col] != "X") { updateBoard("O", row, col); }
+      if (this.Fields[row, col] != "X") 
+      { 
+        updateBoard("O", row, col);
+      }
     }
 
     // Métodos de ayuda para board, por esa razón son privados
@@ -287,6 +296,15 @@ namespace ChatBotProject
       }
 
       return isConsecutive;
+    }
+
+    public string getPositionValue(string position)
+    {
+      var translatedPositions = translateToPositions(position);
+      int row = translatedPositions[0];
+      int col = translatedPositions[1];
+
+      return this.Fields[row, col];
     }
   }
 }

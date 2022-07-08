@@ -16,6 +16,8 @@ namespace ChatBotProject
     private string Winner;
     private Dictionary<User, Board> InMatchUsersBoard;
     private TelegramPrinter telegramPrinter;
+    private int HitShots;
+    private int WaterShots;
 
     /// <summary>
     /// Consturctor de Game
@@ -37,6 +39,8 @@ namespace ChatBotProject
         this.Time = new Timer(totalMins, totalSecs); // Creo el timer de la partida
         this.TimePerRound = new Timer(minsPerRound, secsPerRound); // Creo el timer por ronda
         this.telegramPrinter = new TelegramPrinter();
+        this.WaterShots = 0;
+        this.HitShots = 0;
 
         // Llenar el diccionario con clave User y Valor Board
         foreach(User user in this.InMatchUsers)
@@ -72,6 +76,7 @@ namespace ChatBotProject
       Board firstUserBoard = getUserBoard(this.InMatchUsers[0]); // Obtiene el board del Player
       firstUserBoard.showShips(); // Hablita la visualización de los barcos del board del Player
       this.telegramPrinter.printBoard(firstUserBoard, this.InMatchUsers[0].ID); // Le manda un mensaje al player con su board
+      this.getCounter();
     }
 
     /// <summary>
@@ -111,7 +116,31 @@ namespace ChatBotProject
     public void AttackRivalPlayerBoard(string attackPosition)
     {
       Board secondUserBoard = getUserBoard(this.InMatchUsers[1]); // Obtiene el board del rival player
-      secondUserBoard.attack(attackPosition); // Ataca al board del rival player con la posición que llegó por parámetro
+      secondUserBoard.attack(attackPosition); // Ataca al board del rival player con la posición que llegó por parámetro.
+
+      
+      string value = secondUserBoard.getPositionValue(attackPosition); // Llamo al método de Board que me da la el valor de una posición
+
+      if (value == "X")
+      {
+        this.HitShots++;
+      }
+      else
+      {
+        this.WaterShots++;
+      }
+
+      
+    }
+
+    public int getHitShots()
+    {
+      return this.HitShots;
+    }
+
+    public int getWaterShots()
+    {
+      return this.WaterShots;
     }
 
     /// <summary>
@@ -212,6 +241,11 @@ namespace ChatBotProject
     public Timer getTime()
     {
       return this.Time;
+    }
+
+    public Counter getCounter()
+    {
+      return this.Count;
     }
 
     /// <summary>

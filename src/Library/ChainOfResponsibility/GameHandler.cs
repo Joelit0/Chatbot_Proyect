@@ -322,6 +322,11 @@ namespace ChatBotProject
               else if (this.State == GameState.PlayerPvpBattleship)
               {
                 response = string.Empty;
+                if (message == "/Shots")
+                {
+                  this.Player.State = "PlayerPvpBattleship";
+                  response = $"La cantidad de tiros al agua tuyos y del rival son {this.CurrentGame.getWaterShots}. los golpes directos son {this.CurrentGame.getHitShots}.";
+                }
                 if (this.CurrentGame.PlayerBoardHasShips() && this.CurrentGame.RivalPlayerBoardHasShips())
                 {
                   //En este estado el mensaje esperado es una coordenada a la cual atacar, el ataque de un player 
@@ -341,7 +346,7 @@ namespace ChatBotProject
                     this.RivalPlayer.MyTurn = true;
                     this.Player.State = "PlayerPvpBattleship";
                     this.State = GameState.PlayerPvpBattleship;
-                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"{this.Player.Name} ha atacado y terminado su turno");
+                    TelegramBot.GetInstance().botClient.SendTextMessageAsync(this.RivalPlayer.ID, $"{this.Player.Name} ha atacado y terminado su turno. /n Golpes directos: {this.CurrentGame.}");
                     response = "Has atacado, ahora espera a que sea tu turno para poder atacar nuevamente. Recuerda que puedes usar /Leave para salir de la partida";
                   }
                   else if (this.Player.MyTurn == false)
@@ -354,6 +359,7 @@ namespace ChatBotProject
                   {
                     response = string.Empty;
                   }
+
                 }
                 if(!this.CurrentGame.PlayerBoardHasShips() || !this.CurrentGame.RivalPlayerBoardHasShips()) //Revisa si uno de los tableros ya no tiene barcos.
                 {
